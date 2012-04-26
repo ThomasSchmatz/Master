@@ -15,6 +15,8 @@
 \usepackage[ansinew]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
+\usepackage{minitoc}
+
 
 % mathematische Symbole
 \usepackage{amsmath,amssymb,amsfonts,amstext}
@@ -61,8 +63,8 @@
 \thispagestyle{empty}
 \begin{picture}(0,0)
 \color{white}\sffamily
-\put(-101,-749){\includegraphics[width=1.002\paperwidth, height=\paperheight]{BM_2011.pdf}}
-\put(220,-670){\includegraphics[width=0.5\textwidth]{FHTW_Logo_4c.pdf}}
+\put(-101,-749){\includegraphics[width=1.002\paperwidth, height=\paperheight]{img/BM_2011.pdf}}
+\put(220,-670){\includegraphics[width=0.5\textwidth]{img/FHTW_Logo_4c.pdf}}
 \put(-30, -20){\bfseries\huge MASTER THESIS}
 \put(-30,-50){\Large zur Erlangung des akademischen Grades}
 \put(-30,-70){\Large \glqq Master of Science in Engineering\grqq}
@@ -129,81 +131,79 @@ Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text 
 % Falls die Kapitel"uberschriften zu lang f"ur die Kopfzeile oder das Inhaltsverzeichnis sind, so erzielt man
 % dort Kurzformen der Kapitelbezeichnungen mittels:
 % \chapter[Kurzform]{Lange "Uberschrift}
-\chapter[]{Aufgabenstellung}
+\chapter{Aufgabenstellung}
+\section{Warum Module im Sonnensimulator} 
+Was wird geprüft,
+\section{Sonnensimulator Aufbau}
+lampenanordnung, Windkanal
+\section{Notwendigkeit der Ausleuchtungsmessung}
+Akrreditierung,Begrünung warum Messroboter, Alte ergebnisse, Alte messmethode
 
-\chapter[]{Aufgabenstellung}
+\section{Theorie Referenzzelle}
+Referzelle, Temperaturabhängikeit Messzelle, Kennlinine, Warum Kurzschlussstrom,...
 
-Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text ...
+
+\chapter{Entwicklungprozess}
+
+
+\section{Hardwaredesign}
+\subsection{Mecanum-Platform}
+Warum die Räder, warum darf zelle nciht rotieren, 
+\subsection{Chassis}
+
+
+\section{Steuerungselektronik}
+\subsection{Motorensteuerung}
+\subsection{Optische Sensorik}
+warum so wie ist...
+\subsection{Spannungversorgung}
+Aku-handling,
+\subsectino{Mikrokontroller}
+Arduino (was ist das), Shield, SD, Aref,
+
+\subsection{Temperatursensoren}
+Messprinzip, Temperaturstabilität
+
+\section{Softwareentwicklung}
+\subsection{Entwicklungsumgebung}
+\subsection{Auswertung optische sensoren}
+Differentielle Messung, 
+
+Mathematik Auswertung, 
+
+Eckenbehandlung
+
+Anhaltepunkte
+\subsection{Auswertung ADCs}
+Mittelung, Rauschgrößen, 
+
+\subsection{Programmablauf}
+
+\chapter{Kalibration}
+\section{Temperatursensoren}
+\section{Messzelle}
+\section{Strommessung}
+
+\section{Thermische Stabilität}
+
+
+
+\chapter{Messung}
+\section{Messaufbau}
+  \subsection{Platten}
+  \subsection{Ablauf}
+\section{Auswertung}
+
+
+wie von sd  zu Bild,
+gemessene Verteilungen,
+
+\section{Schlussfolgerung}
 
 \begin{itemize}
-\item Problemstellung: Testsystem, Was wird geprüft, wozu, lampenanordnung, Referzelle, Windkanal layout, Begrünung warum Messroboter, Temperaturabhängikeit Messzelle
-\item Mechanik: Warum die Räder, warum darf zelle nciht rotieren, Platten
-\item Elektronik: Motorensteuerung, 3x3kreuz, Spannungversorgung, Aku-hanlding, SD karte, Sensoren
-\item Software: Arudino, Linienerkennung, eckerkennung, punkte, Flussdiagram ablauf
-\item Kalibrierung: Zelle, Tempfühler, Temperaturstabilität, ...
-\item Messung: Dauer
-\item Auswertung: Verteilungen, wie von sd ->Bild, ergebnis, Schlussfolgerung
 \item Code: arduino, Matlab, fileformat
 \end{itemize}
 
-Noch mehr text.
-
-Und noch mehr TEXT:blabla
-
-\section[Erster Abschnitt]{"Uberschrift des ersten Abschnitts}
-
-Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text ...
-
-\subsection[Erster Unterabschnitt]{"Uberschrift des ersten Unterabschnitts}
-
-Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text ...
-
-\subsubsection[Erster Unter-Unterabschnitt]{Und noch eine Ebene tiefer} 
-
-Im Folgenden werden einige Beispiele f"ur h"aufig gebrauchte Anweisungen gegeben. Sie dienen als Einstiegshilfe in \LaTeX\ und 
-nicht als starre Formatvorgaben.  
-\\[2\baselineskip]
-Hier wird auf Abbildung~\ref{Abb1} verwiesen. 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=75mm]{Buchruecken}
-\caption[Beschriftung eines Buchr"uckens.]{Beispiel f"ur die Beschriftung eines Buchr"uckens.}\label{Abb1}
-\end{figure}
-Tabelle~\ref{Tab1} ist ein Beispiel daf"ur, wie eine Tabelle aussehen k"onnte.
-\begin{table}[htbp]
-\centering
-\begin{tabular}{ | c | c | c | }\hline
-{\bf Datum} & {\bf Thema} & {\bf Raum}\\ \hline
-\hline
-20. 08. 2008 & Graphentheorie & HS 3.13\\ \hline
-01. 10. 2008 & Biomathematik & HS 1.05\\ \hline
-\end{tabular}
-\caption[Semesterplan "`Angewandte Mathematik"'.]{Beispiel f"ur einen Semesterplan "`Angewandte Mathematik"'.}\label{Tab1}
-\end{table}
-
-\noindent
-Nun ein Beispiel f"ur eine abgesetzte Formel:
-\begin{equation}
-x =  - \frac{p}{2} \pm \sqrt{\left(\frac{p}{2}\right)^3 - q}.
-\end{equation}
-Und eine mehrzeilige Formel:
-\begin{eqnarray}
-f(t)&=& t^2 \label{For1},\\
-g(t) &=& t-1.
-\end{eqnarray}
-Hier wird auf die Formel (\ref{For1}) verwiesen. \\
-
-\noindent
-So kann zum Beispiel ein \glqq Source-Code\grqq\  angegeben werden: 
-\begin{verbatim}
-for (i=1; i < 10; i++) {...} 
-\end{verbatim}
-
-\noindent
-Hier ist ein Hyperlink auf die  \href{http://www.technikum-wien.at}{Homepage} der FH Technikum Wien. Email-Adressen k"onnen so verlinkt werden: \href{mailto:homer.simpson@springfield.com}{\texttt{homer.simpson@springfield.com}}\\
-
-\noindent
-In der Bibliothek der Fachhochschule Technikum Wien gibt es verschiedene einf"uhrende B"ucher zum Thema \glqq \LaTeX \grqq, zum Beispiel \cite{kop05}, \cite{wil06} oder \cite{mgb+05d} (deutsche Version) bzw. \cite{mgb+04e} (englische Version). Empfehlenswerte Skripten f"ur \LaTeX-Einsteiger sind z.B. \cite{mj00} und \cite{mj95}. Sie sind frei im Internet verf"ugbar.
 
 % Literaturverzeichnis
 % Das Literaturverzeichnis kann auch nach einem allf"alligen Anhang positiioniert werden (siehe "`Leitfaden f"ur Bachelor- und Diplomarbeiten"', Version 2.0, Abschnitt 2.9).
@@ -246,14 +246,9 @@ URL & Uniform Resource Locator
 
 % Anh"ange
 \begin{appendix}
-\chapter[Erster Anhang]{"Uberschrift des ersten Anhangs}
+\chapter{Sourcecode Arduino}
 
-Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text ...
- 
-
-\chapter[Zweiter Anhang]{"Uberschrift des zweiten Anhangs}
-
-Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text ...
+\chapter{Sourcecode Auswertung}
 
 \end{appendix}
 
