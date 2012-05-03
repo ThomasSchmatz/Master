@@ -98,7 +98,7 @@
 \section*{Eidesstattliche Erkl"arung}\thispagestyle{empty}
 \glqq Ich erkl"are hiermit an Eides statt, dass ich die vorliegende Arbeit selbst"andig angefertigt habe. 
 Die aus fremden Quellen direkt oder indirekt "ubernommenen Gedanken sind als solche kenntlich gemacht. 
-Die Arbeit wurde bisher weder in gleicher noch in "ahnlicher Form einer anderen Pr"ufungsbeh"orde vorgelegt
+Die Arbeit wurde bisher weder in gleicher noch in "ahnlicher Form einer anderen Prüfungsbehörde vorgelegt
 und auch noch nicht ver"offentlicht. Ich versichere, dass die abgegebene Version jener im Uploadtool entspricht.\grqq\\[5\baselineskip]
 \rule{5cm}{0.2pt}\hfill\rule{5cm}{0.2pt}\\
 \phantom{Datum }Ort, Datum\hfill Unterschrift\hspace{15mm}
@@ -140,15 +140,21 @@ Ich danke meinen Firmenbetreuer Thomas Krametz für die Zeit die er sich genomme
 % \chapter[Kurzform]{Lange "Uberschrift}
 \chapter{Aufgabenstellung}
 \section{Warum Module im Sonnensimulator} 
-Ein Sonnensimulator simuliert die Wirkung von Sonnenlicht auf Pr"ufobjekte.
+Ein Sonnensimulator simuliert die Wirkung von Sonnenlicht auf Prüfobjekte.
 
 \section{Sonnensimulator Aufbau}
-10 Lampen zu je 4 kW. Angeordnet in 2 Reihen zu je 5 Lampen. Die Lampen sind h"ohenverstellbar.
-Die Leistung der Lampen l"asst sich einzeln ansteuern.
+10 Lampen zu je 4 kW. Angeordnet in 2 Reihen zu je 5 Lampen. Die Lampen sind höhenverstellbar.
+Die Leistung der Lampen lässt sich einzeln ansteuern.
 Die Testobjekte, z.B. ganze Module oder auch einzelne Zellen liegen in einer Lade.
-Die Pr"ufebene ist 2,50 mal 4 Meter gro"s.
-Die Pr"ufebene liegt innerhalb eines Windkanales, der oben f"ur die Strahlung durchsichtig ist.
-Der Windkanal verengt sich, damit die Windgeschwindigkeit ansteigt, um eine konstante K"uhlleistung wegen der sich erw"armenden Luft zu haben. 
+Die Prüfebene ist 2,50 mal 4 Meter groß.
+Die Prüfebene liegt innerhalb eines Windkanales, der oben für die Strahlung durchsichtig ist.
+Der Windkanal verengt sich, damit die Windgeschwindigkeit ansteigt, um eine konstante Kühlleistung wegen der sich erwärmenden Luft zu haben. 
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=75mm]{img/sunsimulator.jpg}
+\caption[Sonnensimulator]{Sonnensimulator}\label{sunsim}
+\end{figure}
 
 
 \section{Normative Anforderungen an den Sonnensimulator}
@@ -171,7 +177,9 @@ In IEC 60904-9 legt die Anforderungen an Sonnensimulatoren fest.
 
 
 \section{Theorie Referenzzelle}
-Referzelle, Temperaturabh"angikeit Messzelle, Kennlinine, Warum Kurzschlussstrom,...
+Referzelle, Temperaturabhängikeit Messzelle, Kennlinine, Warum Kurzschlussstrom,...
+
+Der Kurzschlussstrom einer Solarzelle ist linear von der Bestrahlungsstärke anhängig.
 
 
 \chapter{Entwicklungprozess}
