@@ -160,8 +160,9 @@ Referzelle, Temperaturabh"angikeit Messzelle, Kennlinine, Warum Kurzschlussstrom
 
 \section{Hardwaredesign}
 \subsection{Mecanum-Platform}
-Warum die R"ader, warum darf zelle nciht rotieren, 
-
+Das Mecanum-Rad ist ein Rad, das Fahrman"over in jede Richtung erlaubt, ohne dass das Fahrzeug mit einer mechnischen Lenkung ausgestattet ist. Bennnt ist es nach dem schwedischen Unternehmen Macanum AB in welchen dieses Rad 1971 entwickelt wurde. 
+Erreicht wird die Wendigkeit der Fahrzeuge durch den Einsatz von Mecanum R"adern, die einzeln angetrieben werden. Diese R"ader bestehen aus einer Felge, auf der unter einem Winkel von 45 Grad lose, ballige Rollen so angebracht sind, dass sie "uber den Abrollumfang wieder einen exakten Kreis bilden.
+Durch die Schr"aganordnung der Rollen entstehen beim Antreiben des Rades 2 Kraftkomponenten. Gegeneinander gerichtete Kr"afte der einzelnen R"ader werden "uber die Achsen und den Rahmen kompensiert. Die "ubrigen Kr"afte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise kann durch entsprechendes Ansteuern der einzelnen R"ader bez"uglich Drehrichtung und -geschwindigkeit jedes beliebige Fahrman"over erzeugt werden.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/wheel.png}
@@ -181,11 +182,54 @@ Warum die R"ader, warum darf zelle nciht rotieren,
 \end{figure}
 
 \subsection{Chassis}
+Die Chassis wurde aus Verbund-Holz gefertigt. Das Design daf"ur entstand mit QCAD. Die Einzelteile wurden mit einem Lasercutter aus einer gro"sen Platte geschnitten. Dann verschraubt und teilweise geleimt. Der Oberteil des Chassis l"asst sich von der Bodenplatte trennen.
+Die Motoren sind verschraubt. Einzelne R"ader und auch Rollen lassen sich bei Bedarf austauschen.
+Das Chassis besteht aus 3 Teilen: \newline
+- die Bodenplatte
+\newline
+- die Seitenw"ande
+\newline
+- das Dach mit der Aufnahme f"ur die Messzelle
+\newline
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=125mm]{img/gehause.pdf}
+\caption[Chassis]{Chassis}\label{chassis}
+\end{figure}
 
 
 \section{Steuerungselektronik}
 \subsection{Motorensteuerung}
+H-Br"ucken Treiber: NJM2670
+The NJM2670 is a general-purpose 60V dual H-bridge
+drive IC. It consists of a pair of H-bridges, a thermal shut
+down circuit and its alarm output. The alarm output can
+detect application problems and the system reliability will be
+significantly improved if monitored by Micro Processor.
+Therefore, it is suitable for two-phase stepper motor
+application driven by microprocessor.
+Motor: Getriebemotor RB 35, 1:200
+Versorgungsspannung: 12V wurde auf 15,5 bis 16 erh"oht
+Drehzahl: 30 Umdrehungen pro Minute im Leerlauf bei 12V Versorgung
+Achsdurchmesser: 6mm 
+
 \subsection{Optische Sensorik}
+Der Roboter ist ein Linienfolge. Damit er einer Linie folgen kann, muss diese zuerst zuverl"assig erkannt werden. 
+Als Sensor wurde ein CNY70 verwendet. Der CNY 70 ist ein Reflexionsensor. Der Sensor wird in einem fixen Abstand zu einer Ebene montiert. Eine LED sendet Licht mit 950nm aus, welches an der Ebene reflektiert wird. Damit können Unterschiede des Reflektionkoeffizienten, umgangssprachlich der Farbe, gemessen werden. Die Anordung 9 solcher Sensoren in einem 3 mal 3 Array kann sowohl vertikale als auch horizontale Linien erkennen, sowie Ecken.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=75mm]{img/cny70.png}
+\caption[...]{...}\label{cny1}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=75mm]{img/cny701.png}
+\caption[...]{...}\label{cny1}
+\end{figure}
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/sensor_array.jpg}
@@ -195,7 +239,23 @@ Warum die R"ader, warum darf zelle nciht rotieren,
 
 
 \subsection{Spannungversorgung}
-Aku-handling,
+Aku-handling, "Uberwachung der Akkuspannung, Alarm und Abschaltung bei Unterspannung, 
+Es wird empfohlen vor jeden Messzyklus den Akku zu laden. Ein voller Akku schafft ohne Probleme 10 Messfahrten. 
+Bauteile: Akku, Ladeger"at (extern), bequemes und schnelles Laden des Akkus
+Eine Schmelzsicherung ist direkt im Anschlusskabel des Akkus eingebaut. Der Akku schafft Ströme bis 200A, da er aus dem Modellbausektor kommt. Was für den roboter völlig überdimensioniert ist. Der maximale Strom aller 4 Motoren und der restlichen Elektronik liegt bei einem Ampere. 
+Die Motoren werden direkt mit der Akkuspannung versorgt. Da realistischerweise die Versorgungsspannung zwischen 16,4V (Akku voll) und 15,5V (nach vielen Fahrten) liegt, ist der Einfluss auf die Drehzahl der Motoren zu vernachlässigen. 
+Die 5 Volt Versorgung des Mikrocontrollers und der OPVs wurde mit einem RECOM R-785.0-1.0 DC-DC Konverter gelöst. Er ist pinkompatibel zu einem 7805, und bietet die Vorteile einer geringen Verlustleistung und einer sehr genauen Ausgangsspannung. 
+Die Analog-Digitalwandlung des Arduino benötigt eine Referenzspannung. Das kann die Versorgungsspannung sein, was aber doch zu ungenau ist. 
+The LT1021 is a precision reference with ultralow drift
+and noise, extremely good long term stability and almost
+total immunity to input voltage variations. The reference
+output will both source and sink up to 10mA. Three
+voltages are available: 5V, 7V and 10V. The 7V and 10V
+units can be used as shunt regulators (two-terminal zeners)
+with the same precision characteristics as the threeterminal
+connection. Special care has been taken to minimize
+thermal regulation effects and temperature
+induced hysteresis.
 \subsection{Mikrokontroller}
 Arduino (was ist das), Shield, SD, Aref,
 
@@ -205,9 +265,11 @@ Messprinzip, Temperaturstabili"at
 \section{Softwareentwicklung}
 \subsection{Entwicklungsumgebung}
 \subsection{Auswertung optische sensoren}
-Differentielle Messung, 
+Differentielle Messung: Zwar liegen die optischen Sensoren auf der Unterseite des Roboters, aber da es im Sonnensimulator eine Einstrahlung von 1000W/m² gibt, mit einem Anteil im spektralen Arbeitsbereich der optischen Sensoren CNY70, ist es notwendig den Einfluss des Streulichtes zu unterdrücken. Dazu wird einmal mit und einmal ohne eingeschalteter Infrarot-LED gemessen, dann der Dunkelwert vom Hellwert abgezogen.
 
-Mathematik Auswertung, 
+
+Mathematik Auswertung,
+Anhand der Werte der einzelnen optischen Sensoren wird die Lage der Linie relativ zum Mittelpunktes des Arrays bestimmt. 
 
 Folge der Linie
 
