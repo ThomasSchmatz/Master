@@ -139,10 +139,12 @@ Ich danke meinen Firmenbetreuer Thomas Krametz für die Zeit die er sich genomme
 % dort Kurzformen der Kapitelbezeichnungen mittels:
 % \chapter[Kurzform]{Lange "Uberschrift}
 \chapter{Aufgabenstellung}
-\section{Warum Module im Sonnensimulator} 
-Ein Sonnensimulator simuliert die Wirkung von Sonnenlicht auf Prüfobjekte.
+\section{Warum Module im Sonnensimulator} \thispagestyle{empty}
+Ein Sonnensimulator simuliert die Wirkung von Sonnenlicht auf Prüfobjekte. Für die Prüfung von PV-Modulen ersetzt ein stationärer Sonnensimulator das natürliche Sonnenlicht, das ist notwendig weil aufgrund von Jahreszeit und Witterung nicht immer 1000W pro Quadratmeter mit den AM1,5 Spektrum zur Verfügung stehen.
+Was ist AM1,5? Warum 1000W pro Meter2? --> Hinweis auf normative Grundlagen
 
-\section{Sonnensimulator Aufbau}
+
+\section{Sonnensimulator Aufbau}\thispagestyle{empty}
 10 Lampen zu je 4 kW. Angeordnet in 2 Reihen zu je 5 Lampen. Die Lampen sind höhenverstellbar.
 Die Leistung der Lampen lässt sich einzeln ansteuern.
 Die Testobjekte, z.B. ganze Module oder auch einzelne Zellen liegen in einer Lade.
@@ -157,7 +159,7 @@ Der Windkanal verengt sich, damit die Windgeschwindigkeit ansteigt, um eine kons
 \end{figure}
 
 
-\section{Normative Anforderungen an den Sonnensimulator}
+\section{Normative Anforderungen an den Sonnensimulator}\thispagestyle{empty}
 Akkreditierung,Begründnung warum Messroboter, Alte Ergebnisse, Alte Messmethode
 
 In IEC 60904-9 legt die Anforderungen an Sonnensimulatoren fest.
@@ -176,17 +178,31 @@ In IEC 60904-9 legt die Anforderungen an Sonnensimulatoren fest.
 
 
 
-\section{Theorie Referenzzelle}
+\section{Theorie Referenzzelle}\thispagestyle{empty}
 Referzelle, Temperaturabhängikeit Messzelle, Kennlinine, Warum Kurzschlussstrom,...
 
 Der Kurzschlussstrom einer Solarzelle ist linear von der Bestrahlungsstärke anhängig.
 
 
-\chapter{Entwicklungprozess}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=100mm]{img/BandDiagramSolarCell.PNG}
+\caption[Bandabstand]{Bandabstand}\label{tempkoef}
+\end{figure}
 
 
-\section{Hardwaredesign}
-\subsection{Mecanum-Platform}
+\chapter{Entwicklungprozess}\thispagestyle{empty}
+
+Ersatzschaltbild (Ein- dioden oder zweidiodenmodel), Erklärung der Funktion der einzelnen Bauteile: Stromquelle, Diode(n), Serienwiderstand, Parallelwiderstand
+
+Abhängigkeit von I-Sc von der Temperatur (und auch U-os und damit auch P-mpp)
+
+
+
+
+\section{Hardwaredesign}\thispagestyle{empty}
+\subsection{Mecanum-Platform}\thispagestyle{empty}
 Das Mecanum-Rad ist ein Rad, das Fahrman"over in jede Richtung erlaubt, ohne dass das Fahrzeug mit einer mechnischen Lenkung ausgestattet ist. Bennnt ist es nach dem schwedischen Unternehmen Macanum AB in welchen dieses Rad 1971 entwickelt wurde. 
 Erreicht wird die Wendigkeit der Fahrzeuge durch den Einsatz von Mecanum R"adern, die einzeln angetrieben werden. Diese R"ader bestehen aus einer Felge, auf der unter einem Winkel von 45 Grad lose, ballige Rollen so angebracht sind, dass sie "uber den Abrollumfang wieder einen exakten Kreis bilden.
 Durch die Schr"aganordnung der Rollen entstehen beim Antreiben des Rades 2 Kraftkomponenten. Gegeneinander gerichtete Kr"afte der einzelnen R"ader werden "uber die Achsen und den Rahmen kompensiert. Die "ubrigen Kr"afte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise kann durch entsprechendes Ansteuern der einzelnen R"ader bez"uglich Drehrichtung und -geschwindigkeit jedes beliebige Fahrman"over erzeugt werden.
@@ -208,8 +224,8 @@ Durch die Schr"aganordnung der Rollen entstehen beim Antreiben des Rades 2 Kraft
 \caption[Foto eines gedruckten Rades]{Foto eines gedruckten Rades}\label{rollerad}
 \end{figure}
 
-\subsection{Chassis}
-Die Chassis wurde aus Verbund-Holz gefertigt. Das Design dafür entstand mit QCAD. Die Einzelteile wurden mit einem Lasercutter aus einer großen Platte geschnitten. Dann verschraubt und teilweise geleimt. Der Oberteil des Chassis lässt sich von der Bodenplatte trennen.
+\subsection{Chassis}\thispagestyle{empty}
+Die Chassis wurde aus Modellbau-Verbund-Holz gefertigt. Dieses Holz wurde gewählt weil es leicht zu bearbeiten, robuts und UV-beständig ist. UV Das Design dafür entstand mit QCAD. QCAD ist ein 2-dimensionaler Autocadklon. Die Einzelteile wurden mit einem Lasercutter aus einer großen Platte geschnitten. Dann verschraubt und teilweise geleimt. Der Oberteil des Chassis lässt sich von der Bodenplatte trennen.
 Die Motoren sind verschraubt. Einzelne Räder und auch Rollen lassen sich bei Bedarf austauschen.
 Das Chassis besteht aus 3 Teilen: \newline
 - die Bodenplatte
@@ -226,8 +242,8 @@ Das Chassis besteht aus 3 Teilen: \newline
 \end{figure}
 
 
-\section{Steuerungselektronik}
-\subsection{Motorensteuerung}
+\section{Steuerungselektronik}\thispagestyle{empty}
+\subsection{Motorensteuerung}\thispagestyle{empty}
 H-Br"ucken Treiber: NJM2670
 The NJM2670 is a general-purpose 60V dual H-bridge
 drive IC. It consists of a pair of H-bridges, a thermal shut
@@ -241,7 +257,7 @@ Versorgungsspannung: 12V wurde auf 15,5 bis 16 erh"oht
 Drehzahl: 30 Umdrehungen pro Minute im Leerlauf bei 12V Versorgung
 Achsdurchmesser: 6mm 
 
-\subsection{Optische Sensorik}
+\subsection{Optische Sensorik}\thispagestyle{empty}
 Der Roboter ist ein Linienfolge. Damit er einer Linie folgen kann, muss diese zuerst zuverl"assig erkannt werden. 
 Als Sensor wurde ein CNY70 verwendet. Der CNY 70 ist ein Reflexionsensor. Der Sensor wird in einem fixen Abstand zu einer Ebene montiert. Eine LED sendet Licht mit 950nm aus, welches an der Ebene reflektiert wird. Damit können Unterschiede des Reflektionkoeffizienten, umgangssprachlich der Farbe, gemessen werden. Die Anordung 9 solcher Sensoren in einem 3 mal 3 Array kann sowohl vertikale als auch horizontale Linien erkennen, sowie Ecken.
 
@@ -254,7 +270,7 @@ Als Sensor wurde ein CNY70 verwendet. Der CNY 70 ist ein Reflexionsensor. Der Se
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/cny701.png}
-\caption[...]{...}\label{cny1}
+\caption[...]{...}\label{cny2}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -265,7 +281,7 @@ Als Sensor wurde ein CNY70 verwendet. Der CNY 70 ist ein Reflexionsensor. Der Se
 
 
 
-\subsection{Spannungversorgung}
+\subsection{Spannungversorgung}\thispagestyle{empty}
 Aku-handling, "Uberwachung der Akkuspannung, Alarm und Abschaltung bei Unterspannung, 
 Es wird empfohlen vor jeden Messzyklus den Akku zu laden. Ein voller Akku schafft ohne Probleme 10 Messfahrten. 
 Bauteile: Akku, Ladeger"at (extern), bequemes und schnelles Laden des Akkus
@@ -282,22 +298,40 @@ with the same precision characteristics as the threeterminal
 connection. Special care has been taken to minimize
 thermal regulation effects and temperature
 induced hysteresis.
-\subsection{Mikrokontroller}
+\subsection{Mikrokontroller}\thispagestyle{empty}
 Arduino (was ist das), Shield, SD, Aref,
 
 The Arduino Mega 2560 is a microcontroller board based on the ATmega2560 (datasheet). It has 54 digital input/output pins (of which 14 can be used as PWM outputs), 16 analog inputs, 4 UARTs (hardware serial ports), a 16 MHz crystal oscillator, a USB connection, a power jack, an ICSP header, and a reset button. It contains everything needed to support the microcontroller; simply connect it to a computer with a USB cable or power it with a AC-to-DC adapter or battery to get started. The Mega is compatible with most shields designed for the Arduino Duemilanove or Diecimila.
 
-The Mega 2560 is an update to the Arduino Mega, which it replaces. 
 
-\subsection{Temperatursensoren}
-Messprinzip, Temperaturstabili"at
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=100mm]{img/ArduinoMega.jpg}
+\caption[Arduino Mega 2560]{Arduino Mega 2560}\label{ardu}
+\end{figure}
 
-\section{Softwareentwicklung}
-\subsection{Entwicklungsumgebung}
+\subsection{Temperatursensoren}\thispagestyle{empty}
+Messprinzip, Temperaturstabiliät
+
+Vergleich des Stromes durch eine 100 Ohm Präzisionswiderstand (Temperaturstabilität!) mit dem Strom durch einen PT-100. Als Stromquelle diente eine REF200-Stromquelle, welche 2 mal 100 Mikroampere (+- 0.5 Prozent) liefert.
+
+Schaltung
+
+Print foto Platine?
+
+
+
+\section{Softwareentwicklung}\thispagestyle{empty}
+\subsection{Entwicklungsumgebung}\thispagestyle{empty}
 The microcontroller on the board is programmed using the Arduino programming language (based on Wiring) and the Arduino development environment (based on Processing). Arduino projects can be stand-alone or they can communicate with software running on a computer (e.g. Flash, Processing, MaxMSP). 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=75mm]{img/Arduino.png}
+\caption[Arduino Entwicklungsumgebung]{Arduino Entwicklungsumgebung}\label{ardu2}
+\end{figure}
 
 
-\subsection{Auswertung optische sensoren}
+\subsection{Auswertung optische sensoren}\thispagestyle{empty}
 Differentielle Messung: Zwar liegen die optischen Sensoren auf der Unterseite des Roboters, aber da es im Sonnensimulator eine Einstrahlung von 1000 Watt pro Quadratmeter gibt, mit einem Anteil im spektralen Arbeitsbereich der optischen Sensoren CNY70, ist es notwendig den Einfluss des Streulichtes zu unterdrücken. Dazu wird einmal mit und einmal ohne eingeschalteter Infrarot-LED gemessen, dann der Dunkelwert vom Hellwert abgezogen.
 
 
@@ -305,21 +339,38 @@ Mathematik Auswertung,
 Anhand der Werte der einzelnen optischen Sensoren wird die Lage der Linie relativ zum Mittelpunktes des Arrays bestimmt. 
 Rohefassung: Die Methode der kleinsten Quadrate (engl.: method of least squares) ist das mathematische Standardverfahren zur Ausgleichungsrechnung. Dabei wird zu einer Datenpunktwolke eine Kurve gesucht, die möglichst nahe an den Datenpunkten verläuft. Die Daten können physikalische Messwerte, wirtschaftliche Größen oder Ähnliches repräsentieren, während die Kurve aus einer parameterabhängigen problemangepassten Familie von Funktionen stammt. Die Methode der kleinsten Quadrate besteht dann darin, die Kurvenparameter so zu bestimmen, dass die Summe der quadratischen Abweichungen der Kurve von den beobachteten Punkten minimiert wird. Die Abweichungen werden Residuen genannt.
 \newline
-Folge der Linie
+Folge der Linie: Der Roboter fährt standardmäßig gerade aus. Wird ein Versatz zur Linie erkannt, wird dieser Versatz durch eine Bewegung normal zur Linie minimiert. Eine Verdrehung zur Linie wird durch Verdrehen des Roboters korrigiert. Ein minimaler Versatz, bzw. eine minimale Verdrehung ist dabei zulässig. 
+Das vorwärts- und rückwärts-Fahren funktioniert dabei besser als das nach rechts-Fahren. Mecanum-Räder haben eine Vorzugsrichtung.
 
-Behandlung der Ecken
+Behandlung der Ecken: 
 
-Haltepunkte
-\subsection{Auswertung ADCs}
-Mittelung, Rauschgr"oßen, 
+Ecken müssen als solche erkannt werden, bevor sie die normale Fahrregelung stören.
+Wird eine Ecke erkannt wird der normale Fahrmodus unterbrochen, und in einem speziellen Eckenmodus gewechselt.
+Es gibt zwei Arten von Ecken: 
+- einmal die klassische Ecke beim Wechsel vom Vor- bzw. Rückwärtsfahren nach rechts.
+- Die nach Rechts-Fahren Bahn endet, anstatt in einer Ecke in die Vor- bzw. Rückwärtsbahn zu enden.
+Damit ist auch das um die Ecke fahren auch unterschiedlich.
+Im Vor- bzw. Rückwärts-Fahren wird die Fahrt ohne Regelung solange fortgesetzt bis die obere bzw. untere Zeile der Sensormatrix schwarz sieht, dann fährt der Roboter ohne Regelung einge hundert Millisekunden nach rechts. Erst dann wird in den nach Rechts-Fahr-Modus gewechselt.
+Für den Rechts-fahr Modus endet die Linie abrupt. Der Roboter fährt einige hundert Millisekunden vor bzw. zurück. Dann steht er auf der Führungslinie. Bevor in den eigentlichen Vor- bzw. Rückwärtsfahrmodus gewechselt wird, wird der Roboter zur Linie hin ausgerichtet. Die Unterschiedliche Behandlung der Ecken ist notwendig, weil im Rechtsfahren größere Abweichungen von der Ideallinie auftraten als im Vor- und Zurückfahren.
 
-\subsection{Programmablauf}
+Haltepunkte: Haltepunkte werden mit dem Haltepunktsensor erkannt, wenn dieser den Schwellwert für weiß überschreitet. Damit ein Haltepunkt nicht mehrfach erkannt werden kann, gibt es eine Verriegelung in der Software, die einen neuen Haltepunkt erst wieder zulässt wenn der Haltepunktsensor in der zwischen Zeit schwarz gesehen hat.
+
+
+
+\subsection{Auswertung ADCs}\thispagestyle{empty}
+Aufgrund von Rauschen der ADC-Werte, wurden alle Messwerte über 500 Einzelmessungen gemittelt. Der notwendige Messzeit dafür beträgt unter einer halben Sekunde. 
+
+\subsection{Programmablauf}\thispagestyle{empty}
 Das Programm startet im Modus Start, der Roboter steht, und wartet 60 Sekunden, eine Pufferzeit damit nach dem Einschalten des Roboters die Lade des Sonnensimulator hineingeschoben und die Klappe geschlossen werden kann.
-Nach Ablauf dieser 60 Sekunden wechselt das Programm in den Modus Vorwärts. In diesem Modus fährt der Roboter in Vorwärtsrichtung. Abweichungen von der Idealspur werden erkannt und korrigiert. Wird mit dem Stopsensor eine Stopmarkierung erkannt, wechselt das Programm in den Messmodus.
+Nach Ablauf dieser 60 Sekunden wechselt das Programm in den Modus Vorwärts. In diesem Modus fährt der Roboter in Vorwärtsrichtung. Abweichungen von der Idealspur werden erkannt und korrigiert. Wird mit dem Stopsensor eine Stopmarkierung erkannt, wechselt das Programm in den Messmodus. 
 
-\chapter{Kalibration}
-\section{Temperatursensoren}
-\section{Messzelle}
+\chapter{Kalibration}\thispagestyle{empty}
+\section{Temperatursensoren}\thispagestyle{empty}
+Zur Temperaturmessungen werden Pt-100 Messwiderstände verwendet. Ein Folien Pt-100 ist auf die Rückseite der Messzelle angeklebt. 
+Für die Kalibration der Temperaturmesselektronik wurden die Pt-100 Widerstände durch einen hochgenauen einstellbaren Widerstand ersetzt. Der Widerstand wurde im Bereich von 100 bis 120 Ohm in 1 Ohm Schritten verändert. Die ADC-Werte wurden über die USB-Schnittstelle des Arduino ausgelesen. Es zeigte sich, dass die beiden Schaltungen leicht unterschiedliche Verstärkungen haben.
+Messaufbau? Tabelle Messwerte,....
+
+\section{Messzelle}\thispagestyle{empty}
 
 \begin{figure}[htbp]
 \centering
@@ -329,21 +380,45 @@ Nach Ablauf dieser 60 Sekunden wechselt das Programm in den Modus Vorwärts. In 
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=125mm]{img/tempkoef.png}
+\includegraphics[width=150mm]{img/tempkoef.png}
 \caption[Kurzschlusstrom "uber Temperatur]{Kurzschluusstrom "uber Temperatur}\label{tempkoef}
 \end{figure}
 
-\section{Strommessung}
+\section{Strommessung}\thispagestyle{empty}
 
-\section{Thermische Stabilit"at}
+Stromquelle, Roboter in Klimakammer, Temperatur, von 10 bis 40 Grad Celcius verändert,
+Messwerte, Tabelle, Ausgleichsgerade, Umrechnung DAC Wert in Ampere
+
+\section{Thermische Stabilität der Temperaturmessung}\thispagestyle{empty}
+Roboter in Klimakammer, pt-100 Widerstände wurden durch temperaturstabile 110 Ohm Widerstände ersetzt. Temperatur von zirka 40 bis 10 Grad Celsius.
+Ergebnisse Tabelle. 
+
+
+\chapter{Messung}\thispagestyle{empty}
+\section{Messaufbau}\thispagestyle{empty}
+  \subsection{Platten}\thispagestyle{empty}
+Im Sonnensimulator 2 Platten. Auf den 3 Platten ist die Messbahn aufgemalt.
+Die Platten müssen eng aneinander anliegen. Damit keine zu groß Stufe wegen unschiedlicher Duschbiegung der Platten entsteht ist auf der Rückseite der Holzplatten Aluminiumbleche befestig, auf einer Seite angeschraubt, die danebenliegende Platte liegt darauf.
+Da die Breite aller 3 Platten geringer ist als die Breite der Lade des Sonnensimulators, werden, damit die Messungen zu verschiedenen Zeitpunkten verglichen werden können, die Platten so weit wie möglich nach rechts geschoben. Am Rand liegen die Platten auf Aluschienen auf.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=125mm]{img/messbahn1.png}
+\caption[Messbahn auf den Platten]{Messbahn auf den Platten}\label{bahn}
+\end{figure}
+Die Übergänge der Messbahn von einer Platte zur nächsten sind mit weißem Isolierband  der Breite 14mm zu überbrücken. Beschädigung der Messbahn, welche durch unsanftes Handling der Platten entstehen können, sind ebenfalls mit weißem Isolierband zu Überkleben.
 
 
 
-\chapter{Messung}
-\section{Messaufbau}
-  \subsection{Platten}
-  \subsection{Ablauf}
-\section{Auswertung}
+
+\subsection{Ablauf}\thispagestyle{empty}
+
+Roboter wird auf das linke vordere Ende der Messbahn gestellt. Der Roboter muss dabei auf der Messbahn stehen. Kleinere Abweichungen der Idealposition werden beim losfahren korrigiert. 
+Vor der eigentlichen Messfahrt ist eine Testfahrt mit geöffneter Lade des Sonnensimulators zu empfehlen. Besonders die Übergänge von einer Platte zur nächsten können Probleme schaffen.
+Nach der bestandenen Testfahrt wird der Sonnensimulator eingeschaltet. Bis zur Messung sind 20 bis 30 Minuten zu warten, bis die Temperaturen im Simulator stabil sind. Der Roboter kann während dieser Zeit im Sonnensimulator stehen. Die Messzelle sollte allerdings abgeschattet werden, damit diese sich nicht aufheizt. 
+Zum Starten wird der Schalter von 0 auf 1 umgelegt. Damit wird der Mikrocontroller mit Spannung versorgt. Das Programm startet. Nach einer Pause von 60 Sekunden, die zum Schließen des Sonnensimulators notwendig ist, fährt der Roboter los. Eine Messfahrt dauert etwa 13 Minuten. Nach Ablauf dieser Zeit wird der Roboter entnommen und die Daten der SD-Karte entnommen, oder der Roboter wird auf die Startposition gestellt um weitere Messfahrten durchzuführen.
+
+
+\section{Auswertung}\thispagestyle{empty}
 
 
 wie von sd  zu Bild,
@@ -357,11 +432,11 @@ Auf der SD Karte sind alle Messwerte in einer Wurscht gespeichert. Für die visu
 Formel, Formel
 Der ADC Wert des Kurschlussstromes wird in Ampere umgerechnet. Verwendet wird die in der Kallibrierung gewonnene Formel.
 
-\section{Schlussfolgerung}
+\section{Schlussfolgerung}\thispagestyle{empty}
 
-\begin{itemize}
-\item Code: arduino, Matlab, fileformat
-\end{itemize}
+Der Roboter erleichtert die Messung der Bestrahlungsstärkemessung enorm.  
+
+
 
 
 % Literaturverzeichnis
