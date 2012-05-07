@@ -202,33 +202,53 @@ Die unbeleuchtete Solarzelle ist funktioniert wie eine normale Halbleiterdiode, 
 \caption{Ersatzschaltbild}\label{esb}
 \end{figure}
 
+Durch den zusätzlichen Photostrom verschiebt~\ref{kennlinie} sich die Diodenkennline. Bei Leerlaufspannung bzw. Kurzschlussstrom gibt die Solarzelle keine Leistung ab. Der Punkt der Kennlinie mit der maximalen Leistung wird als Maximum Power Point (MPP) bezeichnet.
+
+Der Füllfaktor berechnet sich aus Strom im maximalen Leistungspunkt $I_{mp}$, Spannung am maximalen Leistungspunkt $U_{mp}$, Kurzschlusstrom $I_{sc}$ und Leerlaufspannung $U_{oc}$.
+  \begin{equation}
+     FF = \frac {I_{mp} U_{mp}} {I_{sc} U_{oc}}
+  \end{equation}
+  
+Die Leerlaufspannung hängt von der Temperatur ab. Mit steigender Temperatur wird der Bandabstand kleiner. Dadurch können Photonen kleinerer Energie absorbiert werden und somit steigt der Kurschlussstrom. Die Leistung im MP-Punkt sinkt mit steigender Temperatur.
+Zusammenhang von Kurzschlusstrom und Leerlaufspannung.
+  \begin{equation}
+     I_{sc} = I_0 ( e^{\frac {q U_{oc}}{k T}} - 1 )
+  \end{equation}
+  Hierbei ist $I_{0}$ der Söttigungsstrom der Diode (im Ersatzschalbild ~\ref{esb}):
+    \begin{equation}
+     I_{0} = A ( \frac { q D_{e} n_i^2} {L_e N_A} + \frac {q D_h n_i^2} {L_h N_D})
+  \end{equation}
+  
+  $N_A$ und $N_D$ sind die Dichten von Akzeptoren sowie Donatoren, $D_e$ und $D_h$ sind die Diffusionskoeffizienten von Elektronen und Löchern, $n_i$ ist die intrinsische Ladungsträgerdichte, $L_e$ und $L_h$ sind Diffusionslängen von Elektronen und Löchern. Alles materialabhängige Konstanten.
+  
+  \begin{equation}
+     U_{sc} = \frac {k T}{q} ln (\frac {I_L}{I_0} + 1 )
+  \end{equation}
+  
+  Hier ist $I_L$ der Photostrom, und berechnet sich :
+  
+  \begin{equation}
+     I_{L} = q A G ( L_e + W + L_h )
+  \end{equation}
+Bei $A$ handelt es sich um die Zellfläche, bei $G$ um die Generationsrate von Elektron-Löcher-Paaren und bei $W$ um die W um die Breite der Raumladungszone. 
+
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=75mm]{img/SolarCell_graph.png}
-\caption{Dunkel- und Hellkennlinien}\label{cell2}
+\includegraphics[width=125mm]{img/kennlinie.png}
+\caption{Dunkel- und Hellkennlinien}\label{kennlinie}
 \end{figure}
-
-Referzelle, Temperaturabhängikeit Messzelle, Kennlinine, Warum Kurzschlussstrom,...
-
-Der Kurzschlussstrom einer Solarzelle ist linear von der Bestrahlungsstärke anhängig.
-
-
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=100mm]{img/BandDiagramSolarCell.PNG}
-\caption[Bandabstand]{Bandabstand}\label{tempkoef}
+\includegraphics[width=75mm]{img/mpp.png}
+\caption{Abhängigkeit des MPP von der Einstrahlung}\label{mpp}
 \end{figure}
+
+
+
 
 
 \chapter{Entwicklungprozess}\thispagestyle{empty}
-
-Ersatzschaltbild (Ein- dioden oder zweidiodenmodel), Erklärung der Funktion der einzelnen Bauteile: Stromquelle, Diode(n), Serienwiderstand, Parallelwiderstand
-
-Abhängigkeit von I-Sc von der Temperatur (und auch U-os und damit auch P-mpp)
-
-
-
 
 \section{Hardwaredesign}\thispagestyle{empty}
 \subsection{Mecanum-Platform}\thispagestyle{empty}
