@@ -1,0 +1,37 @@
+\select@language {ngerman}
+\contentsline {chapter}{\numberline {1}Aufgabenstellung}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Warum Module im Sonnensimulator}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Sonnensimulator Aufbau}{1}{section.1.2}
+\contentsline {section}{\numberline {1.3}Normative Anforderungen an den Sonnensimulator}{1}{section.1.3}
+\contentsline {section}{\numberline {1.4}Theorie Referenzzelle}{3}{section.1.4}
+\contentsline {chapter}{\numberline {2}Entwicklungprozess}{6}{chapter.2}
+\contentsline {section}{\numberline {2.1}Hardwaredesign}{6}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Mecanum-Platform}{6}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Chassis}{8}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}Steuerungselektronik}{8}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Motorensteuerung}{8}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Optische Sensorik}{8}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Spannungversorgung}{8}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Mikrokontroller}{12}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Temperatursensoren}{12}{subsection.2.2.5}
+\contentsline {section}{\numberline {2.3}Softwareentwicklung}{13}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Entwicklungsumgebung}{13}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Auswertung optische sensoren}{13}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Auswertung ADCs}{14}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.4}Programmablauf}{14}{subsection.2.3.4}
+\contentsline {chapter}{\numberline {3}Kalibration}{15}{chapter.3}
+\contentsline {section}{\numberline {3.1}Temperatursensoren}{15}{section.3.1}
+\contentsline {section}{\numberline {3.2}Messzelle}{15}{section.3.2}
+\contentsline {section}{\numberline {3.3}Strommessung}{15}{section.3.3}
+\contentsline {section}{\numberline {3.4}Thermische Stabilit\IeC {\"a}t der Temperaturmessung}{15}{section.3.4}
+\contentsline {chapter}{\numberline {4}Messung}{17}{chapter.4}
+\contentsline {section}{\numberline {4.1}Messaufbau}{17}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Platten}{17}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Ablauf}{17}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Auswertung}{18}{section.4.2}
+\contentsline {section}{\numberline {4.3}Schlussfolgerung}{18}{section.4.3}
+\contentsline {chapter}{Abbildungsverzeichnis}{22}{chapter*.8}
+\contentsline {chapter}{Tabellenverzeichnis}{23}{chapter*.9}
+\contentsline {chapter}{Abk"urzungsverzeichnis}{24}{chapter*.10}
+\contentsline {chapter}{\numberline {A}Sourcecode Arduino}{25}{appendix.A}
+\contentsline {chapter}{\numberline {B}Sourcecode Auswertung}{40}{appendix.B}

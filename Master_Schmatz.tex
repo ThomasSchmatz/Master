@@ -141,14 +141,21 @@ Ich danke meinen Firmenbetreuer Thomas Krametz für die Zeit die er sich genomme
 \chapter{Aufgabenstellung}
 \section{Warum Module im Sonnensimulator} \thispagestyle{empty}
 Ein Sonnensimulator simuliert die Wirkung von Sonnenlicht auf Prüfobjekte. Für die Prüfung von PV-Modulen ersetzt ein stationärer Sonnensimulator das natürliche Sonnenlicht, das ist notwendig weil aufgrund von Jahreszeit und Witterung nicht immer 1000W pro Quadratmeter mit den AM1,5 Spektrum zur Verfügung stehen.
-Was ist AM1,5? Warum 1000W pro Meter2? --> Hinweis auf normative Grundlagen
+Es bedarf der Erklärung einiger wichtiger Begriffe. AM steht für Air Mass, die Lufthülle der Erde, die zum einem das leben auf diesen Planeten ermöglicht, zum anderen muss das Sonnenlicht die Erdatmosphäre durchdringen. Dabei wird das Licht abgeschwächt und die spektrale Zusammensetzung verändert, weil bestimmte Moleküle (O2, H2O, CO2) der Luft einige Wellenlängenbereiche sehr gut absorbieren. 
+ 
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=75mm]{img/Solar_Spectrum.png}
+\caption{Spektrum der Sonne}\label{sunspec}
+\end{figure}
 
 
 \section{Sonnensimulator Aufbau}\thispagestyle{empty}
 10 Lampen zu je 4 kW. Angeordnet in 2 Reihen zu je 5 Lampen. Die Lampen sind höhenverstellbar.
 Die Leistung der Lampen lässt sich einzeln ansteuern.
 Die Testobjekte, z.B. ganze Module oder auch einzelne Zellen liegen in einer Lade.
-Die Prüfebene ist 2,50 mal 4 Meter groß.
+Die Prüfebene ist 2,50 mal 4 Meter groß. Nur ein teil dieser Ebene wird verwendet.
 Die Prüfebene liegt innerhalb eines Windkanales, der oben für die Strahlung durchsichtig ist.
 Der Windkanal verengt sich, damit die Windgeschwindigkeit ansteigt, um eine konstante Kühlleistung wegen der sich erwärmenden Luft zu haben. 
 
@@ -179,6 +186,28 @@ In IEC 60904-9 legt die Anforderungen an Sonnensimulatoren fest.
 
 
 \section{Theorie Referenzzelle}\thispagestyle{empty}
+Es gibt verschiedene Solarzelltechnologien. Wirtschaftlich bedeutend sind im Moment nur kristalline Siliziumzellen und Dünnschichtzellen. Die kristallinen Siliziumzellen werden in monokristalline Zellen und polykristalline Zellen unterschieden. Beide zusammen amchen über 80\% des weltweiten Photovoltaikmarktes aus. Als Referenzzelle für Messungen werden ausschließlich kristalline Zellen verwendet. Wichtig ist, dass die Referenzzelle eine ähnliche spektralle Empfindlichkeit hat wie die zu messenden Zelle bzw. das zu messende Modul.
+Siliziumsolarzellen bestehen aus einer großflächigen Diode. Die Sperrschicht ist dabei dem Sonnenlicht ausgesetzt. Gelangt ein Lichtquanten in die Sperrschicht kann aufgrund des inneren Photoeffektes ein Elektron/Loch Paar erzeugt werden. Durch das elektrische Feld in der Sperrschicht werden die Ladungsträger getrennt bevor sie kombinieren können. Elektronen bewegen aufgrund ihrer negativen Ladung entgegen der Feldrichtung in die n-Zone. Löcher wandern in Feldrichtung zur raumladungsfreien p-Zone. Die Leerlaufspannung einer Solarzelle ist kleiner als die Diffusionsspannung.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=125mm]{img/cell.png}
+\caption{Schematischer Aufbau einer Solarzelle}\label{cell}
+\end{figure}
+
+
+Die unbeleuchtete Solarzelle ist funktioniert wie eine normale Halbleiterdiode, die einen Durchlassstrom von p- nach n-Seite fließen lässt, falls eine Spannung von p nach n anliegt. Bei Beleuchtung wird zusätzlich ein Photostrom erzeugt, welcher proportional zur Bestrahlungsstärke und der Zellfläche ist. Das Ersatzschaltbild~\ref{esb} besteht daher aus einer Stromquelle, dazu parallel einer Diode, einen Parallelwiderstand und einem Serienwiderstand. Der Parallelwiderstand fasst Kurzschlüsse zusammen, die realen Solarzellen am Rand oder an den Korngrenzen auftreten können. Mit dem Serienwiderstand werden alle Spannungsabfälle in der Solarzelle erfasst. Eine ideale Solarzelle hat einen Serienwiderstand von null und einen Parallelwiderstand von unendlich. 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=100mm]{img/esb.png}
+\caption{Ersatzschaltbild}\label{esb}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=75mm]{img/SolarCell_graph.png}
+\caption{Dunkel- und Hellkennlinien}\label{cell2}
+\end{figure}
+
 Referzelle, Temperaturabhängikeit Messzelle, Kennlinine, Warum Kurzschlussstrom,...
 
 Der Kurzschlussstrom einer Solarzelle ist linear von der Bestrahlungsstärke anhängig.
@@ -244,18 +273,27 @@ Das Chassis besteht aus 3 Teilen: \newline
 
 \section{Steuerungselektronik}\thispagestyle{empty}
 \subsection{Motorensteuerung}\thispagestyle{empty}
-H-Br"ucken Treiber: NJM2670
-The NJM2670 is a general-purpose 60V dual H-bridge
-drive IC. It consists of a pair of H-bridges, a thermal shut
-down circuit and its alarm output. The alarm output can
-detect application problems and the system reliability will be
-significantly improved if monitored by Micro Processor.
-Therefore, it is suitable for two-phase stepper motor
-application driven by microprocessor.
-Motor: Getriebemotor RB 35, 1:200
-Versorgungsspannung: 12V wurde auf 15,5 bis 16 erh"oht
-Drehzahl: 30 Umdrehungen pro Minute im Leerlauf bei 12V Versorgung
-Achsdurchmesser: 6mm 
+
+
+Eine H-Brücke~\ref{hbridge} erlaubt es einem Gleichstrommotor sich in zwei Richtungen zu drehen. Dafür müssen immer zwei schräg gegenüber liegende Schalter eingeschaltet sein. Zum Beisiel die Schalter S1 und S4 für die Drehrichtung im Uhrzeigersinn, S2 und S3 für die Drehrichtung gegen den Uhrzeigersinn. Zwei untereinander liegende Schalter dürfen nicht gleichzeitig eingeschaltet werden. Es muss einen hardwaretechnischen Schutz gegen diese art von Kurzschlüssen geben. Ein softwaretechnischer Schutz reichte dem Autor nicht, nachdem ein früher Prototyp der Motortreiberdplatine sich in Rauch aufgelöst hatte. Deshalb wurde für den Roboter eine integrierte H-Brücke (NJM2670) verwendet, mit einer logischen Verriegelung, die keinen Kurzschluss produzieren kann. 
+\newline
+Die Drehzahl bei konstanter Versorgungsspannung lässt sich mit Pulsweitenmodulation variieren.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=75mm]{img/hbridge.png}
+\caption[H-Brücke]{H-Brücke}\label{hbridge}
+\end{figure}
+
+Die Gleichspannungsmotoren sind Getriebemotoren mit der Bezeichnung RB 35, und einem Übersetzungsverhältnis von 1:200. Die maximale Versorgungsspannung wurde mit 12V angegeben. Die Drehzahl beträgt bei 12V Versorgungsspannung 20 Umdrehungen pro Minute.
+Der Roboter wird mit einem Lithium-Ionen-Akku versorgt. Die Spannung beträgt, abhängig vom Ladezustand zwischen 16,2V und 15,5V. Damit es zu keiner Überlastung der Motoren, kommt wurde bei der Pulsweitenmodulation ein maximales Tastverhältnis von 50\% eingehalten.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=150mm]{img/HBrucke.png}
+\caption[H-Brücke Schaltung]{H-Brücke Schaltung}\label{hbridge2}
+\end{figure}
+
 
 \subsection{Optische Sensorik}\thispagestyle{empty}
 Der Roboter ist ein Linienfolge. Damit er einer Linie folgen kann, muss diese zuerst zuverl"assig erkannt werden. 
