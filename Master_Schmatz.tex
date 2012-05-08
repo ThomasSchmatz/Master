@@ -425,22 +425,107 @@ Nach Ablauf dieser 60 Sekunden wechselt das Programm in den Modus Vorwärts. In 
 \chapter{Kalibration}\thispagestyle{empty}
 \section{Temperatursensoren}\thispagestyle{empty}
 Zur Temperaturmessungen werden Pt-100 Messwiderstände verwendet. Ein Folien Pt-100 ist auf die Rückseite der Messzelle angeklebt. 
-Für die Kalibration der Temperaturmesselektronik wurden die Pt-100 Widerstände durch einen hochgenauen einstellbaren Widerstand ersetzt. Der Widerstand wurde im Bereich von 100 bis 120 Ohm in 1 Ohm Schritten verändert. Die ADC-Werte wurden über die USB-Schnittstelle des Arduino ausgelesen. Es zeigte sich, dass die beiden Schaltungen leicht unterschiedliche Verstärkungen haben.
-Messaufbau? Tabelle Messwerte,....
+Für die Kalibration der Temperaturmesselektronik wurden die Pt-100 Widerstände durch einen hochgenauen einstellbaren Widerstand ersetzt. Der Widerstand wurde im Bereich von 100 bis 120 Ohm in 1 Ohm Schritten verändert. Die ADC-Werte wurden über die USB-Schnittstelle des Arduino ausgelesen. Es zeigte sich, dass die beiden Schaltungen leicht unterschiedliche Verstärkungen haben. Daher mussten jede Temperaturmessschaltung separat kalibriert werden.  
 
-\section{Messzelle}\thispagestyle{empty}
+\begin{table}[htbp]
+\centering
+\begin{tabular}{ | c | c | }\hline
+{\bf R in Ohm} & {\bf ADC Wert}\\ \hline
+\hline
+101 & 12\\ \hline
+102 & 52,5\\ \hline
+103 & 92,5\\ \hline
+104 & 133\\ \hline
+105 & 172,5\\ \hline
+106 & 212\\ \hline
+107 & 252,5\\ \hline
+108 & 292,5\\ \hline
+109 & 332\\ \hline
+110 & 373,5\\ \hline
+111 & 412\\ \hline
+112 & 454\\ \hline
+113 & 493\\ \hline
+114 & 533\\ \hline
+115 & 573\\ \hline
+116 & 613\\ \hline
+117 & 653\\ \hline
+118 & 694\\ \hline
+119 & 733,5\\ \hline
+120 & 775\\ \hline
+121 & 815\\ \hline
+122 & 857\\ \hline
+\end{tabular}
+\caption{Kalibrierung Messschaltung A}\label{TabA}
+\end{table}
 
 \begin{figure}[htbp]
 \centering
+\includegraphics[width=100mm]{img/messa.png}
+\caption{Ausgleichsgerade Temperaturmessung A}\label{messa}
+\end{figure}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{ | c | c | }\hline
+{\bf R in Ohm} & {\bf ADC Wert}\\ \hline
+\hline
+100 & 4\\ \hline
+101 & 44\\ \hline
+102 & 84\\ \hline
+103 & 124\\ \hline
+104 & 164\\ \hline
+105 & 204\\ \hline
+106 & 244\\ \hline
+107 & 248\\ \hline
+108 & 324\\ \hline
+109 & 364\\ \hline
+110 & 405\\ \hline
+111 & 445\\ \hline
+112 & 485\\ \hline
+113 & 525\\ \hline
+114 & 565\\ \hline
+115 & 605\\ \hline
+116 & 646\\ \hline
+117 & 686\\ \hline
+118 & 726\\ \hline
+119 & 766\\ \hline
+120 & 807\\ \hline
+121 & 850\\ \hline
+122 & 857\\ \hline
+\end{tabular}
+\caption{Kalibrierung Messschaltung B}\label{TabB}
+\end{table}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=100mm]{img/messb.png}
+\caption{Ausgleichsgerade Temperaturmessung B}\label{messb}
+\end{figure}
+
+\section{Messzelle}\thispagestyle{empty}
+
+
+Der Kurzschlussstrom der Messzelle wurde im Flasher~\ref{zelleflasher} über einen weiten Temperaturbereich gemessen. Es wurde mit der Berger Messlast gemessen. Bei der Messung wurden die Leitungswiderstände der Messkabel minimiert indem Kabel mit hohem Querschnitt (6mm2) und die Kabel möglichst kurz gehalten wurden (<1,5m).
+ 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=75mm]{img/zelle.jpg}
-\caption[Messzelle auf der Lade des Flashers]{Messzelle auf der Lade des Flashers}\label{zelleflasher}
+\caption{Messzelle auf der Lade des Flashers}\label{zelleflasher}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=150mm]{img/tempkoef.png}
-\caption[Kurzschlusstrom "uber Temperatur]{Kurzschluusstrom "uber Temperatur}\label{tempkoef}
+\caption{Kurzschluusstrom über Temperatur}\label{tempkoef}
 \end{figure}
+
+  \begin{equation}
+     I(T) = 4,9529+0.0024 \ast T
+  \end{equation}
+  
+    \begin{equation}
+     I(T) = 4,9529 \ast ( 1 + 0,00048 \ast T)
+  \end{equation}
 
 \section{Strommessung}\thispagestyle{empty}
 
