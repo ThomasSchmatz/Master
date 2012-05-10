@@ -44,6 +44,8 @@
 
 \usepackage{array}
 
+\usepackage{subfigure} 
+
 % H"ohe und Breite des Textk"orpers etwas gr"osser definieren
 \setlength{\textheight}{225mm}
 \setlength{\textwidth}{1.05\textwidth}
@@ -469,28 +471,28 @@ Für die Kalibration der Temperaturmesselektronik wurden die Pt-100 Widerstände
 \begin{tabular}{ | c | c | }\hline
 {\bf R in Ohm} & {\bf ADC Wert}\\ \hline
 \hline
-100 & 4\\ \hline
-101 & 44\\ \hline
-102 & 84\\ \hline
-103 & 124\\ \hline
-104 & 164\\ \hline
-105 & 204\\ \hline
-106 & 244\\ \hline
-107 & 248\\ \hline
-108 & 324\\ \hline
-109 & 364\\ \hline
-110 & 405\\ \hline
-111 & 445\\ \hline
-112 & 485\\ \hline
-113 & 525\\ \hline
-114 & 565\\ \hline
-115 & 605\\ \hline
-116 & 646\\ \hline
-117 & 686\\ \hline
-118 & 726\\ \hline
-119 & 766\\ \hline
-120 & 807\\ \hline
-121 & 850\\ \hline
+100 & 0\\ \hline
+101 & 20\\ \hline
+102 & 59,5\\ \hline
+103 & 99\\ \hline
+104 & 139\\ \hline
+105 & 179\\ \hline
+106 & 219\\ \hline
+107 & 259\\ \hline
+108 & 299\\ \hline
+109 & 339\\ \hline
+110 & 379\\ \hline
+111 & 419,5\\ \hline
+112 & 460\\ \hline
+113 & 499\\ \hline
+114 & 539\\ \hline
+115 & 579\\ \hline
+116 & 619\\ \hline
+117 & 659\\ \hline
+118 & 700\\ \hline
+119 & 740\\ \hline
+120 & 780\\ \hline
+121 & 820\\ \hline
 122 & 857\\ \hline
 \end{tabular}
 \caption{Kalibrierung Messschaltung B}\label{TabB}
@@ -499,8 +501,12 @@ Für die Kalibration der Temperaturmesselektronik wurden die Pt-100 Widerstände
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=100mm]{img/messb.png}
-\caption{Ausgleichsgerade Temperaturmessung B}\label{messb}
+\caption{Ausgleichsgerade Temperaturmessung B}\label{messa}
 \end{figure}
+
+Die gewonnen Formeln für Messschaltung A und B werden verwendet um aus den ADC-Werten die dazugehörigen Widerstandswerte zu berechnen. 
+
+
 
 \section{Messzelle}\thispagestyle{empty}
 
@@ -549,6 +555,7 @@ Da die Breite aller 3 Platten geringer ist als die Breite der Lade des Sonnensim
 \caption[Messbahn auf den Platten]{Messbahn auf den Platten}\label{bahn}
 \end{figure}
 Die Übergänge der Messbahn von einer Platte zur nächsten sind mit weißem Isolierband  der Breite 14mm zu überbrücken. Beschädigung der Messbahn, welche durch unsanftes Handling der Platten entstehen können, sind ebenfalls mit weißem Isolierband zu Überkleben.
+
 
 
 
@@ -606,6 +613,80 @@ Der ADC Wert des Kurschlussstromes wird in Ampere umgerechnet. Verwendet wird di
 \includegraphics[width=150mm]{img/tempm2.png}
 \caption[konstante Temperatur der Zelle]{konstante Temperatur der Zelle}\label{tm2}
 \end{figure}
+
+
+\section{Vermessung der Ausleuchtung einzelner Lampen}
+
+Die geringe Messzeit des Roboters, verglichen mit der mechanischen Methode, macht es möglich die Bestrahlungsstärkeverteilung der einzelnen Lampen in realistischer Zeit zu bestimmen.
+Veränderbar sind der Abstand zwischen Lampenfeld und Prüfebene. Die Leistungen der Lampen lassen sich einzeln steuern. 
+
+\begin{figure}
+    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E1.png}}
+    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E1a.png}}
+\caption{Lampe E1}
+\end{figure} 
+
+\begin{figure}
+    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E2.png}}
+    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E2a.png}}
+\caption{Lampe E2}
+\end{figure} 
+
+\begin{figure}
+    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E3.png}}
+    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E3a.png}}
+\caption{Lampe E3}
+\end{figure}
+
+\begin{figure}
+    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E4.png}}
+    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E4a.png}}
+\caption{Lampe E4}
+\end{figure} 
+
+\begin{figure}
+    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E5.png}}
+    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E5a.png}}
+\caption{Lampe E5}
+\end{figure} 
+
+\begin{figure}
+    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E6.png}}
+    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E6a.png}}
+\caption{Lampe E6}
+\end{figure} 
+
+\begin{figure}
+    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E7.png}}
+    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E7a.png}}
+\caption{Lampe E7}
+\end{figure} 
+
+\begin{figure}
+    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E8.png}}
+    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E8a.png}}
+\caption{Lampe E8}
+\end{figure} 
+
+\begin{figure}
+    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E9.png}}
+    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E9a.png}}
+\caption{Lampe E9}
+\end{figure} 
+
+\begin{figure}
+    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E10.png}}
+    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E10a.png}}
+\caption{Lampe E10}
+\end{figure} 
+
+
+
+
+
+ 
+
+
 
 
 
