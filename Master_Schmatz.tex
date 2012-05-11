@@ -46,6 +46,8 @@
 
 \usepackage{subfigure} 
 
+\usepackage{multirow}
+
 % H"ohe und Breite des Textk"orpers etwas gr"osser definieren
 \setlength{\textheight}{225mm}
 \setlength{\textwidth}{1.05\textwidth}
@@ -176,7 +178,7 @@ In IEC 60904-9 legt die Anforderungen an Sonnensimulatoren fest.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/spectral.png}
-\caption[Spektralle Strahlungsverteilung]{Spektralle Strahlungsverteilung nach IEC 60904-9}\label{rolle}
+\caption[Spektralle Strahlungsverteilung]{Spektralle Strahlungsverteilung nach IEC 60904-9}\label{sectral}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -424,10 +426,19 @@ Aufgrund von Rauschen der ADC-Werte, wurden alle Messwerte über 500 Einzelmessu
 Das Programm startet im Modus Start, der Roboter steht, und wartet 60 Sekunden, eine Pufferzeit damit nach dem Einschalten des Roboters die Lade des Sonnensimulator hineingeschoben und die Klappe geschlossen werden kann.
 Nach Ablauf dieser 60 Sekunden wechselt das Programm in den Modus Vorwärts. In diesem Modus fährt der Roboter in Vorwärtsrichtung. Abweichungen von der Idealspur werden erkannt und korrigiert. Wird mit dem Stopsensor eine Stopmarkierung erkannt, wechselt das Programm in den Messmodus. 
 
+
+
 \chapter{Kalibration}\thispagestyle{empty}
+
+Dieses Kapitel beschreibt die Kalibrierung der Messsensoren. Es gibt drei Messplatinen, eine für die Messung des Kurzschlussstromes, und zwei identisch aufgebaute Messplatinen zur Messung der Zelltemperatur beziehungsweise der Umgebungstemperatur. Die Strom-Messplatine wandelt den Kurzschlussstrom der Messzelle in eine Spannung um, welche größenmäßig in einem für den ADC des Arduino auswertbaren Bereich (0 bis 5 Volt) ist. Die beiden Messschaltungen zur Temperaturmessung wandeln die Größe der temperaturabhängigen Messwiderstände, jeweils ein Pt-100, in eine Spannung um.
+Die ADC-Messwerte wurden über die USB-Schnittstelle des Roboters ausgelesen. Dafür benötigt der Roboter ein einfaches Kalibrierprogramm, welches die gemessenen und gemittelten ADC-Werte über die USB-Schnitstelle sendet. 
+
+
+
 \section{Temperatursensoren}\thispagestyle{empty}
-Zur Temperaturmessungen werden Pt-100 Messwiderstände verwendet. Ein Folien Pt-100 ist auf die Rückseite der Messzelle angeklebt. 
-Für die Kalibration der Temperaturmesselektronik wurden die Pt-100 Widerstände durch einen hochgenauen einstellbaren Widerstand ersetzt. Der Widerstand wurde im Bereich von 100 bis 120 Ohm in 1 Ohm Schritten verändert. Die ADC-Werte wurden über die USB-Schnittstelle des Arduino ausgelesen. Es zeigte sich, dass die beiden Schaltungen leicht unterschiedliche Verstärkungen haben. Daher mussten jede Temperaturmessschaltung separat kalibriert werden.  
+Zur Temperaturmessungen werden zwei Pt100 Messfühler verwendet. Die Temperatur der Messzelle wird mit einem an die Messzelle von unten aufgeklebten flächigen Folienmesswiderstand gemessen. 
+Ein zweiter Pt100, in kompakter Dünnschichtbauweise ausgeführt, misst die Temperatur der Umgebung. Beide Messschaltungen sind identisch aufgebaut, dennoch können Bauteiltoleranzen zu leicht unterschiedlichen Messspannungen führen.
+Für die Kaltbration der Temperaturmesselektronik wurden die Pt-100 Widerstände durch einen hoch genaues, einstellbares und kalibriertes Messnormal ersetzt. Der Widerstand wurde im Bereich von 100 bis 122 Ohm in 1 Ohm Schritten verändert, was einer Temperatur von 0 bis 55 $^{\circ}$C entspricht. Die ADC-Werte wurden über die USB-Schnittstelle des Arduino ausgelesen. Es zeigte sich, dass die beiden Schaltungen leicht unterschiedliche Verstärkungen haben. Daher mussten jede Temperaturmessschaltung separat kalibriert werden.  
 
 \begin{table}[htbp]
 \centering
@@ -457,8 +468,11 @@ Für die Kalibration der Temperaturmesselektronik wurden die Pt-100 Widerstände
 121 & 815\\ \hline
 122 & 857\\ \hline
 \end{tabular}
-\caption{Kalibrierung Messschaltung A}\label{TabA}
+\caption{Die Messwerte der Kalibrierung Messschaltung A}\label{TabA}
 \end{table}
+
+Obwohl der 10-Bit ADC des Arduino einen Maximalwert von 1023 hat, ist bedingt durch den Einsatz des Instrumentenverstärkers INA114, der maximale ADC-Wert bei 857, was einer Spannung von 4,18V entspricht.  
+
 
 \begin{figure}[htbp]
 \centering
@@ -495,34 +509,41 @@ Für die Kalibration der Temperaturmesselektronik wurden die Pt-100 Widerstände
 121 & 820\\ \hline
 122 & 857\\ \hline
 \end{tabular}
-\caption{Kalibrierung Messschaltung B}\label{TabB}
+\caption{Die Messwerte der Kalibrierung Messschaltung B}\label{TabB}
 \end{table}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=100mm]{img/messb.png}
-\caption{Ausgleichsgerade Temperaturmessung B}\label{messa}
+\caption{Ausgleichsgerade Temperaturmessung B}\label{messb}
 \end{figure}
 
-Die gewonnen Formeln für Messschaltung A und B werden verwendet um aus den ADC-Werten die dazugehörigen Widerstandswerte zu berechnen. 
+Die gewonnen Formeln für Messschaltung A~\ref{messa} und B~\ref{messa} werden verwendet um aus den ADC-Werten die dazugehörigen Widerstandswerte zu berechnen. 
 
+  \begin{equation}
+     R_A(ADC) = \frac{ADC_A + 4039,9}{40,107}
+  \end{equation}
+  
+    \begin{equation}
+     R_B(ADC) = \frac{ADC_B + 4039,9}{40,107}
+  \end{equation}
 
 
 \section{Messzelle}\thispagestyle{empty}
 
 
-Der Kurzschlussstrom der Messzelle wurde im Flasher~\ref{zelleflasher} über einen weiten Temperaturbereich gemessen. Es wurde mit der Berger Messlast gemessen. Bei der Messung wurden die Leitungswiderstände der Messkabel minimiert indem Kabel mit hohem Querschnitt (6mm2) und die Kabel möglichst kurz gehalten wurden (<1,5m).
+Der Kurzschlussstrom der Messzelle wurde im Flasher~\ref{zelleflasher} über einen weiten Temperaturbereich gemessen~\ref{tempkoef}. Es wurde mit der Berger Messlast gemessen. Bei der Messung wurden die Leitungswiderstände der Messkabel minimiert, indem Kabel mit hohem Querschnitt ($6mm^2$) verwendet wurden, und die Kabel möglichst kurz gehalten wurden (<1,5m).
  
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/zelle.jpg}
-\caption{Messzelle auf der Lade des Flashers}\label{zelleflasher}
+\caption{Die Messzelle auf dem Einschub des gepulsten Sonnensimualtors}\label{zelleflasher}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=150mm]{img/tempkoef.png}
-\caption{Kurzschluusstrom über Temperatur}\label{tempkoef}
+\caption{Abhängigkeit des Kurzschlussstromes von der Temperatur}\label{tempkoef}
 \end{figure}
 
   \begin{equation}
@@ -535,12 +556,93 @@ Der Kurzschlussstrom der Messzelle wurde im Flasher~\ref{zelleflasher} über ein
 
 \section{Strommessung}\thispagestyle{empty}
 
-Stromquelle, Roboter in Klimakammer, Temperatur, von 10 bis 40 Grad Celcius verändert,
-Messwerte, Tabelle, Ausgleichsgerade, Umrechnung DAC Wert in Ampere
+Der Messroboter wurde für die Kalibrierung der Strommessung in eine Klimazelle platziert.  Die Temperatur der Klimazelle wurde im Bereich von 8 bis 35 $^{\circ}$C variiert. Durch den Messwiderstand der Strommessung wurde ein Strom im Bereich von 3 bis 8 A geschickt.  
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+T/$^{\circ}$C & I/mA & ADC Wert \\ 
+\hline
+\hline
+
+\multirow{3}{*}{24,4} & 3997 & 472 \\
+ & 6001 & 712 \\
+ & 8002 & 854 \\ \hline
+\multirow{3}{*}{35,3} & 3999 & 473 \\
+ & 6001 & 712 \\
+ & 7999 & 859 \\ \hline
+\multirow{3}{*}{35,3} & 3999 & 472 \\
+ & 6001 & 710 \\
+ & 8001 & 852 \\ \hline
+\multirow{5}{*}{16,4} & 2004 & 234 \\
+ & 3005 & 353 \\
+ & 4003 & 473 \\
+ & 5003 & 591 \\
+ & 6005 & 711 \\ \hline
+\multirow{5}{*}{8} & 1993 & 233 \\
+ & 2995 & 352 \\
+ & 4001 & 472 \\
+ & 5000 & 590 \\
+ & 6005 & 710 \\ \hline
+\end{tabular}
+\caption{Kalibrierung Strommessung}\label{TabS}
+\end{table}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=150mm]{img/16grad.png}
+\caption{Lineraer Zusammenhang zwischen Strom und dem ADC-Wert}\label{ical}
+\end{figure}
+
+\begin{equation}
+     I(ADC) = \frac{ADC + 4,5766} {119,2} 
+\end{equation}
+  
+
 
 \section{Thermische Stabilität der Temperaturmessung}\thispagestyle{empty}
-Roboter in Klimakammer, pt-100 Widerstände wurden durch temperaturstabile 110 Ohm Widerstände ersetzt. Temperatur von zirka 40 bis 10 Grad Celsius.
-Ergebnisse Tabelle. 
+Zur Bestimmung der Temperaturstabilität wurde der gesamte Roboter in ein Klimakammer gestellt. Der Pt100 wurde durch einen temperaturstabilen 110$\Omega$ simuliert.
+Es gab zwei Durchgänge dieses Versuches.
+Bei der ersten Messung zeigte sich, dass eine der beiden Messplatinen nicht temperaturstabil war. Durch das Tauschen der Ref200 Stromquelle dieser Platine konnte das Problem gelöst werden.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{ | c | c | c |}\hline
+{\bf T in $^{\circ}$C} & {\bf ADC Platine A} & {\bf ADC Platine B}\\ \hline
+\hline
+11,7 & 368 & 407\\ \hline
+13,0 & 368 & 406\\ \hline
+13,7 & 368 & 406\\ \hline
+14,5 & 368 & 405\\ \hline
+15,5 & 368 & 405\\ \hline
+16,6 & 368 & 405\\ \hline
+17,5 & 368 & 404\\ \hline
+23,5 & 368 & 403\\ \hline
+27,5 & 368 & 402\\ \hline
+\end{tabular}
+\caption{Temeraturabhängigkeit der Temperaturmessung}\label{TabT1}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{ | c | c | c |}\hline
+{\bf T in $^{\circ}$C} & {\bf ADC Platine A} & {\bf ADC Platine B}\\ \hline
+\hline
+30,7 & 368 & 380\\ \hline
+20,1 & 368 & 379\\ \hline
+9,2 & 368 & 378\\ \hline
+\end{tabular}
+\caption{Temeraturabhängigkeit der Temperaturmessung}\label{TabT1}
+\end{table}
+
+Durch den Austausch der Referenzstromquelle der Platine B hat sich auch der ADC-Wert gegenüber der ersten Messung geändert. Die Kalibrierwerte der Platine B \ref{TabB} sind nach diesem Austausch aufgenommen worden.
+Da die Platine A temperaturstabiler als die Platine B ist, wurde Platine A zur Messung der Zelltemperatur ausgewählt, die Platine B wurde für die Messung der Umgebungstemperatur verwendet. 
+
+
+
+
+
 
 
 \chapter{Messung}\thispagestyle{empty}
