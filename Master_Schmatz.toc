@@ -7,31 +7,32 @@
 \contentsline {chapter}{\numberline {2}Entwicklungprozess}{6}{chapter.2}
 \contentsline {section}{\numberline {2.1}Hardwaredesign}{6}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Mecanum-Platform}{6}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Chassis}{8}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.2}Chassis}{6}{subsection.2.1.2}
 \contentsline {section}{\numberline {2.2}Steuerungselektronik}{8}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Motorensteuerung}{8}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Optische Sensorik}{8}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Spannungversorgung}{8}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Mikrokontroller}{12}{subsection.2.2.4}
-\contentsline {subsection}{\numberline {2.2.5}Temperatursensoren}{12}{subsection.2.2.5}
-\contentsline {section}{\numberline {2.3}Softwareentwicklung}{13}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Entwicklungsumgebung}{13}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Auswertung optische sensoren}{13}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Auswertung ADCs}{14}{subsection.2.3.3}
-\contentsline {subsection}{\numberline {2.3.4}Programmablauf}{14}{subsection.2.3.4}
-\contentsline {chapter}{\numberline {3}Kalibration}{15}{chapter.3}
-\contentsline {section}{\numberline {3.1}Temperatursensoren}{15}{section.3.1}
-\contentsline {section}{\numberline {3.2}Messzelle}{15}{section.3.2}
-\contentsline {section}{\numberline {3.3}Strommessung}{15}{section.3.3}
-\contentsline {section}{\numberline {3.4}Thermische Stabilit\IeC {\"a}t der Temperaturmessung}{15}{section.3.4}
-\contentsline {chapter}{\numberline {4}Messung}{17}{chapter.4}
-\contentsline {section}{\numberline {4.1}Messaufbau}{17}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Platten}{17}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Ablauf}{17}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}Auswertung}{18}{section.4.2}
-\contentsline {section}{\numberline {4.3}Schlussfolgerung}{18}{section.4.3}
-\contentsline {chapter}{Abbildungsverzeichnis}{22}{chapter*.8}
-\contentsline {chapter}{Tabellenverzeichnis}{23}{chapter*.9}
-\contentsline {chapter}{Abk"urzungsverzeichnis}{24}{chapter*.10}
-\contentsline {chapter}{\numberline {A}Sourcecode Arduino}{25}{appendix.A}
-\contentsline {chapter}{\numberline {B}Sourcecode Auswertung}{40}{appendix.B}
+\contentsline {subsection}{\numberline {2.2.2}Optische Sensorik}{11}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Spannungversorgung}{11}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Mikrokontroller}{13}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Temperatursensoren}{14}{subsection.2.2.5}
+\contentsline {section}{\numberline {2.3}Softwareentwicklung}{14}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Entwicklungsumgebung}{14}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Auswertung optische sensoren}{16}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Auswertung ADCs}{16}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.4}Programmablauf}{17}{subsection.2.3.4}
+\contentsline {chapter}{\numberline {3}Kalibration}{18}{chapter.3}
+\contentsline {section}{\numberline {3.1}Temperatursensoren}{18}{section.3.1}
+\contentsline {section}{\numberline {3.2}Messzelle}{18}{section.3.2}
+\contentsline {section}{\numberline {3.3}Strommessung}{22}{section.3.3}
+\contentsline {section}{\numberline {3.4}Thermische Stabilit\IeC {\"a}t der Temperaturmessung}{22}{section.3.4}
+\contentsline {chapter}{\numberline {4}Messung}{25}{chapter.4}
+\contentsline {section}{\numberline {4.1}Messaufbau}{25}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Platten}{25}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Ablauf}{25}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Auswertung}{26}{section.4.2}
+\contentsline {section}{\numberline {4.3}Vermessung der Ausleuchtung einzelner Lampen}{26}{section.4.3}
+\contentsline {section}{\numberline {4.4}Schlussfolgerung}{26}{section.4.4}
+\contentsline {chapter}{Abbildungsverzeichnis}{34}{chapter*.8}
+\contentsline {chapter}{Tabellenverzeichnis}{35}{chapter*.9}
+\contentsline {chapter}{Abk"urzungsverzeichnis}{36}{chapter*.10}
+\contentsline {chapter}{\numberline {A}Sourcecode Arduino}{37}{appendix.A}
+\contentsline {chapter}{\numberline {B}Sourcecode Auswertung}{52}{appendix.B}

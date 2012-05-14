@@ -258,35 +258,43 @@ Bei $A$ handelt es sich um die Zellfläche, bei $G$ um die Generationsrate von E
 \subsection{Mecanum-Platform}\thispagestyle{empty}
 Das Mecanum-Rad ist ein Rad, das Fahrman"over in jede Richtung erlaubt, ohne dass das Fahrzeug mit einer mechnischen Lenkung ausgestattet ist. Bennnt ist es nach dem schwedischen Unternehmen Macanum AB in welchen dieses Rad 1971 entwickelt wurde. 
 Erreicht wird die Wendigkeit der Fahrzeuge durch den Einsatz von Mecanum R"adern, die einzeln angetrieben werden. Diese R"ader bestehen aus einer Felge, auf der unter einem Winkel von 45 Grad lose, ballige Rollen so angebracht sind, dass sie "uber den Abrollumfang wieder einen exakten Kreis bilden.
-Durch die Schr"aganordnung der Rollen entstehen beim Antreiben des Rades 2 Kraftkomponenten. Gegeneinander gerichtete Kr"afte der einzelnen R"ader werden "uber die Achsen und den Rahmen kompensiert. Die "ubrigen Kr"afte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise kann durch entsprechendes Ansteuern der einzelnen R"ader bez"uglich Drehrichtung und -geschwindigkeit jedes beliebige Fahrman"over erzeugt werden.
+Durch die Schr"aganordnung der Rollen entstehen beim Antreiben des Rades 2 Kraftkomponenten. Gegeneinander gerichtete Kr"afte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich, ohne dass das Fahrzeug mit einer mechanischen Lenkung ausgestattet ist. 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/wheel.png}
-\caption[Mecanum-Rad]{Mecanum-Rad}\label{rad}
+\caption{Die Felge des Mecanum Rades}\label{rad}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/roller.png}
-\caption[Rolle]{Rolle}\label{rolle}
+\caption{Eine der 16 Rollen pro Reifen}\label{rolle}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/roller_wheel.jpg}
-\caption[Foto eines gedruckten Rades]{Foto eines gedruckten Rades}\label{rollerad}
+\caption{Ein gedrucktes Rad samt Rolle}\label{rollerad}
 \end{figure}
 
 \subsection{Chassis}\thispagestyle{empty}
-Die Chassis wurde aus Modellbau-Verbund-Holz gefertigt. Dieses Holz wurde gewählt weil es leicht zu bearbeiten, robuts und UV-beständig ist. UV Das Design dafür entstand mit QCAD. QCAD ist ein 2-dimensionaler Autocadklon. Die Einzelteile wurden mit einem Lasercutter aus einer großen Platte geschnitten. Dann verschraubt und teilweise geleimt. Der Oberteil des Chassis lässt sich von der Bodenplatte trennen.
-Die Motoren sind verschraubt. Einzelne Räder und auch Rollen lassen sich bei Bedarf austauschen.
-Das Chassis besteht aus 3 Teilen: \newline
-- die Bodenplatte
-\newline
-- die Seitenwände
-\newline
-- das Dach mit der Aufnahme für die Messzelle
-\newline
+
+\noindent Die Chassis wurde aus Sperrholz gefertigt. Dieses Holz wurde gewählt weil es leicht zu bearbeiten, robust und UV-beständig ist. Das Design dafür entstand mit QCAD. QCAD ist ein 2-dimensionales CAD Programm. 
+Die Größe der Chassis wurde bestimmt durch: \begin{itemize}
+\item Den Durchmesser und der Breite der Mecanum Räder, die Räder liegen innerhalb der Chasis, damit die Räder vor der UV Strahlung geschützt sind, und die Räder keinen Einfluss (Beschattung oder Reflexionen) auf die Messzelle haben.
+\item Die Größe der Motoren.
+\item Der Arduino , die Motorsteuerelektronik und die Messelektronik
+\item Der Akku zur Stromversorgung, die dazugehörende Akku Spannungsüberwachung und der Ein/Aus Schalter.
+\item Die Abmessung der Messzelle.
+ \end{itemize}
+
+\noindent Die Einzelteile wurden mit einem Lasercutter aus einer großen Sperrholzplatte geschnitten. Die Einzelteile wurden teilweise miteinander verleimt damit eine zukünftige Wartung problemlos möglich ist, wurde der Aufbau verschraubt ausgeführt.
+Die Motoren sind verschraubt, damit ein Austausch möglich ist. Einzelne Räder als auch die Rollen lassen sich bei Bedarf austauschen.
+Das Chassis besteht aus 3 Teilen: \begin{itemize}
+\item Der Bodenplatte
+\item Die Seitenwände
+\item Das Dach mit der Aufnahme für die Messzelle
+\end{itemize}
 
 \begin{figure}[htbp]
 \centering
@@ -296,6 +304,11 @@ Das Chassis besteht aus 3 Teilen: \newline
 
 
 \section{Steuerungselektronik}\thispagestyle{empty}
+
+Dieser Abschnitt beschreibt die Entwicklung der Elektronik. Die Funktionalität wurde auf verschiedene Module aufgeteilt. Das erleichtert die Platzierung der Elektronik innerhalb des Messroboters, und den Austausch von Komponenten im Fehlerfall. 
+Das Gehirn des Roboters ist ein Arduino Mega 2560 Mikrocontroller Board. Darauf aufgesteckt ist ein sogenanntes Shield, eine selbst entwickelte Platine, das die $\pm$5V Spannungsversorgung, die Schnittstellen zu den anderen Platinen und einen SD-Karten Einschub beheimatet.
+Es gibt 3 Messplatinen, eine für den Kurzschlussstrom der Messzelle, zwei für Temperaturmessungen. Eine Platine überwacht den Ladezustand des Akkus. Die Motorensteuerung ist auf einer eigenen Paltine beheimatet.
+ 
 \subsection{Motorensteuerung}\thispagestyle{empty}
 
 
@@ -310,7 +323,7 @@ Die Drehzahl bei konstanter Versorgungsspannung lässt sich mit Pulsweitenmodula
 \end{figure}
 
 Die Gleichspannungsmotoren sind Getriebemotoren mit der Bezeichnung RB 35, und einem Übersetzungsverhältnis von 1:200. Die maximale Versorgungsspannung wurde mit 12V angegeben. Die Drehzahl beträgt bei 12V Versorgungsspannung 20 Umdrehungen pro Minute.
-Der Roboter wird mit einem Lithium-Ionen-Akku versorgt. Die Spannung beträgt, abhängig vom Ladezustand zwischen 16,2V und 15,5V. Damit es zu keiner Überlastung der Motoren, kommt wurde bei der Pulsweitenmodulation ein maximales Tastverhältnis von 50\% eingehalten.
+Der Roboter wird mit einem Lithium-Ionen-Akku versorgt. Die Spannung beträgt, abhängig vom Ladezustand zwischen 16,4V und 15,0V. Damit es zu keiner Überlastung der 12V-Motoren, kommt wurde bei der Pulsweitenmodulation ein maximales Tastverhältnis von 50\% eingehalten.
 
 \begin{figure}[htbp]
 \centering
@@ -326,19 +339,26 @@ Als Sensor wurde ein CNY70 verwendet. Der CNY 70 ist ein Reflexionsensor. Der Se
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/cny70.png}
-\caption[...]{...}\label{cny1}
+\caption{Der Strom durch den Phototransistor ist abhängig von der Reflektiviät des Untergrundes}\label{cny1}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=75mm]{img/cny701.png}
-\caption[...]{...}\label{cny2}
+\includegraphics[width=125mm]{img/array.png}
+\caption{Der Schaltplan des Sensorarrays}\label{array}
 \end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=125mm]{img/array2.png}
+\caption{Das Layout des Senorarrays}\label{array2}
+\end{figure}
+
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/sensor_array.jpg}
-\caption[Sensorarray]{Sensorarraf im Roboter eingebaut}\label{array3}
+\caption{Das unter dem Roboter montierte Sensorarrayt}\label{array3}
 \end{figure}
 
 
@@ -373,14 +393,20 @@ The Arduino Mega 2560 is a microcontroller board based on the ATmega2560 (datash
 \end{figure}
 
 \subsection{Temperatursensoren}\thispagestyle{empty}
-Messprinzip, Temperaturstabiliät
 
 Vergleich des Stromes durch eine 100 Ohm Präzisionswiderstand (Temperaturstabilität!) mit dem Strom durch einen PT-100. Als Stromquelle diente eine REF200-Stromquelle, welche 2 mal 100 Mikroampere (+- 0.5 Prozent) liefert.
 
-Schaltung
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=100mm]{img/tmess.png}
+\caption{Schaltung der Temperaturmessung}\label{tmess}
+\end{figure}
 
-Print foto Platine?
-
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=100mm]{img/tmess2.png}
+\caption[Arduino Mega 2560]{Layout der Temperarurmessung}\label{tmess2}
+\end{figure}
 
 
 \section{Softwareentwicklung}\thispagestyle{empty}
