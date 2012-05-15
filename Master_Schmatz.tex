@@ -1,6 +1,4 @@
 % LaTeX-Vorlage Version 3.1,  Juli 2011
-% erstellt von Dr. Andreas Drauschke (andreas.drauschke@technikum-wien.at) und Dr. Susanne Teschl (susanne.teschl@technikum-wien.at)
-% geringf"ugig adaptiert von Harald Stockinger (harald.stockinger@technikum-wien.at)
 
  
 \documentclass[a4paper,bibtotoc,oneside]{scrbook} 
@@ -115,13 +113,13 @@ und auch noch nicht ver"offentlicht. Ich versichere, dass die abgegebene Version
 Die Arbeit umfasst die Planung und Realisierung eines selbstfahrenden Messroboters, der die Bestrahlungsst"arkeverteilung in der Prüfebene eines station"aren Sonnensimulators erfasst. Neben den Einstrahlungsdaten werden werden zus"atzliche Informationen über die Umgebungsbedingungen im Prüfkanal aufgezeichnet. Bei der Umsetzung wurden Rapid-Prototyping Techniken (3D-Druck, Platinenfr"ase und Lasercutter) eingesetzt. Behandelt werden theoretische Grundlagen und normative Anforderungen an station"are Sonnensimulatoren, sowie Messunsicherheitsberechnungen und Validierung des Gesamtsystems.
 \\ \vfill
 % Bitte 3-5 deutsche Schlagw"orter eingeben, die die Arbeit charakterisieren:
-\paragraph*{Schlagw"orter:} Schlagwort 1, Schlagwort 2, Schlagwort 3, Schlagwort 4, Schlagwort 5
+\paragraph*{Schlagw"orter:} Sonnensimulator, Messroboter, Bestrahlungsstärke
 
 
 \newpage
 
 \section*{Abstract}\thispagestyle{empty}
-Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text ...
+This paper discripes the planning and the realisation of a autonomous measurement robot. The robot measures the irradiance in a test plane a a continous solar simulator.
 \\ \vfill
 % Bitte 3-5 englische Keywords eingeben, die die Arbeit charakterisieren:
 \paragraph*{Keywords:} Keyword 1, Keyword 2, Keyword 3, Keyword 4, Keyword 5
@@ -258,7 +256,15 @@ Bei $A$ handelt es sich um die Zellfläche, bei $G$ um die Generationsrate von E
 \subsection{Mecanum-Platform}\thispagestyle{empty}
 Das Mecanum-Rad ist ein Rad, das Fahrman"over in jede Richtung erlaubt, ohne dass das Fahrzeug mit einer mechnischen Lenkung ausgestattet ist. Bennnt ist es nach dem schwedischen Unternehmen Macanum AB in welchen dieses Rad 1971 entwickelt wurde. 
 Erreicht wird die Wendigkeit der Fahrzeuge durch den Einsatz von Mecanum R"adern, die einzeln angetrieben werden. Diese R"ader bestehen aus einer Felge, auf der unter einem Winkel von 45 Grad lose, ballige Rollen so angebracht sind, dass sie "uber den Abrollumfang wieder einen exakten Kreis bilden.
-Durch die Schr"aganordnung der Rollen entstehen beim Antreiben des Rades 2 Kraftkomponenten. Gegeneinander gerichtete Kr"afte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich, ohne dass das Fahrzeug mit einer mechanischen Lenkung ausgestattet ist. 
+Durch die Schr"aganordnung der Rollen entstehen beim Antreiben des Rades 2 Kraftkomponenten. Gegeneinander gerichtete Kr"afte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich\ref{fahrman}, ohne dass das Fahrzeug mit einer mechanischen Lenkung ausgestattet ist. 
+
+\begin{figure}
+    \subfigure[Vor/Zurück]{\includegraphics[width=0.49\textwidth]{img/gerade.png}}
+    \subfigure[Links/Rechts]{\includegraphics[width=0.49\textwidth]{img/seitw.png}}
+     \subfigure[Drehen]{\includegraphics[width=0.49\textwidth]{img/dreh.png}}
+\caption{Einige mögliche Fahrmanöver eines Mecanum-Rad-Roboters}\label{fahrman}
+\end{figure} 
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/wheel.png}
@@ -299,7 +305,13 @@ Das Chassis besteht aus 3 Teilen: \begin{itemize}
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/gehause.pdf}
-\caption[Chassis]{Chassis}\label{chassis}
+\caption[Chassis]{Schittvorlage der Chassis}\label{gehause}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=125mm]{img/robo3d.png}
+\caption[Chassis]{3D-Modell der Chassis}\label{robo3d}
 \end{figure}
 
 
@@ -456,31 +468,31 @@ Nach Ablauf dieser 60 Sekunden wechselt das Programm in den Modus Vorwärts. In 
 
 \chapter{Kalibration}\thispagestyle{empty}
 
-Dieses Kapitel beschreibt die Kalibrierung der Messsensoren. Es gibt drei Messplatinen, eine für die Messung des Kurzschlussstromes, und zwei identisch aufgebaute Messplatinen zur Messung der Zelltemperatur beziehungsweise der Umgebungstemperatur. Die Strom-Messplatine wandelt den Kurzschlussstrom der Messzelle in eine Spannung um, welche größenmäßig in einem für den ADC des Arduino auswertbaren Bereich (0 bis 5 Volt) ist. Die beiden Messschaltungen zur Temperaturmessung wandeln die Größe der temperaturabhängigen Messwiderstände, jeweils ein Pt-100, in eine Spannung um.
-Die ADC-Messwerte wurden über die USB-Schnittstelle des Roboters ausgelesen. Dafür benötigt der Roboter ein einfaches Kalibrierprogramm, welches die gemessenen und gemittelten ADC-Werte über die USB-Schnitstelle sendet. 
+Dieses Kapitel beschreibt die Kalibrierung der Messsensoren. Es gibt drei Messplatinen, eine für die Messung des Kurzschlussstromes der Messzelle, und zwei identisch aufgebaute Messplatinen zur Messung der Zelltemperatur beziehungsweise der Umgebungstemperatur. Die Strom-Messplatine wandelt den Kurzschlussstrom der Messzelle in eine Spannung um, die in einem für den ADC des Arduino auswertbaren Bereich (0 bis 5 Volt) ist. Die beiden Messschaltungen zur Temperaturmessung wandeln die Größe der temperaturabhängigen Messwiderstände, jeweils ein Pt-100, in eine Spannung um.
+Die ADC-Messwerte wurden über die USB-Schnittstelle des Roboters ausgelesen. Dafür benötigt der Roboter ein einfaches Kalibrierprogramm.
 
 
 
 \section{Temperatursensoren}\thispagestyle{empty}
-Zur Temperaturmessungen werden zwei Pt100 Messfühler verwendet. Die Temperatur der Messzelle wird mit einem an die Messzelle von unten aufgeklebten flächigen Folienmesswiderstand gemessen. 
-Ein zweiter Pt100, in kompakter Dünnschichtbauweise ausgeführt, misst die Temperatur der Umgebung. Beide Messschaltungen sind identisch aufgebaut, dennoch können Bauteiltoleranzen zu leicht unterschiedlichen Messspannungen führen.
-Für die Kaltbration der Temperaturmesselektronik wurden die Pt-100 Widerstände durch einen hoch genaues, einstellbares und kalibriertes Messnormal ersetzt. Der Widerstand wurde im Bereich von 100 bis 122 Ohm in 1 Ohm Schritten verändert, was einer Temperatur von 0 bis 55 $^{\circ}$C entspricht. Die ADC-Werte wurden über die USB-Schnittstelle des Arduino ausgelesen. Es zeigte sich, dass die beiden Schaltungen leicht unterschiedliche Verstärkungen haben. Daher mussten jede Temperaturmessschaltung separat kalibriert werden.  
+Die Temperatur der Messzelle wird mit einem von unten aufgeklebten flächigen Folienmesswiderstand gemessen. 
+Ein zweiter Pt100, in kompakter Dünnschichtbauweise ausgeführt, misst die Temperatur der Umgebung. Beide Messskreise sind identisch aufgebaut, dennoch führen Bauteiltoleranzen zu leicht unterschiedlichen Verstärkungen.
+Für die Kaltbration der Temperaturmesselektronik wurden die Pt-100 Widerstände durch einen hoch genaues, einstellbares und kalibriertes Messnormal ersetzt. Der Widerstand wurde im Bereich von 100 bis 122 	$\Omega$  in 1 $\Omega$  Schritten verändert, was einer Temperatur von 0 bis 55 $^{\circ}$C entspricht. Die ADC-Werte wurden über die USB-Schnittstelle des Arduino ausgelesen. Es zeigte sich, dass die beiden Schaltungen leicht unterschiedliche Verstärkungen haben. Daher mussten jede Temperaturmessschaltung separat kalibriert werden.  
 
 \begin{table}[htbp]
 \centering
 \begin{tabular}{ | c | c | }\hline
-{\bf R in Ohm} & {\bf ADC Wert}\\ \hline
+{\bf R / $\Omega$ } & {\bf ADC Wert}\\ \hline
 \hline
 101 & 12\\ \hline
-102 & 52,5\\ \hline
-103 & 92,5\\ \hline
+102 & 53\\ \hline
+103 & 93\\ \hline
 104 & 133\\ \hline
-105 & 172,5\\ \hline
+105 & 173\\ \hline
 106 & 212\\ \hline
-107 & 252,5\\ \hline
-108 & 292,5\\ \hline
+107 & 253\\ \hline
+108 & 293\\ \hline
 109 & 332\\ \hline
-110 & 373,5\\ \hline
+110 & 374\\ \hline
 111 & 412\\ \hline
 112 & 454\\ \hline
 113 & 493\\ \hline
@@ -489,7 +501,7 @@ Für die Kaltbration der Temperaturmesselektronik wurden die Pt-100 Widerstände
 116 & 613\\ \hline
 117 & 653\\ \hline
 118 & 694\\ \hline
-119 & 733,5\\ \hline
+119 & 734\\ \hline
 120 & 775\\ \hline
 121 & 815\\ \hline
 122 & 857\\ \hline
@@ -509,11 +521,11 @@ Obwohl der 10-Bit ADC des Arduino einen Maximalwert von 1023 hat, ist bedingt du
 \begin{table}[htbp]
 \centering
 \begin{tabular}{ | c | c | }\hline
-{\bf R in Ohm} & {\bf ADC Wert}\\ \hline
+{\bf R / $\Omega$ } & {\bf ADC Wert}\\ \hline
 \hline
 100 & 0\\ \hline
 101 & 20\\ \hline
-102 & 59,5\\ \hline
+102 & 60\\ \hline
 103 & 99\\ \hline
 104 & 139\\ \hline
 105 & 179\\ \hline
@@ -522,7 +534,7 @@ Obwohl der 10-Bit ADC des Arduino einen Maximalwert von 1023 hat, ist bedingt du
 108 & 299\\ \hline
 109 & 339\\ \hline
 110 & 379\\ \hline
-111 & 419,5\\ \hline
+111 & 420\\ \hline
 112 & 460\\ \hline
 113 & 499\\ \hline
 114 & 539\\ \hline
@@ -544,31 +556,31 @@ Obwohl der 10-Bit ADC des Arduino einen Maximalwert von 1023 hat, ist bedingt du
 \caption{Ausgleichsgerade Temperaturmessung B}\label{messb}
 \end{figure}
 
-Die gewonnen Formeln für Messschaltung A~\ref{messa} und B~\ref{messa} werden verwendet um aus den ADC-Werten die dazugehörigen Widerstandswerte zu berechnen. 
+Die mit Excel gewonnen Gleichungen der Ausgleichsgerade für Messschaltung A (siehe Abbildung ~\ref{messa}) und B (siehe Abbildung ~\ref{messa}) werden verwendet um aus den ADC-Werten die dazugehörigen Widerstandswerte zu berechnen. 
 
   \begin{equation}
      R_A(ADC) = \frac{ADC_A + 4039,9}{40,107}
   \end{equation}
   
     \begin{equation}
-     R_B(ADC) = \frac{ADC_B + 4039,9}{40,107}
+     R_B(ADC) = \frac{ADC_B + 4023,6}{40,027}
   \end{equation}
 
 
 \section{Messzelle}\thispagestyle{empty}
 
 
-Der Kurzschlussstrom der Messzelle wurde im Flasher~\ref{zelleflasher} über einen weiten Temperaturbereich gemessen~\ref{tempkoef}. Es wurde mit der Berger Messlast gemessen. Bei der Messung wurden die Leitungswiderstände der Messkabel minimiert, indem Kabel mit hohem Querschnitt ($6mm^2$) verwendet wurden, und die Kabel möglichst kurz gehalten wurden (<1,5m).
+Der Kurzschlussstrom der Messzelle wurde im Flasher (siehe Abbildung~\ref{zelleflasher}) über einen weiten Temperaturbereich gemessen (siehe Abbildung~\ref{tempkoef}). Es wurde mit der Berger Messlast \cite{berger} gemessen. Bei der Messung wurden die Leitungswiderstände der Messkabel minimiert, indem Kabel mit hohem Querschnitt (6mm$^2$) verwendet wurden, und die Kabel möglichst kurz gehalten wurden (<1,5m).
  
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/zelle.jpg}
-\caption{Die Messzelle auf dem Einschub des gepulsten Sonnensimualtors}\label{zelleflasher}
+\caption{Ein Photo der Messzelle}\label{zelleflasher}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=150mm]{img/tempkoef.png}
+\includegraphics[width=150mm]{img/Isc.png}
 \caption{Abhängigkeit des Kurzschlussstromes von der Temperatur}\label{tempkoef}
 \end{figure}
 
@@ -635,7 +647,7 @@ Bei der ersten Messung zeigte sich, dass eine der beiden Messplatinen nicht temp
 \begin{table}[htbp]
 \centering
 \begin{tabular}{ | c | c | c |}\hline
-{\bf T in $^{\circ}$C} & {\bf ADC Platine A} & {\bf ADC Platine B}\\ \hline
+{\bf T / $^{\circ}$C} & {\bf ADC Platine A} & {\bf ADC Platine B}\\ \hline
 \hline
 11,7 & 368 & 407\\ \hline
 13,0 & 368 & 406\\ \hline
@@ -727,7 +739,7 @@ Der ADC Wert des Kurschlussstromes wird in Ampere umgerechnet. Verwendet wird di
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=150mm]{img/vergleich23.png}
-\caption[Vergleich zweier Messungen]{Vergleich zweier Messungen}\label{vergleich}
+\caption{Vergleich zweier Messungen}\label{vergleich}
 \end{figure}
 
 \begin{figure}[htbp]
