@@ -141,55 +141,77 @@ Ich danke meinen Firmenbetreuer Thomas Krametz für die Zeit die er sich genomme
 % dort Kurzformen der Kapitelbezeichnungen mittels:
 % \chapter[Kurzform]{Lange "Uberschrift}
 \chapter{Aufgabenstellung}
-\section{Warum Module im Sonnensimulator} \thispagestyle{empty}
-Ein Sonnensimulator simuliert die Wirkung von Sonnenlicht auf Prüfobjekte. Für die Prüfung von PV-Modulen ersetzt ein stationärer Sonnensimulator das natürliche Sonnenlicht, das ist notwendig weil aufgrund von Jahreszeit und Witterung nicht immer 1000W pro Quadratmeter mit den AM1,5 Spektrum zur Verfügung stehen.
-Es bedarf der Erklärung einiger wichtiger Begriffe. AM steht für Air Mass, die Lufthülle der Erde, die zum einem das leben auf diesen Planeten ermöglicht, zum anderen muss das Sonnenlicht die Erdatmosphäre durchdringen. Dabei wird das Licht abgeschwächt und die spektrale Zusammensetzung verändert, weil bestimmte Moleküle (O2, H2O, CO2) der Luft einige Wellenlängenbereiche sehr gut absorbieren. 
+
+Dieses Kapitel beschreibt die Notwendigkeit von Messungen in stationären Sonnensimulatoren, den Aufbau eines solchen Simulators, sowie dessen normativen Anforderungen. Weiters wird die Funktion eines Photovoltaik-Zelle beschrieben.
+
+\section{Stationäre Photovoltaik Sonnensimulatoren} \thispagestyle{empty}
+
+Photovoltaik-Sonnensimulatoren werden zur elektrischen Charkterisierung und Prüfung von Photovolatik-Modulen verwendet. Der wesentliche Vorteil liegt darin, dass die Durchführung unter reproduzierbareb Umweltbedingungen (Bestrahlungsstärke, spektrale Zusammensetzung des einfallenden Lichtes und die Prüfgutstemperatur)  ermöglicht wird. Ein Nachteil ist die nicht 100\% Übereinstimmung mit dem Spektrum des natürlichen Sonnenlicht. Am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$) können das Spektrum nicht verändern, sind also für einen Sonnenstand beschränkt.
+Im Allgemeinen werden Messergebnisse auf Standard-Prüfbedingungen (STC) bezogen, die durch 1000W/m, 25 $^{\circ}$C und Am 1.5 definiert ist. Die Air Mass (AM) beschreibt das Verhältnis des Weges des einfallenden Sonnenlichtes durch die Atmosphäre bezogen auf senkrechten Einfall. Je länger der Weg des Lichtes durch die Atmosphäre desto größer ist der Einfluss durch Streuung, Reflexion und Absorption, was sowohl die Stärke der Einstrahlung als auch die spektrale Zusammensetzung des Sonnenlichtes vom Sonnenstand abhängig macht.  \begin{equation}
+     AM = \frac {L} {L_0} \approx \frac{1}{cos~ z}
+  \end{equation}
+Wobei L die Länge des Weges des Sonnenlichtes durch die Atmosphäre, L$_0$ die Weglänge bei senkrechten Einfall und z der Zenitwinkel des Sonnenstandes in Grad ist.
+Die spektrale Verteilung des Referenzsonnenspektrums Am 1.5 ist durch die Norm IEC 60904-3 festgelegt.
  
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/Solar_Spectrum.png}
-\caption{Spektrum der Sonne}\label{sunspec}
+\caption[Sonnenspektrum]{Der Vergleich von Spektrum des Sonnenlichtes im Weltall (AM 0), der Strahlung eines schwarzen Körpers von 5250$^{\circ}$C und dem AM1.5 Spektrum}\label{sunspec}
 \end{figure}
 
 
 \section{Sonnensimulator Aufbau}\thispagestyle{empty}
-10 Lampen zu je 4 kW. Angeordnet in 2 Reihen zu je 5 Lampen. Die Lampen sind höhenverstellbar.
-Die Leistung der Lampen lässt sich einzeln ansteuern.
-Die Testobjekte, z.B. ganze Module oder auch einzelne Zellen liegen in einer Lade.
-Die Prüfebene ist 2,50 mal 4 Meter groß. Nur ein teil dieser Ebene wird verwendet.
-Die Prüfebene liegt innerhalb eines Windkanales, der oben für die Strahlung durchsichtig ist.
-Der Windkanal verengt sich, damit die Windgeschwindigkeit ansteigt, um eine konstante Kühlleistung wegen der sich erwärmenden Luft zu haben. 
+Als Lichtquellen dienen 10 Metallhalogenoid Strahler mit je 4 kW elektrischer Leistung.
+Für eine spektral unabhängige Reduzierung der Beleuchtungsstärke sind die Strahler an einer höhenverstellbaren Aufhängung befestigt.
+Die Testobjekte werden mittels Prüfgut-Einschub in einem Windkanal positioniert, dessen obere Abdeckung aus einem geeigneten Solarglas besteht. Die geneigte Glasplatte bewirkt eine Querschnittreduktion des Luftkanales und somit eine Erhöhung der Strömungsgeschwindigkeit zwischen Zuluft- und Abluftseite. Diese stetige Erhöhung der Geschwindigkit ist notwendig, damit die sich erwärmende Zuluft eine konstante Kühlwirkung hat, und somit die Testobjekte eine konstante Temperatur über die gesamte Fläche haben.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/sunsimulator.jpg}
-\caption[Sonnensimulator]{Sonnensimulator}\label{sunsim}
+\caption[Sonnensimulator]{Der Aufbau des Sonnensimulators: Die 10 Metallhalogenoid Strahler, der Windkanal und die Prüfebene sind zu erkennen}\label{sunsim}
 \end{figure}
 
 
-\section{Normative Anforderungen an den Sonnensimulator}\thispagestyle{empty}
-Akkreditierung,Begründnung warum Messroboter, Alte Ergebnisse, Alte Messmethode
+\section{Anforderungen}\thispagestyle{empty}
+Sonnensimulatoren werden nach IEC 60904-9 in 3 Klassen eingeteilt: A, B, und C. 
 
-In IEC 60904-9 legt die Anforderungen an Sonnensimulatoren fest.
 
-\begin{figure}[htbp]
+\begin{table}[htbp]
 \centering
-\includegraphics[width=75mm]{img/spectral.png}
-\caption[Spektralle Strahlungsverteilung]{Spektralle Strahlungsverteilung nach IEC 60904-9}\label{sectral}
-\end{figure}
+\begin{tabular}{ | c | c | c |}\hline
+{\bf } & {\bf Wellenlängenbereich in nm} & {\bf \% der totalen Einstrahlung}\\ \hline
+\hline
+1  & 400 - 500 & 18,4 \\ \hline
+2  & 500 - 600 & 19,9\\ \hline
+3  & 600 - 700 & 18,4\\ \hline
+4  & 700 - 800 & 14,9\\ \hline
+5  & 900 - 900 & 12,5\\ \hline
+6  & 900 - 1100 & 15,9\\ \hline
+\end{tabular}
+\caption{Spektralle Strahlungsverteilung nach IEC 60904-9}\label{TabS1}
+\end{table}
 
-\begin{figure}[htbp]
+\begin{table}[htbp]
 \centering
-\includegraphics[width=75mm]{img/simclass.png}
-\caption[Simulatorklassen]{Simulatorklassen}\label{Sim2}
-\end{figure}
+\begin{tabular}{ | c | c | c | c | c |}\hline
+\multirow{2}{*}{Klassifikation} &  Spektrale  &  Örtliche  & {Kurzzeit-}& {Langzeit-}\\
+& Übereinstimmung & Homogenität & {stabilität} & {stabilität} \\ 
+\hline
+\hline
+A  & 0,75 - 1,25 & 2 \% & 0,5 \% & 2 \%\\ \hline
+B  & 0,6 - 1,4 & 5 \% & 2 \% & 5 \%\\ \hline
+C  & 0,4 - 2,0 & 10 \% & 10 \% & 10 \%\\ \hline
+
+\end{tabular}
+\caption{Anforderungen an die 3 verschiedenen Simulatorklassen}\label{TabS2}
+\end{table}
 
 
 
 \section{Theorie Referenzzelle}\thispagestyle{empty}
-Es gibt verschiedene Solarzelltechnologien. Wirtschaftlich bedeutend sind im Moment nur kristalline Siliziumzellen und Dünnschichtzellen. Die kristallinen Siliziumzellen werden in monokristalline Zellen und polykristalline Zellen unterschieden. Beide zusammen amchen über 80\% des weltweiten Photovoltaikmarktes aus. Als Referenzzelle für Messungen werden ausschließlich kristalline Zellen verwendet. Wichtig ist, dass die Referenzzelle eine ähnliche spektralle Empfindlichkeit hat wie die zu messenden Zelle bzw. das zu messende Modul.
-Siliziumsolarzellen bestehen aus einer großflächigen Diode. Die Sperrschicht ist dabei dem Sonnenlicht ausgesetzt. Gelangt ein Lichtquanten in die Sperrschicht kann aufgrund des inneren Photoeffektes ein Elektron/Loch Paar erzeugt werden. Durch das elektrische Feld in der Sperrschicht werden die Ladungsträger getrennt bevor sie kombinieren können. Elektronen bewegen aufgrund ihrer negativen Ladung entgegen der Feldrichtung in die n-Zone. Löcher wandern in Feldrichtung zur raumladungsfreien p-Zone. Die Leerlaufspannung einer Solarzelle ist kleiner als die Diffusionsspannung.
+Es gibt verschiedene Solarzelltechnologien. Wirtschaftlich bedeutend sind im Moment nur kristalline Siliziumzellen und Dünnschichtzellen. Die kristallinen Siliziumzellen werden in monokristalline Zellen und multikristalline Zellen unterschieden. Beide zusammen machen über 80\% des weltweiten Photovoltaikmarktes aus \cite{iea00}. Als Referenzzelle für Messungen werden ausschließlich kristalline Zellen verwendet. Eine Referenzzellen ist eine genau vermessene Solarzellen, die als Strahlungsmessgerät dient. Wichtig ist, dass die Referenzzelle eine ähnliche spektralle Empfindlichkeit hat wie die zu messenden Zelle bzw. das zu messende Modul.
+Siliziumsolarzellen bestehen aus einer großflächigen Diode. Die Sperrschicht ist dabei dem Sonnenlicht ausgesetzt. Gelangt ein Lichtquanten in die Sperrschicht kann aufgrund des inneren Photoeffektes ein Elektron/Loch Paar erzeugt werden. Durch das elektrische Feld in der Sperrschicht werden die Ladungsträger getrennt bevor sie kombinieren können. Elektronen bewegen aufgrund ihrer negativen Ladung entgegen der Feldrichtung in die n-Zone. Löcher wandern in Feldrichtung zur raumladungsfreien p-Zone. Die Leerlaufspannung einer Solarzelle ist kleiner als die Diffusionsspannung, der Spannung über die Raumladungszone, die der Diffusion von Ladungsträgern entgegenwirkt.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/cell.png}
@@ -197,16 +219,16 @@ Siliziumsolarzellen bestehen aus einer großflächigen Diode. Die Sperrschicht i
 \end{figure}
 
 
-Die unbeleuchtete Solarzelle ist funktioniert wie eine normale Halbleiterdiode, die einen Durchlassstrom von p- nach n-Seite fließen lässt, falls eine Spannung von p nach n anliegt. Bei Beleuchtung wird zusätzlich ein Photostrom erzeugt, welcher proportional zur Bestrahlungsstärke und der Zellfläche ist. Das Ersatzschaltbild~\ref{esb} besteht daher aus einer Stromquelle, dazu parallel einer Diode, einen Parallelwiderstand und einem Serienwiderstand. Der Parallelwiderstand fasst Kurzschlüsse zusammen, die realen Solarzellen am Rand oder an den Korngrenzen auftreten können. Mit dem Serienwiderstand werden alle Spannungsabfälle in der Solarzelle erfasst. Eine ideale Solarzelle hat einen Serienwiderstand von null und einen Parallelwiderstand von unendlich. 
+Die unbeleuchtete Solarzelle ist funktioniert wie eine normale Halbleiterdiode, die einen Durchlassstrom von p- nach n-Seite fließen lässt, falls eine Spannung von p nach n anliegt. Bei Beleuchtung wird zusätzlich ein Photostrom erzeugt, welcher proportional zur Bestrahlungsstärke und der Zellfläche ist. Das Eindiodenmodel (siehe Abbildung ~\ref{esb}) besteht daher aus einer Stromquelle, dazu parallel einer Diode, einen Parallelwiderstand und einem Serienwiderstand. Der Parallelwiderstand fasst Kurzschlüsse zusammen, die realen Solarzellen am Rand oder an den Korngrenzen auftreten können. Mit dem Serienwiderstand werden alle Spannungsabfälle in der Solarzelle erfasst. Eine ideale Solarzelle hat einen Serienwiderstand von null und einen Parallelwiderstand von unendlich. 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=100mm]{img/esb.png}
-\caption{Ersatzschaltbild}\label{esb}
+\caption{Das Eindiodenmodell einer Sorlarzelle}\label{esb}
 \end{figure}
 
-Durch den zusätzlichen Photostrom verschiebt~\ref{kennlinie} sich die Diodenkennline. Bei Leerlaufspannung bzw. Kurzschlussstrom gibt die Solarzelle keine Leistung ab. Der Punkt der Kennlinie mit der maximalen Leistung wird als Maximum Power Point (MPP) bezeichnet.
+Durch den zusätzlichen Photostrom verschiebt (siehe Abbildung ~\ref{kennlinie}) sich die Diodenkennline. Im Leerlauf  bzw. Kurzschlussbetrieb gibt die Solarzelle keine Leistung ab. Der Punkt der Kennlinie mit der maximalen Leistung wird als Maximum Power Point (MPP) bezeichnet.
 
-Der Füllfaktor berechnet sich aus Strom im maximalen Leistungspunkt $I_{mp}$, Spannung am maximalen Leistungspunkt $U_{mp}$, Kurzschlusstrom $I_{sc}$ und Leerlaufspannung $U_{oc}$.
+Der Füllfaktor berechnet sich aus Strom im maximalen Leistungspunkt $I_{mp}$, Spannung im maximalen Leistungspunkt $U_{mp}$, Kurzschlusstrom $I_{sc}$ und Leerlaufspannung $U_{oc}$ zu:
   \begin{equation}
      FF = \frac {I_{mp} U_{mp}} {I_{sc} U_{oc}}
   \end{equation}
@@ -250,13 +272,13 @@ Bei $A$ handelt es sich um die Zellfläche, bei $G$ um die Generationsrate von E
 
 
 
-\chapter{Entwicklungprozess}\thispagestyle{empty}
+\chapter{Entwicklungsprozess}\thispagestyle{empty}
 
-\section{Hardwaredesign}\thispagestyle{empty}
-\subsection{Mecanum-Platform}\thispagestyle{empty}
-Das Mecanum-Rad ist ein Rad, das Fahrman"over in jede Richtung erlaubt, ohne dass das Fahrzeug mit einer mechnischen Lenkung ausgestattet ist. Bennnt ist es nach dem schwedischen Unternehmen Macanum AB in welchen dieses Rad 1971 entwickelt wurde. 
-Erreicht wird die Wendigkeit der Fahrzeuge durch den Einsatz von Mecanum R"adern, die einzeln angetrieben werden. Diese R"ader bestehen aus einer Felge, auf der unter einem Winkel von 45 Grad lose, ballige Rollen so angebracht sind, dass sie "uber den Abrollumfang wieder einen exakten Kreis bilden.
-Durch die Schr"aganordnung der Rollen entstehen beim Antreiben des Rades 2 Kraftkomponenten. Gegeneinander gerichtete Kr"afte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich\ref{fahrman}, ohne dass das Fahrzeug mit einer mechanischen Lenkung ausgestattet ist. 
+\section{Hardwaredesign und Komponenten}\thispagestyle{empty}
+\subsection{Mecanum-Plattform}\thispagestyle{empty}
+Das Mecanum-Rad ist ein Rad, das Fahrmanöver in jede Richtung erlaubt, ohne dass das Fahrzeug mit einer mechanischen Lenkung ausgestattet ist. Benannt ist es nach dem schwedischen Unternehmen Macanum, welches dieses Rad 1971 entwickelt hat.
+Erreicht wird die Wendigkeit der Fahrzeuge durch den Einsatz von Mecanum R"adern, die einzeln angetrieben werden. Diese Räder bestehen aus einer Felge, auf der unter einem Winkel von 45 Grad befestigte, ballige Rollen so angebracht sind, dass sie über den Abrollumfang einen exakten Kreis bilden.
+Durch die Schräganordnung der Rollen entstehen beim Antreiben des Rades 2 Kraftkomponenten. Gegeneinander gerichtete Kräfte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich (siehe Abbildung \ref{fahrman}).
 
 \begin{figure}
     \subfigure[Vor/Zurück]{\includegraphics[width=0.49\textwidth]{img/gerade.png}}
@@ -285,22 +307,19 @@ Durch die Schr"aganordnung der Rollen entstehen beim Antreiben des Rades 2 Kraft
 
 \subsection{Chassis}\thispagestyle{empty}
 
-\noindent Die Chassis wurde aus Sperrholz gefertigt. Dieses Holz wurde gewählt weil es leicht zu bearbeiten, robust und UV-beständig ist. Das Design dafür entstand mit QCAD. QCAD ist ein 2-dimensionales CAD Programm. 
-Die Größe der Chassis wurde bestimmt durch: \begin{itemize}
-\item Den Durchmesser und der Breite der Mecanum Räder, die Räder liegen innerhalb der Chasis, damit die Räder vor der UV Strahlung geschützt sind, und die Räder keinen Einfluss (Beschattung oder Reflexionen) auf die Messzelle haben.
+\noindent Das Chassis wurde aus Sperrholz gefertigt. Dieses Material wurde gewählt weil es leicht zu bearbeiten, robust und UV-beständig ist. Das Design wurde mit QCAD entwickelt. QCAD ist ein 2-dimensionales CAD Programm. 
+Die Abmessungen des Chassis wurde im Wesentlichen abgestimmt auf: \begin{itemize}
+\item Den Durchmesser und der Breite der Mecanum Räder, die innerhalb des Chasis liegen, damit die Räder vor der UV Strahlung geschützt sind, kein Einfluss (Beschattung oder Reflexionen) auf die Messzelle besteht.
 \item Die Größe der Motoren.
-\item Der Arduino , die Motorsteuerelektronik und die Messelektronik
-\item Der Akku zur Stromversorgung, die dazugehörende Akku Spannungsüberwachung und der Ein/Aus Schalter.
-\item Die Abmessung der Messzelle.
+\item Den Arduino-Mikrocontroller , die Motorsteuerelektronik und die Messelektronik
+\item Den Akku zur Stromversorgung, die dazugehörende Akku Spannungsüberwachung 
+\item Die Abmessung der eingekapselten Solarzelle.
  \end{itemize}
 
-\noindent Die Einzelteile wurden mit einem Lasercutter aus einer großen Sperrholzplatte geschnitten. Die Einzelteile wurden teilweise miteinander verleimt damit eine zukünftige Wartung problemlos möglich ist, wurde der Aufbau verschraubt ausgeführt.
+\noindent Die Einzelteile wurden mit einem Lasercutter aus einer Sperrholzplatte geschnitten. Die Einzelteile wurden teilweise miteinander verleimt. Damit eine zukünftige Wartung problemlos möglich ist, wurde der Aufbau verschraubt ausgeführt.
 Die Motoren sind verschraubt, damit ein Austausch möglich ist. Einzelne Räder als auch die Rollen lassen sich bei Bedarf austauschen.
-Das Chassis besteht aus 3 Teilen: \begin{itemize}
-\item Der Bodenplatte
-\item Die Seitenwände
-\item Das Dach mit der Aufnahme für die Messzelle
-\end{itemize}
+Das Chassis besteht aus der Bodenplatte, den Seitenwänden und der oberen Abdeckung mit der Aufnahme für die Messzelle.
+
 
 \begin{figure}[htbp]
 \centering
@@ -671,7 +690,7 @@ Bei der ersten Messung zeigte sich, dass eine der beiden Messplatinen nicht temp
 20,1 & 368 & 379\\ \hline
 9,2 & 368 & 378\\ \hline
 \end{tabular}
-\caption{Temeraturabhängigkeit der Temperaturmessung}\label{TabT1}
+\caption{Temeraturabhängigkeit der Temperaturmessung}\label{TabT2}
 \end{table}
 
 Durch den Austausch der Referenzstromquelle der Platine B hat sich auch der ADC-Wert gegenüber der ersten Messung geändert. Die Kalibrierwerte der Platine B \ref{TabB} sind nach diesem Austausch aufgenommen worden.
