@@ -274,7 +274,24 @@ Bei $A$ handelt es sich um die Zellfläche, bei $G$ um die Generationsrate von E
 
 \chapter{Entwicklungsprozess}\thispagestyle{empty}
 
+Diese Kapitel beschreibt die Entwicklung des Roboters und ist in 3 Unterabschnitte gegliedert: das mechanische Design, die Elektronik und die Software.
+Einige Designelemente waren zu Beginn der Entwicklung vorgegeben. Der Roboter sollte mit Mecanum-Rädern ausgestattet sein. Er sollte eine photovoltaische Messzelle aufnehmen können. Er muss sich irgendwie im Raum orientieren können. Die Materialen sollten UV beständig sein, da der Roboter in einer UV-verstrahlten Umgebung arbeitet.
+Die Mecanum-Räder erlauben es dem Roboter sich auch seitwärts fortzubewegen, die Längsachse des Roboters, und somit auch die Messzelle, während des gesamten Messvorganges die Orientierung im Raum beibehält. 
+
 \section{Hardwaredesign und Komponenten}\thispagestyle{empty}
+
+Dieser Abschnitt behandelt die Entwicklung der mechanischen Komponenten, diese sind die 4 Räder und die Chassis des Roboters. Die mögliche Bauhöhe ist durch den Windkanal im Sonnensimulator beschränkt, zusätzlich soll die Messzelle möglichst in der gleichen Höhe wie zu messende Module liegen.
+Dir Größe der Messzelle, zusammen mit dem Raddurchmesser und der Breite der Räder gibt eine Minimalabmessung vor die der Roboter nicht unterschreiten kann. Zusätzlich müssen noch die Motoren, der Akku und die Elektronik im Inneren des Roboters Platz finden.
+Designprozess:
+- Mecanumräder sind festgelegt
+- Platz für Messzelle, oben, darunter Elektronik und Motoren
+- Mecanum Räder innerhalb des Chassis, Zelle am Dach
+- Optische Sensoren zum Verfolgen einer Linie, da auch seitwärts gefahren werden soll, in der Mitte des Roboters an der Unterseite.
+- Platz für den Mikrocontroller, die Elektronik, den Akku im Inneren. 
+- Da wichtige Komponenten wie der Akku später gewechselt wurden, war es gut Reserveplatz zu haben. 
+
+Insgesamt ist der Roboter ein wenig zu groß und sehr breit geworden. Die Breite ist aber kein Problem, da es kein Bedürfnis den Roboter bis an den seitlichen Rand der Messebene fahren zu lassen. Das ist für Messungen kein Interessanter Bereich mehr.
+
 \subsection{Mecanum-Plattform}\thispagestyle{empty}
 Das Mecanum-Rad ist ein Rad, das Fahrmanöver in jede Richtung erlaubt, ohne dass das Fahrzeug mit einer mechanischen Lenkung ausgestattet ist. Benannt ist es nach dem schwedischen Unternehmen Macanum, welches dieses Rad 1971 entwickelt hat.
 Erreicht wird die Wendigkeit der Fahrzeuge durch den Einsatz von Mecanum R"adern, die einzeln angetrieben werden. Diese Räder bestehen aus einer Felge, auf der unter einem Winkel von 45 Grad befestigte, ballige Rollen so angebracht sind, dass sie über den Abrollumfang einen exakten Kreis bilden.
@@ -703,11 +720,21 @@ Da die Platine A temperaturstabiler als die Platine B ist, wurde Platine A zur M
 
 
 \chapter{Messung}\thispagestyle{empty}
+
+Diese Kapitel beschreibt die Messvorbereitung, den Messaufbau, die eigentliche Messung und die Auswertung der Messdaten.
+
 \section{Messaufbau}\thispagestyle{empty}
+Dieser Abschnitt behandelt den Messaufbau. Die Messung der Bestrahlungsstärkeverteilung findet im Sonnensimulator statt. Zuerst muss eine Messebene geschaffen werden. Die, im normalen Messalltag vermessenen, Module liegen auf verschiebbaren Metallschienen auf. Damit der Roboter fahren kann, braucht er eine ebene Fläche. Die Messebene wird aus 3 Holzplatten gebildet, diese sind auf der Oberseite schwarz gefärbt und mit einer weißen mäanderförmigen Spur versehen. Die Platten hängen durch, dadurch ist die Messebene nicht eben. Schlimmer ist der nicht gleiche Durchhang verschiedener Platten. So kommt es zu Stufen zwischen den Platten. Um diese Stufen zu verringern wurde auf der Unterseite der Platten mit dem geringeren Durchhang eine kleine Aluplatte befestigt um eine Aufflage für die andere Platte zu schaffen. Eine zu große Stufe behindert den Roboter beim Fahren.
+
+Foto Platten , Foto Auflage  
+
   \subsection{Platten}\thispagestyle{empty}
 Im Sonnensimulator 2 Platten. Auf den 3 Platten ist die Messbahn aufgemalt.
 Die Platten müssen eng aneinander anliegen. Damit keine zu groß Stufe wegen unschiedlicher Duschbiegung der Platten entsteht ist auf der Rückseite der Holzplatten Aluminiumbleche befestig, auf einer Seite angeschraubt, die danebenliegende Platte liegt darauf.
 Da die Breite aller 3 Platten geringer ist als die Breite der Lade des Sonnensimulators, werden, damit die Messungen zu verschiedenen Zeitpunkten verglichen werden können, die Platten so weit wie möglich nach rechts geschoben. Am Rand liegen die Platten auf Aluschienen auf.
+Die Messpunkte liegen im Abstand von 15 cm, damit ist auch der Abstand zwischen den Messbahnen 15 cm, der Roboter muss nur 15 cm seitwärts fahren. Das seitwärts fahren funktioniert nicht so einwandfrei wie das  Vor/Zurückfahren, die Bewegungsrichtung ist bezogen bezogen auf die Orientierung der Räder.
+
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/messbahn1.png}
@@ -720,6 +747,11 @@ Die Übergänge der Messbahn von einer Platte zur nächsten sind mit weißem Iso
 
 
 \subsection{Ablauf}\thispagestyle{empty}
+Vor der Messung ist der Akku des Roboters voll zu laden. Der roboter ist auf mechanische Beschädigung zu Untersuchen, eventuell ist ein Rad locker, dann lässt es sich entlang der Achse verschieben.
+Zuallererst sind die Platten auf Beschädigung zu untersuchen. Beschädigungen der Messbahn sind mit einem weißen Isolierband zu überkleben. Beschädigungen des Holzes direkt neben der Messbahn sind mit schawrzer Farbe auszubessern. Stellen, die der Sensor nicht sehen kann, sind egal.
+Die Platten sind in den Einschub des Sonnensimulators zu legen. Das ist ein Puzzle und nicht schwer. Beginnend rechts. Die Übergänge der Messbahn von einer Platte zur nächsten sind mit weißem Isolierband  der Breite 14mm zu überbrücken. Beschädigung der Messbahn, welche durch unsanftes Handling der Platten entstehen können, sind ebenfalls mit weißem Isolierband zu Überkleben.
+
+
 
 Roboter wird auf das linke vordere Ende der Messbahn gestellt. Der Roboter muss dabei auf der Messbahn stehen. Kleinere Abweichungen der Idealposition werden beim losfahren korrigiert. 
 Vor der eigentlichen Messfahrt ist eine Testfahrt mit geöffneter Lade des Sonnensimulators zu empfehlen. Besonders die Übergänge von einer Platte zur nächsten können Probleme schaffen.
@@ -730,21 +762,42 @@ Zum Starten wird der Schalter von 0 auf 1 umgelegt. Damit wird der Mikrocontroll
 \section{Auswertung}\thispagestyle{empty}
 
 
-wie von sd  zu Bild,
-gemessene Verteilungen,
 
-Rohfassung: ADC Werte werden auf SD Karte gespeichert:
-Zeit in ms, Isc, Temperatur des Moduls, Umgebungstemperatur, Messpunkt, Reihe, Spalte
-Es sind 308 Messpunkte, 14 mal 22, es kann vorkommen, am Übergang von einer Platte zur anderen, dass ein Messpunkt ausgelassen wird. Das ist erkennbar wenn nicht 308 Messwerte im datalog-File sind. Um den Fehler leicht zu finden wurde Spalte und Reihe mit aufgezeichnet. Sind in einer Spalte nur 13 Messwerte, fehlt in dieser Spalte ein Wert. Anhand der mit aufgezeichneten Zeit kann der fehlende Messpunktes lokalisiert werden. Das geschiet nicht automatisch Der Messwert wird anhand der neben liegenden Werte geschätzt. Alternativ werden nur Messfahrten mit allen Punkten ausgewertet.
 
-Auf der SD Karte sind alle Messwerte in einer Wurscht gespeichert. Für die visuelle Auswertung wird diese Datenwurst in ein zweidimensionales Array umgewandelt. 
-Formel, Formel
+Die Messwerte werden in einer Textdatei auf einer SD-Karte gespeichert. Die einzelnen Messwerte sind dabei durch einen Tabulator getrennt. 
+Die Tabelle \ref{TabSD} zeigt wie die Daten auf der SD-Karte gespeichert sind. Es sind nicht alle Werte für die Auswertung notwendig. Der Erste Wert ist die Zeit in Millisekunden, die seit dem Einschalten des Roboters vergangen ist. Die nächsten 3 Werte sind werte des Analogdigtalwandlers im Bereich von Null bis 1023, diese Werte werden ohne Umrechnung direkt auf die SD Karte gespeichert. Es sind 308 Messpunkte, 14 mal 22, es kann vorkommen, am Übergang von einer Platte zur anderen, dass ein Messpunkt ausgelassen wird. Das ist erkennbar wenn nicht 308 Messwerte im datalog-File sind. Um den Fehler leicht zu finden wurde Spalte und Reihe mit aufgezeichnet. Sind in einer Spalte nur 13 Messwerte, fehlt in dieser Spalte ein Wert. Anhand der mit aufgezeichneten Zeit kann der fehlende Messpunktes lokalisiert werden. Das geschieht nicht automatisch Der Messwert wird anhand der neben liegenden Werte geschätzt. Alternativ werden nur Messfahrten mit allen Punkten ausgewertet.
+ 
+\begin{table}[htbp]
+\centering
+\begin{tabular}{ | c | c | c | c | c | c | c | } 
+\hline
+$\frac{t}{ms}$ & I$_{SC}$ & T$_{Zelle}$ & T$_{Umgebung}$ & Messpunkt & Messpunkt 2 & Messreihe \\
+\hline
+\hline
+{165515} & {466} & {437} & {237} & {47} & {5} & {4} \\
+\hline
+{167523} & {479} & {437} & {235} & {48} & {6} & {4} \\
+\hline
+{169551} & {471} & {437} & {228} & {49} & {7} & {4} \\
+\hline
+\end{tabular}
+\caption{Ein Ausschnitt der Messwertedatei}\label{TabSD}
+\end{table}
+
+Im Zuge der Auswertung wird ein eindimensionales Array von 308 Messwerten in ein zweidimensionales Array von 14 mal 22 Zahlen umgewandelt. Dazu wird der erste bis zum 14. Wert des eindimensionalen Arrays zur ersten Reihe des zweidimensionalen Arrays. Der 15. bis zum 28. Wert des eindimensionalen Arrays bilden die zweite Reihe des zweidimensionalen Arrays, allerdings in umgekehrter Reihenfolge. So bildet die Reihenfolge der Messwerte des zweidimensionalen Arrays die Messfahrt des Roboters ab.
+\newline
+\newline
+Aus der Matrix $\begin{pmatrix} 1 \\ . \\ . \\ . \\ 308  \end{pmatrix} $ wird die Matrix
+
+$\begin{pmatrix} 1 & . &.& .& 14\\ 28& .& .& . &15 \\ 29 &. &.& .& 42 \\ . &.& .& . & . \\ 298 &.& .&.& 308  \end{pmatrix} $ 
+\newline
+\newline
 Der ADC Wert des Kurschlussstromes wird in Ampere umgerechnet. Verwendet wird die in der Kallibrierung gewonnene Formel.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=150mm]{img/hugel.png}
-\caption[Kurzschlusstrom in Ampere]{Kurzschlusstrom in Ampere}\label{hugel}
+\caption[Kurzschlusstromes in Ampere]{Verteilung des Kurzschlusstromes in Ampere abhängig von der Position}\label{hugel}
 \end{figure}
 
 
@@ -851,9 +904,8 @@ Veränderbar sind der Abstand zwischen Lampenfeld und Prüfebene. Die Leistungen
 
 \section{Schlussfolgerung}\thispagestyle{empty}
 
-Der Roboter erleichtert die Messung der Bestrahlungsstärkemessung enorm.  
-
-
+Der Roboter erleichtert die Messung der Bestrahlungsstärkemessung enorm. Durch die kurze Messdauer ist es möglich die Bestrahlungsstärke in periodischen Zeitabständen zu vermessen, um so die Alterung der Lampen zu dokumentieren. 
+Diese Art von Messroboter kann in jedem stationären Sonnensimulator entsprechender Größe zur Vermessung der Bestrahlungsstärkeverteilung verwendet werden. 
 
 
 % Literaturverzeichnis
