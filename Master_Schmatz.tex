@@ -147,17 +147,17 @@ Dieses Kapitel beschreibt die Notwendigkeit von Messungen in stationären Sonnen
 \section{Stationäre Photovoltaik Sonnensimulatoren} \thispagestyle{empty}
 
 Photovoltaik-Sonnensimulatoren werden zur elektrischen Charkterisierung und Prüfung von Photovolatik-Modulen verwendet. Der wesentliche Vorteil liegt darin, dass die Durchführung unter reproduzierbareb Umweltbedingungen (Bestrahlungsstärke, spektrale Zusammensetzung des einfallenden Lichtes und die Prüfgutstemperatur)  ermöglicht wird. Ein Nachteil ist die nicht 100\% Übereinstimmung mit dem Spektrum des natürlichen Sonnenlicht. Am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$) können das Spektrum nicht verändern, sind also für einen Sonnenstand beschränkt.
-Im Allgemeinen werden Messergebnisse auf Standard-Prüfbedingungen (STC) bezogen, die durch 1000W/m, 25 $^{\circ}$C und Am 1.5 definiert ist. Die Air Mass (AM) beschreibt das Verhältnis des Weges des einfallenden Sonnenlichtes durch die Atmosphäre bezogen auf senkrechten Einfall. Je länger der Weg des Lichtes durch die Atmosphäre desto größer ist der Einfluss durch Streuung, Reflexion und Absorption, was sowohl die Stärke der Einstrahlung als auch die spektrale Zusammensetzung des Sonnenlichtes vom Sonnenstand abhängig macht.  \begin{equation}
+Im Allgemeinen werden Messergebnisse auf Standard-Prüfbedingungen (STC) bezogen, die durch 1000W/m, 25 $^{\circ}$C und AM1.5 definiert ist. Die Air Mass (AM) beschreibt das Verhältnis des Weges des einfallenden Sonnenlichtes durch die Atmosphäre bezogen auf senkrechten Einfall. Je länger der Weg des Lichtes durch die Atmosphäre desto größer ist der Einfluss durch Streuung, Reflexion und Absorption, was sowohl die Stärke der Einstrahlung als auch die spektrale Zusammensetzung des Sonnenlichtes vom Sonnenstand abhängig macht.  \begin{equation}
      AM = \frac {L} {L_0} \approx \frac{1}{cos~ z}
-  \end{equation}
-Wobei L die Länge des Weges des Sonnenlichtes durch die Atmosphäre, L$_0$ die Weglänge bei senkrechten Einfall und z der Zenitwinkel des Sonnenstandes in Grad ist.
-Die spektrale Verteilung des Referenzsonnenspektrums Am 1.5 ist durch die Norm IEC 60904-3 festgelegt.
+\end{equation}
+Wobei L die Länge des Weges des Sonnenlichtes durch die Atmosphäre, L$_0$ die Weglänge bei senkrechten Einfall und z der Zenitwinkel des Sonnenstandes in Grad ist (\cite{wurf} S. 30). 
+Die spektrale Verteilung des Referenzsonnenspektrums AM1.5 (siehe Abbildung \ref{sunspec} ist durch die Norm IEC 60904-3 \cite{norm3} festgelegt. Das Spektrum des Sonnenlichtes im Weltall AM0 entspricht in etwa der thermische Strahlung eines schwarzen Körpers mit 5250$\circ$C
  
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=75mm]{img/Solar_Spectrum.png}
-\caption[Sonnenspektrum]{Der Vergleich von Spektrum des Sonnenlichtes im Weltall (AM 0), der Strahlung eines schwarzen Körpers von 5250$^{\circ}$C und dem AM1.5 Spektrum}\label{sunspec}
+\includegraphics[width=100mm]{img/Solar_Spectrum.png}
+\caption[Sonnenspektrum]{Der Vergleich von Spektrum des Sonnenlichtes im Weltall (AM 0), der Strahlung eines schwarzen Körpers von 5250$^{\circ}$C und dem AM1.5 Spektrum. Quelle: \cite{sun}}\label{sunspec}
 \end{figure}
 
 
@@ -174,9 +174,9 @@ Die Testobjekte werden mittels Prüfgut-Einschub in einem Windkanal positioniert
 
 
 \section{Anforderungen}\thispagestyle{empty}
-Sonnensimulatoren werden nach IEC 60904-9 in 3 Klassen eingeteilt: A, B, und C. 
-
-
+Die Norm IEC 60904-9 \cite{norm9} stellt Anforderungen an Sonnensimulatoren. Ein Sonnensimulator wird anhand von 3 Kriterien bewertet: 
+\begin{itemize}
+\item die spektrale Übereinstimmung mit dem in Tabelle \ref{TabS1} aufgelisteten Wellenlängenbereichen. Zum AM1.5 Referenzspektrum sind durch die großen Schranken erhebliche Unterschiede möglich.
 \begin{table}[htbp]
 \centering
 \begin{tabular}{ | c | c | c |}\hline
@@ -191,7 +191,19 @@ Sonnensimulatoren werden nach IEC 60904-9 in 3 Klassen eingeteilt: A, B, und C.
 \end{tabular}
 \caption{Spektralle Strahlungsverteilung nach IEC 60904-9}\label{TabS1}
 \end{table}
+\item die Gleichmäßigkeit der Bestrahlungsstärkeverteilung über die Testfläche
+	\begin{equation}
+ Non-uniformity (\%) = [\frac{max irradiance - min irradiance}{max irradiance + min irradiance}] \times (100%)
+\end{equation}
+\item die zeitliche Stabilität der Einstrahlung.
+\begin{equation}
+ Temporal (\%) = [\frac{max irradiance - min irradiance}{max irradiance + min irradiance}] \times (100%)
+\end{equation}
+\end{itemize}
 
+
+
+Tabelle \ref{TabS2} gibt die Anforderungen an, nach denen Sonnensimulatoren in den Klassen A,b und C klassifiziert werden. Die Sonnensimulatorklasse ABB bedeutet eine 0,75- bis 1,25-fache Übereinstimmung in allen in Tabelle \ref{TabS1} angeführten Schranken, eine Homogenität der Einstrahlung zwischen 2\% und 5\% im Messbereich, und eine zeitliche Stabilität zwischen 2\% und 5\%. 
 \begin{table}[htbp]
 \centering
 \begin{tabular}{ | c | c | c | c | c |}\hline
@@ -215,7 +227,7 @@ Siliziumsolarzellen bestehen aus einer großflächigen Diode. Die Sperrschicht i
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/cell.png}
-\caption{Schematischer Aufbau einer Solarzelle}\label{cell}
+\caption{Der Schematischer Aufbau einer Siliziumsolarzelle. Quelle: \cite{cell}}\label{cell}
 \end{figure}
 
 
@@ -223,7 +235,7 @@ Die unbeleuchtete Solarzelle ist funktioniert wie eine normale Halbleiterdiode, 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=100mm]{img/esb.png}
-\caption{Das Eindiodenmodell einer Sorlarzelle}\label{esb}
+\caption{Das Eindiodenmodell einer Sorlarzelle. Quelle: \cite{esb}}\label{esb}
 \end{figure}
 
 Durch den zusätzlichen Photostrom verschiebt (siehe Abbildung ~\ref{kennlinie}) sich die Diodenkennline. Im Leerlauf  bzw. Kurzschlussbetrieb gibt die Solarzelle keine Leistung ab. Der Punkt der Kennlinie mit der maximalen Leistung wird als Maximum Power Point (MPP) bezeichnet.
@@ -294,13 +306,13 @@ Insgesamt ist der Roboter ein wenig zu groß und sehr breit geworden. Die Breite
 
 \subsection{Mecanum-Plattform}\thispagestyle{empty}
 Das Mecanum-Rad ist ein Rad, das Fahrmanöver in jede Richtung erlaubt, ohne dass das Fahrzeug mit einer mechanischen Lenkung ausgestattet ist. Benannt ist es nach dem schwedischen Unternehmen Macanum, welches dieses Rad 1971 entwickelt hat.
-Erreicht wird die Wendigkeit der Fahrzeuge durch den Einsatz von Mecanum R"adern, die einzeln angetrieben werden. Diese Räder bestehen aus einer Felge, auf der unter einem Winkel von 45 Grad befestigte, ballige Rollen so angebracht sind, dass sie über den Abrollumfang einen exakten Kreis bilden.
+Erreicht wird die Wendigkeit der Fahrzeuge durch den Einsatz von Mecanum Rädern, die einzeln angetrieben werden. Diese Räder bestehen aus einer Felge, auf der unter einem Winkel von 45 Grad befestigte, ballige Rollen so angebracht sind, dass sie über den Abrollumfang einen exakten Kreis bilden.
 Durch die Schräganordnung der Rollen entstehen beim Antreiben des Rades 2 Kraftkomponenten. Gegeneinander gerichtete Kräfte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich (siehe Abbildung \ref{fahrman}).
 
 \begin{figure}
-    \subfigure[Vor/Zurück]{\includegraphics[width=0.49\textwidth]{img/gerade.png}}
-    \subfigure[Links/Rechts]{\includegraphics[width=0.49\textwidth]{img/seitw.png}}
-     \subfigure[Drehen]{\includegraphics[width=0.49\textwidth]{img/dreh.png}}
+    \subfigure[Vor/Zurück]{\includegraphics[width=50mm]{img/gerade.png}}
+    \subfigure[Links/Rechts]{\includegraphics[width=50mm]{img/seitw.png}}
+     \subfigure[Drehen]{\includegraphics[width=50mm]{img/dreh.png}}
 \caption{Einige mögliche Fahrmanöver eines Mecanum-Rad-Roboters}\label{fahrman}
 \end{figure} 
 
@@ -318,8 +330,8 @@ Durch die Schräganordnung der Rollen entstehen beim Antreiben des Rades 2 Kraft
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=75mm]{img/roller_wheel.jpg}
-\caption{Ein gedrucktes Rad samt Rolle}\label{rollerad}
+\includegraphics[width=75mm]{img/rad.jpg}
+\caption{Ein fertig montiertes Rad am Roboter}\label{rad2}
 \end{figure}
 
 \subsection{Chassis}\thispagestyle{empty}
@@ -381,7 +393,7 @@ Der Roboter wird mit einem Lithium-Ionen-Akku versorgt. Die Spannung beträgt, a
 
 
 \subsection{Optische Sensorik}\thispagestyle{empty}
-Der Roboter ist ein Linienfolge. Damit er einer Linie folgen kann, muss diese zuerst zuverl"assig erkannt werden. 
+Der Roboter orientiert sich an einer aus geraden Teilstücken bestehenden Linienfolge. Die Linie ist weiß auf dunklem Untergrund.
 Als Sensor wurde ein CNY70 verwendet. Der CNY 70 ist ein Reflexionsensor. Der Sensor wird in einem fixen Abstand zu einer Ebene montiert. Eine LED sendet Licht mit 950nm aus, welches an der Ebene reflektiert wird. Damit können Unterschiede des Reflektionkoeffizienten, umgangssprachlich der Farbe, gemessen werden. Die Anordung 9 solcher Sensoren in einem 3 mal 3 Array kann sowohl vertikale als auch horizontale Linien erkennen, sowie Ecken.
 
 \begin{figure}[htbp]
@@ -786,12 +798,26 @@ $\frac{t}{ms}$ & I$_{SC}$ & T$_{Zelle}$ & T$_{Umgebung}$ & Messpunkt & Messpunkt
 
 Im Zuge der Auswertung wird ein eindimensionales Array von 308 Messwerten in ein zweidimensionales Array von 14 mal 22 Zahlen umgewandelt. Dazu wird der erste bis zum 14. Wert des eindimensionalen Arrays zur ersten Reihe des zweidimensionalen Arrays. Der 15. bis zum 28. Wert des eindimensionalen Arrays bilden die zweite Reihe des zweidimensionalen Arrays, allerdings in umgekehrter Reihenfolge. So bildet die Reihenfolge der Messwerte des zweidimensionalen Arrays die Messfahrt des Roboters ab.
 \newline
-\newline
-Aus der Matrix $\begin{pmatrix} 1 \\ . \\ . \\ . \\ 308  \end{pmatrix} $ wird die Matrix
 
-$\begin{pmatrix} 1 & . &.& .& 14\\ 28& .& .& . &15 \\ 29 &. &.& .& 42 \\ . &.& .& . & . \\ 298 &.& .&.& 308  \end{pmatrix} $ 
-\newline
-\newline
+\begin{equation}
+\begin{pmatrix}
+n_1 \\ . \\ . \\ . \\ n_{308} 
+\end{pmatrix}
+\Longrightarrow
+\begin{pmatrix}
+n_{1}  & . &.& .& n_{14} \\
+n_{28} & .& .& . &n_{15}  \\
+n_{29}  &. &.& .& n_{42}  \\
+. &.& .& . & . \\
+n_{295}  &.& .&.& n_{308} 
+\end{pmatrix}
+\end{equation}
+
+
+
+
+
+
 Der ADC Wert des Kurschlussstromes wird in Ampere umgerechnet. Verwendet wird die in der Kallibrierung gewonnene Formel.
 
 \begin{figure}[htbp]
