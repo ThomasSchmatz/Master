@@ -470,25 +470,79 @@ Vergleich des Stromes durch eine 100 Ohm Präzisionswiderstand (Temperaturstabil
 
 
 \section{Softwareentwicklung}\thispagestyle{empty}
+Dieser Abschnitt beschreibt die Entwicklung des Softwareteils. Es wird kurz auf die Entwicklungsumgebung eingegangen. Dann folgt die Auswertung der optischen Sensoren. Schließlich wird die Programmstruktur erklärt. Der gesamte Code ist im Anhang gelistet.
 \subsection{Entwicklungsumgebung}\thispagestyle{empty}
-The microcontroller on the board is programmed using the Arduino programming language (based on Wiring) and the Arduino development environment (based on Processing). Arduino projects can be stand-alone or they can communicate with software running on a computer (e.g. Flash, Processing, MaxMSP). 
+Der Mikrocontroller auf den Arduino Board wird mit der Arduino Programmiersprache, welche auf Wiring basiert und sehr C-artig ist, in der Arduino Entwicklungsumgebung, welche auf Processing basiert, programmiert. 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/Arduino.png}
 \caption[Arduino Entwicklungsumgebung]{Arduino Entwicklungsumgebung}\label{ardu2}
 \end{figure}
 
-
-\subsection{Auswertung optische sensoren}\thispagestyle{empty}
+\subsection{Auswertung der optischen Sensoren}\thispagestyle{empty}
 Differentielle Messung: Zwar liegen die optischen Sensoren auf der Unterseite des Roboters, aber da es im Sonnensimulator eine Einstrahlung von 1000 Watt pro Quadratmeter gibt, mit einem Anteil im spektralen Arbeitsbereich der optischen Sensoren CNY70, ist es notwendig den Einfluss des Streulichtes zu unterdrücken. Dazu wird einmal mit und einmal ohne eingeschalteter Infrarot-LED gemessen, dann der Dunkelwert vom Hellwert abgezogen.
-
 
 Mathematik Auswertung,
 Anhand der Werte der einzelnen optischen Sensoren wird die Lage der Linie relativ zum Mittelpunktes des Arrays bestimmt. 
-Rohefassung: Die Methode der kleinsten Quadrate (engl.: method of least squares) ist das mathematische Standardverfahren zur Ausgleichungsrechnung. Dabei wird zu einer Datenpunktwolke eine Kurve gesucht, die möglichst nahe an den Datenpunkten verläuft. Die Daten können physikalische Messwerte, wirtschaftliche Größen oder Ähnliches repräsentieren, während die Kurve aus einer parameterabhängigen problemangepassten Familie von Funktionen stammt. Die Methode der kleinsten Quadrate besteht dann darin, die Kurvenparameter so zu bestimmen, dass die Summe der quadratischen Abweichungen der Kurve von den beobachteten Punkten minimiert wird. Die Abweichungen werden Residuen genannt.
-\newline
-Folge der Linie: Der Roboter fährt standardmäßig gerade aus. Wird ein Versatz zur Linie erkannt, wird dieser Versatz durch eine Bewegung normal zur Linie minimiert. Eine Verdrehung zur Linie wird durch Verdrehen des Roboters korrigiert. Ein minimaler Versatz, bzw. eine minimale Verdrehung ist dabei zulässig. 
-Das vorwärts- und rückwärts-Fahren funktioniert dabei besser als das nach rechts-Fahren. Mecanum-Räder haben eine Vorzugsrichtung.
+\begin{figure}
+\centering
+    \subfigure[Versatz]{\includegraphics[width=50mm]{img/array5.png}}
+    \subfigure[Verdrehung]{\includegraphics[width=50mm]{img/array6.png}}
+\caption{Mögliche Abweichungen der Linie}
+\end{figure} 
+
+
+\subsection{Auswertung ADCs}\thispagestyle{empty}
+Aufgrund von Rauschen der ADC-Werte, wurden alle Messwerte über 500 Einzelmessungen gemittelt. Die Quelle des Rauschens wurde nicht ermittelt. Der notwendige Messzeit dafür beträgt unter einer halben Sekunde. Die optischen Sensoren werden ebenfalls mit ADCs ausgewertet, die Behandlung erfolge im vorigen Unterabschnitt. 
+
+\subsection{Programmablauf}\thispagestyle{empty}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=150mm]{img/ablauf2.png}
+\caption[Programmablauf]{Programmablauf}\label{abl}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=75mm]{img/schranken.png}
+\caption[Schranken der Regelung]{Schranken der Regelung}\label{schr}
+\end{figure}
+
+Das Programm startet im Modus Start, der Roboter steht, und wartet 60 Sekunden, eine Pufferzeit damit nach dem Einschalten des Roboters die Lade des Sonnensimulator hineingeschoben und die Klappe geschlossen werden kann.
+Nach Ablauf dieser 60 Sekunden wechselt das Programm in den Modus Vorwärts. In diesem Modus fährt der Roboter in Vorwärtsrichtung. Abweichungen von der Idealspur werden erkannt und korrigiert. Wird mit dem Stopsensor eine Stopmarkierung erkannt, wechselt das Programm in den Messmodus. 
+Ein Arduino Programm besteht grundsätzlich aus zwei Teilen: 
+Eine Setup Routine, die einmal durchlaufen wird, und diverse Pins als Eingänge bzw. Ausgänge festlegt.
+Eine so genannte Loop, die immer wieder durchlaufen wird, eine in der Loop integrierte Zeitverzögerung ist sinnvoll. 
+
+Das Einschalten des Roboters ist der Start des Programms. Nach dem Start gibt es eine Verzögerung von 60 Sekunden, die dazu dient, die Einschublade des Sonnensimulators zu schließen. Es wird davon ausgegangen, dass der Roboter auf der Messbahn steht, das heißt das Senorarray befindet sich über der Messbahn.
+Die gesamte Bewegungssteuerung ist als Zustandautomat ausgeführt. ( Ablauf2.png Bild der möglichen Zustände).
+Mode s (Start): Zeitverzögerung von 60s, Übergang zu Mode v
+Mode v (Vorwärtsfahrt) Mode z (Rückwärtsfahrt): Regelung zur Spurhaltung, Übergang zu Mode m (messen) bei erkannten Messpunkt, bei erkannter Ecke Übergang zu Mode a (Fahrt um die Ecke)
+Mode a, Mode c: Eine um die Ecke Fahrt, bestehend aus zwei Einzelbewegungen: einer Geradeausfahrt bis die obere Sensorreihe (A, B und C) dunkel detektieren, gefolgt von einer Seitwärtsfahrt mit 700ms Dauer. (Funktionierende Lösung! Daher wurde keine Variante ohne Zeitverzögerung gesucht.)
+Mode b, d: eine Fahrt der Dauer 850ms, in Richtung vor bzw. zurück, übergang in den Modus der Positionskorrektur (x \& y bzw q \& p).
+Messmodus siehe unten. (Screenshot der Messdatei.)
+Beendigung des Messmodus (Zustand m, Messen): Nach dem Speichern geht der Zustandsautomat wieder in den vorigen Bewegungsmodus über, dazu gibt es eine Hilfsvariable.
+
+Ende der Messfahrt: Im Zustand z (und nur im Zustand z) wird das Ende der Linie als Übergangsbedingung in den Zustand e (=Ende) gewertet. 
+
+
+
+
+
+Der Roboter beginnt nach Ablauf der Einschaltverzögerung seine Vorwärtsfahrt. (Bild mit den Bewegungsrichtungen des Roboters: vorwärts, rückwärts, links und rechts!)
+Die Geradeausfahrt kann unterbrochen durch einen Messpunkte unterbrochen werden. Wenn der Messpunktsensor einen Wert höher als eine bestimmte Schaltschwelle erhält wird in den Messmodus gewechselt.
+Messmodus: Zeitverzögerung um 250ms, zur Vermeidung von elektromagnetischen Störungen durch die Motorströme. Messschleife von 500 Einzelmessungen des Zellenkurzschlussstromes, der Zelltemperatur und der Umgebungstemperatur. Die Einzelmesswerte werden zuerst summiert und nach der Schleife durch 500 dividiert. 
+Schreiben auf SD Karte: Zeitpunkt in ms, zu dem die Messung gestartet hat, dann die 3 ADC Werte, Messpunkt, Messreihe und Messspalte. (Falls ein Messwert verloren geht, was vorkommen kann, wenn ein Messpunkt übersehen wird, kann die Position ermittelt und die fehlenden Messwerte geschätzt werden.
+
+Die Messstrecke setzt sich aus geraden Linienelementen zusammen, die durch 90$\circ$ Ecken verbunden sind. Bei der Hälfte der Ecken ist die Linie nicht durchgehend, sondern als mit einem 15mm breiten Abstand ausgeführt. Das war nicht geplant, hat sich aber in der als funktionierende Lösung erwiesen. Das Seitwärtsfahren des Roboters funktioniert, aber es sind größere Abweichungen im Versatz und der Verdrehung möglich. Daher kann der Roboter in einer ziemlich ungünstigen Position an der Ecke stehen. Der Algorithmus des um die Ecke Fahrens besteht aus einer Fahrt (ohne Regelung!) in die bisherige Bewegungsrichtung solange bestimmte Sensoren des Arrays nicht dukel detektieren, gefolgt von einer Bewegung von 90$\circ$ zur bisherigen Bewegungsrichtung (ohne Regelung!) eine bestimmte Zeit lang. Diese beiden Bewegungen können im schlimmsten Fall die ungünstige Position des Roboters so weit verschlimmern, dass eine Weiterfahrt nach der Ecke unmöglich ist.
+Durch die Modifikation der Ecke, in ein Ende der Linie mit einem davon seitwärts versetzten Anfangs, vereinfacht sich der prinzipielle Algorithmus. Bis zum Ende der Linie ist es der normale (inkl. Regelung) Fahralgorithmus, danach wird 90$\circ$ zur bisherigen Bewegungsrichtung, d.h. vor oder zurück, mit einer definierten Zeit zur Überbrückung der Lücke ohne Regelung gefahren. Dann steht der Roboter auf der Linie, aber eventuell mit Versatz oder einer Verdrehung.
+
+Regelung bei der Vorwärts bzw. Rückwärtsfahrt. A bei der Vorwärtsfahrt schwarz, G bei der Rückwärtsfahrt schwarz. Damit die Ecken keinen Einfluss (= ungewollte Verdrehung, wäre sehr schlecht als Ausgangslage für das um die Ecke fahren). Da es lange ohne Probleme funktioniert hat wird kein vermeidlich sinnloser Programmteil gelöscht. Die Auswirkungen sind nur durch lange Testfahrten zu ermitteln.
+In der Regelung für das Fahren in Richtung „vor“ gibt es neben der Bewegung für das Vorwärtsfahren noch 6 andere Bewegungsarten. Drehen am Stand mit und gegen den Uhrzeigersinn, links und rechtsfahren, und dann noch zwei Bewegungen die sich aus gleichzeitig drehen und vorwärts fahren zusammensetzen. Die Art der Bewegung ist von zwei Variablen dem seitlichen Versatz d und der Verdrehung k. Liegen beide Variablen innerhalb enger Grenzen fährt der Roboter geradeaus vor.
+Für das Rückwärtsfahren ist die Regelung analog.
+
+Unabhängig von der Regelung des Seitwärtsfahrens gibt es mechanische Kontaktelemente die eine zu starke Verdrehung des Roboters beim Seitwärtsfahrens gar nicht zulassen. Diese Kontaktelemente bestehen aus leichtem Schaumstoff und sind auf die Vorder- bzw. Rückseite des Roboters aufgeklebt.
 
 Behandlung der Ecken: 
 
@@ -500,17 +554,10 @@ Es gibt zwei Arten von Ecken:
 Damit ist auch das um die Ecke fahren auch unterschiedlich.
 Im Vor- bzw. Rückwärts-Fahren wird die Fahrt ohne Regelung solange fortgesetzt bis die obere bzw. untere Zeile der Sensormatrix schwarz sieht, dann fährt der Roboter ohne Regelung einge hundert Millisekunden nach rechts. Erst dann wird in den nach Rechts-Fahr-Modus gewechselt.
 Für den Rechts-fahr Modus endet die Linie abrupt. Der Roboter fährt einige hundert Millisekunden vor bzw. zurück. Dann steht er auf der Führungslinie. Bevor in den eigentlichen Vor- bzw. Rückwärtsfahrmodus gewechselt wird, wird der Roboter zur Linie hin ausgerichtet. Die Unterschiedliche Behandlung der Ecken ist notwendig, weil im Rechtsfahren größere Abweichungen von der Ideallinie auftraten als im Vor- und Zurückfahren.
-
+Folge der Linie: Der Roboter fährt standardmäßig gerade aus. Wird ein Versatz zur Linie erkannt, wird dieser Versatz durch eine Bewegung normal zur Linie minimiert. Eine Verdrehung zur Linie wird durch Verdrehen des Roboters korrigiert. Ein minimaler Versatz, bzw. eine minimale Verdrehung ist dabei zulässig. 
+Das vorwärts- und rückwärts-Fahren funktioniert dabei besser als das nach rechts-Fahren. Mecanum-Räder haben eine Vorzugsrichtung.
 Haltepunkte: Haltepunkte werden mit dem Haltepunktsensor erkannt, wenn dieser den Schwellwert für weiß überschreitet. Damit ein Haltepunkt nicht mehrfach erkannt werden kann, gibt es eine Verriegelung in der Software, die einen neuen Haltepunkt erst wieder zulässt wenn der Haltepunktsensor in der zwischen Zeit schwarz gesehen hat.
 
-
-
-\subsection{Auswertung ADCs}\thispagestyle{empty}
-Aufgrund von Rauschen der ADC-Werte, wurden alle Messwerte über 500 Einzelmessungen gemittelt. Der notwendige Messzeit dafür beträgt unter einer halben Sekunde. 
-
-\subsection{Programmablauf}\thispagestyle{empty}
-Das Programm startet im Modus Start, der Roboter steht, und wartet 60 Sekunden, eine Pufferzeit damit nach dem Einschalten des Roboters die Lade des Sonnensimulator hineingeschoben und die Klappe geschlossen werden kann.
-Nach Ablauf dieser 60 Sekunden wechselt das Programm in den Modus Vorwärts. In diesem Modus fährt der Roboter in Vorwärtsrichtung. Abweichungen von der Idealspur werden erkannt und korrigiert. Wird mit dem Stopsensor eine Stopmarkierung erkannt, wechselt das Programm in den Messmodus. 
 
 
 
