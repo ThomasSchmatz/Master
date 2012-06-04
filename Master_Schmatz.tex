@@ -147,7 +147,7 @@ Dieses Kapitel beschreibt die Notwendigkeit von Messungen in stationären Sonnen
 \section{Stationäre Photovoltaik Sonnensimulatoren} \thispagestyle{empty}
 
 Photovoltaik-Sonnensimulatoren werden zur elektrischen Charkterisierung und Prüfung von Photovolatik-Modulen verwendet. Der wesentliche Vorteil liegt darin, dass die Durchführung unter reproduzierbareb Umweltbedingungen (Bestrahlungsstärke, spektrale Zusammensetzung des einfallenden Lichtes und die Prüfgutstemperatur)  ermöglicht wird. Ein Nachteil ist die nicht 100\% Übereinstimmung mit dem Spektrum des natürlichen Sonnenlicht. Am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$) können das Spektrum nicht verändern, sind also für einen Sonnenstand beschränkt.
-Im Allgemeinen werden Messergebnisse auf Standard-Prüfbedingungen (STC) bezogen, die durch 1000W/m, 25 $^{\circ}$C und AM1.5 definiert ist. Die Air Mass (AM) beschreibt das Verhältnis des Weges des einfallenden Sonnenlichtes durch die Atmosphäre bezogen auf senkrechten Einfall. Je länger der Weg des Lichtes durch die Atmosphäre desto größer ist der Einfluss durch Streuung, Reflexion und Absorption, was sowohl die Stärke der Einstrahlung als auch die spektrale Zusammensetzung des Sonnenlichtes vom Sonnenstand abhängig macht.  \begin{equation}
+Im Allgemeinen werden Messergebnisse auf Standard-Prüfbedingungen (STC) bezogen, die durch 1000W/m$^2$, 25$^{\circ}$C und AM1.5 definiert ist. Die Air Mass (AM) beschreibt das Verhältnis des Weges des einfallenden Sonnenlichtes durch die Atmosphäre bezogen auf senkrechten Einfall. Je länger der Weg des Lichtes durch die Atmosphäre desto größer ist der Einfluss durch Streuung, Reflexion und Absorption, was sowohl die Stärke der Einstrahlung als auch die spektrale Zusammensetzung des Sonnenlichtes vom Sonnenstand abhängig macht.  \begin{equation}
      AM = \frac {L} {L_0} \approx \frac{1}{cos~ z}
 \end{equation}
 Wobei L die Länge des Weges des Sonnenlichtes durch die Atmosphäre, L$_0$ die Weglänge bei senkrechten Einfall und z der Zenitwinkel des Sonnenstandes in Grad ist (\cite{wurf} S. 30). 
@@ -293,7 +293,7 @@ Die Mecanum-Räder erlauben es dem Roboter sich auch seitwärts fortzubewegen, d
 \section{Hardwaredesign und Komponenten}\thispagestyle{empty}
 
 Dieser Abschnitt behandelt die Entwicklung der mechanischen Komponenten, diese sind die 4 Räder und die Chassis des Roboters. Die mögliche Bauhöhe ist durch den Windkanal im Sonnensimulator beschränkt, zusätzlich soll die Messzelle möglichst in der gleichen Höhe wie zu messende Module liegen.
-Dir Größe der Messzelle, zusammen mit dem Raddurchmesser und der Breite der Räder gibt eine Minimalabmessung vor die der Roboter nicht unterschreiten kann. Zusätzlich müssen noch die Motoren, der Akku und die Elektronik im Inneren des Roboters Platz finden.
+Die Größe der Messzelle, zusammen mit dem Raddurchmesser und der Breite der Räder gibt eine Minimalabmessung vor die der Roboter nicht unterschreiten kann. Zusätzlich müssen noch die Motoren, der Akku und die Elektronik im Inneren des Roboters Platz finden.
 Designprozess:
 - Mecanumräder sind festgelegt
 - Platz für Messzelle, oben, darunter Elektronik und Motoren
@@ -352,8 +352,8 @@ Das Chassis besteht aus der Bodenplatte, den Seitenwänden und der oberen Abdeck
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=125mm]{img/gehause.pdf}
-\caption[Chassis]{Schittvorlage der Chassis}\label{gehause}
+\includegraphics[width=125mm]{img/gehause3.png}
+\caption[Chassis]{Die Schnittvorlage des Chassis}\label{gehause}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -367,28 +367,20 @@ Das Chassis besteht aus der Bodenplatte, den Seitenwänden und der oberen Abdeck
 
 Dieser Abschnitt beschreibt die Entwicklung der Elektronik. Die Funktionalität wurde auf verschiedene Module aufgeteilt. Das erleichtert die Platzierung der Elektronik innerhalb des Messroboters, und den Austausch von Komponenten im Fehlerfall. 
 Das Gehirn des Roboters ist ein Arduino Mega 2560 Mikrocontroller Board. Darauf aufgesteckt ist ein sogenanntes Shield, eine selbst entwickelte Platine, das die $\pm$5V Spannungsversorgung, die Schnittstellen zu den anderen Platinen und einen SD-Karten Einschub beheimatet.
-Es gibt 3 Messplatinen, eine für den Kurzschlussstrom der Messzelle, zwei für Temperaturmessungen. Eine Platine überwacht den Ladezustand des Akkus. Die Motorensteuerung ist auf einer eigenen Paltine beheimatet.
+Es gibt 3 Messplatinen, eine für den Kurzschlussstrom der Messzelle, zwei für Temperaturmessungen. Eine Platine überwacht den Ladezustand des Akkus. Die Steuerung der vier Motoren ist auf einer Platine zusammengefasst.
  
 \subsection{Motorensteuerung}\thispagestyle{empty}
 
-
-Eine H-Brücke~\ref{hbridge} erlaubt es einem Gleichstrommotor sich in zwei Richtungen zu drehen. Dafür müssen immer zwei schräg gegenüber liegende Schalter eingeschaltet sein. Zum Beisiel die Schalter S1 und S4 für die Drehrichtung im Uhrzeigersinn, S2 und S3 für die Drehrichtung gegen den Uhrzeigersinn. Zwei untereinander liegende Schalter dürfen nicht gleichzeitig eingeschaltet werden. Es muss einen hardwaretechnischen Schutz gegen diese art von Kurzschlüssen geben. Ein softwaretechnischer Schutz reichte dem Autor nicht, nachdem ein früher Prototyp der Motortreiberdplatine sich in Rauch aufgelöst hatte. Deshalb wurde für den Roboter eine integrierte H-Brücke (NJM2670) verwendet, mit einer logischen Verriegelung, die keinen Kurzschluss produzieren kann. 
+Die Motorplatine \ref{hbridge2} besteht aus zwei integrierten H-Brücken-Bausteinen (NJM2670), mit zwei H-Brücken pro Baustein, einer 16 poligen Buchse und fünf zweipoligen Buchsen für die Stromversorgung und den Anschluss der vier Motoren.
 \newline
 Die Drehzahl bei konstanter Versorgungsspannung lässt sich mit Pulsweitenmodulation variieren.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=75mm]{img/hbridge.png}
-\caption[H-Brücke]{H-Brücke}\label{hbridge}
-\end{figure}
-
-Die Gleichspannungsmotoren sind Getriebemotoren mit der Bezeichnung RB 35, und einem Übersetzungsverhältnis von 1:200. Die maximale Versorgungsspannung wurde mit 12V angegeben. Die Drehzahl beträgt bei 12V Versorgungsspannung 20 Umdrehungen pro Minute.
+Die Gleichspannungsmotoren sind Getriebemotoren mit der Bezeichnung RB 35, und einem Übersetzungsverhältnis von 1:200. Die maximale Versorgungsspannung wurde mit 12V angegeben. Die Leerlaufdrehzahl beträgt bei 12V Versorgungsspannung 20 Umdrehungen pro Minute.
 Der Roboter wird mit einem Lithium-Ionen-Akku versorgt. Die Spannung beträgt, abhängig vom Ladezustand zwischen 16,4V und 15,0V. Damit es zu keiner Überlastung der 12V-Motoren, kommt wurde bei der Pulsweitenmodulation ein maximales Tastverhältnis von 50\% eingehalten.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=150mm]{img/HBrucke.png}
-\caption[H-Brücke Schaltung]{H-Brücke Schaltung}\label{hbridge2}
+\caption{Der Schaltplan der Motortreiberplatine}\label{hbridge2}
 \end{figure}
 
 
