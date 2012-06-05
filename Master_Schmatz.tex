@@ -324,12 +324,6 @@ Durch die Schräganordnung der Rollen entstehen beim Antreiben des Rades 2 Kraft
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=75mm]{img/roller.png}
-\caption{Eine der 16 Rollen pro Reifen}\label{rolle}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
 \includegraphics[width=75mm]{img/rad.jpg}
 \caption{Ein fertig montiertes Rad am Roboter}\label{rad2}
 \end{figure}
@@ -368,6 +362,12 @@ Das Chassis besteht aus der Bodenplatte, den Seitenwänden und der oberen Abdeck
 Dieser Abschnitt beschreibt die Entwicklung der Elektronik. Die Funktionalität wurde auf verschiedene Module aufgeteilt. Das erleichtert die Platzierung der Elektronik innerhalb des Messroboters, und den Austausch von Komponenten im Fehlerfall. 
 Das Gehirn des Roboters ist ein Arduino Mega 2560 Mikrocontroller Board. Darauf aufgesteckt ist ein sogenanntes Shield, eine selbst entwickelte Platine, das die $\pm$5V Spannungsversorgung, die Schnittstellen zu den anderen Platinen und einen SD-Karten Einschub beheimatet.
 Es gibt 3 Messplatinen, eine für den Kurzschlussstrom der Messzelle, zwei für Temperaturmessungen. Eine Platine überwacht den Ladezustand des Akkus. Die Steuerung der vier Motoren ist auf einer Platine zusammengefasst.
+Die einzelnen Komponenten sind wie in Abbildung \ref{elek} auf der Bodenplatte angeordnet.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=100mm]{img/bodenplatte.png}
+\caption{Die Anordnung der Elektronik auf der Bodenplatte im Roboter}\label{elek}
+\end{figure}
  
 \subsection{Motorensteuerung}\thispagestyle{empty}
 
@@ -390,19 +390,13 @@ Als Sensor wurde ein CNY70 verwendet. Der CNY 70 ist ein Reflexionsensor. Der Se
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=75mm]{img/cny70.png}
-\caption{Der Strom durch den Phototransistor ist abhängig von der Reflektiviät des Untergrundes}\label{cny1}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
 \includegraphics[width=125mm]{img/array.png}
 \caption{Der Schaltplan des Sensorarrays}\label{array}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=125mm]{img/array2.png}
+\includegraphics[width=125mm]{img/array21.png}
 \caption{Das Layout des Senorarrays}\label{array2}
 \end{figure}
 
@@ -416,26 +410,12 @@ Als Sensor wurde ein CNY70 verwendet. Der CNY 70 ist ein Reflexionsensor. Der Se
 
 
 \subsection{Spannungversorgung}\thispagestyle{empty}
-Aku-handling, "Uberwachung der Akkuspannung, Alarm und Abschaltung bei Unterspannung, 
-Es wird empfohlen vor jeden Messzyklus den Akku zu laden. Ein voller Akku schafft ohne Probleme 10 Messfahrten. 
-Bauteile: Akku, Ladeger"at (extern), bequemes und schnelles Laden des Akkus
-Eine Schmelzsicherung ist direkt im Anschlusskabel des Akkus eingebaut. Der Akku schafft Ströme bis 200A, da er aus dem Modellbausektor kommt. Was für den Roboter völlig überdimensioniert ist. Der maximale Strom aller 4 Motoren und der restlichen Elektronik liegt bei einem Ampere. Die Motoren werden direkt mit der Akkuspannung versorgt. Da realistischerweise die Versorgungsspannung zwischen 16,4V (Akku voll) und 15,5V (nach vielen Fahrten) liegt, ist der Einfluss auf die Drehzahl der Motoren zu vernachl"assigen. 
+Es wird empfohlen vor jeden Messzyklus den Akku zu laden. Ein voller Akku kann ohne Probleme 10 Messfahrten absolvieren. Der Akku ist mit einer im Anschlusskabel integrierten Schmelzsicherung geschützt. Zum Laden des Akkus muss der Akku vom Roboter abgesteckt werden, inklusive den Balancer-Anschlüsse. Zum Laden wird ein Ultramat 16 V verwendet. 
+Der Akku kann mit bis zu 200A belastet werden, allerdings liegt der maximale Strom aller 4 Motoren und der restlichen Elektronik liegt bei einem Ampere. Die Motoren werden direkt mit der Akkuspannung versorgt. Die Versorgungsspannung schwankt zwischen der vollen Akkuspannung 16,4V und 15V nach mehr als 10 Messfahrten.
 Die 5 Volt Versorgung des Mikrocontrollers und der OPVs wurde mit einem RECOM R-785.0-1.0 DC-DC Konverter gelöst. Er ist pinkompatibel zu einem 7805, und bietet die Vorteile einer geringen Verlustleistung und einer sehr genauen Ausgangsspannung. 
-Die Analog-Digitalwandlung des Arduino benötigt eine Referenzspannung. Das kann die Versorgungsspannung sein, was aber doch zu ungenau ist. 
-The LT1021 is a precision reference with ultralow drift
-and noise, extremely good long term stability and almost
-total immunity to input voltage variations. The reference
-output will both source and sink up to 10mA. Three
-voltages are available: 5V, 7V and 10V. The 7V and 10V
-units can be used as shunt regulators (two-terminal zeners)
-with the same precision characteristics as the threeterminal
-connection. Special care has been taken to minimize
-thermal regulation effects and temperature
-induced hysteresis.
+Die Analog-Digitalwandlung des Arduino benötigt eine Referenzspannung. Das kann die Versorgungsspannung sein, was aber doch zu ungenau ist. Als Spannungsreferenz wird ein LT1021 5V Präzisionsspannungsquelle verwendet.
 \subsection{Mikrokontroller}\thispagestyle{empty}
-Arduino (was ist das), Shield, SD, Aref,
-
-The Arduino Mega 2560 is a microcontroller board based on the ATmega2560 (datasheet). It has 54 digital input/output pins (of which 14 can be used as PWM outputs), 16 analog inputs, 4 UARTs (hardware serial ports), a 16 MHz crystal oscillator, a USB connection, a power jack, an ICSP header, and a reset button. It contains everything needed to support the microcontroller; simply connect it to a computer with a USB cable or power it with a AC-to-DC adapter or battery to get started. The Mega is compatible with most shields designed for the Arduino Duemilanove or Diecimila.
+Der Arduino Mega 2560 ist ein Mikrocontroller-Board mit einem ATmega2560 Mikrokontroller. Es verfügt über 54 digitale I/O Pins, davon können 14 als PWM-Ausgänge verwendet werden. Weiters gibt es 16 analoge Eingänge die über einen 10-Bit Analog-Digital-Wandler verfügen.
 
 
 \begin{figure}[htbp]
@@ -445,12 +425,12 @@ The Arduino Mega 2560 is a microcontroller board based on the ATmega2560 (datash
 \end{figure}
 
 \subsection{Temperatursensoren}\thispagestyle{empty}
+Der Spannungsabfall an einem temperaturstabilen 100$\Omega$ Widerstand wird mit dem Spannungsabfall an einem PT100 verglichen. Als Stromquelle dient eine sehr präzise REF200-Stromquelle\cite{ref200}, welche zwei mal 100 Mikroampere $\pm$0.5$\%$ liefert. Abbildung \ref{tmess} zeigt den Schaltplan, Abbildung \ref{tmess2} zeigt das Platinenlayout.
 
-Vergleich des Stromes durch eine 100 Ohm Präzisionswiderstand (Temperaturstabilität!) mit dem Strom durch einen PT-100. Als Stromquelle diente eine REF200-Stromquelle, welche 2 mal 100 Mikroampere (+- 0.5 Prozent) liefert.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=100mm]{img/tmess.png}
+\includegraphics[width=125mm]{img/tmess.png}
 \caption{Schaltung der Temperaturmessung}\label{tmess}
 \end{figure}
 
@@ -563,7 +543,7 @@ Die ADC-Messwerte wurden über die USB-Schnittstelle des Roboters ausgelesen. Da
 \section{Temperatursensoren}\thispagestyle{empty}
 Die Temperatur der Messzelle wird mit einem von unten aufgeklebten flächigen Folienmesswiderstand gemessen. 
 Ein zweiter Pt100, in kompakter Dünnschichtbauweise ausgeführt, misst die Temperatur der Umgebung. Beide Messskreise sind identisch aufgebaut, dennoch führen Bauteiltoleranzen zu leicht unterschiedlichen Verstärkungen.
-Für die Kaltbration der Temperaturmesselektronik wurden die Pt-100 Widerstände durch einen hoch genaues, einstellbares und kalibriertes Messnormal ersetzt. Der Widerstand wurde im Bereich von 100 bis 122 	$\Omega$  in 1 $\Omega$  Schritten verändert, was einer Temperatur von 0 bis 55 $^{\circ}$C entspricht. Die ADC-Werte wurden über die USB-Schnittstelle des Arduino ausgelesen. Es zeigte sich, dass die beiden Schaltungen leicht unterschiedliche Verstärkungen haben. Daher mussten jede Temperaturmessschaltung separat kalibriert werden.  
+Für die Kaltbration der Temperaturmesselektronik wurden die Pt-100 Widerstände durch einen hoch genaues, einstellbares und kalibriertes Messnormal ersetzt. Der Widerstand wurde im Bereich von 100 bis 122 	$\Omega$  in 1 $\Omega$  Schritten verändert, was einer Temperatur von 0 bis 55 $^{\circ}$C entspricht. Die ADC-Werte wurden über die USB-Schnittstelle des Arduino ausgelesen. Es zeigte sich, dass die beiden Schaltungen leicht unterschiedliche Verstärkungen haben. Daher mussten jede Temperaturmessschaltung separat kalibriert werden.
 
 \begin{table}[htbp]
 \centering
