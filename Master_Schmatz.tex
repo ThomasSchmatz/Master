@@ -146,29 +146,37 @@ Dieses Kapitel beschreibt die Notwendigkeit von Messungen in stationären Sonnen
 
 \section{Stationäre Photovoltaik Sonnensimulatoren} \thispagestyle{empty}
 
-Photovoltaik-Sonnensimulatoren werden zur elektrischen Charkterisierung und Prüfung von Photovolatik-Modulen verwendet. Der wesentliche Vorteil liegt darin, dass die Durchführung unter reproduzierbareb Umweltbedingungen (Bestrahlungsstärke, spektrale Zusammensetzung des einfallenden Lichtes und die Prüfgutstemperatur)  ermöglicht wird. Ein Nachteil ist die nicht 100\% Übereinstimmung mit dem Spektrum des natürlichen Sonnenlicht. Am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$) können das Spektrum nicht verändern, sind also für einen Sonnenstand beschränkt.
+Photovoltaik-Sonnensimulatoren werden zur elektrischen Charakterisierung und Prüfung von Photovoltaik-Modulen verwendet. Der wesentliche Vorteil liegt darin, dass die Durchführung unter reproduzierbaren Umweltbedingungen (Bestrahlungsstärke, spektrale Zusammensetzung des einfallenden Lichtes und die Prüfgutstemperatur)  ermöglicht wird. Ein Nachteil ist die nicht 100\% Übereinstimmung mit dem Spektrum des natürlichen Sonnenlicht. Am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$) können das Spektrum nicht verändern, sind also für einen Sonnenstand beschränkt.
 Im Allgemeinen werden Messergebnisse auf Standard-Prüfbedingungen (STC) bezogen, die durch 1000W/m$^2$, 25$^{\circ}$C und AM1.5 definiert ist. Die Air Mass (AM) beschreibt das Verhältnis des Weges des einfallenden Sonnenlichtes durch die Atmosphäre bezogen auf senkrechten Einfall. Je länger der Weg des Lichtes durch die Atmosphäre desto größer ist der Einfluss durch Streuung, Reflexion und Absorption, was sowohl die Stärke der Einstrahlung als auch die spektrale Zusammensetzung des Sonnenlichtes vom Sonnenstand abhängig macht.  \begin{equation}
      AM = \frac {L} {L_0} \approx \frac{1}{cos~ z}
 \end{equation}
 Wobei L die Länge des Weges des Sonnenlichtes durch die Atmosphäre, L$_0$ die Weglänge bei senkrechten Einfall und z der Zenitwinkel des Sonnenstandes in Grad ist (\cite{wurf} S. 30). 
-Die spektrale Verteilung des Referenzsonnenspektrums AM1.5 (siehe Abbildung \ref{sunspec} ist durch die Norm IEC 60904-3 \cite{norm3} festgelegt. Das Spektrum des Sonnenlichtes im Weltall AM0 entspricht in etwa der thermische Strahlung eines schwarzen Körpers mit 5250$\circ$C
+Eine genauere Gleichung, insbesondere für niedrige Sonnenstände, ist in Abbildung \ref{airmass} hergeleitet.
+Die spektrale Verteilung des Referenzsonnenspektrums AM1.5 (siehe Abbildung \ref{sunspec} ist durch die Norm IEC 60904-3 \cite{norm3} festgelegt. Das Spektrum des Sonnenlichtes im Weltall AM0 entspricht in etwa der thermische Strahlung eines schwarzen Körpers mit 5250$^\circ$C
+Grundsätzlich werden bei konventionellen Systemen gepulste und stationäre Simulatoren, welche kontinuierlich leuchten, unterschieden. Erstere brauchen weniger Energie und heizen die Messobjekte nicht auf, und werden für die Leistungsmessung von Zellen und Modulen verwendet. Allerdings ist Blitzlänge bauartbedingt auf wenige Millisekunden begrenzt. Stationäre Simulatoren werden für Voralterung von Modulen verwendet.
  
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=100mm]{img/Solar_Spectrum.png}
-\caption[Sonnenspektrum]{Der Vergleich von Spektrum des Sonnenlichtes im Weltall (AM 0), der Strahlung eines schwarzen Körpers von 5250$^{\circ}$C und dem AM1.5 Spektrum. Quelle: \cite{sun}}\label{sunspec}
+\caption[Sonnenspektrum]{Der Vergleich von Spektrum des Sonnenlichtes im Weltall (AM0), der Strahlung eines schwarzen Körpers von 5250$^{\circ}$C und dem AM1.5 Spektrum. Quelle: \cite{sun}}\label{sunspec}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=125mm]{img/airmass.png}
+\caption{Die genaue Formel für die Air Mass.}\label{airmass}
 \end{figure}
 
 
 \section{Sonnensimulator Aufbau}\thispagestyle{empty}
 Als Lichtquellen dienen 10 Metallhalogenoid Strahler mit je 4 kW elektrischer Leistung.
-Für eine spektral unabhängige Reduzierung der Beleuchtungsstärke sind die Strahler an einer höhenverstellbaren Aufhängung befestigt.
-Die Testobjekte werden mittels Prüfgut-Einschub in einem Windkanal positioniert, dessen obere Abdeckung aus einem geeigneten Solarglas besteht. Die geneigte Glasplatte bewirkt eine Querschnittreduktion des Luftkanales und somit eine Erhöhung der Strömungsgeschwindigkeit zwischen Zuluft- und Abluftseite. Diese stetige Erhöhung der Geschwindigkit ist notwendig, damit die sich erwärmende Zuluft eine konstante Kühlwirkung hat, und somit die Testobjekte eine konstante Temperatur über die gesamte Fläche haben.
+Für eine spektral unabhängige Reduzierung der Beleuchtungsstärke sind die Strahler an einer höhenverstellbaren Aufhängung befestigt. Zusätzlich lassen sich die Leistungen der einzelnen Lampen in 1\% Schritten verändern. Eine Lampenleistung unter 80\% ist nicht empfohlen, da dann sich die spektrale Zusammensetzung verändert.
+Die Testobjekte werden mittels Prüfgut-Einschub in einem Windkanal positioniert, dessen obere Abdeckung aus einem geeigneten Solarglas besteht. Die geneigte Glasplatte bewirkt eine Querschnittreduktion des Luftkanales und somit eine Erhöhung der Strömungsgeschwindigkeit zwischen Zuluft- und Abluftseite. Diese stetige Erhöhung der Geschwindigkit ist notwendig, damit die sich erwärmende Zuluft eine konstante Kühlwirkung hat, um die Testobjekt auf konstanter Temperatur zu halten.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=75mm]{img/sunsimulator.jpg}
+\includegraphics[width=100mm]{img/sunsimulator.jpg}
 \caption[Sonnensimulator]{Der Aufbau des Sonnensimulators: Die 10 Metallhalogenoid Strahler, der Windkanal und die Prüfebene sind zu erkennen}\label{sunsim}
 \end{figure}
 
@@ -223,7 +231,7 @@ C  & 0,4 - 2,0 & 10 \% & 10 \% & 10 \%\\ \hline
 
 \section{Theorie Referenzzelle}\thispagestyle{empty}
 Es gibt verschiedene Solarzelltechnologien. Wirtschaftlich bedeutend sind im Moment nur kristalline Siliziumzellen und Dünnschichtzellen. Die kristallinen Siliziumzellen werden in monokristalline Zellen und multikristalline Zellen unterschieden. Beide zusammen machen über 80\% des weltweiten Photovoltaikmarktes aus \cite{iea00}. Als Referenzzelle für Messungen werden ausschließlich kristalline Zellen verwendet. Eine Referenzzellen ist eine genau vermessene Solarzellen, die als Strahlungsmessgerät dient. Wichtig ist, dass die Referenzzelle eine ähnliche spektralle Empfindlichkeit hat wie die zu messenden Zelle bzw. das zu messende Modul.
-Siliziumsolarzellen bestehen aus einer großflächigen Diode. Die Sperrschicht ist dabei dem Sonnenlicht ausgesetzt. Gelangt ein Lichtquanten in die Sperrschicht kann aufgrund des inneren Photoeffektes ein Elektron/Loch Paar erzeugt werden. Durch das elektrische Feld in der Sperrschicht werden die Ladungsträger getrennt bevor sie kombinieren können. Elektronen bewegen aufgrund ihrer negativen Ladung entgegen der Feldrichtung in die n-Zone. Löcher wandern in Feldrichtung zur raumladungsfreien p-Zone. Die Leerlaufspannung einer Solarzelle ist kleiner als die Diffusionsspannung, der Spannung über die Raumladungszone, die der Diffusion von Ladungsträgern entgegenwirkt.
+Siliziumsolarzellen bestehen aus einer großflächigen Diode. Die Sperrschicht ist dabei dem Sonnenlicht ausgesetzt. Gelangt ein Lichtquanten in die Sperrschicht kann aufgrund des inneren Photoeffektes ein Elektron/Loch Paar erzeugt werden. Durch das elektrische Feld in der Sperrschicht werden die Ladungsträger getrennt bevor sie kombinieren können. Elektronen bewegen aufgrund ihrer negativen Ladung entgegen der Feldrichtung in die n-Zone. Löcher wandern in Feldrichtung zur Raumladungsfreien p-Zone. Die Leerlaufspannung einer Solarzelle ist kleiner als die Diffusionsspannung, der Spannung über die Raumladungszone, die der Diffusion von Ladungsträgern entgegenwirkt.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/cell.png}
@@ -244,29 +252,7 @@ Der Füllfaktor berechnet sich aus Strom im maximalen Leistungspunkt $I_{mp}$, S
   \begin{equation}
      FF = \frac {I_{mp} U_{mp}} {I_{sc} U_{oc}}
   \end{equation}
-  
-Die Leerlaufspannung hängt von der Temperatur ab. Mit steigender Temperatur wird der Bandabstand kleiner. Dadurch können Photonen kleinerer Energie absorbiert werden und somit steigt der Kurschlussstrom. Die Leistung im MP-Punkt sinkt mit steigender Temperatur.
-Zusammenhang von Kurzschlusstrom und Leerlaufspannung.
-  \begin{equation}
-     I_{sc} = I_0 ( e^{\frac {q U_{oc}}{k T}} - 1 )
-  \end{equation}
-  Hierbei ist $I_{0}$ der Söttigungsstrom der Diode (im Ersatzschalbild ~\ref{esb}):
-    \begin{equation}
-     I_{0} = A ( \frac { q D_{e} n_i^2} {L_e N_A} + \frac {q D_h n_i^2} {L_h N_D})
-  \end{equation}
-  
-  $N_A$ und $N_D$ sind die Dichten von Akzeptoren sowie Donatoren, $D_e$ und $D_h$ sind die Diffusionskoeffizienten von Elektronen und Löchern, $n_i$ ist die intrinsische Ladungsträgerdichte, $L_e$ und $L_h$ sind Diffusionslängen von Elektronen und Löchern. Alles materialabhängige Konstanten.
-  
-  \begin{equation}
-     U_{sc} = \frac {k T}{q} ln (\frac {I_L}{I_0} + 1 )
-  \end{equation}
-  
-  Hier ist $I_L$ der Photostrom, und berechnet sich :
-  
-  \begin{equation}
-     I_{L} = q A G ( L_e + W + L_h )
-  \end{equation}
-Bei $A$ handelt es sich um die Zellfläche, bei $G$ um die Generationsrate von Elektron-Löcher-Paaren und bei $W$ um die W um die Breite der Raumladungszone. 
+Der Füllfaktor ist das Verhältnis der Fläche des Rechteckes mit den Seitenlängen I$_{mp}$ und U$_{mp}$ zu der Fläche des Rechteckes mit den Seitenlängen I$_{sc}$ und U$_{oc}$ (siehe Abbildung \ref{kennlinie}).
 
 \begin{figure}[htbp]
 \centering
@@ -274,20 +260,21 @@ Bei $A$ handelt es sich um die Zellfläche, bei $G$ um die Generationsrate von E
 \caption{Dunkel- und Hellkennlinien}\label{kennlinie}
 \end{figure}
 
+Die Kennlinie der Solarzelle ist von der Einstrahlung abhängig (siehe Abbildung \ref{mpp}). Der Kurzschlusstrom ist direkt proportional zur Einstrahlung.
+Laut IEC 60891 [\cite{norm891}] berechnet sich die Einstrahlung aus dem gemessenen Kurzschlussstrom, den STC-Kurzschlussstrom, einen relativen Temperaturkoeffizienten und der Zelltemperatur:
+\begin{equation}
+G = \frac{1000Wm^{-2}I_{RC}}{I_{RC,STC}} [1 - \alpha_{RC}(T_{RC}-25^{\circ} C]
+\end{equation}
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/mpp.png}
 \caption{Abhängigkeit des MPP von der Einstrahlung}\label{mpp}
 \end{figure}
 
-
-
-
-
 \chapter{Entwicklungsprozess}\thispagestyle{empty}
 
-Diese Kapitel beschreibt die Entwicklung des Roboters und ist in 3 Unterabschnitte gegliedert: das mechanische Design, die Elektronik und die Software.
-Einige Designelemente waren zu Beginn der Entwicklung vorgegeben. Der Roboter sollte mit Mecanum-Rädern ausgestattet sein. Er sollte eine photovoltaische Messzelle aufnehmen können. Er muss sich irgendwie im Raum orientieren können. Die Materialen sollten UV beständig sein, da der Roboter in einer UV-verstrahlten Umgebung arbeitet.
+Diese Kapitel beschreibt die Entwicklung des Roboters und ist in 3 Unterabschnitte gegliedert: das mechanische Design, die Elektronik und die dazugehörige Software.
+Einige Designelemente waren zu Beginn der Entwicklung vorgegeben. Der Roboter sollte mit Mecanum-Rädern ausgestattet sein. Er sollte eine photovoltaische Messzelle aufnehmen können. Er muss sich im Raum orientieren können. Die Materialien sollten UV beständig sein, da der Roboter in einer Umgebung mit starker UV arbeitet.
 Die Mecanum-Räder erlauben es dem Roboter sich auch seitwärts fortzubewegen, die Längsachse des Roboters, und somit auch die Messzelle, während des gesamten Messvorganges die Orientierung im Raum beibehält. 
 
 \section{Hardwaredesign und Komponenten}\thispagestyle{empty}
@@ -307,7 +294,7 @@ Der Roboter ist ein wenig zu groß geworden, die verwendete Messzelle ist kleine
 
 \subsection{Mecanum-Plattform}\thispagestyle{empty}
 Das Mecanum-Rad ist ein Rad, das Fahrmanöver in jede Richtung erlaubt, ohne dass das Fahrzeug mit einer mechanischen Lenkung ausgestattet ist. Benannt ist es nach dem schwedischen Unternehmen Macanum, welches dieses Rad 1971 entwickelt hat.
-Erreicht wird die Wendigkeit der Fahrzeuge durch den Einsatz von Mecanum Rädern, die einzeln angetrieben werden. Diese Räder bestehen aus einer Felge (siehe Abbbildung \ref{rad1}), auf der unter einem Winkel von 45 Grad befestigte, ballige Rollen so angebracht sind, dass sie über den Abrollumfang einen exakten Kreis bilden (siehe Abbbildung \ref{rad2}).
+Erreicht wird die Wendigkeit der Fahrzeuge durch den Einsatz von Mecanum Rädern, die einzeln angetrieben werden. Diese Räder bestehen aus einer Felge (siehe Abbbildung \ref{rad}), auf der unter einem Winkel von 45 Grad befestigte, ballige Rollen so angebracht sind, dass sie über den Abrollumfang einen exakten Kreis bilden (siehe Abbbildung \ref{rad2}).
 
 Durch die Schräganordnung der Rollen entstehen beim Antreiben eines Rades 2 Kraftkomponenten, eine in der Achse  und eine 90$/circ$ . Gegeneinander gerichtete Kräfte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich (siehe Abbildung \ref{fahrman}).
 
@@ -454,26 +441,37 @@ Der Spannungsabfall an einem temperaturstabilen 100$\Omega$ Widerstand wird mit 
 
 \section{Softwareentwicklung}\thispagestyle{empty}
 Dieser Abschnitt beschreibt die Entwicklung des Softwareteils. Es wird kurz auf die Entwicklungsumgebung eingegangen. Dann folgt die Auswertung der optischen Sensoren. Schließlich wird die Programmstruktur erklärt. Der gesamte Code ist im Anhang gelistet.
+
 \subsection{Entwicklungsumgebung}\thispagestyle{empty}
 Der Mikrocontroller auf den Arduino Board wird mit der Arduino Programmiersprache, welche auf Wiring basiert und sehr C-artig ist, in der Arduino Entwicklungsumgebung (siehe Abbildung \ref{ardu2}, welche auf Processing basiert, programmiert. 
-Ein Arduino Programm besteht aus zwei Teilen.
+Ein Arduino Programm besteht aus zwei Teilen: Einer Setup-Routine die einmal zu Programmstrart durchlaufen wird und einer Endlosschleife. In der Schleife wird das eigentlich Programm behandelt. 
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=75mm]{img/Arduino.png}
-\caption[Arduino Entwicklungsumgebung]{Arduino Entwicklungsumgebung}\label{ardu2}
+\includegraphics[width=100mm]{img/Arduino.png}
+\caption[Die Arduino Entwicklungsumgebung]{Arduino Entwicklungsumgebung}\label{ardu2}
 \end{figure}
 
 \subsection{Auswertung der optischen Sensoren}\thispagestyle{empty}
-Differentielle Messung: Zwar liegen die optischen Sensoren auf der Unterseite des Roboters, aber da es im Sonnensimulator eine Einstrahlung von 1000 Watt pro Quadratmeter gibt, mit einem Anteil im spektralen Arbeitsbereich der optischen Sensoren CNY70, ist es notwendig den Einfluss des Streulichtes zu unterdrücken. Dazu wird einmal mit und einmal ohne eingeschalteter Infrarot-LED gemessen, dann der Dunkelwert vom Hellwert abgezogen.
+Um den Einfluss des Streulichtes der starken Einstrahlung im Sonnensimulator auf die Optoreflektoren CNY70 zu vermeiden, wurde eine differentielle Messmethode angewandt. Die Messwerte bei ausgeschalteter Infrarot-Leuchtdioden werden von den Messwerten mit eingeschalteter Leuchtdioden abgezogen.
+Das wird für alle neun Optoreflektoren des Sensorarray, sowie den Stopsensor, gemacht.
+Mit den korrigierten Werten der einzelnen optischen Sensoren wird die Lage der Linie relativ zum Mittelpunktes des Arrays bestimmt. 
 
-Mathematik Auswertung,
-Anhand der Werte der einzelnen optischen Sensoren wird die Lage der Linie relativ zum Mittelpunktes des Arrays bestimmt. 
+Die Höhe des Messwertes  der optischen Sensoren ist abhängig von der Helligkeit des Untergrundes. Unter der Annahme dass sich eine helle gerade Linie unter dem Senorarray befindet funktioniert folgende Formel:
+\begin{equation}
+  x_1 = \frac{C-A}{2A-4B+2C}
+  x_2 = \frac{F-D}{2D-4E+2F}
+  x_3 = \frac{I-G}{2G-4H+2I}
+  d = \frac{x_1+x_2+x_3}{3}
+  k = \frac{x_1-x_3}{2}
+\end{equation}
+
+
 \begin{figure}
 \centering
     \subfigure[Versatz]{\includegraphics[width=50mm]{img/array5.png}}
     \subfigure[Verdrehung]{\includegraphics[width=50mm]{img/array6.png}}
-\caption{Mögliche Abweichungen der Linie}
+\caption{Die mögliche Abweichungen der Linie von der Idealposition}
 \end{figure} 
 
 
@@ -524,14 +522,12 @@ Die Messstrecke setzt sich aus geraden Linienelementen zusammen, die durch 90$\c
 Durch die Modifikation der Ecke, in ein Ende der Linie mit einem davon seitwärts versetzten Anfangs, vereinfacht sich der prinzipielle Algorithmus. Bis zum Ende der Linie ist es der normale (inkl. Regelung) Fahralgorithmus, danach wird 90$\circ$ zur bisherigen Bewegungsrichtung, d.h. vor oder zurück, mit einer definierten Zeit zur Überbrückung der Lücke ohne Regelung gefahren. Dann steht der Roboter auf der Linie, aber eventuell mit Versatz oder einer Verdrehung.
 
 Regelung bei der Vorwärts bzw. Rückwärtsfahrt. A bei der Vorwärtsfahrt schwarz, G bei der Rückwärtsfahrt schwarz. Damit die Ecken keinen Einfluss (= ungewollte Verdrehung, wäre sehr schlecht als Ausgangslage für das um die Ecke fahren). Da es lange ohne Probleme funktioniert hat wird kein vermeidlich sinnloser Programmteil gelöscht. Die Auswirkungen sind nur durch lange Testfahrten zu ermitteln.
-In der Regelung für das Fahren in Richtung „vor“ gibt es neben der Bewegung für das Vorwärtsfahren noch 6 andere Bewegungsarten. Drehen am Stand mit und gegen den Uhrzeigersinn, links und rechtsfahren, und dann noch zwei Bewegungen die sich aus gleichzeitig drehen und vorwärts fahren zusammensetzen. Die Art der Bewegung ist von zwei Variablen dem seitlichen Versatz d und der Verdrehung k. Liegen beide Variablen innerhalb enger Grenzen fährt der Roboter geradeaus vor.
+In der Regelung für das Fahren in Richtung "vor" gibt es neben der Bewegung für das Vorwärtsfahren noch 6 andere Bewegungsarten. Drehen am Stand mit und gegen den Uhrzeigersinn, links und rechtsfahren, und dann noch zwei Bewegungen die sich aus gleichzeitig drehen und vorwärts fahren zusammensetzen. Die Art der Bewegung ist von zwei Variablen dem seitlichen Versatz d und der Verdrehung k. Liegen beide Variablen innerhalb enger Grenzen fährt der Roboter geradeaus vor.
 Für das Rückwärtsfahren ist die Regelung analog.
 
 Unabhängig von der Regelung des Seitwärtsfahrens gibt es mechanische Kontaktelemente die eine zu starke Verdrehung des Roboters beim Seitwärtsfahrens gar nicht zulassen. Diese Kontaktelemente bestehen aus leichtem Schaumstoff und sind auf die Vorder- bzw. Rückseite des Roboters aufgeklebt.
 
-Behandlung der Ecken: 
-
-Ecken müssen als solche erkannt werden, bevor sie die normale Fahrregelung stören.
+Die Ecken müssen als solche erkannt werden, bevor sie die normale Fahrregelung stören.
 Wird eine Ecke erkannt wird der normale Fahrmodus unterbrochen, und in einem speziellen Eckenmodus gewechselt.
 Es gibt zwei Arten von Ecken: 
 - einmal die klassische Ecke beim Wechsel vom Vor- bzw. Rückwärtsfahren nach rechts.
@@ -757,20 +753,18 @@ Bei der ersten Messung zeigte sich, dass eine der beiden Messplatinen nicht temp
 Durch den Austausch der Referenzstromquelle der Platine B hat sich auch der ADC-Wert gegenüber der ersten Messung geändert. Die Kalibrierwerte der Platine B \ref{TabB} sind nach diesem Austausch aufgenommen worden.
 Da die Platine A temperaturstabiler als die Platine B ist, wurde Platine A zur Messung der Zelltemperatur ausgewählt, die Platine B wurde für die Messung der Umgebungstemperatur verwendet. 
 
-
-
-
-
-
-
 \chapter{Messung}\thispagestyle{empty}
 
 Diese Kapitel beschreibt die Messvorbereitung, den Messaufbau, die eigentliche Messung und die Auswertung der Messdaten.
 
 \section{Messaufbau}\thispagestyle{empty}
-Dieser Abschnitt behandelt den Messaufbau. Die Messung der Bestrahlungsstärkeverteilung findet im Sonnensimulator statt. Zuerst muss eine Messebene geschaffen werden. Die, im normalen Messalltag vermessenen, Module liegen auf verschiebbaren Metallschienen auf. Damit der Roboter fahren kann, braucht er eine ebene Fläche. Die Messebene wird aus 3 Holzplatten gebildet, diese sind auf der Oberseite schwarz gefärbt und mit einer weißen mäanderförmigen Spur versehen. Die Platten hängen durch, dadurch ist die Messebene nicht eben. Schlimmer ist der nicht gleiche Durchhang verschiedener Platten. So kommt es zu Stufen zwischen den Platten. Um diese Stufen zu verringern wurde auf der Unterseite der Platten mit dem geringeren Durchhang eine kleine Aluplatte befestigt um eine Aufflage für die andere Platte zu schaffen. Eine zu große Stufe behindert den Roboter beim Fahren.
+Dieser Abschnitt behandelt den Messaufbau. Die Messung der Bestrahlungsstärkeverteilung findet im Sonnensimulator statt. Zuerst muss eine Messebene geschaffen werden. Die, im normalen Messalltag vermessenen, Module liegen auf verschiebbaren Metallschienen auf. Damit der Roboter fahren kann, braucht er eine ebene Fläche. Die Messebene wird aus 3 Holzplatten gebildet, diese sind auf der Oberseite schwarz gefärbt und mit einer weißen mäanderförmigen Spur versehen. Die Platten hängen durch, dadurch ist die Messebene nicht eben. Schlimmer ist der nicht gleiche Durchhang verschiedener Platten. So kommt es zu Stufen zwischen den Platten. Um diese Stufen zu verringern wurde auf der Unterseite der Platten mit dem geringeren Durchhang eine kleine Aluplatte befestigt um eine Aufflage für die andere Platte zu schaffen. Eine zu große Stufe wurde den Roboter beim Fahren behindern.
 
-Foto Platten , Foto Auflage  
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=100mm]{img/robofahrt.jpg}
+\caption{Eine Fahrt des Roboters auf der Messbahn}\label{robofahrt}
+\end{figure}
 
   \subsection{Platten}\thispagestyle{empty}
 Im Sonnensimulator 2 Platten. Auf den 3 Platten ist die Messbahn aufgemalt.
@@ -806,9 +800,8 @@ Zum Starten wird der Schalter von 0 auf 1 umgelegt. Damit wird der Mikrocontroll
 \section{Auswertung}\thispagestyle{empty}
 
 
+Die Messwerte werden auf SD-Karte als Textdatei gespeichert. Für jeden Messwert gibt es eine eigene Zeile. In jeder Zeile sind Messzeit in Millisekunden, der ADC-Wert für den Kurzschlussstrom, der ADC Wert für die Zelltemperatur, der ADC Wert für die Umgebungstemperatur, und jeweils einen Zählerwert für Messpunkt, Reihe und Spalte. Die einzelnen Werte sind durch einen Tabulator getrennt, damit ist die Datei in Excel und Matlab bearbeitbar.  
 
-
-Die Messwerte werden in einer Textdatei auf einer SD-Karte gespeichert. Die einzelnen Messwerte sind dabei durch einen Tabulator getrennt. 
 Die Tabelle \ref{TabSD} zeigt wie die Daten auf der SD-Karte gespeichert sind. Es sind nicht alle Werte für die Auswertung notwendig. Der Erste Wert ist die Zeit in Millisekunden, die seit dem Einschalten des Roboters vergangen ist. Die nächsten 3 Werte sind werte des Analogdigtalwandlers im Bereich von Null bis 1023, diese Werte werden ohne Umrechnung direkt auf die SD Karte gespeichert. Es sind 308 Messpunkte, 14 mal 22, es kann vorkommen, am Übergang von einer Platte zur anderen, dass ein Messpunkt ausgelassen wird. Das ist erkennbar wenn nicht 308 Messwerte im datalog-File sind. Um den Fehler leicht zu finden wurde Spalte und Reihe mit aufgezeichnet. Sind in einer Spalte nur 13 Messwerte, fehlt in dieser Spalte ein Wert. Anhand der mit aufgezeichneten Zeit kann der fehlende Messpunktes lokalisiert werden. Das geschieht nicht automatisch Der Messwert wird anhand der neben liegenden Werte geschätzt. Alternativ werden nur Messfahrten mit allen Punkten ausgewertet.
  
 \begin{table}[htbp]
