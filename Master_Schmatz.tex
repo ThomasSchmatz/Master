@@ -152,7 +152,7 @@ Im Allgemeinen werden Messergebnisse auf Standard-Prüfbedingungen (STC) bezogen
 \end{equation}
 Wobei L die Länge des Weges des Sonnenlichtes durch die Atmosphäre, L$_0$ die Weglänge bei senkrechten Einfall und z der Zenitwinkel des Sonnenstandes in Grad ist (\cite{wurf} S. 30). 
 Eine genauere Gleichung, insbesondere für niedrige Sonnenstände, ist in Abbildung \ref{airmass} hergeleitet.
-Die spektrale Verteilung des Referenzsonnenspektrums AM1.5 (siehe Abbildung \ref{sunspec} ist durch die Norm IEC 60904-3 \cite{norm3} festgelegt. Das Spektrum des Sonnenlichtes im Weltall AM0 entspricht in etwa der thermische Strahlung eines schwarzen Körpers mit 5250$^\circ$C
+Die spektrale Verteilung des Referenzsonnenspektrums AM1.5 (siehe Abbildung \ref{sunspec}) ist durch die Norm IEC 60904-3 \cite{norm3} festgelegt. Das Spektrum des Sonnenlichtes im Weltall AM0 entspricht in etwa der thermische Strahlung eines schwarzen Körpers mit 5250$^\circ$C
 Grundsätzlich werden bei konventionellen Systemen gepulste und stationäre Simulatoren, welche kontinuierlich leuchten, unterschieden. Erstere brauchen weniger Energie und heizen die Messobjekte nicht auf, und werden für die Leistungsmessung von Zellen und Modulen verwendet. Allerdings ist Blitzlänge bauartbedingt auf wenige Millisekunden begrenzt. Stationäre Simulatoren werden für Voralterung von Modulen verwendet.
  
 
@@ -162,17 +162,18 @@ Grundsätzlich werden bei konventionellen Systemen gepulste und stationäre Simu
 \caption[Sonnenspektrum]{Der Vergleich von Spektrum des Sonnenlichtes im Weltall (AM0), der Strahlung eines schwarzen Körpers von 5250$^{\circ}$C und dem AM1.5 Spektrum. Quelle: \cite{sun}}\label{sunspec}
 \end{figure}
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=125mm]{img/airmass.png}
-\caption{Die genaue Formel für die Air Mass.}\label{airmass}
-\end{figure}
-
 
 \section{Sonnensimulator Aufbau}\thispagestyle{empty}
-Als Lichtquellen dienen 10 Metallhalogenoid Strahler mit je 4 kW elektrischer Leistung.
-Für eine spektral unabhängige Reduzierung der Beleuchtungsstärke sind die Strahler an einer höhenverstellbaren Aufhängung befestigt. Zusätzlich lassen sich die Leistungen der einzelnen Lampen in 1\% Schritten verändern. Eine Lampenleistung unter 80\% ist nicht empfohlen, da dann sich die spektrale Zusammensetzung verändert.
+
+
+Mit der SolarConstant 4000 (siehe Abbildung \ref{sunsim}) der Firma Atlas kann die Einwirkung der Sonne auf Testobjekte simuliert werden. Dazu ist das Gerät mit zehn Metallhalogenid-Strahlungsquelle Lampen zu je 4kW. Durch die Füllung der Lampen mit Halogeniden wird ein kontinuierliches Spektrum erzeugt. Die Leuchten mit Filterscheiben ausgestattet, die das abgestrahlte Licht möglichst dem AM1.5 Spektrum ähnlich macht.
+Jede Lampe wird von einem eigenen elektronisch geregelten Vorschaltgerät versorgt, welches für einen gleichmäßigen und flimmerfreien Betrieb sorgt.
+Da die Lampen nicht für eine Heißzündung ausgelegt sind, und dabei eventuell zerstört werden können, ist eine Sperrzeit von 10 Minuten zum Abkülen vorgesehen, bevor die Lampen wieder eingeschaltet werden können.
+Die Strahlungsleistung lässt sich reduzieren indem das gesamte Lampenfeld in die Höhe gefahren wird.
+Weiters lässt sich die Bestrahlungsstärke einzelner Lampen über die Variation der elektrischen Leistung des Vorschaltgerätes varieren.
+Allerdings führt eine Variation der elektrischen Leistung zu einer Änderung der spektralen Strahlungsverteilung. Es wir dvom Hersteller empfohlen, die Helligkeit der Lampen nur zwischen 80 und 100 \% zu variieren.
 Die Testobjekte werden mittels Prüfgut-Einschub in einem Windkanal positioniert, dessen obere Abdeckung aus einem geeigneten Solarglas besteht. Die geneigte Glasplatte bewirkt eine Querschnittreduktion des Luftkanales und somit eine Erhöhung der Strömungsgeschwindigkeit zwischen Zuluft- und Abluftseite. Diese stetige Erhöhung der Geschwindigkit ist notwendig, damit die sich erwärmende Zuluft eine konstante Kühlwirkung hat, um die Testobjekt auf konstanter Temperatur zu halten.
+
 
 \begin{figure}[htbp]
 \centering
@@ -293,10 +294,10 @@ Designprozess:
 Der Roboter ist ein wenig zu groß geworden, die verwendete Messzelle ist kleiner als in den Planungen, dafür ist der Akku größer als ursprünglich gedacht. 
 
 \subsection{Mecanum-Plattform}\thispagestyle{empty}
-Das Mecanum-Rad ist ein Rad, das Fahrmanöver in jede Richtung erlaubt, ohne dass das Fahrzeug mit einer mechanischen Lenkung ausgestattet ist. Benannt ist es nach dem schwedischen Unternehmen Macanum, welches dieses Rad 1971 entwickelt hat.
-Erreicht wird die Wendigkeit der Fahrzeuge durch den Einsatz von Mecanum Rädern, die einzeln angetrieben werden. Diese Räder bestehen aus einer Felge (siehe Abbbildung \ref{rad}), auf der unter einem Winkel von 45 Grad befestigte, ballige Rollen so angebracht sind, dass sie über den Abrollumfang einen exakten Kreis bilden (siehe Abbbildung \ref{rad2}).
+Mecanum-Räder erlauben einem Fahrzeug, ohne mechanischer Lenkung, sich in jede Richtung zu bewegen. Benannt ist es nach dem schwedischen Unternehmen Macanum, welches dieses Rad 1971 entwickelt hat.
+Jedes Rad wird über einen eigenen Motor angetrieben, und verfügt über eine separate Ansteuerung. Die Räder bestehen aus einer Felge (siehe Abbbildung \ref{rad}), auf der unter einem Winkel von 45 Grad befestigte, ballige Rollen so angebracht sind, die über den Abrollumfang einen exakten Kreis bilden (siehe Abbbildung \ref{rad2}).
 
-Durch die Schräganordnung der Rollen entstehen beim Antreiben eines Rades 2 Kraftkomponenten, eine in der Achse  und eine 90$/circ$ . Gegeneinander gerichtete Kräfte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich (siehe Abbildung \ref{fahrman}).
+Durch die Schräganordnung der Laufrollen entstehen beim Antreiben eines Rades 2 Kraftkomponenten, eine in der Achse  und eine 90$^\circ$. Gegeneinander gerichtete Kräfte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich (siehe Abbildung \ref{fahrman}).
 
 \begin{figure}
     \subfigure[Vor/Zurück]{\includegraphics[width=50mm]{img/gerade.png}}
@@ -314,8 +315,32 @@ Durch die Schräganordnung der Rollen entstehen beim Antreiben eines Rades 2 Kra
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/rad.jpg}
-\caption{Ein fertig montiertes Rad am Roboter}\label{rad2}
+\caption{Ein fertig Rad, montiert am Roboter.}\label{rad2}
 \end{figure}
+
+Jedes der vier Räder besteht aus einer Felge, insgesamt 16 Laufrollen, 8 Kugellager, 8 M4x45mm Schraube, 8 M4 Muttern, sowie 16 M4 Beilagscheiben. 
+Das Rad ist mit einer M3 Schraube und einer M3 Mutter an der Motorachse fixiert.
+Die Felgen und die Laufrollen wurden mit einem 3D-Drucker gefertigt. 
+Die Vorlage namens Mecanum Wheel MK2 stammt von http://www.thingiverse.com/thing:2473, und kann unter der Attribution-NonCommercial-ShareAlike 3.0 Unported Lizenz nicht kommerziell verwendet werden.
+Die Laufrollen so angepasst, dass die Mutter bzw. der Schraubenkopf in der Rolle versenkt ist, damit das Rad insgesamt kompakter ist. Zum bearbeiten wurde OpenSCAD, ein 3D-Compiler, verwendet. 
+Die Kugellager wurden in die Falgen eingeklebt,
+\newline
+\newline
+Ab hier Entwurf: Mehr aud SCAD eingehen? Druckvorbereitung. Genauer den Druck beschreiben? Multidruck der Rollen. 
+Probedrücke bis endgültige Rolle gefunden wurde.
+Druckzeit: Felge rund drei Stunden, eine Rolle etwa 20 Minuten.
+3D-Drucker war fehleranfällig. Wartungintensiv. Druckmaterial: AMS-Kunststoff (Datenblatt wäre nett!)
+
+Analyse von einem ABS-Kunststoff: Characterization of Material Properties
+$http://www.stratasys.com/sitecore/shell/Applications/~/media/Fortus/Files/PDFs/MaterialPropertiesReport-ABS-M30.pdf?utm_source=materials_study_news_release_August_2011$ 
+
+Temperatur hat Einfluss auf Materialeigenschaften, es ist gut, dass der Kunststoff vor direkter Sonneneinstrahlung, und somit Erwärmung geschützt ist, besonders da er schwarz ist.
+ABS ist grundsätzlich UV beständig, findet z.B. Anwendung in Rasenmähern. "If UV-stabilizators are added, ABS is suitable for outdoor applications." 
+Genauer Typ von ABS unbekannt. 
+Zwei verschiedene Radtypen, Rollen gleich, unterschiedliche Felgen. Anordnung siehe Bild. Montage so, dass die Räder symmetrisch sind. Symmetrische Anordnung der Räder.
+Das Material für den 3D-Druck ist ABS (Acrylnitril-Butadien-Styrol). Es besitzt eine hohe Oberflächenhärte (ist damit für kratzfeste und matt glänzende Oberflächen geeignet), besitzt eine gute Schlagfestigkeit. Es schmilzt in einem Temperaturbereich von 220 - 250 $^\circ$C (Hochtemperatur-ABS-Blends noch höher) und kann im flüssigen Zustand im Spritzgussverfahren oder per Extruder geformt werden. Als eine spezielle Form letzterer Methode stellt das Material auch üblicherweise den Werkstoff dar, der von 3D-Druckern verdruckt wird. Standard-ABS erweichen um 95 - 110 $^\circ$C (siehe Vicat-Erweichungstemperatur). 
+Nachteil beim 3D-Druck ist die Beschränkung auf einen Werkstoff. 
+
 
 \subsection{Chassis}\thispagestyle{empty}
 
@@ -361,16 +386,16 @@ Die einzelnen Komponenten sind wie in Abbildung \ref{elek} auf der Bodenplatte a
  
 \subsection{Motorensteuerung}\thispagestyle{empty}
 
-Die Motorplatine \ref{hbridge2} besteht aus zwei integrierten H-Brücken-Bausteinen (NJM2670), mit zwei H-Brücken pro Baustein, einer 16 poligen Buchse und fünf zweipoligen Buchsen für die Stromversorgung und den Anschluss der vier Motoren.
-\newline
-Die Drehzahl bei konstanter Versorgungsspannung lässt sich mit Pulsweitenmodulation variieren.
+Die Motorplatine \ref{hbridge2} besteht aus zwei integrierten H-Brücken-Bausteinen (IC1, IC2), einer 16 poligen Buchse und fünf zweipoligen Buchsen für die Stromversorgung und den Anschluss der vier Motoren. Bei den integrierten H-Brücken-Baustein handelt es sich um einen NJM2670 \cite{njm}, welcher zwei H-Brücken in einem Baustein vereint, zusätzlich verfügen diese Bausteine über eine interne Logik, welche Kurzschlüsse über die Brücke unmöglich macht.
+Die Drehzahl der Motoren wird mit Pulsweitenmodulation variiert. Dabei ist es wichtig, dass die Transistoren in der Brücke schnell genug schalten können. Die PWM-Ausgänge des Arduino arbeiten mit einer Frequenz von etwa 500Hz \cite{pwm}.
 Die Gleichspannungsmotoren sind Getriebemotoren mit der Bezeichnung RB 35, und einem Übersetzungsverhältnis von 1:200. Die maximale Versorgungsspannung wurde mit 12V angegeben. Die Leerlaufdrehzahl beträgt bei 12V Versorgungsspannung 20 Umdrehungen pro Minute.
 Der Roboter wird mit einem Lithium-Ionen-Akku versorgt. Die Spannung beträgt, abhängig vom Ladezustand zwischen 16,4V und 15,0V. Damit es zu keiner Überlastung der 12V-Motoren, kommt wurde bei der Pulsweitenmodulation ein maximales Tastverhältnis von 50\% eingehalten.
+ 
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=150mm]{img/HBrucke.png}
-\caption{Der Schaltplan der Motortreiberplatine}\label{hbridge2}
+\caption{Der Schaltplan der Motortreiberplatine.}\label{hbridge2}
 \end{figure}
 
 
@@ -838,7 +863,7 @@ n_{295}  &.& .&.& n_{308}
 \end{pmatrix}
 \end{equation}
 
-Um die eindimensionale Datenwurst 
+Um die eindimensionale Datenwurst Datenwurst in ein zweidimesionales Array, das der realen Anordnung der Messpunkte entspricht, wird folgender Algorithmus verwendet:
 \begin{verbatim}
 j=1; k=1; l=1;
 
@@ -852,12 +877,15 @@ for(i=0:307)
 end
 \end{verbatim}
 
+Beschreibung verbal: Es gibt 308 Messwerte. Die ersten 14 werden in die erste Reihe des Arrays gelegt. Die nächsten 14 in die zweite Reihe, aber in in absteigender Reihenfolge. Das heißt in die 14. Spalte der 2. Reihe wird der 15 Wert gelegt, also erste Reihe von links nach rechts, die zweite Reihe von rechts nach links, die dritte Reihe wieder von links nach rechts, usw.
 
 
 
 
 
-Der ADC Wert des Kurschlussstromes wird in Ampere umgerechnet. Verwendet wird die in der Kallibrierung gewonnene Formel.
+
+
+Der ADC Wert des Kurschlussstromes wird in Ampere umgerechnet. Verwendet wird dazu die in im Abschnitt Kalibrierung gewonnene Formel.
 
 \begin{figure}[htbp]
 \centering
@@ -896,6 +924,12 @@ Der ADC Wert des Kurschlussstromes wird in Ampere umgerechnet. Verwendet wird di
 
 Die geringe Messzeit des Roboters, verglichen mit der mechanischen Methode, macht es möglich die Bestrahlungsstärkeverteilung der einzelnen Lampen in realistischer Zeit zu bestimmen.
 Veränderbar sind der Abstand zwischen Lampenfeld und Prüfebene. Die Leistungen der Lampen lassen sich einzeln steuern. 
+Die Lampen wurden einzeln mit einer Lampenleistung von 100\% vermessen, die anderen Lampen waren jeweils auf 0\%. Aus den Werten der Einzelmessung wurde optimierte Gesamtausleuchtung errechnet. Diese optimierte Einstellung (welche noch zu messen ist) wird den Herstellerangaben verglichen. Dann wir sich zeigen ob die Methode erfolgsversprechend ist.
+Einfacher Algorimus für Matlab:
+- Leistung einzelner Lampen nur zwischen 100 und 80%: 
+- Eine der mittleren Lampen auf 100\% festsetzen, andere Lampen in einem Bereich von 80\% bis 100\% varieren lassen. Nicht alle Lampen alle 20 Schritte machen lassen. 20 hoch 9 wären sehr viele Rechenschritte.
+
+Zuerst muss eine Lampe bei verschiedenen Einstellungen (100, 90, 80 \%) gemessen werden, um den Zusammenhang von Einstellung der Lampenleistung mit der gemessenen Bestrahlungsstärke zu ermitteln.
 
 \begin{figure}
     \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E1.png}}
@@ -971,6 +1005,8 @@ Veränderbar sind der Abstand zwischen Lampenfeld und Prüfebene. Die Leistungen
 
 Der Roboter erleichtert die Messung der Bestrahlungsstärkemessung enorm. Durch die kurze Messdauer ist es möglich die Bestrahlungsstärke in periodischen Zeitabständen zu vermessen, um so die Alterung der Lampen zu dokumentieren. 
 Diese Art von Messroboter kann in jedem stationären Sonnensimulator entsprechender Größe zur Vermessung der Bestrahlungsstärkeverteilung verwendet werden. 
+Die Verwendung des Messroboters erlaubt die Bestrahlungsstärkeverteilung einzelner Lampen zu ermitteln.
+Ebenso die Bestrahlungsstärkeverteilung bei unterschiedlichen Höhen des Lampenfeldes.
 
 
 % Literaturverzeichnis

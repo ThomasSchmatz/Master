@@ -1,0 +1,22 @@
+Die Leerlaufspannung hängt von der Temperatur ab. Mit steigender Temperatur wird der Bandabstand kleiner. Dadurch können Photonen kleinerer Energie absorbiert werden und somit steigt der Kurschlussstrom. Die Leistung im MP-Punkt sinkt mit steigender Temperatur.
+Zusammenhang von Kurzschlusstrom und Leerlaufspannung.
+  \begin{equation}
+     I_{sc} = I_0 ( e^{\frac {q U_{oc}}{k T}} - 1 )
+  \end{equation}
+  Hierbei ist $I_{0}$ der Söttigungsstrom der Diode (im Ersatzschalbild ~\ref{esb}):
+    \begin{equation}
+     I_{0} = A ( \frac { q D_{e} n_i^2} {L_e N_A} + \frac {q D_h n_i^2} {L_h N_D})
+  \end{equation}
+  
+  $N_A$ und $N_D$ sind die Dichten von Akzeptoren sowie Donatoren, $D_e$ und $D_h$ sind die Diffusionskoeffizienten von Elektronen und Löchern, $n_i$ ist die intrinsische Ladungsträgerdichte, $L_e$ und $L_h$ sind Diffusionslängen von Elektronen und Löchern. Alles materialabhängige Konstanten.
+  
+  \begin{equation}
+     U_{sc} = \frac {k T}{q} ln (\frac {I_L}{I_0} + 1 )
+  \end{equation}
+  
+  Hier ist $I_L$ der Photostrom, und berechnet sich :
+  
+  \begin{equation}
+     I_{L} = q A G ( L_e + W + L_h )
+  \end{equation}
+Bei $A$ handelt es sich um die Zellfläche, bei $G$ um die Generationsrate von Elektron-Löcher-Paaren und bei $W$ um die W um die Breite der Raumladungszone. 
