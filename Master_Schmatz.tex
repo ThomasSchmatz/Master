@@ -468,8 +468,8 @@ Der Spannungsabfall an einem temperaturstabilen 100$\Omega$ Widerstand wird mit 
 Dieser Abschnitt beschreibt die Entwicklung des Softwareteils. Es wird kurz auf die Entwicklungsumgebung eingegangen. Dann folgt die Auswertung der optischen Sensoren. Schließlich wird die Programmstruktur erklärt. Der gesamte Code ist im Anhang gelistet.
 
 \subsection{Entwicklungsumgebung}\thispagestyle{empty}
-Der Mikrocontroller auf den Arduino Board wird mit der Arduino Programmiersprache, welche auf Wiring basiert und sehr C-artig ist, in der Arduino Entwicklungsumgebung (siehe Abbildung \ref{ardu2}, welche auf Processing basiert, programmiert. 
-Ein Arduino Programm besteht aus zwei Teilen: Einer Setup-Routine die einmal zu Programmstrart durchlaufen wird und einer Endlosschleife. In der Schleife wird das eigentlich Programm behandelt. 
+Der Mikrocontroller auf den Arduino Board wird mit der Arduino Programmiersprache, welche auf Wiring basiert und sehr C-artig ist, in der Arduino Entwicklungsumgebung (siehe Abbildung \ref{ardu2}, welche auf Processing basiert, programmiert. Die Entwicklungsumgebung ist auf das notwendigste beschränkt, und erlaubt einen raschen Einstieg. Die umfassenden Beispielprogramme helfen beim Einarbeiten. Darüber hinaus gibt es eine große und aktive Comunity.
+Ein Arduino Programm besteht aus zwei Teilen: Einer Setup-Routine die einmal zu Programmstart durchlaufen wird und einer Endlosschleife. In der Schleife wird das eigentlich Programm abgearbeitet. 
 
 \begin{figure}[htbp]
 \centering
@@ -483,13 +483,17 @@ Das wird für alle neun Optoreflektoren des Sensorarray, sowie den Stopsensor, g
 Mit den korrigierten Werten der einzelnen optischen Sensoren wird die Lage der Linie relativ zum Mittelpunktes des Arrays bestimmt. 
 
 Die Höhe des Messwertes  der optischen Sensoren ist abhängig von der Helligkeit des Untergrundes. Unter der Annahme dass sich eine helle gerade Linie unter dem Senorarray befindet funktioniert folgende Formel:
-\begin{equation}
-  x_1 = \frac{C-A}{2A-4B+2C}
-  x_2 = \frac{F-D}{2D-4E+2F}
-  x_3 = \frac{I-G}{2G-4H+2I}
-  d = \frac{x_1+x_2+x_3}{3}
-  k = \frac{x_1-x_3}{2}
-\end{equation}
+\begin{align*}
+  x_1 &= \frac{C-A}{2A-4B+2C} \\
+  \\
+  x_2 &=  \frac{F-D}{2D-4E+2F} \\
+  \\
+  x_3 &=  \frac{I-G}{2G-4H+2I} \\
+  \\
+  d &=  \frac{x_1+x_2+x_3}{3} \\
+  \\
+  k &=  \frac{x_1-x_3}{2}
+\end{align*}
 
 
 \begin{figure}
@@ -540,10 +544,10 @@ Ende der Messfahrt: Im Zustand z (und nur im Zustand z) wird das Ende der Linie 
 
 Der Roboter beginnt nach Ablauf der Einschaltverzögerung seine Vorwärtsfahrt. (Bild mit den Bewegungsrichtungen des Roboters: vorwärts, rückwärts, links und rechts!)
 Die Geradeausfahrt kann unterbrochen durch einen Messpunkte unterbrochen werden. Wenn der Messpunktsensor einen Wert höher als eine bestimmte Schaltschwelle erhält wird in den Messmodus gewechselt.
-Messmodus: Zeitverzögerung um 250ms, zur Vermeidung von elektromagnetischen Störungen durch die Motorströme. Messschleife von 500 Einzelmessungen des Zellenkurzschlussstromes, der Zelltemperatur und der Umgebungstemperatur. Die Einzelmesswerte werden zuerst summiert und nach der Schleife durch 500 dividiert. 
+Messmodus: Zeitverzögerung um 250 ms, zur Vermeidung von elektromagnetischen Störungen durch die Motorströme. Messschleife von 500 Einzelmessungen des Zellenkurzschlussstromes, der Zelltemperatur und der Umgebungstemperatur. Die Einzelmesswerte werden zuerst summiert und nach der Schleife durch 500 dividiert. 
 Schreiben auf SD Karte: Zeitpunkt in ms, zu dem die Messung gestartet hat, dann die 3 ADC Werte, Messpunkt, Messreihe und Messspalte. (Falls ein Messwert verloren geht, was vorkommen kann, wenn ein Messpunkt übersehen wird, kann die Position ermittelt und die fehlenden Messwerte geschätzt werden.
 
-Die Messstrecke setzt sich aus geraden Linienelementen zusammen, die durch 90$\circ$ Ecken verbunden sind. Bei der Hälfte der Ecken ist die Linie nicht durchgehend, sondern als mit einem 15mm breiten Abstand ausgeführt. Das war nicht geplant, hat sich aber in der als funktionierende Lösung erwiesen. Das Seitwärtsfahren des Roboters funktioniert, aber es sind größere Abweichungen im Versatz und der Verdrehung möglich. Daher kann der Roboter in einer ziemlich ungünstigen Position an der Ecke stehen. Der Algorithmus des um die Ecke Fahrens besteht aus einer Fahrt (ohne Regelung!) in die bisherige Bewegungsrichtung solange bestimmte Sensoren des Arrays nicht dukel detektieren, gefolgt von einer Bewegung von 90$\circ$ zur bisherigen Bewegungsrichtung (ohne Regelung!) eine bestimmte Zeit lang. Diese beiden Bewegungen können im schlimmsten Fall die ungünstige Position des Roboters so weit verschlimmern, dass eine Weiterfahrt nach der Ecke unmöglich ist.
+Die Messstrecke setzt sich aus geraden Linienelementen zusammen, die durch 90$\circ$ Ecken verbunden sind. Bei der Hälfte der Ecken ist die Linie nicht durchgehend, sondern als mit einem 15mm breiten Abstand ausgeführt. Das war nicht geplant, hat sich aber in der als funktionierende Lösung erwiesen. Das Seitwärtsfahren des Roboters funktioniert, aber es sind größere Abweichungen im Versatz und der Verdrehung möglich. Daher kann der Roboter in einer ziemlich ungünstigen Position an der Ecke stehen. Der Algorithmus des um die Ecke Fahrens besteht aus einer Fahrt (ohne Regelung!) in die bisherige Bewegungsrichtung solange bestimmte Sensoren des Arrays nicht dunkel detektieren, gefolgt von einer Bewegung von 90$\circ$ zur bisherigen Bewegungsrichtung ohne Regelung für eine definierte Zeit. Diese beiden Bewegungen können im schlimmsten Fall die ungünstige Position des Roboters so weit verschlimmern, dass eine Weiterfahrt nach der Ecke unmöglich ist.
 Durch die Modifikation der Ecke, in ein Ende der Linie mit einem davon seitwärts versetzten Anfangs, vereinfacht sich der prinzipielle Algorithmus. Bis zum Ende der Linie ist es der normale (inkl. Regelung) Fahralgorithmus, danach wird 90$\circ$ zur bisherigen Bewegungsrichtung, d.h. vor oder zurück, mit einer definierten Zeit zur Überbrückung der Lücke ohne Regelung gefahren. Dann steht der Roboter auf der Linie, aber eventuell mit Versatz oder einer Verdrehung.
 
 Regelung bei der Vorwärts bzw. Rückwärtsfahrt. A bei der Vorwärtsfahrt schwarz, G bei der Rückwärtsfahrt schwarz. Damit die Ecken keinen Einfluss (= ungewollte Verdrehung, wäre sehr schlecht als Ausgangslage für das um die Ecke fahren). Da es lange ohne Probleme funktioniert hat wird kein vermeidlich sinnloser Programmteil gelöscht. Die Auswirkungen sind nur durch lange Testfahrten zu ermitteln.
@@ -780,10 +784,10 @@ Da die Platine A temperaturstabiler als die Platine B ist, wurde Platine A zur M
 
 \chapter{Messung}\thispagestyle{empty}
 
-Diese Kapitel beschreibt die Messvorbereitung, den Messaufbau, die eigentliche Messung und die Auswertung der Messdaten.
+Diese Kapitel beschreibt die Messvorbereitung, den Messaufbau, die eigentliche Messung und die Auswertung der Messdaten. Um was geht es? Um die Messung. Zur Messung gehört der Messaufbau, der Messablauf und die Auswertung der Messung. Weiters werden Messungen bei verschiedenen Einstellungen diskutiert. 
 
 \section{Messaufbau}\thispagestyle{empty}
-Dieser Abschnitt behandelt den Messaufbau. Die Messung der Bestrahlungsstärkeverteilung findet im Sonnensimulator statt. Zuerst muss eine Messebene geschaffen werden. Die, im normalen Messalltag vermessenen, Module liegen auf verschiebbaren Metallschienen auf. Damit der Roboter fahren kann, braucht er eine ebene Fläche. Die Messebene wird aus 3 Holzplatten gebildet, diese sind auf der Oberseite schwarz gefärbt und mit einer weißen mäanderförmigen Spur versehen. Die Platten hängen durch, dadurch ist die Messebene nicht eben. Schlimmer ist der nicht gleiche Durchhang verschiedener Platten. So kommt es zu Stufen zwischen den Platten. Um diese Stufen zu verringern wurde auf der Unterseite der Platten mit dem geringeren Durchhang eine kleine Aluplatte befestigt um eine Aufflage für die andere Platte zu schaffen. Eine zu große Stufe wurde den Roboter beim Fahren behindern.
+Dieser Abschnitt behandelt den Messaufbau. Die Messung der Bestrahlungsstärkeverteilung findet im Sonnensimulator statt. Zuerst muss eine Messebene geschaffen werden. Die, im normalen Messalltag vermessenen, Module liegen auf verschiebbaren Metallschienen auf. Damit der Roboter fahren kann, braucht er eine ebene Fläche. Diese Fläche ist aus logistischen Gründen aus drei einzelnen Holzplatten gebildet, was einige zusätzliche Probleme bereitet hat. Auf der Oberseite der Platten befindet sich die Messpunkte und eine Führungslinie, welcher der Roboter folgt. Zur Messung wird der Roboter an das linke Ende der Linie gestellt, er fährt nach dem Einschalten selbständig das Messprogramm ab.
 
 \begin{figure}[htbp]
 \centering
@@ -792,10 +796,13 @@ Dieser Abschnitt behandelt den Messaufbau. Die Messung der Bestrahlungsstärkeve
 \end{figure}
 
   \subsection{Platten}\thispagestyle{empty}
-Im Sonnensimulator 2 Platten. Auf den 3 Platten ist die Messbahn aufgemalt.
-Die Platten müssen eng aneinander anliegen. Damit keine zu groß Stufe wegen unschiedlicher Duschbiegung der Platten entsteht ist auf der Rückseite der Holzplatten Aluminiumbleche befestig, auf einer Seite angeschraubt, die danebenliegende Platte liegt darauf.
+Drei Holzplatten bilden die Messebene für den Roboter. Eine große Platte wäre eine bessere Alternative gewesen, aber aus logistischen Gründen ist die Messebene auf drei Platten aufgeteilt. Weil für die drei Platten leichter ein Platz zum Aufbewahren gefunden werden kann. Die 250 mal 125 Zentimeter großen und 18 Millimeter dicken Holzplattenlatte sind gerade noch hantierbar. 
+Die Platten sind schwarz, damit sie einen möglichst geringen Reflexionskoeffizienten haben. Um einen großen Unterschied im Reflexionskoeffizienten zu haben, ist die Messbahn weiß gehalten. Sowohl der schwarze Untergrund als auch die weiße Bahn ist mit Kunstharzfarbe ausgeführt. Beim Hantieren mit den Platten können kleine Beschädigungen der Messbahn entstehen. Da diese Beschädigungen  den Messablauf stören können, ist es ratsam vor der Messung die Bahn mit einem weißen Klebeband (Isolierband) auszubessern.
+Die Platten müssen eng aneinander anliegen, damit der Roboter von einer Platte zur anderen fahren kann. Damit keine zu groß Stufe wegen unterschiedlicher Duschbiegung der Platten entsteht ist auf der Rückseite der Holzplatten Aluminiumbleche befestigt, auf einer Seite angeschraubt, die danebenliegende Platte liegt darauf.
 Da die Breite aller 3 Platten geringer ist als die Breite der Lade des Sonnensimulators, werden, damit die Messungen zu verschiedenen Zeitpunkten verglichen werden können, die Platten so weit wie möglich nach rechts geschoben. Am Rand liegen die Platten auf Aluschienen auf.
-Die Messpunkte liegen im Abstand von 15 cm, damit ist auch der Abstand zwischen den Messbahnen 15 cm, der Roboter muss nur 15 cm seitwärts fahren. Das seitwärts fahren funktioniert nicht so einwandfrei wie das  Vor/Zurückfahren, die Bewegungsrichtung ist bezogen bezogen auf die Orientierung der Räder.
+Die Messpunkte liegen im Raster von 15 Zentimeter. Die Führungslinie 25,4 Millimeter daneben, gemessen vom Zentrum des Messpunktes zur Mitte der Linie. Die Messpunkte sind kleine Quadrate der Seitenlänge von 14 bis 15 Millimeter. Die Messbahn ist ebenfalls 14 bis 15 Millimeter breit. Die Position der Messpunkte ist auf etwa ein bis zwei Millimeter genau.
+Die Messpunkte liegen im Abstand von 15 cm, damit ist auch der Abstand zwischen den Messbahnen 15 cm, der Roboter muss nur 15 cm seitwärts fahren. Die Übergänge der Messbahn von einer Platte zur nächsten sind mit weißem Isolierband  der Breite 14 Millimeter zu überbrücken. Beschädigung der Messbahn, welche durch unsanftes Handling der Platten entstehen können, sind ebenfalls mit weißem Isolierband zu Überkleben.
+Die Messebene wird aus 3 Holzplatten gebildet, diese sind auf der Oberseite schwarz gefärbt und mit einer weißen mäanderförmigen Spur versehen. Die Platten hängen durch, dadurch ist die Messebene nicht eben. Schlimmer ist der nicht gleiche Durchhang verschiedener Platten. So kommt es zu einem Höhenunterschied zwischen den Platten. Um diese Stufen zu verringern wurde auf der Unterseite der Platten mit dem geringeren Durchhang eine kleine Aluplatte befestigt um eine Auflage für die andere Platte zu schaffen. Eine zu große Stufe behindert den Roboter beim Fahren. Weil an der Stufe nicht alle Haltepunkte zuverlässig erkannt werden können.
 
 
 \begin{figure}[htbp]
@@ -803,7 +810,7 @@ Die Messpunkte liegen im Abstand von 15 cm, damit ist auch der Abstand zwischen 
 \includegraphics[width=125mm]{img/messbahn1.png}
 \caption[Messbahn auf den Platten]{Messbahn auf den Platten}\label{bahn}
 \end{figure}
-Die Übergänge der Messbahn von einer Platte zur nächsten sind mit weißem Isolierband  der Breite 14mm zu überbrücken. Beschädigung der Messbahn, welche durch unsanftes Handling der Platten entstehen können, sind ebenfalls mit weißem Isolierband zu Überkleben.
+
 
 
 
