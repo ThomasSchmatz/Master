@@ -146,14 +146,14 @@ Dieses Kapitel beschreibt die Notwendigkeit von Messungen in stationären Sonnen
 
 \section{Stationäre Photovoltaik Sonnensimulatoren} \thispagestyle{empty}
 
-Photovoltaik-Sonnensimulatoren werden zur elektrischen Charakterisierung und Prüfung von Photovoltaik-Modulen verwendet. Der wesentliche Vorteil liegt darin, dass die Durchführung unter reproduzierbaren Umweltbedingungen (Bestrahlungsstärke, spektrale Zusammensetzung des einfallenden Lichtes und die Prüfgutstemperatur)  ermöglicht wird. Ein Nachteil ist die nicht 100\% Übereinstimmung mit dem Spektrum des natürlichen Sonnenlicht. Am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$) können das Spektrum nicht verändern, sind also für einen Sonnenstand beschränkt.
+Photovoltaik-Sonnensimulatoren werden zur elektrischen Charakterisierung und Prüfung von Photovoltaik-Modulen verwendet. Der wesentliche Vorteil liegt darin, dass die Durchführung unter reproduzierbaren Umweltbedingungen (Bestrahlungsstärke, spektrale Zusammensetzung des einfallenden Lichtes und die Prüfgutstemperatur)  ermöglicht wird. Grundsätzlich werden bei konventionellen Systemen gepulste und stationäre Simulatoren, welche kontinuierlich leuchten, unterschieden. Erstere brauchen weniger Energie und heizen die Messobjekte nicht auf, und werden für die Leistungsmessung von Zellen und Modulen verwendet. Allerdings ist Blitzlänge bauartbedingt auf wenige Millisekunden begrenzt. Stationäre Simulatoren werden für Voralterung von Modulen verwendet.
 Im Allgemeinen werden Messergebnisse auf Standard-Prüfbedingungen (STC) bezogen, die durch 1000W/m$^2$, 25$^{\circ}$C und AM1.5 definiert ist. Die Air Mass (AM) beschreibt das Verhältnis des Weges des einfallenden Sonnenlichtes durch die Atmosphäre bezogen auf senkrechten Einfall. Je länger der Weg des Lichtes durch die Atmosphäre desto größer ist der Einfluss durch Streuung, Reflexion und Absorption, was sowohl die Stärke der Einstrahlung als auch die spektrale Zusammensetzung des Sonnenlichtes vom Sonnenstand abhängig macht.  \begin{equation}
      AM = \frac {L} {L_0} \approx \frac{1}{cos~ z}
 \end{equation}
 Wobei L die Länge des Weges des Sonnenlichtes durch die Atmosphäre, L$_0$ die Weglänge bei senkrechten Einfall und z der Zenitwinkel des Sonnenstandes in Grad ist (\cite{wurf} S. 30). 
-Eine genauere Gleichung, insbesondere für niedrige Sonnenstände, ist in Abbildung \ref{airmass} hergeleitet.
-Die spektrale Verteilung des Referenzsonnenspektrums AM1.5 (siehe Abbildung \ref{sunspec}) ist durch die Norm IEC 60904-3 \cite{norm3} festgelegt. Das Spektrum des Sonnenlichtes im Weltall AM0 entspricht in etwa der thermische Strahlung eines schwarzen Körpers mit 5250$^\circ$C
-Grundsätzlich werden bei konventionellen Systemen gepulste und stationäre Simulatoren, welche kontinuierlich leuchten, unterschieden. Erstere brauchen weniger Energie und heizen die Messobjekte nicht auf, und werden für die Leistungsmessung von Zellen und Modulen verwendet. Allerdings ist Blitzlänge bauartbedingt auf wenige Millisekunden begrenzt. Stationäre Simulatoren werden für Voralterung von Modulen verwendet.
+Die spektrale Verteilung des Referenzsonnenspektrums AM1.5 (siehe Abbildung \ref{sunspec}) ist durch die Norm IEC 60904-3 \cite{norm3} festgelegt. Das Spektrum des Sonnenlichtes im Weltall AM0 entspricht in etwa der thermische Strahlung eines schwarzen Körpers mit 5250$^\circ$C.
+Am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$) können das Spektrum nicht verändern, wegen der verwendeten Lampen, sind also für einen Sonnenstand beschränkt. Es gibt Sonnensimulatoren auf LED-Basis. Das gewünschte Spektrum wird dort mit vielen LEDs unterschiedlicher Wellenlänge realisiert, somit sind auch unterschiedliche Spektren und Bestrahlungsstärken realisierbar. Das beschränkt sich zurzeit auf Simulatoren in Zellgröße.  Es gibt bereits LED-Sonnensimulatoren für Module am Markt.
+
  
 
 \begin{figure}[htbp]
@@ -170,9 +170,9 @@ Mit der SolarConstant 4000 (siehe Abbildung \ref{sunsim}) der Firma Atlas kann d
 Jede Lampe wird von einem eigenen elektronisch geregelten Vorschaltgerät versorgt, welches für einen gleichmäßigen und flimmerfreien Betrieb sorgt.
 Da die Lampen nicht für eine Heißzündung ausgelegt sind, und dabei eventuell zerstört werden können, ist eine Sperrzeit von 10 Minuten zum Abkülen vorgesehen, bevor die Lampen wieder eingeschaltet werden können.
 Die Strahlungsleistung lässt sich reduzieren indem das gesamte Lampenfeld in die Höhe gefahren wird.
-Weiters lässt sich die Bestrahlungsstärke einzelner Lampen über die Variation der elektrischen Leistung des Vorschaltgerätes varieren.
-Allerdings führt eine Variation der elektrischen Leistung zu einer Änderung der spektralen Strahlungsverteilung. Es wir dvom Hersteller empfohlen, die Helligkeit der Lampen nur zwischen 80 und 100 \% zu variieren.
-Die Testobjekte werden mittels Prüfgut-Einschub in einem Windkanal positioniert, dessen obere Abdeckung aus einem geeigneten Solarglas besteht. Die geneigte Glasplatte bewirkt eine Querschnittreduktion des Luftkanales und somit eine Erhöhung der Strömungsgeschwindigkeit zwischen Zuluft- und Abluftseite. Diese stetige Erhöhung der Geschwindigkit ist notwendig, damit die sich erwärmende Zuluft eine konstante Kühlwirkung hat, um die Testobjekt auf konstanter Temperatur zu halten.
+Weiters lässt sich die Bestrahlungsstärke einzelner Lampen über die Variation der elektrischen Leistung des Vorschaltgerätes variieren.
+Allerdings führt eine Variation der elektrischen Leistung zu einer Änderung der spektralen Strahlungsverteilung. Es wir vom Hersteller empfohlen, die Helligkeit der Lampen nur zwischen 80 und 100 \% zu variieren.
+Die Testobjekte werden mittels Prüfgut-Einschub in einem Windkanal positioniert, dessen obere Abdeckung aus einem geeigneten Solarglas besteht. Die geneigte Glasplatte bewirkt eine Querschnittreduktion des Luftkanales und somit eine Erhöhung der Strömungsgeschwindigkeit zwischen Zuluft- und Abluftseite. Diese stetige Erhöhung der Geschwindigkeit ist notwendig, damit die sich erwärmende Zuluft eine konstante Kühlwirkung hat, um die Testobjekt auf konstanter Temperatur zu halten.
 
 
 \begin{figure}[htbp]
@@ -182,7 +182,7 @@ Die Testobjekte werden mittels Prüfgut-Einschub in einem Windkanal positioniert
 \end{figure}
 
 
-\section{Anforderungen}\thispagestyle{empty}
+\section{Normative Anforderungen}\thispagestyle{empty}
 Die Norm IEC 60904-9 \cite{norm9} stellt Anforderungen an Sonnensimulatoren. Ein Sonnensimulator wird anhand von 3 Kriterien bewertet: 
 \begin{itemize}
 \item die spektrale Übereinstimmung mit dem in Tabelle \ref{TabS1} aufgelisteten Wellenlängenbereichen. Zum AM1.5 Referenzspektrum sind durch die großen Schranken erhebliche Unterschiede möglich.
@@ -429,21 +429,21 @@ Die Energie zum Betrieb des Roboters stammt aus einem Kokam 14,6V 4000mAh Litihu
 Der Akku kann mit bis zu 200A belastet werden, allerdings liegt der maximale Strom aller 4 Motoren und der restlichen Elektronik liegt bei einem Ampere. Die Motoren werden direkt mit der Akkuspannung versorgt. Die Versorgungsspannung schwankt zwischen der vollen Akkuspannung 16,4V und 15V nach mehr als 10 Messfahrten.
 Die 5 Volt Versorgung des Mikrocontrollers wurde mit einem RECOM R-785.0-1.0 DC-DC Konverter gelöst. Er ist pinkompatibel zu einem 7805, und bietet die Vorteile einer geringen Verlustleistung und einer sehr genauen Ausgangsspannung. 
 Der Ladezustand der einzelnen Zellen des Akkus wird mit einer eigens dafür entwickelten Schaltung überwacht. Sollte die Spannung einer Zelle unter 3,3V sinken, wird die Stromversorgung zum Roboter mittels FET unterbrochen, und ein akustisches Warnung ausgegeben. Damit wird eine Tiefentladung verhindert, was zu einer irreversiblen Schädigung und einem Kapazitätsverlust führen kann. Eigentlich könnte der Akku bis zu 2,7V pro Zelle entladen werden (siehe Abbildung \ref{akku}.
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=100mm]{img/entladekurve.png}
-\caption{Die Entladekurve einer Zelle des Akkus (1C = 4A).}\label{akku}
-\end{figure} 
 Die Analog-Digitalwandlung des Arduino benötigt eine Referenzspannung, entweder die Versorgungsspannung, was jedoch zu ungenau ist. Als Spannungsreferenz wird daher ein LT1021 5V Präzisionsspannungsquelle verwendet. Da dieses Bauelement nachträglich hinzugefügt wurde, ist es auf einer eigenen kleinen Platine untergebracht.
 
  
 \subsection{Mikrokontroller}\thispagestyle{empty}
-Der Arduino Mega 2560 ist ein Mikrocontroller-Board mit einem ATmega2560 Mikrokontroller. Es verfügt über 54 digitale I/O Pins, davon können 14 als PWM-Ausgänge verwendet werden. Weiters gibt es 16 analoge Eingänge die über einen 10-Bit Analog-Digital-Wandler verfügen.
+Der Arduino Mega 2560 ist ein Mikrocontroller-Board. Es ist eine Open-Source Elektronikentwicklungsplattform und richtet sich an Elektronikneulinge wie auch an Profis. Den Mikrocontroller des Arduino-Boards bildet ein ATmega2560 der Firma Atmel. Dabei handelt es sich um einen 8-Bit-Mikrocontroller.  Er läuft mit 16 MHz Taktfrequenz und besitzt 256 KByte Flash, wovon 8 KByte für den bootloader verwendet werden, für den Programmcode, 8 KByte SRAM, sowie 4 KByte EEPROM.  Es verfügt über 54 digitale I/O Pins, davon können 15 als PWM-Ausgänge verwendet werden. Weiters gibt es 16 analoge Eingänge die über einen 10-Bit Analog-Digital-Wandler verfügen.
+Eine USB Schnittstelle ist zur Programmierung und Kommunikation vorhanden.
+Der Mikrocontroller arbeitet mit einer Betriebsspannung von 5V. Grundsätzlich kann die Stromversorgung über die USB Schnittstelle erfolgen. Für einen beweglichen Roboter ist diese Option nicht praktikabel. Es besteht auch die Möglichkeit über eine Buchse eine Versorgungsspannung von 7 bis 12 Volt anzulegen, der Akku liefert aber eine höhere Spannung. Aus der Akku-Spannung, wird eine stabile 5 Volt Spannung gewonnen. Diese 5 Volt werden direkt mit dem 5 Volt Pin des Arduino-Boards verbunden. Die 5-Volt Spannungsversorgung befindet sich auf dem Shield (der Aufsteckplatine). Dabei handelt es sich um einen kompakten DC-DC Konverter. 
+
+ 
+
 
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=100mm]{img/ArduinoMega.jpg}
+\includegraphics[width=100mm]{img/ArduinoMega2.jpg}
 \caption[Arduino Mega 2560]{Arduino Mega 2560}\label{ardu}
 \end{figure}
 
