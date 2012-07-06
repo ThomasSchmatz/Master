@@ -389,7 +389,7 @@ Die einzelnen Komponenten sind wie in Abbildung \ref{elek} auf der Bodenplatte a
 Die Motorplatine \ref{hbridge2} besteht aus zwei integrierten H-Brücken-Bausteinen (IC1, IC2), einer 16 poligen Buchse und fünf zweipoligen Buchsen für die Stromversorgung und den Anschluss der vier Motoren. Bei den integrierten H-Brücken-Baustein handelt es sich um einen NJM2670 \cite{njm}, welcher zwei H-Brücken in einem Baustein vereint, zusätzlich verfügen diese Bausteine über eine interne Logik, welche Kurzschlüsse über die Brücke unmöglich macht.
 Die Drehzahl der Motoren wird mit Pulsweitenmodulation variiert. Dabei ist es wichtig, dass die Transistoren in der Brücke schnell genug schalten können. Die PWM-Ausgänge des Arduino arbeiten mit einer Frequenz von etwa 500Hz \cite{pwm}.
 Die Gleichspannungsmotoren sind Getriebemotoren mit der Bezeichnung RB 35, und einem Übersetzungsverhältnis von 1:200. Die maximale Versorgungsspannung wurde mit 12V angegeben. Die Leerlaufdrehzahl beträgt bei 12V Versorgungsspannung 20 Umdrehungen pro Minute.
-Der Roboter wird mit einem Lithium-Ionen-Akku versorgt. Die Spannung beträgt, abhängig vom Ladezustand zwischen 16,4V und 15,0V. Damit es zu keiner Überlastung der 12V-Motoren, kommt wurde bei der Pulsweitenmodulation ein maximales Tastverhältnis von 50\% eingehalten.
+Der Roboter wird mit einem Lithium-Ionen-Akku versorgt. Die Spannung beträgt, abhängig vom Ladezustand zwischen 16,4V und 15,0V. Damit es zu keiner Überlastung der 12V-Motoren, und die Geschwindigkeit des Roboters nicht zu groß wird, kommt wurde bei der Pulsweitenmodulation ein maximales Tastverhältnis von 50\% eingehalten.
  
 
 \begin{figure}[htbp]
