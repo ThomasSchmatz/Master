@@ -400,34 +400,41 @@ Der Roboter wird mit einem Lithium-Ionen-Akku versorgt. Die Spannung beträgt, a
 
 
 \subsection{Optische Sensorik}\thispagestyle{empty}
-Der Roboter orientiert sich an einer aus geraden Teilstücken bestehenden Linienfolge. Die Linie ist weiß auf dunklem Untergrund.
-Als Sensor wurde ein CNY70 verwendet. Der CNY 70 ist ein Reflexionsensor. Der Sensor wird in einem fixen Abstand zu einer Ebene montiert. Eine LED sendet Licht mit 950nm aus, welches an der Ebene reflektiert wird. Damit können Unterschiede des Reflektionkoeffizienten, umgangssprachlich der Farbe, gemessen werden. Die Anordung 9 solcher Sensoren in einem 3 mal 3 Array kann sowohl vertikale als auch horizontale Linien erkennen, sowie Ecken.
-
+Die optische Sensorik dient der Positionsbestimmung. Der Roboter bewegt während der Messung auf Holzplatten, die aus Gründen, welche unten genauer erläutert werden, schwarz sind, der Roboter orientiert sich an einer aus geraden Teilstücken bestehenden weißen Linienfolge. 
+Als Sensor wurde ein CNY70 verwendet. Der CNY 70 ist ein Reflexionssensor, bestehend aus einer Infrarot. Der Sensor wird in einem fixen Abstand zu einer Ebene montiert. Eine LED sendet Licht mit 950nm aus, welches an der Ebene reflektiert wird. Damit können Unterschiede des Reflektionkoeffizienten gemessen werden. Deshalb sind die Markierungen weiß auf schwarzen Untergrund. Eine Anordnung von neun solcher Sensoren in einem 3-mal-3 Array kann sowohl vertikale als auch horizontale Linien sowie Ecken erkennen. Zusätzlich gibt es einen 10. Sensor, der die Stopmarkierungen für die Messungen erkennt.
+Die neun Sensoren sind im Rastermaß 15,2 mm (= 0,6 Zoll) angeordnet. Der Stopsensor hat einen Abstand von 40,6mm zu dem Sensorarray. 
+Der Strom durch die LEDs ist mittels Potentiometer einstellbar. 
+Die Platine ist zweiseitig ausgeführt, allerdings sind alle Bauteile an der Unterseite der Platine montiert, bis auf die OPVs in SMD-Ausführung. Das ursprüngliche Layout wurde um folgende zwei Änderungen modifiziert:
+- Auf die Steuerleitung des Transistors wurde vergessen. Da es noch freie Pins am 16-poligen Stecker gab, wurde diese Verbindung mittels Draht hergestellt.
+- Die Platine wird mit der 5 Volt Versorgung der restlichen Elektronik versorgt, welche konstanter als die 7805-Variante ist, und um Probleme mit zwei verschiedenen 5 Volt Versorgungen zu vermeiden. Dazu wurde der ursprünglich vorgesehene 7805 ausgebaut, und eine weiterer freier Pin des 16-poligen Steckers verwendet.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/array.png}
-\caption{Der Schaltplan des Sensorarrays}\label{array}
+\caption{Der Schaltplan des Sensorarrays.}\label{array}
 \end{figure}
-
+Die LEDs sind parallel geschaltet und werde alle über den Feldeffekttransistor Q1 des Typs IRF530 geschaltet.
+Der Strom durch die LEDs wird mit einem LM317 geregelt. Da der Widerstand als Potentiometer ausgeführt ist lässt sich der Strom einstellen. Trotz einer nicht konstanten Versorgungsspannung kann so einer konstanter STrom geliefert werden. Um das analoge Messsignal der Phototransistoren nicht zu belasten, werden die analogen Photosignale über einen Spannungsfolger geführt. Die OPVs benötigen allerdings eine symmetrische Versorgung mit $\pm$5 V. Beide Spannungen werden über den Stecker geliefert.
+Es gibt weiteren Stecker mit 2 Pins, welche die Spannungsversorgung mit 16 Volt und GND sicherstellt. 
+Die Platine verfügt um drei Bohrlöcher mit jeweils drei Millimeter Durchmesser zu Befestigung.
+Anschlüsse: Es ist eine 16-polige Leiterplattenbuchse für die Analogsignale, 5V-Versorgung, und des Digitalsignal zum Schalten des FET.  Weiters ist ein zweipoliger Stiftstecker für die Stromversorgung vorhanden.
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=125mm]{img/array21.png}
-\caption{Das Layout des Senorarrays}\label{array2}
+\includegraphics[width=125mm]{img/array2.png}
+\caption{Das Layout des Sensorarrays. Die optischen Sensoren sind gelb markiert.}\label{array2}
 \end{figure}
-
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/sensor_array.jpg}
-\caption{Das unter dem Roboter montierte Sensorarrayt}\label{array3}
+\caption{Die fertige Platine des Senorarrays.}\label{array3}
 \end{figure}
 
 
 
 \subsection{Spannungversorgung}\thispagestyle{empty}
-Die Energie zum Betrieb des Roboters stammt aus einem Kokam 14,6V 4000mAh Litihum Lithium-Polymer-Akkumulator. Es wird empfohlen vor jeden Messzyklus den Akku zu laden. Ein voller Akku reicht für mehr als 10 Messfahrten. Der Akku ist mit einer im Anschlusskabel integrierten Schmelzsicherung geschützt. Zum Laden des Akkus muss der Akku vom Roboter abgesteckt werden und an das Ladegerät angeschlossen werden. Zum Schutz vor Kurzschlüssen ist der Akku mit einer im Anschlusskabel integrierten Schmelzsicherung gesichert. Zum Laden wird ein Ultramat 16 S verwendet, welcher alle vier Zellen des Akkus auf die gleiche Spannung lädt. 
+Die Energie zum Betrieb des Roboters stammt aus einem Kokam 14,6V 4000mAh Litihum Lithium-Polymer-Akkumulator. Es wird empfohlen vor jeden Messzyklus den Akku zu laden. Ein voller Akku reicht für mehr mehrere Stunden Dauerbetrieb. Der Akku ist mit einer im Anschlusskabel integrierten Schmelzsicherung geschützt. Zum Laden des Akkus muss der Akku vom Roboter abgesteckt werden und an das Ladegerät angeschlossen werden. Zum Schutz vor Kurzschlüssen ist der Akku mit einer im Anschlusskabel integrierten Schmelzsicherung gesichert. Da zum Laden der Akku aus dem Roboter entfernt und an das Akkuladegerät angeschlossen werden muss, könnte versehentlich der Akku kurzgeschlossen werden. Zum Laden wird ein Ultramat 16 S verwendet, der über einen Balanceranschluss verfügt, und somit alle vier Zellen des Akkus auf die gleiche Spannung lädt. 
 Der Akku kann mit bis zu 200A belastet werden, allerdings liegt der maximale Strom aller 4 Motoren und der restlichen Elektronik liegt bei einem Ampere. Die Motoren werden direkt mit der Akkuspannung versorgt. Die Versorgungsspannung schwankt zwischen der vollen Akkuspannung 16,4V und 15V nach mehr als 10 Messfahrten.
-Die 5 Volt Versorgung des Mikrocontrollers wurde mit einem RECOM R-785.0-1.0 DC-DC Konverter gelöst. Er ist pinkompatibel zu einem 7805, und bietet die Vorteile einer geringen Verlustleistung und einer sehr genauen Ausgangsspannung. 
+Die 5 Volt Versorgung des Mikrocontrollers wurde mit einem RECOM R-785.0-1.0 DC-DC Konverter gelöst. Er ist pinkompatibel zu einem 7805, allerdings mit einer größeren Dicke, und bietet die Vorteile einer geringen Verlustleistung und einer sehr genauen Ausgangsspannung. 
 Der Ladezustand der einzelnen Zellen des Akkus wird mit einer eigens dafür entwickelten Schaltung überwacht. Sollte die Spannung einer Zelle unter 3,3V sinken, wird die Stromversorgung zum Roboter mittels FET unterbrochen, und ein akustisches Warnung ausgegeben. Damit wird eine Tiefentladung verhindert, was zu einer irreversiblen Schädigung und einem Kapazitätsverlust führen kann. Eigentlich könnte der Akku bis zu 2,7V pro Zelle entladen werden (siehe Abbildung \ref{akku}.
 Die Analog-Digitalwandlung des Arduino benötigt eine Referenzspannung, entweder die Versorgungsspannung, was jedoch zu ungenau ist. Als Spannungsreferenz wird daher ein LT1021 5V Präzisionsspannungsquelle verwendet. Da dieses Bauelement nachträglich hinzugefügt wurde, ist es auf einer eigenen kleinen Platine untergebracht.
 
