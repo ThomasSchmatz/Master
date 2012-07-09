@@ -119,17 +119,17 @@ Die Arbeit umfasst die Planung und Realisierung eines selbstfahrenden Messrobote
 \newpage
 
 \section*{Abstract}\thispagestyle{empty}
-This paper discripes the planning and the realisation of a autonomous measurement robot. The robot measures the irradiance in a test plane a a continous solar simulator.
+This paper discripes the planning and the realisation of a autonomous measurement robot. The robot measures the irradiance in a test plane of a continous solar simulator.
 \\ \vfill
 % Bitte 3-5 englische Keywords eingeben, die die Arbeit charakterisieren:
-\paragraph*{Keywords:} Keyword 1, Keyword 2, Keyword 3, Keyword 4, Keyword 5
+\paragraph*{Keywords:} Measurement Robot, Measurment of Solar Radiation, Arduino, Mecanum Wheel, Keyword 5
 \newpage
 
 \section*{Danksagung}\thispagestyle{empty}
-Ich danke meinen Eltern für die Unterstützung und Geduld, die sie w"ahrend des Studiums aufgebracht haben.
+Ich danke meinen Eltern für die Unterstützung und Geduld, die sie während des Studiums aufgebracht haben.
 Ich danke meinen Hochschulbetreuer für die umfangreiche Betreuung.
 Ich danke meinen Firmenbetreuer Thomas Krametz für die Zeit die er sich genommen hat.
-... (Rohfassung!!!!)
+Und für problemlose Verlängerung meines Praktikums und der Diplomarbeit schulde ich Herrn Wolfgang Hribernik Wolfgang großen Dank.
 \newpage
 
 \tableofcontents\thispagestyle{empty}
@@ -142,7 +142,7 @@ Ich danke meinen Firmenbetreuer Thomas Krametz für die Zeit die er sich genomme
 % \chapter[Kurzform]{Lange "Uberschrift}
 \chapter{Aufgabenstellung}
 
-Dieses Kapitel beschreibt die Notwendigkeit von Messungen in stationären Sonnensimulatoren, den Aufbau eines solchen Simulators, sowie dessen normativen Anforderungen. Weiters wird die Funktion eines Photovoltaik-Zelle beschrieben.
+Dieses Kapitel beschreibt die Notwendigkeit von Messungen im stationären Sonnensimulator, den Aufbau eines solchen Simulators, sowie dessen normativen Anforderungen. Weiters wird die Funktion eines Photovoltaik-Zelle beschrieben.
 
 \section{Stationäre Photovoltaik Sonnensimulatoren} \thispagestyle{empty}
 
@@ -177,7 +177,7 @@ Die Testobjekte werden mittels Prüfgut-Einschub in einem Windkanal positioniert
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=100mm]{img/sunsimulator.jpg}
+\includegraphics[width=125mm]{img/sunsimulator.jpg}
 \caption[Sonnensimulator]{Der Aufbau des Sonnensimulators: Die 10 Metallhalogenoid Strahler, der Windkanal und die Prüfebene sind zu erkennen}\label{sunsim}
 \end{figure}
 
@@ -235,7 +235,7 @@ Es gibt verschiedene Solarzelltechnologien. Wirtschaftlich bedeutend sind im Mom
 Siliziumsolarzellen bestehen aus einer großflächigen Diode. Die Sperrschicht ist dabei dem Sonnenlicht ausgesetzt. Gelangt ein Lichtquanten in die Sperrschicht kann aufgrund des inneren Photoeffektes ein Elektron/Loch Paar erzeugt werden. Durch das elektrische Feld in der Sperrschicht werden die Ladungsträger getrennt bevor sie kombinieren können. Elektronen bewegen aufgrund ihrer negativen Ladung entgegen der Feldrichtung in die n-Zone. Löcher wandern in Feldrichtung zur Raumladungsfreien p-Zone. Die Leerlaufspannung einer Solarzelle ist kleiner als die Diffusionsspannung, der Spannung über die Raumladungszone, die der Diffusion von Ladungsträgern entgegenwirkt.
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=125mm]{img/cell.png}
+\includegraphics[width=125mm]{img/zelle.png}
 \caption{Der Schematischer Aufbau einer Siliziumsolarzelle. Quelle: \cite{cell}}\label{cell}
 \end{figure}
 
@@ -243,8 +243,8 @@ Siliziumsolarzellen bestehen aus einer großflächigen Diode. Die Sperrschicht i
 Die unbeleuchtete Solarzelle ist funktioniert wie eine normale Halbleiterdiode, die einen Durchlassstrom von p- nach n-Seite fließen lässt, falls eine Spannung von p nach n anliegt. Bei Beleuchtung wird zusätzlich ein Photostrom erzeugt, welcher proportional zur Bestrahlungsstärke und der Zellfläche ist. Das Eindiodenmodel (siehe Abbildung ~\ref{esb}) besteht daher aus einer Stromquelle, dazu parallel einer Diode, einen Parallelwiderstand und einem Serienwiderstand. Der Parallelwiderstand fasst Kurzschlüsse zusammen, die realen Solarzellen am Rand oder an den Korngrenzen auftreten können. Mit dem Serienwiderstand werden alle Spannungsabfälle in der Solarzelle erfasst. Eine ideale Solarzelle hat einen Serienwiderstand von null und einen Parallelwiderstand von unendlich. 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=100mm]{img/esb.png}
-\caption{Das Eindiodenmodell einer Sorlarzelle. Quelle: \cite{esb}}\label{esb}
+\includegraphics[width=125mm]{img/esb2.png}
+\caption{Das Zweindiodenmodell einer Sorlarzelle. Quelle: \cite{esb}}\label{esb}
 \end{figure}
 
 Durch den zusätzlichen Photostrom verschiebt (siehe Abbildung ~\ref{kennlinie}) sich die Diodenkennline. Im Leerlauf  bzw. Kurzschlussbetrieb gibt die Solarzelle keine Leistung ab. Der Punkt der Kennlinie mit der maximalen Leistung wird als Maximum Power Point (MPP) bezeichnet.
@@ -268,7 +268,7 @@ G = \frac{1000Wm^{-2}I_{RC}}{I_{RC,STC}} [1 - \alpha_{RC}(T_{RC}-25^{\circ} C]
 \end{equation}
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=75mm]{img/mpp.png}
+\includegraphics[width=125mm]{img/kennlinien.png}
 \caption{Abhängigkeit des MPP von der Einstrahlung}\label{mpp}
 \end{figure}
 
@@ -291,18 +291,23 @@ Designprozess:
 \item  Platz für den Mikrocontroller, die Elektronik, den Akku im Inneren. 
 \item  Da wichtige Komponenten wie der Akku später gewechselt wurden, war es gut Reserveplatz zu haben.\end{itemize}
 
-Der Roboter ist ein wenig zu groß geworden, die verwendete Messzelle ist kleiner als in den Planungen, dafür ist der Akku größer als ursprünglich gedacht. 
+Der Roboter ist ein wenig zu groß geworden, die verwendete Messzelle ist kleiner als in den ersten Planungen, dafür ist der Akku größer (und leistungsfähiger) als ursprünglich gedacht.
+Das Gehäuse war vor den elektronischen Komponenten fertig.  
 
-\subsection{Mecanum-Plattform}\thispagestyle{empty}
+\subsection{Die Mecanum-Plattform}\thispagestyle{empty}
 Mecanum-Räder erlauben einem Fahrzeug, ohne mechanischer Lenkung, sich in jede Richtung zu bewegen. Benannt ist es nach dem schwedischen Unternehmen Macanum, welches dieses Rad 1971 entwickelt hat.
-Jedes Rad wird über einen eigenen Motor angetrieben, und verfügt über eine separate Ansteuerung. Die Räder bestehen aus einer Felge (siehe Abbbildung \ref{rad}), auf der unter einem Winkel von 45 Grad befestigte, ballige Rollen so angebracht sind, die über den Abrollumfang einen exakten Kreis bilden (siehe Abbbildung \ref{rad2}).
+Jedes Rad wird über einen eigenen Motor angetrieben, und verfügt über eine separate Ansteuerung. Die Räder bestehen aus einer Felge (siehe Abbbildung \ref{rad}), auf der unter einem Winkel von 45 Grad befestigte, ballige Rollen so angebracht sind, die über den Abrollumfang einen exakten Kreis bilden (siehe Abbbildung \ref{rad2}). In die 8 Löcher der Felge werden Kugellager eingeklebt. Jedes der vier Räder besteht aus einer Felge, insgesamt 16 Laufrollen, 8 Kugellager, 8 M4x45mm Schraube, 8 M4 Muttern, sowie 16 M4 Beilagscheiben. 
+Das Rad ist mit einer M3 Schraube und einer M3 Mutter an der Motorachse fixiert.
+Die Felgen und die Laufrollen wurden mit einem 3D-Drucker gefertigt. 
+Die Vorlage namens Mecanum Wheel MK2 stammt von http://www.thingiverse.com/thing:2473, und kann unter der Attribution-NonCommercial-ShareAlike 3.0 Unported Lizenz nicht kommerziell verwendet werden.
+Die Laufrollen so angepasst, dass die Mutter bzw. der Schraubenkopf in der Rolle versenkt ist, damit das Rad insgesamt kompakter ist. Zum bearbeiten wurde OpenSCAD, ein 3D-Compiler, verwendet. 
 
-Durch die Schräganordnung der Laufrollen entstehen beim Antreiben eines Rades 2 Kraftkomponenten, eine in der Achse  und eine 90$^\circ$. Gegeneinander gerichtete Kräfte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich (siehe Abbildung \ref{fahrman}).
+Durch die Schräganordnung der Laufrollen entstehen beim Antreiben eines Rades 2 Kraftkomponenten, eine in Querrichtung und eine in Längsrichtung des Fahrzeuges. Gegeneinander gerichtete Kräfte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich (siehe Abbildung \ref{fahrman}). So ist es nicht nur möglich den Roboter in Längsrichtung vor und zurück zu bewegen, sondern auch in Querrichtung (normal zur Längsrichtung) zu bewegen, ebenso sind Drehungen am Stand möglich. Damit braucht ein mit Mecanumrädern ausgestatteter Roboter keine Lenkung. Aber es sind zwar vier Motoren notwendig, damit jedes Rad einzeln angesteuert werden kann.   
 
 \begin{figure}
-    \subfigure[Vor/Zurück]{\includegraphics[width=50mm]{img/gerade.png}}
-    \subfigure[Links/Rechts]{\includegraphics[width=50mm]{img/seitw.png}}
-     \subfigure[Drehen]{\includegraphics[width=50mm]{img/dreh.png}}
+    \subfigure[Vor/Zurück-Fahren]{\includegraphics[width=50mm]{img/gerade.png}}
+    \subfigure[Das Seitwärtsfahren]{\includegraphics[width=50mm]{img/seitw.png}}
+     \subfigure[Drehen am Stand]{\includegraphics[width=50mm]{img/dreh.png}}
 \caption{Einige mögliche Fahrmanöver eines Mecanum-Rad-Roboters}\label{fahrman}
 \end{figure} 
 
@@ -318,29 +323,11 @@ Durch die Schräganordnung der Laufrollen entstehen beim Antreiben eines Rades 2
 \caption{Ein fertig Rad, montiert am Roboter.}\label{rad2}
 \end{figure}
 
-Jedes der vier Räder besteht aus einer Felge, insgesamt 16 Laufrollen, 8 Kugellager, 8 M4x45mm Schraube, 8 M4 Muttern, sowie 16 M4 Beilagscheiben. 
-Das Rad ist mit einer M3 Schraube und einer M3 Mutter an der Motorachse fixiert.
-Die Felgen und die Laufrollen wurden mit einem 3D-Drucker gefertigt. 
-Die Vorlage namens Mecanum Wheel MK2 stammt von http://www.thingiverse.com/thing:2473, und kann unter der Attribution-NonCommercial-ShareAlike 3.0 Unported Lizenz nicht kommerziell verwendet werden.
-Die Laufrollen so angepasst, dass die Mutter bzw. der Schraubenkopf in der Rolle versenkt ist, damit das Rad insgesamt kompakter ist. Zum bearbeiten wurde OpenSCAD, ein 3D-Compiler, verwendet. 
-Die Kugellager wurden in die Falgen eingeklebt,
-\newline
-\newline
-Ab hier Entwurf: Mehr aud SCAD eingehen? Druckvorbereitung. Genauer den Druck beschreiben? Multidruck der Rollen. 
-Probedrücke bis endgültige Rolle gefunden wurde.
-Druckzeit: Felge rund drei Stunden, eine Rolle etwa 20 Minuten.
-3D-Drucker war fehleranfällig. Wartungintensiv. Druckmaterial: AMS-Kunststoff (Datenblatt wäre nett!)
 
-Analyse von einem ABS-Kunststoff: Characterization of Material Properties
-$http://www.stratasys.com/sitecore/shell/Applications/~/media/Fortus/Files/PDFs/MaterialPropertiesReport-ABS-M30.pdf?utm_source=materials_study_news_release_August_2011$ 
-
-Temperatur hat Einfluss auf Materialeigenschaften, es ist gut, dass der Kunststoff vor direkter Sonneneinstrahlung, und somit Erwärmung geschützt ist, besonders da er schwarz ist.
-ABS ist grundsätzlich UV beständig, findet z.B. Anwendung in Rasenmähern. "If UV-stabilizators are added, ABS is suitable for outdoor applications." 
-Genauer Typ von ABS unbekannt. 
-Zwei verschiedene Radtypen, Rollen gleich, unterschiedliche Felgen. Anordnung siehe Bild. Montage so, dass die Räder symmetrisch sind. Symmetrische Anordnung der Räder.
-Das Material für den 3D-Druck ist ABS (Acrylnitril-Butadien-Styrol). Es besitzt eine hohe Oberflächenhärte (ist damit für kratzfeste und matt glänzende Oberflächen geeignet), besitzt eine gute Schlagfestigkeit. Es schmilzt in einem Temperaturbereich von 220 - 250 $^\circ$C (Hochtemperatur-ABS-Blends noch höher) und kann im flüssigen Zustand im Spritzgussverfahren oder per Extruder geformt werden. Als eine spezielle Form letzterer Methode stellt das Material auch üblicherweise den Werkstoff dar, der von 3D-Druckern verdruckt wird. Standard-ABS erweichen um 95 - 110 $^\circ$C (siehe Vicat-Erweichungstemperatur). 
-Nachteil beim 3D-Druck ist die Beschränkung auf einen Werkstoff. 
-
+Mit OpenSCAD entsteht ein dreidimensionales Modell eines Werkstückes. Damit fängt eine 3D-Drucker wenig an. Ein 3D-Druck setzt sich aus sehr vielen Liniensegmenten zusammen. Dazu muss das 3D-Modell in einzelne dünne Schichten und einzelne Linien zerlegt werden. Dieser Vorgang wird als "Slicing" bezeichnet. Dazu wurde das Programm pronterface verwendet. Mit OpenSCAD wird zunächst ein stl-File erzeugt, dann produziert pronterface daruas die Fahrbefehle für den 3D-Drucker in Form eines g-Files. Als 3D-Drucker wurde ein Ultimaker verwendet. Als Druckmaterial wurde ABS (Acrylnitril-Butadien-Styrol) verwendet, welches in einem Temperaturbereich von 215 bis 230 Grad Celsius per Extruder verarbeitet wird.    
+Die Druckzeit pro Rolle betrug 20 Minuten. Insgesamt mussten 64 Rollen gefertigt werden. Die Druckzeit pro Felge betrug etwa drei Stunden, der Roboter benötigte 4 Felgen. Es gibt insgesamt zwei verschiedene Felgentypen, mit nach links oder nach rechts geneigten Rollen. 
+Dazu kommen noch vorbereitende Testdrucke bis die einzelnen Komponenten optimiert waren und der Drucker befriedigend Ergebnisse lieferte. (3D-Druck ist eine schwarze Kunst.)
+Mehrfach wurde etwa der Durchmesser der Bohrlöcher der Rollen verändert. Nachbearbeitung: Die Löcher für die Kugellager mussten per Hand passend gefeilt werden. Beim  Einsetzen der Kugellager brachen manche der Halterungen. Mit Klebstoff konnten die Kugellager auch in die gebrochenen Halterungen eingebaut werden. Die dauerhafte Haltbarkeit dieser Konstruktion ist allerdings mit einem Fragezeichen behaftet.
 
 \subsection{Chassis}\thispagestyle{empty}
 
