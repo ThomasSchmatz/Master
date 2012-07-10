@@ -110,7 +110,7 @@ und auch noch nicht ver"offentlicht. Ich versichere, dass die abgegebene Version
 
 
 \section*{Kurzfassung}\thispagestyle{empty}
-Die Arbeit umfasst die Planung und Realisierung eines selbstfahrenden Messroboters, der die Bestrahlungsst"arkeverteilung in der Prüfebene eines station"aren Sonnensimulators erfasst. Neben den Einstrahlungsdaten werden werden zus"atzliche Informationen über die Umgebungsbedingungen im Prüfkanal aufgezeichnet. Bei der Umsetzung wurden Rapid-Prototyping Techniken (3D-Druck, Platinenfr"ase und Lasercutter) eingesetzt. Behandelt werden theoretische Grundlagen und normative Anforderungen an station"are Sonnensimulatoren, sowie Messunsicherheitsberechnungen und Validierung des Gesamtsystems.
+Die Arbeit umfasst die Planung und Realisierung eines selbstfahrenden Messroboters, der die Bestrahlungsst"arkeverteilung in der Prüfebene eines station"aren Sonnensimulators erfasst. Neben den Einstrahlungsdaten werden werden zus"atzliche Informationen über die Umgebungsbedingungen im Prüfkanal aufgezeichnet. Bei der Umsetzung wurden Rapid-Prototyping Techniken (3D-Druck, Platinenfräse und Lasercutter) eingesetzt. Behandelt werden theoretische Grundlagen und normative Anforderungen an station"are Sonnensimulatoren, sowie Messunsicherheitsberechnungen und Validierung des Gesamtsystems.
 \\ \vfill
 % Bitte 3-5 deutsche Schlagw"orter eingeben, die die Arbeit charakterisieren:
 \paragraph*{Schlagw"orter:} Sonnensimulator, Messroboter, Bestrahlungsstärke
@@ -142,23 +142,28 @@ Und für problemlose Verlängerung meines Praktikums und der Diplomarbeit schuld
 % \chapter[Kurzform]{Lange "Uberschrift}
 \chapter{Aufgabenstellung}
 
-Dieses Kapitel beschreibt die Notwendigkeit von Messungen im stationären Sonnensimulator, den Aufbau eines solchen Simulators, sowie dessen normativen Anforderungen. Weiters wird die Funktion eines Photovoltaik-Zelle beschrieben.
+Dieses Kapitel beschreibt die Notwendigkeit von Messungen im stationären Sonnensimulator, den Aufbau eines solchen Simulators, sowie dessen normativen Anforderungen. Ferner wird die Funktion einer Photovoltaik-Zelle beschrieben.
 
 \section{Stationäre Photovoltaik Sonnensimulatoren} \thispagestyle{empty}
 
 Photovoltaik-Sonnensimulatoren werden zur elektrischen Charakterisierung und Prüfung von Photovoltaik-Modulen verwendet. Der wesentliche Vorteil liegt darin, dass die Durchführung unter reproduzierbaren Umweltbedingungen (Bestrahlungsstärke, spektrale Zusammensetzung des einfallenden Lichtes und die Prüfgutstemperatur)  ermöglicht wird. Grundsätzlich werden bei konventionellen Systemen gepulste und stationäre Simulatoren, welche kontinuierlich leuchten, unterschieden. Erstere brauchen weniger Energie und heizen die Messobjekte nicht auf, und werden für die Leistungsmessung von Zellen und Modulen verwendet. Allerdings ist Blitzlänge bauartbedingt auf wenige Millisekunden begrenzt. Stationäre Simulatoren werden für Voralterung von Modulen verwendet.
-Im Allgemeinen werden Messergebnisse auf Standard-Prüfbedingungen (STC) bezogen, die durch 1000W/m$^2$, 25$^{\circ}$C und AM1.5 definiert ist. Die Air Mass (AM) beschreibt das Verhältnis des Weges des einfallenden Sonnenlichtes durch die Atmosphäre bezogen auf senkrechten Einfall. Je länger der Weg des Lichtes durch die Atmosphäre desto größer ist der Einfluss durch Streuung, Reflexion und Absorption, was sowohl die Stärke der Einstrahlung als auch die spektrale Zusammensetzung des Sonnenlichtes vom Sonnenstand abhängig macht.  \begin{equation}
+Im Allgemeinen werden Messergebnisse auf Standard-Prüfbedingungen (STC) bezogen, die durch 1000W/m$^2$, 25$^{\circ}$C und AM1.5 definiert ist. Die Air Mass (AM) beschreibt das Verhältnis des Weges des einfallenden Sonnenlichtes durch die Atmosphäre bezogen auf senkrechten Einfall (siehe Abbildung \ref{airmass}). Je länger der Weg des Lichtes durch die Atmosphäre desto größer ist der Einfluss durch Streuung, Reflexion und Absorption, was sowohl die Stärke der Einstrahlung als auch die spektrale Zusammensetzung des Sonnenlichtes vom Sonnenstand abhängig macht. 
+\begin{equation}
      AM = \frac {L} {L_0} \approx \frac{1}{cos~ z}
 \end{equation}
-Wobei L die Länge des Weges des Sonnenlichtes durch die Atmosphäre, L$_0$ die Weglänge bei senkrechten Einfall und z der Zenitwinkel des Sonnenstandes in Grad ist (\cite{wurf} S. 30). 
+Wobei L die Länge des Weges des Sonnenlichtes durch die Atmosphäre, L$_0$ die Weglänge bei senkrechten Einfall und z der Zenitwinkel des Sonnenstandes in Grad ist (\cite{wurf} S. 30). Dabei handelt es sich um eine Näherung, welche die Krümmung der Erdoberfläche und der Atmosphäre vernachlässigt. Für kleine Werte der Air Mass ist die Näherung aber hinreichend genau.
 Die spektrale Verteilung des Referenzsonnenspektrums AM1.5 (siehe Abbildung \ref{sunspec}) ist durch die Norm IEC 60904-3 \cite{norm3} festgelegt. Das Spektrum des Sonnenlichtes im Weltall AM0 entspricht in etwa der thermische Strahlung eines schwarzen Körpers mit 5250$^\circ$C.
-Am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$) können das Spektrum nicht verändern, wegen der verwendeten Lampen, sind also für einen Sonnenstand beschränkt. Es gibt Sonnensimulatoren auf LED-Basis. Das gewünschte Spektrum wird dort mit vielen LEDs unterschiedlicher Wellenlänge realisiert, somit sind auch unterschiedliche Spektren und Bestrahlungsstärken realisierbar. Das beschränkt sich zurzeit auf Simulatoren in Zellgröße.  Es gibt bereits LED-Sonnensimulatoren für Module am Markt.
-
- 
+Die meisten am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$) können das Spektrum nicht verändern, da sie Metallhalogenid-Lampen verwenden, sie sind also für einen Sonnenstand beschränkt. Es gibt Sonnensimulatoren auf LED-Basis. Das gewünschte Spektrum wird dort mit vielen LEDs unterschiedlicher Wellenlänge realisiert, somit sind auch unterschiedliche Spektren und Bestrahlungsstärken realisierbar. Das beschränkt sich zurzeit auf Simulatoren in Zellgröße.  Es gibt bereits LED-Sonnensimulatoren für Module am Markt. (\cite{mps}) Ein Vorteil dieses Systems ist die lange Lebensdauer der Lampen, welche für 10 Millionen Messungen reicht. 
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=100mm]{img/Solar_Spectrum.png}
+\includegraphics[width=125mm]{img/airmass2.png}
+\caption[Sonnenspektrum]{Der Weg des AM0, AM1, AM1.5 und AM2-Spektrums durch die Athmosphäre. Quelle: \cite{pv}}\label{airmass}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=125mm]{img/Solar_Spectrum.png}
 \caption[Sonnenspektrum]{Der Vergleich von Spektrum des Sonnenlichtes im Weltall (AM0), der Strahlung eines schwarzen Körpers von 5250$^{\circ}$C und dem AM1.5 Spektrum. Quelle: \cite{sun}}\label{sunspec}
 \end{figure}
 
@@ -166,24 +171,24 @@ Am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$) können da
 \section{Sonnensimulator Aufbau}\thispagestyle{empty}
 
 
-Mit der SolarConstant 4000 (siehe Abbildung \ref{sunsim}) der Firma Atlas kann die Einwirkung der Sonne auf Testobjekte simuliert werden. Dazu ist das Gerät mit zehn Metallhalogenid-Strahlungsquelle Lampen zu je 4kW. Durch die Füllung der Lampen mit Halogeniden wird ein kontinuierliches Spektrum erzeugt. Die Leuchten mit Filterscheiben ausgestattet, die das abgestrahlte Licht möglichst dem AM1.5 Spektrum ähnlich macht.
+Mit der SolarConstant 4000 (siehe Abbildung \ref{sunsim}) der Firma Atlas kann die Einwirkung der Sonne auf Testobjekte simuliert werden. Dazu ist das Gerät mit zehn Metallhalogenid-Strahlungsquelle Lampen zu je 4kW. Durch die Füllung der Lampen mit Halogeniden wird ein möglichst kontinuierliches Spektrum erzeugt. Die Leuchten sind mit Filterscheiben ausgestattet, welche das abgestrahlte Licht dem AM1.5 Spektrum annähern.
 Jede Lampe wird von einem eigenen elektronisch geregelten Vorschaltgerät versorgt, welches für einen gleichmäßigen und flimmerfreien Betrieb sorgt.
 Da die Lampen nicht für eine Heißzündung ausgelegt sind, und dabei eventuell zerstört werden können, ist eine Sperrzeit von 10 Minuten zum Abkülen vorgesehen, bevor die Lampen wieder eingeschaltet werden können.
 Die Strahlungsleistung lässt sich reduzieren indem das gesamte Lampenfeld in die Höhe gefahren wird.
 Weiters lässt sich die Bestrahlungsstärke einzelner Lampen über die Variation der elektrischen Leistung des Vorschaltgerätes variieren.
-Allerdings führt eine Variation der elektrischen Leistung zu einer Änderung der spektralen Strahlungsverteilung. Es wir vom Hersteller empfohlen, die Helligkeit der Lampen nur zwischen 80 und 100 \% zu variieren.
+Allerdings führt eine Variation der elektrischen Leistung zu einer Änderung der spektralen Strahlungsverteilung. Aus diesem Grund wird vom Hersteller empfohlen, die Helligkeit der Lampen nur zwischen 80 und 100 \% zu variieren.
 Die Testobjekte werden mittels Prüfgut-Einschub in einem Windkanal positioniert, dessen obere Abdeckung aus einem geeigneten Solarglas besteht. Die geneigte Glasplatte bewirkt eine Querschnittreduktion des Luftkanales und somit eine Erhöhung der Strömungsgeschwindigkeit zwischen Zuluft- und Abluftseite. Diese stetige Erhöhung der Geschwindigkeit ist notwendig, damit die sich erwärmende Zuluft eine konstante Kühlwirkung hat, um die Testobjekt auf konstanter Temperatur zu halten.
 
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/sunsimulator.jpg}
-\caption[Sonnensimulator]{Der Aufbau des Sonnensimulators: Die 10 Metallhalogenoid Strahler, der Windkanal und die Prüfebene sind zu erkennen}\label{sunsim}
+\caption[Sonnensimulator]{Der Aufbau des Sonnensimulators: Die 10 Metallhalogenoid Strahler befestift an der höhenverstellbaren Aufhängung, der Windkanal und die Prüfebene.}\label{sunsim}
 \end{figure}
 
 
 \section{Normative Anforderungen}\thispagestyle{empty}
-Die Norm IEC 60904-9 \cite{norm9} stellt Anforderungen an Sonnensimulatoren. Ein Sonnensimulator wird anhand von 3 Kriterien bewertet: 
+Die IEC Norm 60904-9 \cite{norm9} stellt Anforderungen an Sonnensimulatoren. Ein Sonnensimulator wird anhand von 3 Kriterien bewertet: 
 \begin{itemize}
 \item die spektrale Übereinstimmung mit dem in Tabelle \ref{TabS1} aufgelisteten Wellenlängenbereichen. Zum AM1.5 Referenzspektrum sind durch die großen Schranken erhebliche Unterschiede möglich.
 \begin{table}[htbp]
@@ -202,17 +207,15 @@ Die Norm IEC 60904-9 \cite{norm9} stellt Anforderungen an Sonnensimulatoren. Ein
 \end{table}
 \item die Gleichmäßigkeit der Bestrahlungsstärkeverteilung über die Testfläche
 	\begin{equation}
- Non-uniformity (\%) = [\frac{max irradiance - min irradiance}{max irradiance + min irradiance}] \times (100%)
+ Non-uniformity (\%) = [\frac{max irradiance - min irradiance}{max irradiance + min irradiance}] \times (100\%)
 \end{equation}
 \item die zeitliche Stabilität der Einstrahlung.
 \begin{equation}
- Temporal (\%) = [\frac{max irradiance - min irradiance}{max irradiance + min irradiance}] \times (100%)
+ Temporal (\%) = [\frac{max irradiance - min irradiance}{max irradiance + min irradiance}] \times (100\%)
 \end{equation}
 \end{itemize}
 
-
-
-Tabelle \ref{TabS2} gibt die Anforderungen an, nach denen Sonnensimulatoren in den Klassen A,b und C klassifiziert werden. Die Sonnensimulatorklasse ABB bedeutet eine 0,75- bis 1,25-fache Übereinstimmung in allen in Tabelle \ref{TabS1} angeführten Schranken, eine Homogenität der Einstrahlung zwischen 2\% und 5\% im Messbereich, und eine zeitliche Stabilität zwischen 2\% und 5\%. 
+Tabelle \ref{TabS2} gibt die Anforderungen an, nach denen Sonnensimulatoren in den Klassen A,B und C klassifiziert werden. Die Sonnensimulatorklasse ABB bedeutet eine 0,75- bis 1,25-fache Übereinstimmung in allen in Tabelle \ref{TabS1} angeführten Schranken, eine Homogenität der Einstrahlung zwischen 2\% und 5\% im Messbereich, und eine zeitliche Stabilität zwischen 2\% und 5\%. 
 \begin{table}[htbp]
 \centering
 \begin{tabular}{ | c | c | c | c | c |}\hline
@@ -223,7 +226,6 @@ Tabelle \ref{TabS2} gibt die Anforderungen an, nach denen Sonnensimulatoren in d
 A  & 0,75 - 1,25 & 2 \% & 0,5 \% & 2 \%\\ \hline
 B  & 0,6 - 1,4 & 5 \% & 2 \% & 5 \%\\ \hline
 C  & 0,4 - 2,0 & 10 \% & 10 \% & 10 \%\\ \hline
-
 \end{tabular}
 \caption{Anforderungen an die 3 verschiedenen Simulatorklassen}\label{TabS2}
 \end{table}
@@ -231,20 +233,21 @@ C  & 0,4 - 2,0 & 10 \% & 10 \% & 10 \%\\ \hline
 
 
 \section{Theorie Referenzzelle}\thispagestyle{empty}
-Es gibt verschiedene Solarzelltechnologien. Wirtschaftlich bedeutend sind im Moment nur kristalline Siliziumzellen und Dünnschichtzellen. Die kristallinen Siliziumzellen werden in monokristalline Zellen und multikristalline Zellen unterschieden. Beide zusammen machen über 80\% des weltweiten Photovoltaikmarktes aus \cite{iea00}. Als Referenzzelle für Messungen werden ausschließlich kristalline Zellen verwendet. Eine Referenzzellen ist eine genau vermessene Solarzellen, die als Strahlungsmessgerät dient. Wichtig ist, dass die Referenzzelle eine ähnliche spektralle Empfindlichkeit hat wie die zu messenden Zelle bzw. das zu messende Modul.
-Siliziumsolarzellen bestehen aus einer großflächigen Diode. Die Sperrschicht ist dabei dem Sonnenlicht ausgesetzt. Gelangt ein Lichtquanten in die Sperrschicht kann aufgrund des inneren Photoeffektes ein Elektron/Loch Paar erzeugt werden. Durch das elektrische Feld in der Sperrschicht werden die Ladungsträger getrennt bevor sie kombinieren können. Elektronen bewegen aufgrund ihrer negativen Ladung entgegen der Feldrichtung in die n-Zone. Löcher wandern in Feldrichtung zur Raumladungsfreien p-Zone. Die Leerlaufspannung einer Solarzelle ist kleiner als die Diffusionsspannung, der Spannung über die Raumladungszone, die der Diffusion von Ladungsträgern entgegenwirkt.
+Eine Solarzelle wandeln die Energie des Lichtes in elektrische Energie um. Eine Referenzzelle ist eine speziell für Messungen kalibrierte Solarzelle. Eine Referenzzellen ist eine genau vermessene Solarzellen, die als Strahlungsmessgerät dient. Wichtig ist, dass die Referenzzelle eine ähnliche spektralle Empfindlichkeit hat wie die zu messenden Zelle bzw. das zu messende Modul
+Es gibt verschiedene Solarzellentechnologien. Es gibt kristalline Siliziumzellen und Dünnschichtzellen . Die kristallinen Siliziumzellen werden in monokristalline Zellen und multikristalline Zellen unterschieden. Beide zusammen machen über 80\% des weltweiten Photovoltaikmarktes aus \cite{iea00}. Als Referenzzelle für Messungen werden ausschließlich kristalline Zellen verwendet. 
+Eine Siliziumsolarzelle ist eine großflächigen Diode. Die Sperrschicht ist dabei dem Sonnenlicht ausgesetzt. Gelangt ein Lichtquanten in die Sperrschicht kann aufgrund des inneren Photoeffektes ein Elektron/Loch Paar erzeugt werden. Durch das elektrische Feld in der Sperrschicht werden die Ladungsträger getrennt bevor sie kombinieren können. Elektronen bewegen aufgrund ihrer negativen Ladung entgegen der Feldrichtung in die n-Zone. Löcher wandern in Feldrichtung zur Raumladungsfreien p-Zone. Die Leerlaufspannung einer Solarzelle ist kleiner als die Diffusionsspannung, der Spannung über die Raumladungszone, die der Diffusion von Ladungsträgern entgegenwirkt.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/zelle.png}
-\caption{Der Schematischer Aufbau einer Siliziumsolarzelle. Quelle: \cite{cell}}\label{cell}
+\caption{Der Schematischer Aufbau einer Siliziumsolarzelle. Quelle: \cite{pv}}\label{cell}
 \end{figure}
 
 
-Die unbeleuchtete Solarzelle ist funktioniert wie eine normale Halbleiterdiode, die einen Durchlassstrom von p- nach n-Seite fließen lässt, falls eine Spannung von p nach n anliegt. Bei Beleuchtung wird zusätzlich ein Photostrom erzeugt, welcher proportional zur Bestrahlungsstärke und der Zellfläche ist. Das Eindiodenmodel (siehe Abbildung ~\ref{esb}) besteht daher aus einer Stromquelle, dazu parallel einer Diode, einen Parallelwiderstand und einem Serienwiderstand. Der Parallelwiderstand fasst Kurzschlüsse zusammen, die realen Solarzellen am Rand oder an den Korngrenzen auftreten können. Mit dem Serienwiderstand werden alle Spannungsabfälle in der Solarzelle erfasst. Eine ideale Solarzelle hat einen Serienwiderstand von null und einen Parallelwiderstand von unendlich. 
+Unbeleuchtet funktioniert die Solarzelle wie eine normale Halbleiterdiode, welche einen Durchlassstrom von p- nach n-Seite fließen lässt, falls eine Spannung von p nach n anliegt. Bei Beleuchtung wird zusätzlich ein Photostrom erzeugt, welcher proportional zur Bestrahlungsstärke und der Zellfläche ist. Das Zweidiodenmodel (siehe Abbildung ~\ref{esb}) besteht daher aus einer Stromquelle, dazu parallel zwei Dioden, einen Parallelwiderstand und einem Serienwiderstand. Der Parallelwiderstand fasst Kurzschlüsse zusammen, die realen Solarzellen am Rand oder an den Korngrenzen auftreten können. Mit dem Serienwiderstand werden alle Spannungsabfälle in der Solarzelle erfasst. Die beiden Dioden bilden die Rekombinations- und Diffusionsprozesse in einer realen Solarzelle ab. Eine ideale Solarzelle hat einen Serienwiderstand von null und einen Parallelwiderstand von unendlich. 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/esb2.png}
-\caption{Das Zweindiodenmodell einer Sorlarzelle. Quelle: \cite{esb}}\label{esb}
+\caption{Das Zweidiodenmodell einer Sorlarzelle. Quelle: \cite{pv}}\label{esb}
 \end{figure}
 
 Durch den zusätzlichen Photostrom verschiebt (siehe Abbildung ~\ref{kennlinie}) sich die Diodenkennline. Im Leerlauf  bzw. Kurzschlussbetrieb gibt die Solarzelle keine Leistung ab. Der Punkt der Kennlinie mit der maximalen Leistung wird als Maximum Power Point (MPP) bezeichnet.
@@ -258,44 +261,39 @@ Der Füllfaktor ist das Verhältnis der Fläche des Rechteckes mit den Seitenlä
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/kennlinie.png}
-\caption{Dunkel- und Hellkennlinien}\label{kennlinie}
+\caption{Dunkel- und Hellkennlinien. Modifiert nach \cite{kl}}\label{kennlinie}
 \end{figure}
 
 Die Kennlinie der Solarzelle ist von der Einstrahlung abhängig (siehe Abbildung \ref{mpp}). Der Kurzschlusstrom ist direkt proportional zur Einstrahlung.
-Laut IEC 60891 [\cite{norm891}] berechnet sich die Einstrahlung aus dem gemessenen Kurzschlussstrom, den STC-Kurzschlussstrom, einen relativen Temperaturkoeffizienten und der Zelltemperatur:
+Laut IEC 60891 \cite{norm891} berechnet sich die Einstrahlung aus dem gemessenen Kurzschlussstrom, den STC-Kurzschlussstrom, einen relativen Temperaturkoeffizienten und der Zelltemperatur:
 \begin{equation}
 G = \frac{1000Wm^{-2}I_{RC}}{I_{RC,STC}} [1 - \alpha_{RC}(T_{RC}-25^{\circ} C]
 \end{equation}
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/kennlinien.png}
-\caption{Abhängigkeit des MPP von der Einstrahlung}\label{mpp}
+\caption{Abhängigkeit des MPP von der Einstrahlung. Quelle: \cite{pv}}\label{mpp}
 \end{figure}
 
 \chapter{Entwicklungsprozess}\thispagestyle{empty}
 
-Diese Kapitel beschreibt die Entwicklung des Roboters und ist in 3 Unterabschnitte gegliedert: das mechanische Design, die Elektronik und die dazugehörige Software.
-Einige Designelemente waren zu Beginn der Entwicklung vorgegeben. Der Roboter sollte mit Mecanum-Rädern ausgestattet sein. Er sollte eine photovoltaische Messzelle aufnehmen können. Er muss sich im Raum orientieren können. Die Materialien sollten UV beständig sein, da der Roboter in einer Umgebung mit starker UV arbeitet.
-Die Mecanum-Räder erlauben es dem Roboter sich auch seitwärts fortzubewegen, die Längsachse des Roboters, und somit auch die Messzelle, während des gesamten Messvorganges die Orientierung im Raum beibehält. 
+Diese Kapitel beschreibt die Entwicklung des Roboters und ist in 3 Abschnitte gegliedert: das mechanische Design, die Elektronik und die dazugehörige Software.
+Dabei wurde teilweise parallel gearbeitet. Zur Entwicklung der Fahrregelung musste die Bodenplatte, aber nicht der Aufbau des Chassis fertig sein. Ebenso musste reichte ein Teil der Elektronik aus, die Messplatinen und die endgültige Stromversorgung war zur Entwicklung der Fahrregelung nicht notwendig. Das hatte den Nachteil, dass die Größe mancher Komponenten (z.B. der Akku) nur abgeschätzt werden konnte, und der Roboter nicht auf eine minimale Größe hin optimiert wurde.
 
-\section{Hardwaredesign und Komponenten}\thispagestyle{empty}
+\section{Mechanische Komponenten}\thispagestyle{empty}
 
-Dieser Abschnitt behandelt die Entwicklung der mechanischen Komponenten, diese sind die 4 Räder und die Chassis des Roboters. Die mögliche Bauhöhe ist durch den Windkanal im Sonnensimulator beschränkt, zusätzlich soll die Messzelle möglichst in der gleichen Höhe wie zu messende Module liegen.
-Die Größe der Messzelle, zusammen mit dem Raddurchmesser und der Breite der Räder gibt eine Minimalabmessung vor die der Roboter nicht unterschreiten kann. Zusätzlich müssen noch die Motoren, der Akku und die Elektronik im Inneren des Roboters Platz finden.
-Designprozess:
-\begin{itemize}
-\item Mecanumräder sind festgelegt
-\item  Platz für Messzelle, oben, darunter Elektronik und Motoren
-\item  Mecanum Räder innerhalb des Chassis, die Zelle befindet sich  am Dach
-\item  Optische Sensoren zum Verfolgen einer Linie, da auch seitwärts gefahren werden soll, in der Mitte des Roboters an der Unterseite.
-\item  Platz für den Mikrocontroller, die Elektronik, den Akku im Inneren. 
-\item  Da wichtige Komponenten wie der Akku später gewechselt wurden, war es gut Reserveplatz zu haben.\end{itemize}
+Dieser Abschnitt behandelt die Entwicklung der mechanischen Komponenten, diese sind die 4 Mecanumräder und die Chassis des Roboters. Die maximale Bauhöhe ist durch den Windkanal im Sonnensimulator beschränkt, die minimale Bauhöhe ist durch den Durchmesser der Räder gegeben.
+Mit der Größe der Messzelle ist auch die minimale Ausdehnung in den beiden anderen Dimensionen festgelegt. Eine weiter Einschränkung beim Design war, dass die Motoren, der Akku und die Elektronik im Inneren des Roboters Platz finden mussten, und der Roboter länger und breiter als die Messzelle wurde (siehe Abbildung \ref{oben}).
 
-Der Roboter ist ein wenig zu groß geworden, die verwendete Messzelle ist kleiner als in den ersten Planungen, dafür ist der Akku größer (und leistungsfähiger) als ursprünglich gedacht.
-Das Gehäuse war vor den elektronischen Komponenten fertig.  
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=125mm]{img/oben2.png}
+\caption{Der Roboter aus der Vogelperspektive}\label{oben}
+\end{figure}
+  
 
 \subsection{Die Mecanum-Plattform}\thispagestyle{empty}
-Mecanum-Räder erlauben einem Fahrzeug, ohne mechanischer Lenkung, sich in jede Richtung zu bewegen. Benannt ist es nach dem schwedischen Unternehmen Macanum, welches dieses Rad 1971 entwickelt hat.
+Mecanum-Räder erlauben einem Fahrzeug, ohne mechanischer Lenkung, sich in jede Richtung zu bewegen. Benannt ist es nach dem schwedischen Unternehmen Macanum, welches dieses Rad 1971 entwickelt hat \cite{mecanum}. 
 Jedes Rad wird über einen eigenen Motor angetrieben, und verfügt über eine separate Ansteuerung. Die Räder bestehen aus einer Felge (siehe Abbbildung \ref{rad}), auf der unter einem Winkel von 45 Grad befestigte, ballige Rollen so angebracht sind, die über den Abrollumfang einen exakten Kreis bilden (siehe Abbbildung \ref{rad2}). In die 8 Löcher der Felge werden Kugellager eingeklebt. Jedes der vier Räder besteht aus einer Felge, insgesamt 16 Laufrollen, 8 Kugellager, 8 M4x45mm Schraube, 8 M4 Muttern, sowie 16 M4 Beilagscheiben. 
 Das Rad ist mit einer M3 Schraube und einer M3 Mutter an der Motorachse fixiert.
 Die Felgen und die Laufrollen wurden mit einem 3D-Drucker gefertigt. 
@@ -326,7 +324,7 @@ Durch die Schräganordnung der Laufrollen entstehen beim Antreiben eines Rades 2
 
 Mit OpenSCAD entsteht ein dreidimensionales Modell eines Werkstückes. Damit fängt eine 3D-Drucker wenig an. Ein 3D-Druck setzt sich aus sehr vielen Liniensegmenten zusammen. Dazu muss das 3D-Modell in einzelne dünne Schichten und einzelne Linien zerlegt werden. Dieser Vorgang wird als "Slicing" bezeichnet. Dazu wurde das Programm pronterface verwendet. Mit OpenSCAD wird zunächst ein stl-File erzeugt, dann produziert pronterface daruas die Fahrbefehle für den 3D-Drucker in Form eines g-Files. Als 3D-Drucker wurde ein Ultimaker verwendet. Als Druckmaterial wurde ABS (Acrylnitril-Butadien-Styrol) verwendet, welches in einem Temperaturbereich von 215 bis 230 Grad Celsius per Extruder verarbeitet wird.    
 Die Druckzeit pro Rolle betrug 20 Minuten. Insgesamt mussten 64 Rollen gefertigt werden. Die Druckzeit pro Felge betrug etwa drei Stunden, der Roboter benötigte 4 Felgen. Es gibt insgesamt zwei verschiedene Felgentypen, mit nach links oder nach rechts geneigten Rollen. 
-Dazu kommen noch vorbereitende Testdrucke bis die einzelnen Komponenten optimiert waren und der Drucker befriedigend Ergebnisse lieferte. (3D-Druck ist eine schwarze Kunst.)
+Dazu kommen noch vorbereitende Testdrucke bis die einzelnen Komponenten optimiert waren und der Drucker befriedigend Ergebnisse lieferte. 
 Mehrfach wurde etwa der Durchmesser der Bohrlöcher der Rollen verändert. Nachbearbeitung: Die Löcher für die Kugellager mussten per Hand passend gefeilt werden. Beim  Einsetzen der Kugellager brachen manche der Halterungen. Mit Klebstoff konnten die Kugellager auch in die gebrochenen Halterungen eingebaut werden. Die dauerhafte Haltbarkeit dieser Konstruktion ist allerdings mit einem Fragezeichen behaftet.
 
 \subsection{Chassis}\thispagestyle{empty}
