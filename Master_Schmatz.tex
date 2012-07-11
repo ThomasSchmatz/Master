@@ -269,10 +269,17 @@ Laut IEC 60891 \cite{norm891} berechnet sich die Einstrahlung aus dem gemessenen
 \begin{equation}
 G = \frac{1000Wm^{-2}I_{RC}}{I_{RC,STC}} [1 - \alpha_{RC}(T_{RC}-25^{\circ} C]
 \end{equation}
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/kennlinien.png}
 \caption{Abhängigkeit des MPP von der Einstrahlung. Quelle: \cite{pv}}\label{mpp}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=100mm]{img/el.png}
+\caption{Eine EL-Aufnahme der verwendeten Messzelle}\label{el}
 \end{figure}
 
 \chapter{Entwicklungsprozess}\thispagestyle{empty}
@@ -296,7 +303,7 @@ Mit der Größe der Messzelle ist auch die minimale Ausdehnung in den beiden and
 Mecanum-Räder erlauben einem Fahrzeug, ohne mechanischer Lenkung, sich in jede Richtung zu bewegen. Benannt ist es nach dem schwedischen Unternehmen Macanum, welches dieses Rad 1971 entwickelt hat \cite{mecanum}. 
 Jedes Rad wird über einen eigenen Motor angetrieben, und verfügt über eine separate Ansteuerung. Die Räder bestehen aus einer Felge (siehe Abbbildung \ref{rad}), auf der unter einem Winkel von 45 Grad befestigte, ballige Rollen so angebracht sind, die über den Abrollumfang einen exakten Kreis bilden (siehe Abbbildung \ref{rad2}). In die 8 Löcher der Felge werden Kugellager eingeklebt. Jedes der vier Räder besteht aus einer Felge, insgesamt 16 Laufrollen, 8 Kugellager, 8 M4x45mm Schraube, 8 M4 Muttern, sowie 16 M4 Beilagscheiben. 
 Das Rad ist mit einer M3 Schraube und einer M3 Mutter an der Motorachse fixiert.
-Die Felgen und die Laufrollen wurden mit einem 3D-Drucker gefertigt. 
+Die Felgen und die Laufrollen wurden mit einem Ultimaker 3D-Drucker gedruckt. 
 Die Vorlage namens Mecanum Wheel MK2 stammt von http://www.thingiverse.com/thing:2473, und kann unter der Attribution-NonCommercial-ShareAlike 3.0 Unported Lizenz nicht kommerziell verwendet werden.
 Die Laufrollen so angepasst, dass die Mutter bzw. der Schraubenkopf in der Rolle versenkt ist, damit das Rad insgesamt kompakter ist. Zum bearbeiten wurde OpenSCAD, ein 3D-Compiler, verwendet. 
 
@@ -322,10 +329,10 @@ Durch die Schräganordnung der Laufrollen entstehen beim Antreiben eines Rades 2
 \end{figure}
 
 
-Mit OpenSCAD entsteht ein dreidimensionales Modell eines Werkstückes. Damit fängt eine 3D-Drucker wenig an. Ein 3D-Druck setzt sich aus sehr vielen Liniensegmenten zusammen. Dazu muss das 3D-Modell in einzelne dünne Schichten und einzelne Linien zerlegt werden. Dieser Vorgang wird als "Slicing" bezeichnet. Dazu wurde das Programm pronterface verwendet. Mit OpenSCAD wird zunächst ein stl-File erzeugt, dann produziert pronterface daruas die Fahrbefehle für den 3D-Drucker in Form eines g-Files. Als 3D-Drucker wurde ein Ultimaker verwendet. Als Druckmaterial wurde ABS (Acrylnitril-Butadien-Styrol) verwendet, welches in einem Temperaturbereich von 215 bis 230 Grad Celsius per Extruder verarbeitet wird.    
+Mit OpenSCAD entsteht ein dreidimensionales Modell eines Werkstückes. Damit fängt eine 3D-Drucker wenig an. Ein 3D-Druck setzt sich aus sehr vielen Liniensegmenten zusammen. Dazu muss das 3D-Modell in einzelne dünne Schichten und einzelne Linien zerlegt werden. Dieser Vorgang wird als "Slicing" bezeichnet. Dazu wurde das Programm pronterface verwendet. Mit OpenSCAD wird zunächst ein stl-File erzeugt, dann produziert pronterface daruas die Fahrbefehle für den 3D-Drucker in Form eines g-Files. Als Druckmaterial wurde ABS (Acrylnitril-Butadien-Styrol) verwendet, welches in einem Temperaturbereich von 215 bis 230 Grad Celsius per Extruder verarbeitet werden kann.    
 Die Druckzeit pro Rolle betrug 20 Minuten. Insgesamt mussten 64 Rollen gefertigt werden. Die Druckzeit pro Felge betrug etwa drei Stunden, der Roboter benötigte 4 Felgen. Es gibt insgesamt zwei verschiedene Felgentypen, mit nach links oder nach rechts geneigten Rollen. 
 Dazu kommen noch vorbereitende Testdrucke bis die einzelnen Komponenten optimiert waren und der Drucker befriedigend Ergebnisse lieferte. 
-Mehrfach wurde etwa der Durchmesser der Bohrlöcher der Rollen verändert. Nachbearbeitung: Die Löcher für die Kugellager mussten per Hand passend gefeilt werden. Beim  Einsetzen der Kugellager brachen manche der Halterungen. Mit Klebstoff konnten die Kugellager auch in die gebrochenen Halterungen eingebaut werden. Die dauerhafte Haltbarkeit dieser Konstruktion ist allerdings mit einem Fragezeichen behaftet.
+Nach dem Drucken mussten die Teile nachbearbeitet werden.  Die Löcher für die Kugellager mussten per Hand passend gefeilt werden. Beim  Einsetzen der Kugellager brachen manche der Halterungen. Mit Klebstoff konnten die Kugellager auch in die gebrochenen Halterungen eingebaut werden. Die dauerhafte Haltbarkeit dieser Konstruktion ist allerdings mit einem Fragezeichen behaftet.
 
 \subsection{Chassis}\thispagestyle{empty}
 
@@ -338,10 +345,10 @@ Die Abmessungen des Chassis wurde im Wesentlichen abgestimmt auf: \begin{itemize
 \item Die Abmessung der eingekapselten Solarzelle.
  \end{itemize}
 
-Das Chassis besteht aus der Bodenplatte, den Seitenwänden und der oberen Abdeckung mit der Aufnahme für die Messzelle (siehe Abbildung \ref{gehause}). Zur Verringerung des Luftwiderstandes sind zwei Seitenwände geneigt (siehe Abbildung \ref{robo3d}).  
-\noindent Die Einzelteile wurden mit einem Lasercutter aus einer Sperrholzplatte geschnitten. Die Einzelteile wurden teilweise miteinander verleimt. Damit eine zukünftige Wartung problemlos möglich ist, wurde der Aufbau verschraubt ausgeführt.
-Die Motoren sind verschraubt, damit ein Austausch möglich ist. Einzelne Räder als auch die Rollen lassen sich bei Bedarf austauschen. 
-Das Chassis besteht aus der Bodenplatte, den Seitenwänden und der oberen Abdeckung mit der Aufnahme für die Messzelle (siehe Abbildung \ref{gehause}). Zur Verringerung des Luftwiderstandes sind zwei Seitenwände geneigt (siehe Abbildung \ref{robo3d}).  
+Das Chassis besteht aus der Bodenplatte, den Seitenwänden und der oberen Abdeckung mit der Aufnahme für die Messzelle (siehe Abbildung \ref{gehause}). In der Bodenplatte sind Bohrlöcher zur Befestigung der Motoren und für die Montage der Sensorarrayplatine an der Unterseite vorhanden. Zusätzlich gibt es zwei rechteckige Löcher für die Verbindungskabel zur Sensorarrayplatine. Die beiden Seitenwände sind zur Verringerung des Luftwiderstandes geneigt (siehe Abbildung \ref{robo3d}). (Und um dem Roboter den Look eines Schuhkartons zu nehmen.)
+\noindent Die Einzelteile wurden mit einem Lasercutter aus einer Sperrholzplatte geschnitten. Damit eine zukünftige Wartung problemlos möglich ist, wurde der Aufbau verschraubt ausgeführt. 
+Die Motoren sind an die Bodenplatte angeschraubt, damit ein Austausch möglich ist. Auch die einzelnen Räder, wie auch die Rollen lassen sich bei Bedarf austauschen. 
+Die Messzelle ist am Roboter oben befestigt.
 
 
 \begin{figure}[htbp]
@@ -359,7 +366,7 @@ Das Chassis besteht aus der Bodenplatte, den Seitenwänden und der oberen Abdeck
 
 \section{Steuerungselektronik}\thispagestyle{empty}
 
-Dieser Abschnitt beschreibt die Entwicklung der Elektronik. Die Funktionalität wurde auf verschiedene Module aufgeteilt. Das erleichtert die Platzierung der Elektronik innerhalb des Messroboters, und den Austausch von Komponenten im Fehlerfall. 
+Dieser Abschnitt beschreibt die Entwicklung der Elektronik. Die Funktionalität wurde auf verschiedene Module aufgeteilt. Das erleichterte die Platzierung der Elektronik innerhalb des Messroboters, die parallele Entwicklung von Elektronik und Software, sowie den Austausch von Komponenten im Fehlerfall. 
 Das Gehirn des Roboters ist ein Arduino Mega 2560 Mikrocontroller Board. Darauf aufgesteckt ist ein sogenanntes Shield, eine selbst entwickelte Platine, das die $\pm$5V Spannungsversorgung, die Schnittstellen zu den anderen Platinen und einen SD-Karten Einschub beheimatet.
 Es gibt 3 Messplatinen, eine für den Kurzschlussstrom der Messzelle, zwei für Temperaturmessungen. Eine Platine überwacht den Ladezustand des Akkus. Die Steuerung der vier Motoren ist auf einer Platine zusammengefasst.
 Die einzelnen Komponenten sind wie in Abbildung \ref{elek} auf der Bodenplatte angeordnet.
@@ -374,7 +381,7 @@ Die einzelnen Komponenten sind wie in Abbildung \ref{elek} auf der Bodenplatte a
 Die Motorplatine \ref{hbridge2} besteht aus zwei integrierten H-Brücken-Bausteinen (IC1, IC2), einer 16 poligen Buchse und fünf zweipoligen Buchsen für die Stromversorgung und den Anschluss der vier Motoren. Bei den integrierten H-Brücken-Baustein handelt es sich um einen NJM2670 \cite{njm}, welcher zwei H-Brücken in einem Baustein vereint, zusätzlich verfügen diese Bausteine über eine interne Logik, welche Kurzschlüsse über die Brücke unmöglich macht.
 Die Drehzahl der Motoren wird mit Pulsweitenmodulation variiert. Dabei ist es wichtig, dass die Transistoren in der Brücke schnell genug schalten können. Die PWM-Ausgänge des Arduino arbeiten mit einer Frequenz von etwa 500Hz \cite{pwm}.
 Die Gleichspannungsmotoren sind Getriebemotoren mit der Bezeichnung RB 35, und einem Übersetzungsverhältnis von 1:200. Die maximale Versorgungsspannung wurde mit 12V angegeben. Die Leerlaufdrehzahl beträgt bei 12V Versorgungsspannung 20 Umdrehungen pro Minute.
-Der Roboter wird mit einem Lithium-Ionen-Akku versorgt. Die Spannung beträgt, abhängig vom Ladezustand zwischen 16,4V und 15,0V. Damit es zu keiner Überlastung der 12V-Motoren, und die Geschwindigkeit des Roboters nicht zu groß wird, kommt wurde bei der Pulsweitenmodulation ein maximales Tastverhältnis von 50\% eingehalten.
+Der Roboter wird mit einem Lithium-Ionen-Akku versorgt. Die Spannung beträgt, abhängig vom Ladezustand zwischen 16,4V und 15,0V. Damit die 12V-Motoren nicht überlastet werden, wird bei der Pulsweitenmodulation ein maximales Tastverhältnis von 50\% eingehalten.
  
 
 \begin{figure}[htbp]
@@ -386,8 +393,8 @@ Der Roboter wird mit einem Lithium-Ionen-Akku versorgt. Die Spannung beträgt, a
 
 \subsection{Optische Sensorik}\thispagestyle{empty}
 Die optische Sensorik dient der Positionsbestimmung. Der Roboter bewegt während der Messung auf Holzplatten, die aus Gründen, welche unten genauer erläutert werden, schwarz sind, der Roboter orientiert sich an einer aus geraden Teilstücken bestehenden weißen Linienfolge. 
-Als Sensor wurde ein CNY70 verwendet. Der CNY 70 ist ein Reflexionssensor, bestehend aus einer Infrarot. Der Sensor wird in einem fixen Abstand zu einer Ebene montiert. Eine LED sendet Licht mit 950nm aus, welches an der Ebene reflektiert wird. Damit können Unterschiede des Reflektionkoeffizienten gemessen werden. Deshalb sind die Markierungen weiß auf schwarzen Untergrund. Eine Anordnung von neun solcher Sensoren in einem 3-mal-3 Array kann sowohl vertikale als auch horizontale Linien sowie Ecken erkennen. Zusätzlich gibt es einen 10. Sensor, der die Stopmarkierungen für die Messungen erkennt.
-Die neun Sensoren sind im Rastermaß 15,2 mm (= 0,6 Zoll) angeordnet. Der Stopsensor hat einen Abstand von 40,6mm zu dem Sensorarray. 
+Als Sensor wurde ein CNY70 \cite{cny} verwendet. Der CNY 70 ist ein Reflexionssensor, bestehend aus einer Infrarot-Led und einem Phototransistor in einem kompakten 7x7x6 Millimeter Gehäuse. Die LED sendet Infrarotlicht mit einem Maximum bei 950nm aus, welches an einer nahen Fläche reflektiert wird, und einem Phototransistor ansteuert. Der Phototransistor verfügt über einen Tageslichtfilter. Damit können Unterschiede des Reflektionkoeffizienten gemessen werden. Das Messprinzip funktioniert bei eienem Abstand von wenigen Millimetern.  Deshalb sind die Markierungen weiß auf schwarzen Untergrund. Eine Anordnung von neun solcher Sensoren in einem 3-mal-3 Array kann sowohl vertikale als auch horizontale Linien sowie Ecken erkennen. Zusätzlich gibt es einen 10. Sensor, der die Stopmarkierungen für die Messungen erkennt.
+Die neun Sensoren sind im Rastermaß 15,2 mm (= 0,6 Zoll) angeordnet. Der Stopsensor hat einen Abstand von 40,6 mm (= 1,6 Zoll) zu dem Sensorarray. 
 Der Strom durch die LEDs ist mittels Potentiometer einstellbar. 
 Die Platine ist zweiseitig ausgeführt, allerdings sind alle Bauteile an der Unterseite der Platine montiert, bis auf die OPVs in SMD-Ausführung. Das ursprüngliche Layout wurde um folgende zwei Änderungen modifiziert:
 - Auf die Steuerleitung des Transistors wurde vergessen. Da es noch freie Pins am 16-poligen Stecker gab, wurde diese Verbindung mittels Draht hergestellt.
@@ -404,8 +411,8 @@ Die Platine verfügt um drei Bohrlöcher mit jeweils drei Millimeter Durchmesser
 Anschlüsse: Es ist eine 16-polige Leiterplattenbuchse für die Analogsignale, 5V-Versorgung, und des Digitalsignal zum Schalten des FET.  Weiters ist ein zweipoliger Stiftstecker für die Stromversorgung vorhanden.
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=125mm]{img/array2.png}
-\caption{Das Layout des Sensorarrays. Die optischen Sensoren sind gelb markiert.}\label{array2}
+\includegraphics[width=100mm]{img/array21.png}
+\caption{Das Layout des Sensorarrays. Die optischen Sensoren sind rosa markiert.}\label{array2}
 \end{figure}
 
 \begin{figure}[htbp]
