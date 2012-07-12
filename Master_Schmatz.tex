@@ -364,7 +364,7 @@ Die Messzelle ist am Roboter oben befestigt.
 \end{figure}
 
 
-\section{Steuerungselektronik}\thispagestyle{empty}
+\section{Elektronik}\thispagestyle{empty}
 
 Dieser Abschnitt beschreibt die Entwicklung der Elektronik. Die Funktionalität wurde auf verschiedene Module aufgeteilt. Das erleichterte die Platzierung der Elektronik innerhalb des Messroboters, die parallele Entwicklung von Elektronik und Software, sowie den Austausch von Komponenten im Fehlerfall. 
 Das Gehirn des Roboters ist ein Arduino Mega 2560 Mikrocontroller Board. Darauf aufgesteckt ist ein sogenanntes Shield, eine selbst entwickelte Platine, das die $\pm$5V Spannungsversorgung, die Schnittstellen zu den anderen Platinen und einen SD-Karten Einschub beheimatet.
@@ -393,12 +393,19 @@ Der Roboter wird mit einem Lithium-Ionen-Akku versorgt. Die Spannung beträgt, a
 
 \subsection{Optische Sensorik}\thispagestyle{empty}
 Die optische Sensorik dient der Positionsbestimmung. Der Roboter bewegt während der Messung auf Holzplatten, die aus Gründen, welche unten genauer erläutert werden, schwarz sind, der Roboter orientiert sich an einer aus geraden Teilstücken bestehenden weißen Linienfolge. 
-Als Sensor wurde ein CNY70 \cite{cny} verwendet. Der CNY 70 ist ein Reflexionssensor, bestehend aus einer Infrarot-Led und einem Phototransistor in einem kompakten 7x7x6 Millimeter Gehäuse. Die LED sendet Infrarotlicht mit einem Maximum bei 950nm aus, welches an einer nahen Fläche reflektiert wird, und einem Phototransistor ansteuert. Der Phototransistor verfügt über einen Tageslichtfilter. Damit können Unterschiede des Reflektionkoeffizienten gemessen werden. Das Messprinzip funktioniert bei eienem Abstand von wenigen Millimetern.  Deshalb sind die Markierungen weiß auf schwarzen Untergrund. Eine Anordnung von neun solcher Sensoren in einem 3-mal-3 Array kann sowohl vertikale als auch horizontale Linien sowie Ecken erkennen. Zusätzlich gibt es einen 10. Sensor, der die Stopmarkierungen für die Messungen erkennt.
+Als Sensor wurde ein CNY70 \cite{cny} verwendet. Der CNY 70 ist ein Reflexionssensor, bestehend aus einer Infrarot-Led und einem Phototransistor in einem kompakten 7x7x6 Millimeter Gehäuse. Die LED sendet Infrarotlicht mit einem Maximum bei 950nm aus, welches an einer nahen Fläche reflektiert wird, und einem Phototransistor ansteuert. (siehe Abbbildung \ref{cny}) Der Phototransistor verfügt über einen Tageslichtfilter. Damit können Unterschiede des Reflektionkoeffizienten gemessen werden. Das Messprinzip funktioniert bei eienem Abstand von wenigen Millimetern.  Deshalb sind die Markierungen weiß auf schwarzen Untergrund. Eine Anordnung von neun solcher Sensoren in einem 3-mal-3 Array kann sowohl vertikale als auch horizontale Linien sowie Ecken erkennen. Zusätzlich gibt es einen 10. Sensor, der die Stopmarkierungen für die Messungen erkennt.
 Die neun Sensoren sind im Rastermaß 15,2 mm (= 0,6 Zoll) angeordnet. Der Stopsensor hat einen Abstand von 40,6 mm (= 1,6 Zoll) zu dem Sensorarray. 
 Der Strom durch die LEDs ist mittels Potentiometer einstellbar. 
 Die Platine ist zweiseitig ausgeführt, allerdings sind alle Bauteile an der Unterseite der Platine montiert, bis auf die OPVs in SMD-Ausführung. Das ursprüngliche Layout wurde um folgende zwei Änderungen modifiziert:
 - Auf die Steuerleitung des Transistors wurde vergessen. Da es noch freie Pins am 16-poligen Stecker gab, wurde diese Verbindung mittels Draht hergestellt.
 - Die Platine wird mit der 5 Volt Versorgung der restlichen Elektronik versorgt, welche konstanter als die 7805-Variante ist, und um Probleme mit zwei verschiedenen 5 Volt Versorgungen zu vermeiden. Dazu wurde der ursprünglich vorgesehene 7805 ausgebaut, und eine weiterer freier Pin des 16-poligen Steckers verwendet.
+
+\begin{figure}
+    \subfigure[Gehäuse und Innenleben]{\includegraphics[width=0.49\textwidth]{img/cny1.png}}
+    \subfigure[Funktion]{\includegraphics[width=0.49\textwidth]{img/cny2.png}}
+\caption{Der Bauteil CNY70} \label{cny}
+\end{figure} 
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/array.png}
@@ -408,7 +415,8 @@ Die LEDs sind parallel geschaltet und werde alle über den Feldeffekttransistor 
 Der Strom durch die LEDs wird mit einem LM317 geregelt. Da der Widerstand als Potentiometer ausgeführt ist lässt sich der Strom einstellen. Trotz einer nicht konstanten Versorgungsspannung kann so einer konstanter STrom geliefert werden. Um das analoge Messsignal der Phototransistoren nicht zu belasten, werden die analogen Photosignale über einen Spannungsfolger geführt. Die OPVs benötigen allerdings eine symmetrische Versorgung mit $\pm$5 V. Beide Spannungen werden über den Stecker geliefert.
 Es gibt weiteren Stecker mit 2 Pins, welche die Spannungsversorgung mit 16 Volt und GND sicherstellt. 
 Die Platine verfügt um drei Bohrlöcher mit jeweils drei Millimeter Durchmesser zu Befestigung.
-Anschlüsse: Es ist eine 16-polige Leiterplattenbuchse für die Analogsignale, 5V-Versorgung, und des Digitalsignal zum Schalten des FET.  Weiters ist ein zweipoliger Stiftstecker für die Stromversorgung vorhanden.
+Anschlüsse: Es ist eine 16-polige Leiterplattenbuchse für die Analogsignale, 5V-Versorgung, und des Digitalsignal zum Schalten des FET. Des Weiteren ist ein zweipoliger Stiftstecker für die Stromversorgung mit der Akkuspannung vorhanden.
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=100mm]{img/array21.png}
@@ -427,14 +435,15 @@ Anschlüsse: Es ist eine 16-polige Leiterplattenbuchse für die Analogsignale, 5
 Die Energie zum Betrieb des Roboters stammt aus einem Kokam 14,6V 4000mAh Litihum Lithium-Polymer-Akkumulator. Es wird empfohlen vor jeden Messzyklus den Akku zu laden. Ein voller Akku reicht für mehr mehrere Stunden Dauerbetrieb. Der Akku ist mit einer im Anschlusskabel integrierten Schmelzsicherung geschützt. Zum Laden des Akkus muss der Akku vom Roboter abgesteckt werden und an das Ladegerät angeschlossen werden. Zum Schutz vor Kurzschlüssen ist der Akku mit einer im Anschlusskabel integrierten Schmelzsicherung gesichert. Da zum Laden der Akku aus dem Roboter entfernt und an das Akkuladegerät angeschlossen werden muss, könnte versehentlich der Akku kurzgeschlossen werden. Zum Laden wird ein Ultramat 16 S verwendet, der über einen Balanceranschluss verfügt, und somit alle vier Zellen des Akkus auf die gleiche Spannung lädt. 
 Der Akku kann mit bis zu 200A belastet werden, allerdings liegt der maximale Strom aller 4 Motoren und der restlichen Elektronik liegt bei einem Ampere. Die Motoren werden direkt mit der Akkuspannung versorgt. Die Versorgungsspannung schwankt zwischen der vollen Akkuspannung 16,4V und 15V nach mehr als 10 Messfahrten.
 Die 5 Volt Versorgung des Mikrocontrollers wurde mit einem RECOM R-785.0-1.0 DC-DC Konverter gelöst. Er ist pinkompatibel zu einem 7805, allerdings mit einer größeren Dicke, und bietet die Vorteile einer geringen Verlustleistung und einer sehr genauen Ausgangsspannung. 
-Der Ladezustand der einzelnen Zellen des Akkus wird mit einer eigens dafür entwickelten Schaltung überwacht. Sollte die Spannung einer Zelle unter 3,3V sinken, wird die Stromversorgung zum Roboter mittels FET unterbrochen, und ein akustisches Warnung ausgegeben. Damit wird eine Tiefentladung verhindert, was zu einer irreversiblen Schädigung und einem Kapazitätsverlust führen kann. Eigentlich könnte der Akku bis zu 2,7V pro Zelle entladen werden (siehe Abbildung \ref{akku}.
+Der Ladezustand der einzelnen Zellen des Akkus wird mit einer eigens dafür entwickelten Schaltung überwacht. Sollte die Spannung einer Zelle unter 3,3V sinken, wird die Stromversorgung zum Roboter mittels FET unterbrochen, und ein akustisches Warnung ausgegeben. Damit wird eine Tiefentladung verhindert, was zu einer irreversiblen Schädigung und einem Kapazitätsverlust führen kann. Eigentlich könnte der Akku bis zu 2,7V pro Zelle entladen werden.
 Die Analog-Digitalwandlung des Arduino benötigt eine Referenzspannung, entweder die Versorgungsspannung, was jedoch zu ungenau ist. Als Spannungsreferenz wird daher ein LT1021 5V Präzisionsspannungsquelle verwendet. Da dieses Bauelement nachträglich hinzugefügt wurde, ist es auf einer eigenen kleinen Platine untergebracht.
 
  
 \subsection{Mikrokontroller}\thispagestyle{empty}
 Der Arduino Mega 2560 ist ein Mikrocontroller-Board. Es ist eine Open-Source Elektronikentwicklungsplattform und richtet sich an Elektronikneulinge wie auch an Profis. Den Mikrocontroller des Arduino-Boards bildet ein ATmega2560 der Firma Atmel. Dabei handelt es sich um einen 8-Bit-Mikrocontroller.  Er läuft mit 16 MHz Taktfrequenz und besitzt 256 KByte Flash, wovon 8 KByte für den bootloader verwendet werden, für den Programmcode, 8 KByte SRAM, sowie 4 KByte EEPROM.  Es verfügt über 54 digitale I/O Pins, davon können 15 als PWM-Ausgänge verwendet werden. Weiters gibt es 16 analoge Eingänge die über einen 10-Bit Analog-Digital-Wandler verfügen.
 Eine USB Schnittstelle ist zur Programmierung und Kommunikation vorhanden.
-Der Mikrocontroller arbeitet mit einer Betriebsspannung von 5V. Grundsätzlich kann die Stromversorgung über die USB Schnittstelle erfolgen. Für einen beweglichen Roboter ist diese Option nicht praktikabel. Es besteht auch die Möglichkeit über eine Buchse eine Versorgungsspannung von 7 bis 12 Volt anzulegen, der Akku liefert aber eine höhere Spannung. Aus der Akku-Spannung, wird eine stabile 5 Volt Spannung gewonnen. Diese 5 Volt werden direkt mit dem 5 Volt Pin des Arduino-Boards verbunden. Die 5-Volt Spannungsversorgung befindet sich auf dem Shield (der Aufsteckplatine). Dabei handelt es sich um einen kompakten DC-DC Konverter. 
+Der Mikrocontroller arbeitet mit einer Versorgungsspannung von 5V. Grundsätzlich kann die Stromversorgung über die USB Schnittstelle erfolgen. Für einen beweglichen Roboter ist diese Option jedoch nicht praktikabel. Es besteht auch die Möglichkeit über eine Buchse eine Versorgungsspannung von 7 bis 12 Volt anzulegen, der Akku liefert aber eine höhere Spannung. So wird aus der Akku-Spannung mittels DC-DC Konverter
+eine stabile 5 Volt Spannung gewonnen. Diese 5 Volt werden direkt mit dem 5 Volt Pin des Arduino-Boards verbunden. Die 5-Volt Spannungsversorgung befindet sich auf dem Shield (der Aufsteckplatine). Dabei handelt es sich um einen kompakten DC-DC Konverter.
 
  
 
@@ -446,7 +455,41 @@ Der Mikrocontroller arbeitet mit einer Betriebsspannung von 5V. Grundsätzlich k
 \caption[Arduino Mega 2560]{Arduino Mega 2560}\label{ardu}
 \end{figure}
 
-\subsection{Temperatursensoren}\thispagestyle{empty}
+\subsection{Strommessung}\thispagestyle{empty}
+Der Kurzschlussstrom der Messzelle wird mit einer eigenen Platine gemessen. Der Strom wird mittels Spannungsabfall an einem 10m$\Omega$ Shunt-Widerstand gemessen. Zu berücksichtigen ist allerdings auch der Spannungsabfall auf der Verbindung von der Zelle zum Shunt-Widerstand.
+Die Zelle ist über ein 25cm langes Kabel mit dem Durchmesser von 4 mm$^2$, ein 7cm langes Kabel mit dem Durchmesser von 6mm$^2$, und zwei Bananenstecker mit der Messplatine verbunden. Der Widerstand dieser Verbindung zusammen mit dem Messshunt beträgt etwa 40 m$\Omega$, was bei einem Kurzschlusstrom von etwa 5 A zu einem Spannungsabfall von 200mV führt. Der gemessene Strom ist damit nicht mehr der Kurzschlussstrom. Abbildung \ref{kenn2} zeigt die Widerstandsgerade im Vergleich zur Kennline einer Zelle.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=50mm]{img/kenn2.png}
+\caption{Einfluss des Widerstandes im Messpfad auf den gemessenen Strom}\label{kenn2}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=100mm]{img/i1.png}
+\caption{Die Schaltung zur Strommessung}\label{i1}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=75mm]{img/i2.png}
+\caption{Die Platine zur Strommessung}\label{i2}
+\end{figure}
+
+
+
+\subsection{Das Shield}\thispagestyle{empty}
+Unter einem Shield versteht man eine Platine die auf einem Arduino aufgesteckt werden kann. Im Falle des Messroboters befindet sich die 5V-Erzeugung, die -5V-Erzeugung, die SD-Karte und diverse Buchsen zum Anschluss der Messplatinen und des Sensorarray auf der Shield-Platine. 
+Die SD-Karte benötigt eine 3.3V Versorgung, welcher der Arduino liefert. Dazu sind keine wieteren Bauteile nötig.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=125mm]{img/shield.png}
+\caption{Die Shield-Platine.}\label{shield}
+\end{figure}
+
+\subsection{Temperaturmessung}\thispagestyle{empty}
 Der Spannungsabfall an einem temperaturstabilen 100$\Omega$ Widerstand wird mit dem Spannungsabfall an einem PT100 verglichen. Als Stromquelle dient eine sehr präzise REF200-Stromquelle\cite{ref200}, welche zwei mal 100 Mikroampere $\pm$0.5$\%$ liefert. Abbildung \ref{tmess} zeigt den Schaltplan, Abbildung \ref{tmess2} zeigt das Platinenlayout.
 
 
@@ -461,6 +504,10 @@ Der Spannungsabfall an einem temperaturstabilen 100$\Omega$ Widerstand wird mit 
 \includegraphics[width=100mm]{img/tmess2.png}
 \caption[Arduino Mega 2560]{Layout der Temperarurmessung}\label{tmess2}
 \end{figure}
+
+
+
+
 
 
 \section{Softwareentwicklung}\thispagestyle{empty}
