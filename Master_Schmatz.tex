@@ -238,7 +238,7 @@ Es gibt verschiedene Solarzellentechnologien. Es gibt kristalline Siliziumzellen
 Eine Siliziumsolarzelle ist eine großflächigen Diode. Die Sperrschicht ist dabei dem Sonnenlicht ausgesetzt. Gelangt ein Lichtquanten in die Sperrschicht kann aufgrund des inneren Photoeffektes ein Elektron/Loch Paar erzeugt werden. Durch das elektrische Feld in der Sperrschicht werden die Ladungsträger getrennt bevor sie kombinieren können. Elektronen bewegen aufgrund ihrer negativen Ladung entgegen der Feldrichtung in die n-Zone. Löcher wandern in Feldrichtung zur Raumladungsfreien p-Zone. Die Leerlaufspannung einer Solarzelle ist kleiner als die Diffusionsspannung, der Spannung über die Raumladungszone, die der Diffusion von Ladungsträgern entgegenwirkt.
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=125mm]{img/zelle.png}
+\includegraphics[width=125mm]{img/zelle2.png}
 \caption{Der Schematischer Aufbau einer Siliziumsolarzelle. Quelle: \cite{pv}}\label{cell}
 \end{figure}
 
@@ -390,6 +390,11 @@ Der Roboter wird mit einem Lithium-Ionen-Akku versorgt. Die Spannung beträgt, a
 \caption{Der Schaltplan der Motortreiberplatine.}\label{hbridge2}
 \end{figure}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=125mm]{img/hdrive.png}
+\caption{Das Layout der Motortreiberplatine.}\label{hbridge2}
+\end{figure}
 
 \subsection{Optische Sensorik}\thispagestyle{empty}
 Die optische Sensorik dient der Positionsbestimmung. Der Roboter bewegt während der Messung auf Holzplatten, die aus Gründen, welche unten genauer erläutert werden, schwarz sind, der Roboter orientiert sich an einer aus geraden Teilstücken bestehenden weißen Linienfolge. 
@@ -438,16 +443,24 @@ Die 5 Volt Versorgung des Mikrocontrollers wurde mit einem RECOM R-785.0-1.0 DC-
 Der Ladezustand der einzelnen Zellen des Akkus wird mit einer eigens dafür entwickelten Schaltung überwacht. Sollte die Spannung einer Zelle unter 3,3V sinken, wird die Stromversorgung zum Roboter mittels FET unterbrochen, und ein akustisches Warnung ausgegeben. Damit wird eine Tiefentladung verhindert, was zu einer irreversiblen Schädigung und einem Kapazitätsverlust führen kann. Eigentlich könnte der Akku bis zu 2,7V pro Zelle entladen werden.
 Die Analog-Digitalwandlung des Arduino benötigt eine Referenzspannung, entweder die Versorgungsspannung, was jedoch zu ungenau ist. Als Spannungsreferenz wird daher ein LT1021 5V Präzisionsspannungsquelle verwendet. Da dieses Bauelement nachträglich hinzugefügt wurde, ist es auf einer eigenen kleinen Platine untergebracht.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=100mm]{img/refu.png}
+\caption{Die Schaltung der 5V Referenzspannung.}\label{refu}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=100mm]{img/refu2.png}
+\caption{Das Platinenlayout der 5V Referenzspannung.}\label{refu2}
+\end{figure}
+
  
 \subsection{Mikrokontroller}\thispagestyle{empty}
 Der Arduino Mega 2560 ist ein Mikrocontroller-Board. Es ist eine Open-Source Elektronikentwicklungsplattform und richtet sich an Elektronikneulinge wie auch an Profis. Den Mikrocontroller des Arduino-Boards bildet ein ATmega2560 der Firma Atmel. Dabei handelt es sich um einen 8-Bit-Mikrocontroller.  Er läuft mit 16 MHz Taktfrequenz und besitzt 256 KByte Flash, wovon 8 KByte für den bootloader verwendet werden, für den Programmcode, 8 KByte SRAM, sowie 4 KByte EEPROM.  Es verfügt über 54 digitale I/O Pins, davon können 15 als PWM-Ausgänge verwendet werden. Weiters gibt es 16 analoge Eingänge die über einen 10-Bit Analog-Digital-Wandler verfügen.
 Eine USB Schnittstelle ist zur Programmierung und Kommunikation vorhanden.
 Der Mikrocontroller arbeitet mit einer Versorgungsspannung von 5V. Grundsätzlich kann die Stromversorgung über die USB Schnittstelle erfolgen. Für einen beweglichen Roboter ist diese Option jedoch nicht praktikabel. Es besteht auch die Möglichkeit über eine Buchse eine Versorgungsspannung von 7 bis 12 Volt anzulegen, der Akku liefert aber eine höhere Spannung. So wird aus der Akku-Spannung mittels DC-DC Konverter
 eine stabile 5 Volt Spannung gewonnen. Diese 5 Volt werden direkt mit dem 5 Volt Pin des Arduino-Boards verbunden. Die 5-Volt Spannungsversorgung befindet sich auf dem Shield (der Aufsteckplatine). Dabei handelt es sich um einen kompakten DC-DC Konverter.
-
- 
-
-
 
 \begin{figure}[htbp]
 \centering
@@ -480,8 +493,11 @@ Die Zelle ist über ein 25cm langes Kabel mit dem Durchmesser von 4 mm$^2$, ein 
 
 
 \subsection{Das Shield}\thispagestyle{empty}
-Unter einem Shield versteht man eine Platine die auf einem Arduino aufgesteckt werden kann. Im Falle des Messroboters befindet sich die 5V-Erzeugung, die -5V-Erzeugung, die SD-Karte und diverse Buchsen zum Anschluss der Messplatinen und des Sensorarray auf der Shield-Platine. 
-Die SD-Karte benötigt eine 3.3V Versorgung, welcher der Arduino liefert. Dazu sind keine wieteren Bauteile nötig.
+Unter einem Shield versteht man eine Platine die auf einem Arduino aufgesteckt werden kann, und benutzerspezifische Funktionalität beinhaltet. Im Falle des Messroboters befindet sich die 5V-Erzeugung, die -5V-Erzeugung, die SD-Karte und diverse Buchsen zum Anschluss der Messplatinen und des Sensorarray auf der Shield-Platine. 
+Die SD-Karte benötigt eine 3.3V Versorgung, welcher der Arduino liefert. Dazu sind keine wieteren Bauteile nötig. 
+Zusätzlich gibt es einen Pegelwandler, welcher die 5V-Level der digitalen Signale des Arduino auf 3.3V-Level für den SD-Karten.
+In der Abbildung  \ref{shield} sind die verschieden Bauteile farbig markiert:
+Klemmen zur Versorgung mit Akku-Spannung (rosa), Buchse zur Kommunikation mit der Sensor-Array Platine (violett). Eine 10-poligeBuchse zur Verbindung mit der Motortreiberplatine (violett). Insgesamt vier vierpolige Stecker (rosa) für verschiedene Messplatinen, wovon nur drei in Gebrauch sind: für die Strommessung und die beiden Temperaturmessungen.
 
 \begin{figure}[htbp]
 \centering
