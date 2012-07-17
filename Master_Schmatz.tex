@@ -396,7 +396,7 @@ Der Roboter wird mit einem Lithium-Ionen-Akku versorgt. Die Spannung beträgt, a
 \caption{Das Layout der Motortreiberplatine.}\label{hbridge2}
 \end{figure}
 
-\subsection{Optische Sensorik}\thispagestyle{empty}
+\subsection{Optische Sensoren}\thispagestyle{empty}
 Die optische Sensorik dient der Positionsbestimmung. Der Roboter bewegt während der Messung auf Holzplatten, die aus Gründen, welche unten genauer erläutert werden, schwarz sind, der Roboter orientiert sich an einer aus geraden Teilstücken bestehenden weißen Linienfolge. 
 Als Sensor wurde ein CNY70 \cite{cny} verwendet. Der CNY 70 ist ein Reflexionssensor, bestehend aus einer Infrarot-Led und einem Phototransistor in einem kompakten 7x7x6 Millimeter Gehäuse. Die LED sendet Infrarotlicht mit einem Maximum bei 950nm aus, welches an einer nahen Fläche reflektiert wird, und einem Phototransistor ansteuert. (siehe Abbbildung \ref{cny}) Der Phototransistor verfügt über einen Tageslichtfilter. Damit können Unterschiede des Reflektionkoeffizienten gemessen werden. Das Messprinzip funktioniert bei eienem Abstand von wenigen Millimetern.  Deshalb sind die Markierungen weiß auf schwarzen Untergrund. Eine Anordnung von neun solcher Sensoren in einem 3-mal-3 Array kann sowohl vertikale als auch horizontale Linien sowie Ecken erkennen. Zusätzlich gibt es einen 10. Sensor, der die Stopmarkierungen für die Messungen erkennt.
 Die neun Sensoren sind im Rastermaß 15,2 mm (= 0,6 Zoll) angeordnet. Der Stopsensor hat einen Abstand von 40,6 mm (= 1,6 Zoll) zu dem Sensorarray. 
@@ -506,7 +506,13 @@ Klemmen zur Versorgung mit Akku-Spannung (rosa), Buchse zur Kommunikation mit de
 \end{figure}
 
 \subsection{Temperaturmessung}\thispagestyle{empty}
-Der Spannungsabfall an einem temperaturstabilen 100$\Omega$ Widerstand wird mit dem Spannungsabfall an einem PT100 verglichen. Als Stromquelle dient eine sehr präzise REF200-Stromquelle\cite{ref200}, welche zwei mal 100 Mikroampere $\pm$0.5$\%$ liefert. Abbildung \ref{tmess} zeigt den Schaltplan, Abbildung \ref{tmess2} zeigt das Platinenlayout.
+Der Spannungsabfall an einem temperaturstabilen 100$\Omega$ Widerstand wird mit dem Spannungsabfall an einem PT100 verglichen. Durch beide Widerstände fließt ein Strom von 100$\mu$A. Als Stromquelle dient eine sehr präzise REF200-Stromquelle\cite{ref200}, welche zwei mal 100 Mikroampere $\pm$0.5$\%$ liefert. Abbildung \ref{tmess} zeigt den Schaltplan, Abbildung \ref{tmess2} zeigt das Platinenlayout. Zur besseren Idendifikation sind die Bauteile in beiden Abbildungen mit den gleichen Farben eingefärbt. 
+Zum Platinenlayout: Links, der 4-pinige Stecker dient zur Stromversorgung (+5V, GND, -5V) und dem Abgriff des analogen Messsignales. Dimensionierung des Verstärkungswiderstandes: ...
+Warum Präzisionswiderstände? Weil temperaturstabiler als herkömmliche Widerstände. 
+Warum zwei Widerstände zum Einstellen der Verstärkung des Instrumentenverstärkers? Weil es keinen Präzesionswiderstand gab der in etwa dem berechneten Wert entsprach. Daher wurden zwei 51,1$ßOmega$ Widerstand parallel geschaltet, das entspricht einen 25,55$ßOmega$ Widerstand.
+
+
+Was würde man heute anders machen? Der Temperaturbereich ist genauer bekannt. Damit könnte der Messbereich des ADC besser ausgenutzt werden. Nachher ist man immer klüger! Siehe Kapitel Kalibrierung. Erst dort wurde der maximal mögliche ADC- und Widerstandswert ermittelt, weil der Instrumentenverstärker nicht bis 5V aussteuern kann, sondern nur bis etwa 4,2V, bzw. einem ADC-Wert von etwa 850. Daher sollte der maximale Messwert wesentlich kleiner sein, damit Unklarheiten, ob die Begrenzung schon erreicht ist, vermieden werden. 
 
 
 \begin{figure}[htbp]
@@ -518,7 +524,7 @@ Der Spannungsabfall an einem temperaturstabilen 100$\Omega$ Widerstand wird mit 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=100mm]{img/tmess2.png}
-\caption[Arduino Mega 2560]{Layout der Temperarurmessung}\label{tmess2}
+\caption{Layout der Temperarurmessung}\label{tmess2}
 \end{figure}
 
 
@@ -530,13 +536,13 @@ Der Spannungsabfall an einem temperaturstabilen 100$\Omega$ Widerstand wird mit 
 Dieser Abschnitt beschreibt die Entwicklung des Softwareteils. Es wird kurz auf die Entwicklungsumgebung eingegangen. Dann folgt die Auswertung der optischen Sensoren. Schließlich wird die Programmstruktur erklärt. Der gesamte Code ist im Anhang gelistet.
 
 \subsection{Entwicklungsumgebung}\thispagestyle{empty}
-Der Mikrocontroller auf den Arduino Board wird mit der Arduino Programmiersprache, welche auf Wiring basiert und sehr C-artig ist, in der Arduino Entwicklungsumgebung (siehe Abbildung \ref{ardu2}, welche auf Processing basiert, programmiert. Die Entwicklungsumgebung ist auf das notwendigste beschränkt, und erlaubt einen raschen Einstieg. Die umfassenden Beispielprogramme helfen beim Einarbeiten. Darüber hinaus gibt es eine große und aktive Comunity.
+Der Mikrocontroller auf den Arduino Board wird mit der Arduino Programmiersprache, welche auf Wiring basiert und sehr C-artig ist, in der Arduino Entwicklungsumgebung (siehe Abbildung \ref{ardu2}, welche auf Processing basiert, programmiert. Die Entwicklungsumgebung ist auf das notwendigste beschränkt. Die vielen Beipsielprogramme erlauben einen raschen Einstieg.
 Ein Arduino Programm besteht aus zwei Teilen: Einer Setup-Routine die einmal zu Programmstart durchlaufen wird und einer Endlosschleife. In der Schleife wird das eigentlich Programm abgearbeitet. 
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=100mm]{img/Arduino.png}
-\caption[Die Arduino Entwicklungsumgebung]{Arduino Entwicklungsumgebung}\label{ardu2}
+\caption{Die Arduino Entwicklungsumgebung}\label{ardu2}
 \end{figure}
 
 \subsection{Auswertung der optischen Sensoren}\thispagestyle{empty}
@@ -544,7 +550,7 @@ Um den Einfluss des Streulichtes der starken Einstrahlung im Sonnensimulator auf
 Das wird für alle neun Optoreflektoren des Sensorarray, sowie den Stopsensor, gemacht.
 Mit den korrigierten Werten der einzelnen optischen Sensoren wird die Lage der Linie relativ zum Mittelpunktes des Arrays bestimmt. 
 
-Die Höhe des Messwertes  der optischen Sensoren ist abhängig von der Helligkeit des Untergrundes. Unter der Annahme dass sich eine helle gerade Linie unter dem Senorarray befindet funktioniert folgende Formel:
+Die Höhe des Messwertes  der optischen Sensoren ist abhängig von der Helligkeit des Untergrundes. Unter der Annahme dass sich eine gerade Linie unter dem Senorarray befindet funktioniert folgende Formel:
 \begin{align*}
   x_1 &= \frac{C-A}{2A-4B+2C} \\
   \\
@@ -556,79 +562,72 @@ Die Höhe des Messwertes  der optischen Sensoren ist abhängig von der Helligkei
   \\
   k &=  \frac{x_1-x_3}{2}
 \end{align*}
-
+Dabei ist es egal, ob es sich um eine helle Linie auf dunklen Untergrund, oder eine dunkle Linie auf hellem Untergrund handelt. Bei andere Teilen des Algorithmus ist das aber nicht egal. Daher funktioniert der Roboter nur mit heller Linie auf dunklen Untergrund.  Abbildung 
 
 \begin{figure}
 \centering
     \subfigure[Versatz]{\includegraphics[width=50mm]{img/array5.png}}
     \subfigure[Verdrehung]{\includegraphics[width=50mm]{img/array6.png}}
 \caption{Die mögliche Abweichungen der Linie von der Idealposition}
+\label{abw}
 \end{figure} 
 
+Abbildung \ref{abw} zeigt die Anordnung des Sensorarrays, die einzelnen Sensoren sind mit A bis I bezeichnet. Mögliche Abweichungen der Linie von der Idealposition sind, auf der linken Seite, der zeitliche Versatz auf der rechten Seite, zu sehen.
 
-\subsection{Auswertung ADCs}\thispagestyle{empty}
-Aufgrund von Rauschen der ADC-Werte, wurden alle Messwerte über 500 Einzelmessungen gemittelt. Die Quelle des Rauschens wurde nicht ermittelt. Der notwendige Messzeit dafür beträgt unter einer halben Sekunde. Die optischen Sensoren werden ebenfalls mit ADCs ausgewertet, die Behandlung erfolge im vorigen Unterabschnitt. 
-
+\subsection{Auswertung der Temperatur- und Strommesswerte}\thispagestyle{empty}
+Aufgrund von Rauschen der ADC-Werte, wurden alle Messwerte über 500 Einzelmessungen gemittelt. Die Quelle des Rauschens wurde nicht ermittelt. Der notwendige Messzeit dafür beträgt unter einer halben Sekunde. Ohne Mittelung des Messwerte schwankten die Messungen $\pm$5 Werte des ADC, das sind $\pm$0,5$\%$ bei maximalen Ausnützung bzw. $\pm$1$\%$ bei halber Ausnützung des ADC Wertebereichs.
+ 
 \subsection{Programmablauf}\thispagestyle{empty}
+
+Das Steuerprogramm ist als Zustandsautomat konzipiert (siehe Abbildung \ref{abl}):
+\begin{itemize}
+\item Zustand s (Start): zu Programmstart, nach 60 Sekunden Wechsel in den Zustand v. Diese Zeitspanne dient zum schließen des Messeinschubes des Sonnensimulators nach dem Einschalten des Roboters.
+\item Zustand v: Vorwärtsfahren inklusive Regelung, Wechsel durch erkannte Ecke in den Zustand a, bzw. durch erkannten Messpunkt Wechsel in den Zustand m.
+\item Zustand z: Rückwärtsfahren inklusive Regelung, Wechsel durch erkannte Ecke in den Zustand c, bzw. durch erkannten Messpunkt Wechsel in den Zustand m.
+\item Zustand m: Messpunkt, nach Abschluss der Messung wird der bisherige Messmodus fortgesetzt.
+\item Zustand r: Rechtsfahren mit Regelung, nach erkannter Ecke Wechsel in den Zustand b.
+\item Zustand l: Ebenfalls Rechtsfahren mit Regelung, nach erkannter Ecke Wechsel in den Zustand d.
+\item Zustand a: Um die Ecke des Typ 1 fahren, danach Wechsel in den Zustand r. 
+\item Zustand b: Um die Ecke des Typ 2 fahren, danach Wechsel in den Zustand x.
+\item Zustand c: Um die Ecke des Typ 1 fahren, danach Wechsel in den Zustand l. 
+\item Zustand d: Um die Ecke des Typ 2 fahren, danach Wechsel in den Zustand p.
+\item Zustand p, x: Ausrichten, danach Wechsel zu q bzw. y.
+\item Zustand q, y: Ausrichten, danach Wechsel zu v bzw. z.
+\end{itemize}
+
+Ein paar Worte zur Regelung der Geradeausfahrt: 
+Es wird versucht sowohl die seitliche Verschiebung d als auch die Verdrehung zu minimieren. Wenn beide Werte innerhalb gewisser Toleranzen sind, fährt der Roboter geradeaus. Die Schranken der Regelung sind in Abbildung \ref{schr} zu sehen. 
+
+Und nun zur Regelung der Seitwärtsfahrt. Wieder wird versucht die Abweichung in Verschiebung, diesmal in vor- und zurück-Richtung, und der Verdrehung zu minimieren.  Allerdings hat das Seitwätsfahren eine andere Dynamik als das Geradeausfahren. Die Geradeausfahrt eines Mecanum-Fahrzeuges ist vergleichbar mit der eines konventionellen Fahrzeuges. Dagegen ist die Seitwärtsfahrt nicht so flüssig. 
+Daher sind die Schaltwerte für die Seitwärtsregelung auch anders als die Geradeausregelung (siehe Abbildung \ref{reg}).
+
+Zu den Ecken: Es gibt zwei Arten von Ecken. Einmal die Ecke des Typs 1, welche eine wirkliche Ecke darstellen. Und dann die Ecke des Typs 2, welches ein Eck mit einer Lücke sind.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=150mm]{img/ablauf2.png}
-\caption[Programmablauf]{Programmablauf}\label{abl}
+\caption{Der Programmablauf}\label{abl}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=75mm]{img/schranken.png}
-\caption[Schranken der Regelung]{Schranken der Regelung}\label{schr}
+\includegraphics[width=80mm]{img/schranken.png}
+\caption{Schranken der Regelung}\label{schr}
 \end{figure}
 
-Das Programm startet im Modus Start, der Roboter steht, und wartet 60 Sekunden, eine Pufferzeit damit nach dem Einschalten des Roboters die Lade des Sonnensimulator hineingeschoben und die Klappe geschlossen werden kann.
-Nach Ablauf dieser 60 Sekunden wechselt das Programm in den Modus Vorwärts. In diesem Modus fährt der Roboter in Vorwärtsrichtung. Abweichungen von der Idealspur werden erkannt und korrigiert. Wird mit dem Stopsensor eine Stopmarkierung erkannt, wechselt das Programm in den Messmodus. 
-Ein Arduino Programm besteht grundsätzlich aus zwei Teilen: 
-Eine Setup Routine, die einmal durchlaufen wird, und diverse Pins als Eingänge bzw. Ausgänge festlegt.
-Eine so genannte Loop, die immer wieder durchlaufen wird, eine in der Loop integrierte Zeitverzögerung ist sinnvoll. 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=50mm]{img/ecke2.png}
+\caption{Ums Eck fahren}\label{eck}
+\end{figure}
 
-Das Einschalten des Roboters ist der Start des Programms. Nach dem Start gibt es eine Verzögerung von 60 Sekunden, die dazu dient, die Einschublade des Sonnensimulators zu schließen. Es wird davon ausgegangen, dass der Roboter auf der Messbahn steht, das heißt das Senorarray befindet sich über der Messbahn.
-Die gesamte Bewegungssteuerung ist als Zustandautomat ausgeführt. ( Ablauf2.png Bild der möglichen Zustände).
-Mode s (Start): Zeitverzögerung von 60s, Übergang zu Mode v
-Mode v (Vorwärtsfahrt) Mode z (Rückwärtsfahrt): Regelung zur Spurhaltung, Übergang zu Mode m (messen) bei erkannten Messpunkt, bei erkannter Ecke Übergang zu Mode a (Fahrt um die Ecke)
-Mode a, Mode c: Eine um die Ecke Fahrt, bestehend aus zwei Einzelbewegungen: einer Geradeausfahrt bis die obere Sensorreihe (A, B und C) dunkel detektieren, gefolgt von einer Seitwärtsfahrt mit 700ms Dauer. (Funktionierende Lösung! Daher wurde keine Variante ohne Zeitverzögerung gesucht.)
-Mode b, d: eine Fahrt der Dauer 850ms, in Richtung vor bzw. zurück, übergang in den Modus der Positionskorrektur (x \& y bzw q \& p).
-Messmodus siehe unten. (Screenshot der Messdatei.)
-Beendigung des Messmodus (Zustand m, Messen): Nach dem Speichern geht der Zustandsautomat wieder in den vorigen Bewegungsmodus über, dazu gibt es eine Hilfsvariable.
-
-Ende der Messfahrt: Im Zustand z (und nur im Zustand z) wird das Ende der Linie als Übergangsbedingung in den Zustand e (=Ende) gewertet. 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=80mm]{img/regelung2.png}
+\caption{Regelungsschranken beim nach Rechts fahren}\label{reg}
+\end{figure}
 
 
-
-
-
-Der Roboter beginnt nach Ablauf der Einschaltverzögerung seine Vorwärtsfahrt. (Bild mit den Bewegungsrichtungen des Roboters: vorwärts, rückwärts, links und rechts!)
-Die Geradeausfahrt kann unterbrochen durch einen Messpunkte unterbrochen werden. Wenn der Messpunktsensor einen Wert höher als eine bestimmte Schaltschwelle erhält wird in den Messmodus gewechselt.
-Messmodus: Zeitverzögerung um 250 ms, zur Vermeidung von elektromagnetischen Störungen durch die Motorströme. Messschleife von 500 Einzelmessungen des Zellenkurzschlussstromes, der Zelltemperatur und der Umgebungstemperatur. Die Einzelmesswerte werden zuerst summiert und nach der Schleife durch 500 dividiert. 
-Schreiben auf SD Karte: Zeitpunkt in ms, zu dem die Messung gestartet hat, dann die 3 ADC Werte, Messpunkt, Messreihe und Messspalte. (Falls ein Messwert verloren geht, was vorkommen kann, wenn ein Messpunkt übersehen wird, kann die Position ermittelt und die fehlenden Messwerte geschätzt werden.
-
-Die Messstrecke setzt sich aus geraden Linienelementen zusammen, die durch 90$\circ$ Ecken verbunden sind. Bei der Hälfte der Ecken ist die Linie nicht durchgehend, sondern als mit einem 15mm breiten Abstand ausgeführt. Das war nicht geplant, hat sich aber in der als funktionierende Lösung erwiesen. Das Seitwärtsfahren des Roboters funktioniert, aber es sind größere Abweichungen im Versatz und der Verdrehung möglich. Daher kann der Roboter in einer ziemlich ungünstigen Position an der Ecke stehen. Der Algorithmus des um die Ecke Fahrens besteht aus einer Fahrt (ohne Regelung!) in die bisherige Bewegungsrichtung solange bestimmte Sensoren des Arrays nicht dunkel detektieren, gefolgt von einer Bewegung von 90$\circ$ zur bisherigen Bewegungsrichtung ohne Regelung für eine definierte Zeit. Diese beiden Bewegungen können im schlimmsten Fall die ungünstige Position des Roboters so weit verschlimmern, dass eine Weiterfahrt nach der Ecke unmöglich ist.
-Durch die Modifikation der Ecke, in ein Ende der Linie mit einem davon seitwärts versetzten Anfangs, vereinfacht sich der prinzipielle Algorithmus. Bis zum Ende der Linie ist es der normale (inkl. Regelung) Fahralgorithmus, danach wird 90$\circ$ zur bisherigen Bewegungsrichtung, d.h. vor oder zurück, mit einer definierten Zeit zur Überbrückung der Lücke ohne Regelung gefahren. Dann steht der Roboter auf der Linie, aber eventuell mit Versatz oder einer Verdrehung.
-
-Regelung bei der Vorwärts bzw. Rückwärtsfahrt. A bei der Vorwärtsfahrt schwarz, G bei der Rückwärtsfahrt schwarz. Damit die Ecken keinen Einfluss (= ungewollte Verdrehung, wäre sehr schlecht als Ausgangslage für das um die Ecke fahren). Da es lange ohne Probleme funktioniert hat wird kein vermeidlich sinnloser Programmteil gelöscht. Die Auswirkungen sind nur durch lange Testfahrten zu ermitteln.
-In der Regelung für das Fahren in Richtung "vor" gibt es neben der Bewegung für das Vorwärtsfahren noch 6 andere Bewegungsarten. Drehen am Stand mit und gegen den Uhrzeigersinn, links und rechtsfahren, und dann noch zwei Bewegungen die sich aus gleichzeitig drehen und vorwärts fahren zusammensetzen. Die Art der Bewegung ist von zwei Variablen dem seitlichen Versatz d und der Verdrehung k. Liegen beide Variablen innerhalb enger Grenzen fährt der Roboter geradeaus vor.
-Für das Rückwärtsfahren ist die Regelung analog.
-
-Unabhängig von der Regelung des Seitwärtsfahrens gibt es mechanische Kontaktelemente die eine zu starke Verdrehung des Roboters beim Seitwärtsfahrens gar nicht zulassen. Diese Kontaktelemente bestehen aus leichtem Schaumstoff und sind auf die Vorder- bzw. Rückseite des Roboters aufgeklebt.
-
-Die Ecken müssen als solche erkannt werden, bevor sie die normale Fahrregelung stören.
-Wird eine Ecke erkannt wird der normale Fahrmodus unterbrochen, und in einem speziellen Eckenmodus gewechselt.
-Es gibt zwei Arten von Ecken: 
-- einmal die klassische Ecke beim Wechsel vom Vor- bzw. Rückwärtsfahren nach rechts.
-- Die nach Rechts-Fahren Bahn endet, anstatt in einer Ecke in die Vor- bzw. Rückwärtsbahn zu enden.
-Damit ist auch das um die Ecke fahren auch unterschiedlich.
-Im Vor- bzw. Rückwärts-Fahren wird die Fahrt ohne Regelung solange fortgesetzt bis die obere bzw. untere Zeile der Sensormatrix schwarz sieht, dann fährt der Roboter ohne Regelung einge hundert Millisekunden nach rechts. Erst dann wird in den nach Rechts-Fahr-Modus gewechselt.
-Für den Rechts-fahr Modus endet die Linie abrupt. Der Roboter fährt einige hundert Millisekunden vor bzw. zurück. Dann steht er auf der Führungslinie. Bevor in den eigentlichen Vor- bzw. Rückwärtsfahrmodus gewechselt wird, wird der Roboter zur Linie hin ausgerichtet. Die Unterschiedliche Behandlung der Ecken ist notwendig, weil im Rechtsfahren größere Abweichungen von der Ideallinie auftraten als im Vor- und Zurückfahren.
-Folge der Linie: Der Roboter fährt standardmäßig gerade aus. Wird ein Versatz zur Linie erkannt, wird dieser Versatz durch eine Bewegung normal zur Linie minimiert. Eine Verdrehung zur Linie wird durch Verdrehen des Roboters korrigiert. Ein minimaler Versatz, bzw. eine minimale Verdrehung ist dabei zulässig. 
-Das vorwärts- und rückwärts-Fahren funktioniert dabei besser als das nach rechts-Fahren. Mecanum-Räder haben eine Vorzugsrichtung.
-Haltepunkte: Haltepunkte werden mit dem Haltepunktsensor erkannt, wenn dieser den Schwellwert für weiß überschreitet. Damit ein Haltepunkt nicht mehrfach erkannt werden kann, gibt es eine Verriegelung in der Software, die einen neuen Haltepunkt erst wieder zulässt wenn der Haltepunktsensor in der zwischen Zeit schwarz gesehen hat.
 
 
 
@@ -1124,8 +1123,8 @@ URL & Uniform Resource Locator
 \begin{verbatim}
 /*
 Programm zum Steuern des Sonnensimulatormessroboters
- Version 1.0 
- */
+Version 1.1 
+*/
 
 #include <SD.h>
 
@@ -1156,13 +1155,16 @@ const int analogInPin9 = A6;
 // Ausgang zum Schalten der Infrarot-Leds
 const int analogInPin10 = A10;
 
+// button pin
+int button = 21; 
+
 // ADC für Messwerte
 const int analogInPin12 = A12;
 const int analogInPin13 = A13;
 const int analogInPin14 = A14;
 const int analogInPin15 = A15;
 
-// Digitalausg"ange zum Ansteuern der Motoren
+// Digitalausgänge zum Ansteuern der Motoren
 int IN1M1 = 2;
 int IN2M1 = 3;
 int IN1M2 = 4;
@@ -1234,7 +1236,7 @@ long int time = 0;
 // zur Schreiben auf die SD Karte
 const int chipSelect = 53;
 
-// Z"ahlvariable für Messpunkt, Spalte und Reihe
+// Zählvariable für Messpunkt, Spalte und Reihe
 int count = 0;
 int count2 = 0;
 int row = 1;
@@ -1246,11 +1248,14 @@ String dataString = "";
 void setup() {
   pinMode(A10, OUTPUT);
   pinMode(53, OUTPUT);
+  Serial.begin(9600); 
+  analogReference(EXTERNAL);
   SD.begin(chipSelect);
+  pinMode(button, INPUT);
 }
 
 // Definiert alle möglichen Bewegungen
-void zuruck(int sped)  
+void zuruck(int sped)  //speed ist besetzt!
 {
   analogWrite(IN1M1,0);
   analogWrite(IN2M1,sped);   
@@ -1262,7 +1267,7 @@ void zuruck(int sped)
   analogWrite(IN2M4,sped);
 }  
 
-void vor(int sped)  
+void vor(int sped)  //speed ist besetzt!
 {
   analogWrite(IN1M1,sped);
   analogWrite(IN2M1,0);   
@@ -1274,7 +1279,7 @@ void vor(int sped)
   analogWrite(IN2M4,0);
 }
 
-void left(int sped)  
+void left(int sped)  //speed ist besetzt!
 {
   analogWrite(IN1M1,0);
   analogWrite(IN2M1,sped);   
@@ -1286,7 +1291,7 @@ void left(int sped)
   analogWrite(IN2M4,sped);
 }
 
-void right(int sped)  
+void right(int sped)  //speed ist besetzt!
 {
   analogWrite(IN1M1,sped);
   analogWrite(IN2M1,0);   
@@ -1346,7 +1351,7 @@ void vtl()
   analogWrite(IN2M4,0);
 }
 
-void ztr()  
+void ztr()  //speed ist besetzt!
 {
   analogWrite(IN1M1,0);
   analogWrite(IN2M1,64);   
@@ -1358,7 +1363,7 @@ void ztr()
   analogWrite(IN2M4,0);
 }  
 
-void ztl()  
+void ztl()  //speed ist besetzt!
 {
   analogWrite(IN1M1,0);
   analogWrite(IN2M1,64);   
@@ -1370,7 +1375,7 @@ void ztl()
   analogWrite(IN2M4,64);
 }  
 
-void halt()  
+void halt()  //speed ist besetzt!
 {
   analogWrite(IN1M1,0);
   analogWrite(IN2M1,0);   
@@ -1385,410 +1390,446 @@ void halt()
 
 // Hauptschleife
 void loop() 
-{
-
-  // Werte ohne Beleuchtung:
-  sensorValue0d = analogRead(analogInPin0);   
-  sensorValue1d = analogRead(analogInPin1);  
-  sensorValue2d = analogRead(analogInPin2);  
-  sensorValue3d = analogRead(analogInPin3);  
-  sensorValue4d = analogRead(analogInPin4);  
-  sensorValue5d = analogRead(analogInPin5);  
-  sensorValue6d = analogRead(analogInPin6);  
-  sensorValue7d = analogRead(analogInPin7);  
-  sensorValue8d = analogRead(analogInPin8);  
-  sensorValue9d = analogRead(analogInPin9);  
-  digitalWrite(A10, HIGH);  // LED ein
-  delay(2); 
-  // Werte mit Beleuchtung:
-  sensorValue0 = analogRead(analogInPin0);   
-  sensorValue1 = analogRead(analogInPin1);  
-  sensorValue2 = analogRead(analogInPin2);  
-  sensorValue3 = analogRead(analogInPin3);  
-  sensorValue4 = analogRead(analogInPin4);  
-  sensorValue5 = analogRead(analogInPin5);  
-  sensorValue6 = analogRead(analogInPin6);  
-  sensorValue7 = analogRead(analogInPin7);  
-  sensorValue8 = analogRead(analogInPin8);  
-  sensorValue9 = analogRead(analogInPin9);  
-  digitalWrite(A10, LOW);
-
-  A = sensorValue1 - sensorValue1d;
-  B = sensorValue2 - sensorValue2d;
-  C = sensorValue3 - sensorValue3d;
-  D = sensorValue4 - sensorValue4d;
-  E = sensorValue5 - sensorValue5d;
-  F = sensorValue6 - sensorValue6d;
-  G = sensorValue7 - sensorValue7d;
-  H = sensorValue8 - sensorValue8d;
-  I = sensorValue9 - sensorValue9d;
-
-  S = sensorValue0 - sensorValue0d;
-
-  // zum Erkennen der Linie bei vor- oder zurückfahren 
-  x1 = ((C-A)/float(2*A-4*B+2*C));
-  x2 = ((F-D)/float(2*D-4*E+2*F));
-  x3 = ((I-G)/float(2*G-4*H+2*I));
-
-  d = (x1 + x2 + x3)/3.; // ~ Abstand von der Ideallinie
-  k = (x1-x3)/2.;  // Steigung = Verdrehung
-
-  // zum Erkennen der Linie bei links- oder rechtsfahren
-  y1 = ((G-A)/float(2*A-4*D+2*G));
-  y2 = ((H-B)/float(2*B-4*E+2*H));
-  y3 = ((I-C)/float(2*C-4*F+2*I));
-
-  d2 = (y1+y2+y3)/3.;
-  k2 = (y3-y1)/2.;
-
-  if( S < bleak2) _stop=0;
-
-  halt();
-
-  if(E>bleak2)
+{ 
+  int state = digitalRead(button);
+  if (state == HIGH)
   {
+    halt();
 
-    switch(mode)
+    _Isc = 0;
+    temp_modul = 0;
+    temp_i = 0;
+
+    for(int i = 0; i < 500 ; i++)
     {
-    case 's':     // Start
-      { 
-        halt();
-        delay(60000);  // 1 Minuten warten
-        mode='v';
-      }
-      break;
-
-      // Messmode
-    case 'e':   // Ende
-      {
-        halt();
-      }
-      break;
-
-    case 'm':   // Messen
-      { 
-        count = count + 1;  // Anzahl der Haltepunkte
-        count2 = count2 + 1; 
-        dataString = "";
-        _stop=1;
-        halt();
-
-        delay(250);   // damit die Str"ome der Fahrmotoren keinen Einfluss auf die AD-Wandlung haben
-
-        _Isc = 0;
-        temp_modul = 0;
-        temp_i = 0;
-
-        // Mittelung über jeweils 500 Messwerte
-        for(int i = 0; i < 500 ; i++)
-        {
-          _Isc = _Isc + analogRead(analogInPin13);  
-          temp_modul = temp_modul + analogRead(analogInPin12); 
-          temp_i =  temp_i + analogRead(analogInPin15); 
-        }
-        _Isc = int(_Isc/500.0);
-        temp_modul = int(temp_modul/500.0);
-        temp_i = int(temp_i/500.0);
-        time = millis();
-
-        // Schreiben aud SD-Karte
-        dataString += String(time);
-        dataString += "\t"; 
-        dataString += String(_Isc); 
-        dataString += "\t"; 
-        dataString += String(temp_modul); 
-        dataString += "\t"; 
-        dataString += String(temp_i); 
-        dataString += "\t"; 
-        dataString += String(count); 
-        dataString += "\t"; 
-        dataString += String(count2); 
-        dataString += "\t"; 
-        dataString += String(row); 
-
-        // Schreibe aud SD Card
-        File dataFile = SD.open("datalog.txt", FILE_WRITE);
-        if (dataFile) {
-          dataFile.println(dataString);
-          dataFile.close();
-        }
-
-        // zurück in den Bewegungsmode
-        if(richtung=='v') mode='v';
-        if(richtung=='z') mode='z';
-
-      }
-      break;
-
-    case 'v':   // Vorwärtsfahren
-      { 
-
-        richtung='v';
-
-        if(d>0.02)  vtr();
-        else 
-        {  
-          if(d>-0.02)  vor(128);
-          else 
-            vtl();
-        }
-
-        //if((C<bleak)&&(A<bleak))
-        if(A<bleak2)
-        {
-          if(k>0.01) tr(64);
-          else
-          {
-            if(k<-0.01) tl(64);
-          }
-
-          if(d>0.025) right(64);
-          else
-          {
-            if(d<-0.025) left(64);
-          }
-        }   
-        if((A>white)&&(B>white)) mode='a'; 
-
-        if((_stop==0)&&(S>white2)) mode='m';   
-
-
-      }
-      break;
-
-    case 'z': // Rückwärtsfahren
-      { 
-
-        richtung='z';
-
-        if(d>0.02)  ztr();
-        else 
-        {  
-          if(d>-0.02)  zuruck(128);
-          else  ztl();
-        }
-
-        //if((G<bleak)&&(I<bleak))
-        if(G<bleak2)
-        {
-          if(k>0.01) tr(64);
-          else
-          {
-            if(k<-0.01) tl(64);
-          }
-
-          if(d>0.025) right(64);
-          else
-          {
-            if(d<-0.025) left(64);
-          }
-        }
-        if((G>white)&&(H>white)) mode='c';
-
-        if((_stop==0)&&(S>white2)) mode='m';  
-
-        if((I<bleak)&&(H<bleak)&&(G<bleak)) mode='e';
-
-      }
-      break; 
-
-    case 'r':     //nach rechts
-      {
-        richtung='r';
-        count2 = 0;
-
-        right(128);
-        if(D>white2)
-        {
-          if(d2>0.04) vor_ein=1;
-          if(d2<0.02) vor_ein=0;
-          if(d2<-0.04) zuruck_ein=1;
-          if(d2>-0.02) zuruck_ein=0;
-
-          if(vor_ein==1) vor(64);
-          if(zuruck_ein==1) zuruck(64);
-
-          if((vor_ein==0)&&(zuruck_ein==0))
-          {
-            if(k2>0.02) tr(64);
-            else
-            {
-              if(k2<-0.02) tl(64);
-            }
-          }
-        }
-
-        if((D<bleak)&&(G<bleak)&&(A<bleak)) 
-        { 
-          mode='b';
-        }
-
-      } 
-      break;
-
-    case 'l':    // auch nach rechts 
-      {
-        richtung=='l';
-        count2 = 0;
-
-        right(128);
-        //if((C<bleak)&&(I<bleak))
-        if(D>white2)
-        {
-          if(d2>0.04) vor_ein=1;
-          if(d2<0.02) vor_ein=0;
-          if(d2<-0.04) zuruck_ein=1;
-          if(d2>-0.02) zuruck_ein=0;
-
-          if(vor_ein==1) vor(64);
-          if(zuruck_ein==1) zuruck(64);
-
-          if((vor_ein==0)&&(zuruck_ein==0))
-          {
-            if(k2>0.02) tr(64);
-            else
-            {
-              if(k2<-0.02) tl(64);
-            }
-          }
-        }
-
-        if((D<bleak)&&(G<bleak)&&(A<bleak))
-        { 
-          mode='d';
-        }
-
-      } 
-      break;
-
-    case 'a':  // Um die Ecke fahren
-      {
-        if((A>bleak2)&&(B>bleak2)) vor(64);
-        else 
-        { 
-          right(64);
-          delay(700);
-          halt();
-          row = row +1 ;
-
-          mode='r';
-
-        }
-      } 
-      break; 
-
-    case 'b':  // Um die Ecke fahren
-      {
-
-        zuruck(64);
-        delay(850);
-        halt();
-        delay(500);
-
-        mode='x';
-
-      } 
-      break; 
-
-    case 'x':
-      {
-        if(d>0.025) right(64);
-
-        if(d<-0.025) left(64);
-
-        if((d<0.1)&&(d>-0.1)) mode='y';
-      }
-      break;
-
-    case 'y':
-      {
-        if(k>0.01) tr(32);
-
-        if(k<-0.01) tl(32);
-
-        if((k<0.04)&&(k>-0.04)) mode='z';
-      }
-      break;
-
-    case 'c':  // Um die Ecke fahren
-      {
-        if((H>bleak2)&&(G>bleak2 )) zuruck(64);
-        else 
-        { 
-          right(64);
-          delay(700);
-          halt();
-          row = row +1 ;
-
-          mode='l';
-        }
-      } 
-      break; 
-
-    case 'd':  // Um die Ecke fahren
-      {
-
-        vor(64);
-        delay(850);
-        halt();
-        delay(500);
-        mode='q';
-
-      } 
-      break; 
-
-    case 'q':
-      {
-        if(d>0.025) right(64);
-
-        if(d<-0.025) left(64);
-
-        if((d<0.1)&&(d>-0.1))       mode='p';
-      }
-      break;
-
-
-    case 'p':
-      {
-        if(k>0.01) tr(32);
-
-        if(k<-0.01) tl(32);
-
-        if((k<0.04)&&(k>-0.04)) mode='v'; 
-
-      }
-      break;
-    } 
-  }   
-
-
-  else 
-  {  
-    if((richtung=='v')||(richtung=='z'))
-    {
-      if((A>bleak2)||(D>bleak2)||(G>bleak2)||(C>bleak2)||(F>bleak2)||(I>bleak2))
-      {
-        if((A+D+G)>(C+F+I)) right(128);
-        else left(128);
-      }
-      else halt();
+      _Isc = _Isc + analogRead(analogInPin13);  
+      temp_modul = temp_modul + analogRead(analogInPin12); 
+      temp_i = temp_i + analogRead(analogInPin15);  
+      //delay(20);
     }
+    _Isc = int(_Isc/500.0);
+    temp_modul = int(temp_modul/500.0);
+    temp_i = int(temp_i/500.0);
 
+    Serial.print("\n I_sc = ");   
+    Serial.print(_Isc);
+    Serial.print("\t temp_modul = ");   
+    Serial.print(temp_modul);
+    Serial.print("\t temp_innen = ");   
+    Serial.print(temp_i);
 
-    if((richtung=='r')||(richtung=='l'))
-    {
-      if((A>bleak2)||(B>bleak2)||(C>bleak2)||(G>bleak2)||(H>bleak2)||(I>bleak2))
-      {
-        if((A+B+C)>(G+H+I)) vor(64);
-        else zuruck(64);
-      }
-      else halt();
-    }
+    delay(1000); 
+
   }
 
-  delay(5); 
+  else
+  {
+
+    // Werte ohne Beleuchtung:
+    sensorValue0d = analogRead(analogInPin0);   
+    sensorValue1d = analogRead(analogInPin1);  
+    sensorValue2d = analogRead(analogInPin2);  
+    sensorValue3d = analogRead(analogInPin3);  
+    sensorValue4d = analogRead(analogInPin4);  
+    sensorValue5d = analogRead(analogInPin5);  
+    sensorValue6d = analogRead(analogInPin6);  
+    sensorValue7d = analogRead(analogInPin7);  
+    sensorValue8d = analogRead(analogInPin8);  
+    sensorValue9d = analogRead(analogInPin9);  
+    digitalWrite(A10, HIGH);  // LED ein
+    delay(2); 
+    // Werte mit Beleuchtung:
+    sensorValue0 = analogRead(analogInPin0);   
+    sensorValue1 = analogRead(analogInPin1);  
+    sensorValue2 = analogRead(analogInPin2);  
+    sensorValue3 = analogRead(analogInPin3);  
+    sensorValue4 = analogRead(analogInPin4);  
+    sensorValue5 = analogRead(analogInPin5);  
+    sensorValue6 = analogRead(analogInPin6);  
+    sensorValue7 = analogRead(analogInPin7);  
+    sensorValue8 = analogRead(analogInPin8);  
+    sensorValue9 = analogRead(analogInPin9);  
+    digitalWrite(A10, LOW);
+
+    A = sensorValue1 - sensorValue1d;
+    B = sensorValue2 - sensorValue2d;
+    C = sensorValue3 - sensorValue3d;
+    D = sensorValue4 - sensorValue4d;
+    E = sensorValue5 - sensorValue5d;
+    F = sensorValue6 - sensorValue6d;
+    G = sensorValue7 - sensorValue7d;
+    H = sensorValue8 - sensorValue8d;
+    I = sensorValue9 - sensorValue9d;
+
+    S = sensorValue0 - sensorValue0d;
+
+    // zum Erkennen der Linie bei vor- oder zurückfahren 
+    x1 = ((C-A)/float(2*A-4*B+2*C));
+    x2 = ((F-D)/float(2*D-4*E+2*F));
+    x3 = ((I-G)/float(2*G-4*H+2*I));
+
+    d = (x1 + x2 + x3)/3.; // ~ Abstand von der Ideallinie
+    k = (x1-x3)/2.;  // Steigung = Verdrehung
+
+    // zum Erkennen der Linie bei links- oder rechtsfahren
+    y1 = ((G-A)/float(2*A-4*D+2*G));
+    y2 = ((H-B)/float(2*B-4*E+2*H));
+    y3 = ((I-C)/float(2*C-4*F+2*I));
+
+    d2 = (y1+y2+y3)/3.;
+    k2 = (y3-y1)/2.;
+
+    if( S < bleak2) _stop=0;
+
+    halt();
+
+    if(E>bleak2)
+    {
+
+      switch(mode)
+      {
+      case 's':     // Start
+        { 
+          halt();
+          delay(60000);  // 1 Minuten warten
+          mode='v';
+        }
+        break;
+
+        // Messmode
+      case 'e':   // Ende
+        {
+          halt();
+        }
+        break;
+
+      case 'm':   // Messen
+        { 
+          count = count + 1;  // Anzahl der Haltepunkte
+          count2 = count2 + 1; 
+          dataString = "";
+          _stop=1;
+          halt();
+
+          delay(250);   // damit die Ströme der Fahrmotoren keinen Einfluss auf die AD-Wandlung haben
+
+          _Isc = 0;
+          temp_modul = 0;
+          temp_i = 0;
+
+          // Mittelung über jeweils 500 Messwerte
+          for(int i = 0; i < 500 ; i++)
+          {
+            _Isc = _Isc + analogRead(analogInPin13);  
+            temp_modul = temp_modul + analogRead(analogInPin12); 
+            temp_i =  temp_i + analogRead(analogInPin15); 
+          }
+          _Isc = int(_Isc/500.0);
+          temp_modul = int(temp_modul/500.0);
+          temp_i = int(temp_i/500.0);
+          time = millis();
+
+          // Schreiben aud SD-Karte
+          dataString += String(time);
+          dataString += "\t"; 
+          dataString += String(_Isc); 
+          dataString += "\t"; 
+          dataString += String(temp_modul); 
+          dataString += "\t"; 
+          dataString += String(temp_i); 
+          dataString += "\t"; 
+          dataString += String(count); 
+          dataString += "\t"; 
+          dataString += String(count2); 
+          dataString += "\t"; 
+          dataString += String(row); 
+
+          // Schreibe aud SD Card
+          File dataFile = SD.open("datalog.txt", FILE_WRITE);
+          if (dataFile) {
+            dataFile.println(dataString);
+            dataFile.close();
+          }
+
+          // zurück in den Bewegungsmode
+          if(richtung=='v') mode='v';
+          if(richtung=='z') mode='z';
+
+        }
+        break;
+
+      case 'v':   // Vorwärtsfahren
+        { 
+
+          richtung='v';
+
+          if(d>0.02)  vtr();
+          else 
+          {  
+            if(d>-0.02)  vor(128);
+            else 
+              vtl();
+          }
+
+          //if((C<bleak)&&(A<bleak))
+          if(A<bleak2)
+          {
+            if(k>0.01) tr(64);
+            else
+            {
+              if(k<-0.01) tl(64);
+            }
+
+            if(d>0.025) right(64);
+            else
+            {
+              if(d<-0.025) left(64);
+            }
+          }   
+          if((A>white)&&(B>white)) mode='a'; 
+
+          if((_stop==0)&&(S>white2)) mode='m';   
+
+
+        }
+        break;
+
+      case 'z': // Rückwärtsfahren
+        { 
+
+          richtung='z';
+
+          if(d>0.02)  ztr();
+          else 
+          {  
+            if(d>-0.02)  zuruck(128);
+            else  ztl();
+          }
+
+          //if((G<bleak)&&(I<bleak))
+          if(G<bleak2)
+          {
+            if(k>0.01) tr(64);
+            else
+            {
+              if(k<-0.01) tl(64);
+            }
+
+            if(d>0.025) right(64);
+            else
+            {
+              if(d<-0.025) left(64);
+            }
+          }
+          if((G>white)&&(H>white)) mode='c';
+
+          if((_stop==0)&&(S>white2)) mode='m';  
+
+          if((I<bleak)&&(H<bleak)&&(G<bleak)) mode='e';
+
+        }
+        break; 
+
+      case 'r':     //nach rechts
+        {
+          richtung='r';
+          count2 = 0;
+
+          right(128);
+          if(D>white2)
+          {
+            if(d2>0.04) vor_ein=1;
+            if(d2<0.02) vor_ein=0;
+            if(d2<-0.04) zuruck_ein=1;
+            if(d2>-0.02) zuruck_ein=0;
+
+            if(vor_ein==1) vor(64);
+            if(zuruck_ein==1) zuruck(64);
+
+            if((vor_ein==0)&&(zuruck_ein==0))
+            {
+              if(k2>0.02) tr(64);
+              else
+              {
+                if(k2<-0.02) tl(64);
+              }
+            }
+          }
+
+          if((D<bleak)&&(G<bleak)&&(A<bleak)) 
+          { 
+            mode='b';
+          }
+
+        } 
+        break;
+
+      case 'l':    // auch nach rechts 
+        {
+          richtung=='l';
+          count2 = 0;
+
+          right(128);
+          //if((C<bleak)&&(I<bleak))
+          if(D>white2)
+          {
+            if(d2>0.04) vor_ein=1;
+            if(d2<0.02) vor_ein=0;
+            if(d2<-0.04) zuruck_ein=1;
+            if(d2>-0.02) zuruck_ein=0;
+
+            if(vor_ein==1) vor(64);
+            if(zuruck_ein==1) zuruck(64);
+
+            if((vor_ein==0)&&(zuruck_ein==0))
+            {
+              if(k2>0.02) tr(64);
+              else
+              {
+                if(k2<-0.02) tl(64);
+              }
+            }
+          }
+
+          if((D<bleak)&&(G<bleak)&&(A<bleak))
+          { 
+            mode='d';
+          }
+
+        } 
+        break;
+
+      case 'a':  // Um die Ecke fahren
+        {
+          if((A>bleak2)&&(B>bleak2)) vor(64);
+          else 
+          { 
+            right(64);
+            delay(700);
+            halt();
+            row = row +1 ;
+
+            mode='r';
+
+          }
+        } 
+        break; 
+
+      case 'b':  // Um die Ecke fahren
+        {
+
+          zuruck(64);
+          delay(850);
+          halt();
+          delay(500);
+
+          mode='x';
+
+        } 
+        break; 
+
+      case 'x':
+        {
+          if(d>0.025) right(64);
+
+          if(d<-0.025) left(64);
+
+          if((d<0.1)&&(d>-0.1)) mode='y';
+        }
+        break;
+
+      case 'y':
+        {
+          if(k>0.01) tr(32);
+
+          if(k<-0.01) tl(32);
+
+          if((k<0.04)&&(k>-0.04)) mode='z';
+        }
+        break;
+
+      case 'c':  // Um die Ecke fahren
+        {
+          if((H>bleak2)&&(G>bleak2 )) zuruck(64);
+          else 
+          { 
+            right(64);
+            delay(700);
+            halt();
+            row = row +1 ;
+
+            mode='l';
+          }
+        } 
+        break; 
+
+      case 'd':  // Um die Ecke fahren
+        {
+
+          vor(64);
+          delay(850);
+          halt();
+          delay(500);
+          mode='q';
+
+        } 
+        break; 
+
+      case 'q':
+        {
+          if(d>0.025) right(64);
+
+          if(d<-0.025) left(64);
+
+          if((d<0.1)&&(d>-0.1))       mode='p';
+        }
+        break;
+
+
+      case 'p':
+        {
+          if(k>0.01) tr(32);
+
+          if(k<-0.01) tl(32);
+
+          if((k<0.04)&&(k>-0.04)) mode='v'; 
+
+        }
+        break;
+      } 
+    }   
+
+
+    else 
+    {  
+      if((richtung=='v')||(richtung=='z'))
+      {
+        if((A>bleak2)||(D>bleak2)||(G>bleak2)||(C>bleak2)||(F>bleak2)||(I>bleak2))
+        {
+          if((A+D+G)>(C+F+I)) right(128);
+          else left(128);
+        }
+        else halt();
+      }
+
+
+      if((richtung=='r')||(richtung=='l'))
+      {
+        if((A>bleak2)||(B>bleak2)||(C>bleak2)||(G>bleak2)||(H>bleak2)||(I>bleak2))
+        {
+          if((A+B+C)>(G+H+I)) vor(64);
+          else zuruck(64);
+        }
+        else halt();
+      }
+    }
+
+    delay(5); 
+
+  }
 
 }
+
 \end{verbatim}
 
 \chapter{Sourcecode Auswertung}
@@ -1803,9 +1844,9 @@ close all;
 clc;
 clear all;
 
-% "Offnen der Datei, welche eine Messfahrt mit genau 308 Messwerten
+% Öffnen der Datei, welche eine Messfahrt mit genau 308 Messwerten
 % enthalten muss
-fid = fopen('data1.txt', 'r');
+fid = fopen('mess1.txt', 'r');
 a = fscanf(fid, '%g %g', [7 308])     
 a = a';
 fclose(fid)
@@ -1857,31 +1898,36 @@ end
 % Umrechnung der ADC-Werte in Ampere:
 
 A = (I +4.5766)/119.2;   % ADC --> Ampere
-A = A - (TTm-25)*0.004;  % Temperaturkorrektur
+G_mean=0;
+for i=1:14
+    for j=1:22
+G(i,j) = 1000 * A(i,j) / 4.99 * ( 1 - 0.00048 * (TTm(i,j) - 25));
+G_mean = G_mean + G(i,j)
+    end
+end
 
-
+G_mean = G_mean / 308;
 
 [XI,YI] = meshgrid(1:.125:22, 1:.125:14);
 
-Ai = interp2(A,XI,YI,'cubic'); % Interpolation
+Gi = interp2(G,XI,YI,'cubic'); % Interpolation
 
-A_max = max(max(Ai));
-A_min = min(min(Ai));
+G_max = max(max(Gi));
+G_min = min(min(Gi));
 
-Normiert = Ai / A_max * 1.1;
+w = (G_max - G_min)/(G_max + G_min) * 100  % maximale Abweichung in Protzent
 
-w = (A_max - A_min)/(A_max + A_min) * 100  % maximale Abweichung in Protzent
+display(G_mean);
 
-% Graphische Darstellung des Stromes
+% Graphische Darstellung der Bestrahlungsstärke
 figure;
-surf(XI,YI,Ai);   % in Ampere
+surf(XI,YI,Gi); % in W/m2
 
-
-% Graphische Darstellung des normierten Stromes
-zlevs2 = 0.9:0.01:1.1;
+% Bestrahlungsstärke Landkarte mit Niveaulinien
+zlevs2 = 0.0:5:1000;
 figure;
-[C,h] = contourf(XI,YI,Normiert,zlevs2);
-set(h,'ShowText','on','TextStep',get(h,'LevelStep')*2)
+[C,h] = contourf(XI,YI,Gi,zlevs2);
+set(h,'ShowText','on','TextStep',get(h,'LevelStep'))
 colorbar;
 
 % Graphische Darstellung der Modultemperatur
@@ -1890,7 +1936,7 @@ surf(TTm);
 
 % Graphische Darstellung der Umgebungstemperatur
 figure;
-surf(TTi);
+surf(TTi);  
 
 \end{verbatim} 
 
