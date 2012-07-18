@@ -598,8 +598,20 @@ Das Steuerprogramm ist als Zustandsautomat konzipiert (siehe Abbildung \ref{abl}
 Ein paar Worte zur Regelung der Geradeausfahrt: 
 Es wird versucht sowohl die seitliche Verschiebung d als auch die Verdrehung zu minimieren. Wenn beide Werte innerhalb gewisser Toleranzen sind, fährt der Roboter geradeaus. Die Schranken der Regelung sind in Abbildung \ref{schr} zu sehen. 
 
-Und nun zur Regelung der Seitwärtsfahrt. Wieder wird versucht die Abweichung in Verschiebung, diesmal in vor- und zurück-Richtung, und der Verdrehung zu minimieren.  Allerdings hat das Seitwätsfahren eine andere Dynamik als das Geradeausfahren. Die Geradeausfahrt eines Mecanum-Fahrzeuges ist vergleichbar mit der eines konventionellen Fahrzeuges. Dagegen ist die Seitwärtsfahrt nicht so flüssig. 
-Daher sind die Schaltwerte für die Seitwärtsregelung auch anders als die Geradeausregelung (siehe Abbildung \ref{reg}).
+Und nun zur Regelung der Seitwärtsfahrt. Wieder wird versucht die Abweichung in Verschiebung, diesmal in vor- und zurück-Richtung, und der Verdrehung zu minimieren.  Allerdings hat das Seitwätsfahren eine andere Dynamik als das Geradeausfahren. Die Geradeausfahrt eines Mecanum-Fahrzeuges ist vergleichbar mit der eines konventionellen Fahrzeuges. 
+Bei der Seitwärtsfahrt wurde eine verbesserte Regelung angewandt, statt zwei Dreipunktreglern, wurde zwei P-Regler verwendet. Dabei wird zur Fahrt nach Rechts eine Vor/Zurück-Fahrt und eine Drehung überlagert. Somit gibt es keine ruckartigen Übergänge von einer Bewegung zur nächsten.
+
+\begin{verbatim}
+  vz = int(800*d2);
+  turn = int(2400*k2);
+
+  M1(127 + vz + turn);
+  M2(-127 + vz - turn);
+  M3(-127 + vz + turn);
+  M4(127 + vz - turn); 
+\end{verbatim}
+
+Da die Linie für das Rechtsfahren nicht in einer Ecke endet, sondern einfach endet, kann die Regelung bis zum Ende verwendet werden. Somit entfällt ein Teil des um-die-Ecke-Fahrens. Die Faktoren des P-Regler (800, 2400) wurden durch umfangreiche Testfahrten ermittelt.
 
 Zu den Ecken: Es gibt zwei Arten von Ecken. Einmal die Ecke des Typs 1, welche eine wirkliche Ecke darstellen. Und dann die Ecke des Typs 2, welches ein Eck mit einer Lücke sind.
 
