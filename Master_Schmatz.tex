@@ -307,7 +307,13 @@ Die Felgen und die Laufrollen wurden mit einem Ultimaker 3D-Drucker gedruckt.
 Die Vorlage namens Mecanum Wheel MK2 stammt von http://www.thingiverse.com/thing:2473, und kann unter der Attribution-NonCommercial-ShareAlike 3.0 Unported Lizenz nicht kommerziell verwendet werden.
 Die Laufrollen so angepasst, dass die Mutter bzw. der Schraubenkopf in der Rolle versenkt ist, damit das Rad insgesamt kompakter ist. Zum bearbeiten wurde OpenSCAD, ein 3D-Compiler, verwendet. 
 
-Durch die Schräganordnung der Laufrollen entstehen beim Antreiben eines Rades 2 Kraftkomponenten, eine in Querrichtung und eine in Längsrichtung des Fahrzeuges. Gegeneinander gerichtete Kräfte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich (siehe Abbildung \ref{fahrman}). So ist es nicht nur möglich den Roboter in Längsrichtung vor und zurück zu bewegen, sondern auch in Querrichtung (normal zur Längsrichtung) zu bewegen, ebenso sind Drehungen am Stand möglich. Damit braucht ein mit Mecanumrädern ausgestatteter Roboter keine Lenkung. Aber es sind zwar vier Motoren notwendig, damit jedes Rad einzeln angesteuert werden kann.   
+Durch die Schräganordnung der Laufrollen entstehen beim Antreiben eines Rades zwei Kraftkomponenten, eine in Querrichtung und eine in Längsrichtung des Fahrzeuges. Gegeneinander gerichtete Kräfte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich (siehe Abbildung \ref{fahrman}). So ist es nicht nur möglich den Roboter in Längsrichtung vor und zurück zu bewegen, sondern auch in Querrichtung (normal zur Längsrichtung) zu bewegen, ebenso sind Drehungen am Stand möglich. Damit braucht ein mit Mecanumrädern ausgestatteter Roboter keine Lenkung. Aber es sind zwar vier Motoren notwendig, damit jedes Rad einzeln angesteuert werden kann.   
+Die Kugellager sind in den 8 Löchern der Felge verklebt. Zuerst mit Superkleber, allerdings haben sich einige Kugellager im laufe der Zeit gelöst und beeinflussten so das Fahrverhalten negativ. Eine dauerhafte Verbindung von Kugellager mit der Felge ist für den störungsfreien Betrieb des Roboters unumgänglich. 
+Zwischen den Rollen und dem Kugellager sorgen Beilagscheiben für einen reibungsarmen Betrieb. 
+Die Schrauben der Rollen lösen sich im Betrieb nicht. Die Schraube, welche die Felge an der Motorachse befestig hat, löste sich regelmäßig, bis diese Verbindung mit einem Kleber (Uhu Alleskleber) gesichert wurde.
+An den Rollen ist keine Abnützung erkennbar. Die gebrochenen Ringe der Kugellager brachen schon während der Erstmontage, verschlimmert hat sich während der Betriebes nichts.
+Es wurde lange mit teilweise defekten Rädern gefahren, ein Messbetrieb war aber dennoch möglich. Insgesamt ist die Mecanum-Plattform eine robuste Lösung für Messroboter.
+Die Kugellager sind wartungsfrei. Das wenige UV-Licht, das den ABS-Kunststoff erreicht hat auch nach Monaten noch keine negativen Auswirkungen auf die mechanischen Eigenschaften der Räder.
 
 \begin{figure}
     \subfigure[Vor/Zurück-Fahren]{\includegraphics[width=50mm]{img/gerade.png}}
@@ -613,7 +619,8 @@ Bei der Seitwärtsfahrt wurde eine verbesserte Regelung angewandt, statt zwei Dr
 
 Da die Linie für das Rechtsfahren nicht in einer Ecke endet, sondern einfach endet, kann die Regelung bis zum Ende verwendet werden. Somit entfällt ein Teil des um-die-Ecke-Fahrens. Die Faktoren des P-Regler (800, 2400) wurden durch umfangreiche Testfahrten ermittelt.
 
-Zu den Ecken: Es gibt zwei Arten von Ecken. Einmal die Ecke des Typs 1, welche eine wirkliche Ecke darstellen. Und dann die Ecke des Typs 2, welches ein Eck mit einer Lücke sind.
+Es gibt zwei Arten von Ecken. Einmal die Ecke des Typs 1, welche eine wirkliche Ecke darstellen. Und dann die Ecke des Typs 2, welches ein Eck mit einer Lücke sind.
+Die beiden unterschiedlichen Arten von Ecken wurden begründet durch die unterschiedlichen Fahreigenschaften/ Fahrdynamik beim Geradeausfahren und dem Seitwärtsfahren. Deshalb gibt es beim Seitwärtsfahren auch den weiterentwickelten Regelungsalgorithmus, der sich dann aber als sehr kompakt herausgestellt hat.
 
 \begin{figure}[htbp]
 \centering
@@ -632,16 +639,6 @@ Zu den Ecken: Es gibt zwei Arten von Ecken. Einmal die Ecke des Typs 1, welche e
 \includegraphics[width=50mm]{img/ecke2.png}
 \caption{Ums Eck fahren}\label{eck}
 \end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=80mm]{img/regelung2.png}
-\caption{Regelungsschranken beim nach Rechts fahren}\label{reg}
-\end{figure}
-
-
-
-
 
 
 \chapter{Kalibration}\thispagestyle{empty}
@@ -1087,6 +1084,7 @@ Der Roboter erleichtert die Messung der Bestrahlungsstärkemessung enorm. Durch 
 Diese Art von Messroboter kann in jedem stationären Sonnensimulator entsprechender Größe zur Vermessung der Bestrahlungsstärkeverteilung verwendet werden. 
 Die Verwendung des Messroboters erlaubt die Bestrahlungsstärkeverteilung einzelner Lampen zu ermitteln.
 Ebenso die Bestrahlungsstärkeverteilung bei unterschiedlichen Höhen des Lampenfeldes.
+Die 3D-Drucktechnik versprach zwar eine schnelle Entwicklung, sprich ein Rapid Prototyping, insgesamt benötigen die gedruckten Räder eine aufwendige Nachbearbeitung, damit sie überhaupt zusammengebaut werden konnten. Und auch im Laufe des Roboterlebens sind alle mechanischen Probleme bei den Rädern aufgetretten. Sei es dass sich die Räder von selbst gelockert haben. Sei dass sich Kugellager aus der Verklebung gelöst haben. 
 
 
 % Literaturverzeichnis
