@@ -1068,8 +1068,11 @@ Zuerst muss eine Lampe bei verschiedenen Einstellungen (100, 90, 80 \%) gemessen
 \caption{Lampe E10}
 \end{figure} 
 
+Die Summe der Bestrahlungsstärke der einzelnen Lampen bei jeweils 100\% sollte gleich der Bestrahlungsstärke aller Lampen bei 100\% sein. Dem ist aber nicht so. Entweder sind die Lampen in den fast zwei Monaten zwischen den Messungen gealtert, oder es gibt nichtlineare Effekte. 
+Optimierung: Es gibt 10 Lampen, die sich laut Datenblatt zwischen 80 und 100\% betreiben lassen, wenn das Spektrum der Lampen gleich bleiben soll. Die zehn Lampen und 21  Werte pro Lampe, die Lampenleistung lässt sich in Ein-Prozent Schritten verändern, ergibt 21 hoch 10 verschiedene Einstellungen, das sind 16,7 Billionen Möglichkeiten. Da das Durchrechnen aller Möglichkeiten zu lange gedauert hätte, wurden 8 Lampen variert, mit jeweils 8 Werten pro Lampe (2-\% Schritte) berechnet, die beiden mittleren Lampen wurden mit 100\% fixiert. Diese Variante, mit einer Millionstel Möglichkeiten der vollstängigen Variante, benötigte eine Rechenzeit von etwa 10 Minuten. Mit diesen Ergebnis wurde eine nochmalige Berechnung mit diesmal 1\%-Schritten, aber weniger Schritten pro Lampe durchgeführt. So konnte eine minimierte Lösung durchgeführt werden. Allerdings kann nich garantiert werden, dass es sich bei dieser Lösung um ein globales Minimum handelt.
+Leider stimmt dieses berechnete Ergebnis NICHT mit der Messung überein.
 
-
+Aber diese Messung (mit eingeschalteter externer Referenzspannung) hat bewiesen wie konstant zwei aufeinanderfolgende Messungen sein können. In diesem Fall haben sich die Durchschnittswerte der beiden Messungen um nur 0,013\% unterschieden. 
 
 
  
