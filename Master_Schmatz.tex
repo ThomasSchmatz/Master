@@ -15,6 +15,10 @@
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
 
+\usepackage{morefloats} 
+
+\usepackage{placeins}
+
 
 
 
@@ -601,15 +605,13 @@ Das Steuerprogramm ist als Zustandsautomat konzipiert (siehe Abbildung \ref{abl}
 \item Zustand q, y: Ausrichten, danach Wechsel zu v bzw. z.
 \end{itemize}
 
-Ein paar Worte zur Regelung der Geradeausfahrt: 
-Es wird versucht sowohl die seitliche Verschiebung d als auch die Verdrehung zu minimieren. Wenn beide Werte innerhalb gewisser Toleranzen sind, fährt der Roboter geradeaus. Die Schranken der Regelung sind in Abbildung \ref{schr} zu sehen. 
+Während der Geradeaus-Fahrt wird versucht sowohl die seitliche Verschiebung d als auch die Verdrehung k zu minimieren. Wenn beide Werte innerhalb gewisser Toleranzen sind, fährt der Roboter geradeaus. Die Schranken der Regelung sind in Abbildung \ref{schr} zu sehen. Die Regelung funktioniert als 3 Punktregler für die Verdrehung, und als Dreipunktregler für die Verschiebung, wobei bei einer zu großen Verdrehung und Verschiebung, die Verschiebung ausgeglichen wird. Zusätzlich gibt es noch eine Bewegung, die sich aus Geradeaus-Fahrt und Drehung zusammensetzt, und bei nicht zu großen Verdrehungen angewendet wird.
 
-Und nun zur Regelung der Seitwärtsfahrt. Wieder wird versucht die Abweichung in Verschiebung, diesmal in vor- und zurück-Richtung, und der Verdrehung zu minimieren.  Allerdings hat das Seitwätsfahren eine andere Dynamik als das Geradeausfahren. Die Geradeausfahrt eines Mecanum-Fahrzeuges ist vergleichbar mit der eines konventionellen Fahrzeuges. 
-Bei der Seitwärtsfahrt wurde eine verbesserte Regelung angewandt, statt zwei Dreipunktreglern, wurde zwei P-Regler verwendet. Dabei wird zur Fahrt nach Rechts eine Vor/Zurück-Fahrt und eine Drehung überlagert. Somit gibt es keine ruckartigen Übergänge von einer Bewegung zur nächsten.
+Bei der Seitwärts-Fahrt wurde eine verbesserte Regelung angewandt, statt zwei Dreipunktreglern, wurde zwei P-Regler verwendet. Dabei wird zur Fahrt nach Rechts eine Vor/Zurück-Fahrt und eine Drehung überlagert. Somit gibt es keine ruckartigen Übergänge von einer Bewegung zur nächsten.
 
 \begin{verbatim}
   vz = int(800*d2);
-  turn = int(2400*k2);
+  turn = int(1600*k2);
 
   M1(127 + vz + turn);
   M2(-127 + vz - turn);
@@ -617,7 +619,7 @@ Bei der Seitwärtsfahrt wurde eine verbesserte Regelung angewandt, statt zwei Dr
   M4(127 + vz - turn); 
 \end{verbatim}
 
-Da die Linie für das Rechtsfahren nicht in einer Ecke endet, sondern einfach endet, kann die Regelung bis zum Ende verwendet werden. Somit entfällt ein Teil des um-die-Ecke-Fahrens. Die Faktoren des P-Regler (800, 2400) wurden durch umfangreiche Testfahrten ermittelt.
+Da die Linie für das Rechtsfahren nicht in einer Ecke endet, sondern einfach endet, kann die Regelung bis zum Ende verwendet werden. Somit entfällt ein Teil des um-die-Ecke-Fahrens. Die Faktoren des P-Regler (800, 1600) wurden durch umfangreiche Testfahrten ermittelt.
 
 Es gibt zwei Arten von Ecken. Einmal die Ecke des Typs 1, welche eine wirkliche Ecke darstellen. Und dann die Ecke des Typs 2, welches ein Eck mit einer Lücke sind.
 Die beiden unterschiedlichen Arten von Ecken wurden begründet durch die unterschiedlichen Fahreigenschaften/ Fahrdynamik beim Geradeausfahren und dem Seitwärtsfahren. Deshalb gibt es beim Seitwärtsfahren auch den weiterentwickelten Regelungsalgorithmus, der sich dann aber als sehr kompakt herausgestellt hat.
@@ -874,15 +876,11 @@ Die Messpunkte liegen im Raster von 15 Zentimeter. Die Führungslinie 25,4 Milli
 Die Messpunkte liegen im Abstand von 15 cm, damit ist auch der Abstand zwischen den Messbahnen 15 cm, der Roboter muss nur 15 cm seitwärts fahren. Die Übergänge der Messbahn von einer Platte zur nächsten sind mit weißem Isolierband  der Breite 14 Millimeter zu überbrücken. Beschädigung der Messbahn, welche durch unsanftes Handling der Platten entstehen können, sind ebenfalls mit weißem Isolierband zu Überkleben.
 Die Messebene wird aus 3 Holzplatten gebildet, diese sind auf der Oberseite schwarz gefärbt und mit einer weißen mäanderförmigen Spur versehen. Die Platten hängen durch, dadurch ist die Messebene nicht eben. Schlimmer ist der nicht gleiche Durchhang verschiedener Platten. So kommt es zu einem Höhenunterschied zwischen den Platten. Um diese Stufen zu verringern wurde auf der Unterseite der Platten mit dem geringeren Durchhang eine kleine Aluplatte befestigt um eine Auflage für die andere Platte zu schaffen. Eine zu große Stufe behindert den Roboter beim Fahren. Weil an der Stufe nicht alle Haltepunkte zuverlässig erkannt werden können.
 
-
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=125mm]{img/messbahn1.png}
-\caption[Messbahn auf den Platten]{Messbahn auf den Platten}\label{bahn}
+\includegraphics[width=125mm]{img/dreiplatten10.png}
+\caption{Messbahn auf den Platten}\label{platten}
 \end{figure}
-
-
-
 
 
 
@@ -964,40 +962,9 @@ Beschreibung verbal: Es gibt 308 Messwerte. Die ersten 14 werden in die erste Re
 
 Der ADC Wert des Kurschlussstromes wird in Ampere umgerechnet. Verwendet wird dazu die in im Abschnitt Kalibrierung gewonnene Formel.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=150mm]{img/hugel.png}
-\caption[Kurzschlusstromes in Ampere]{Verteilung des Kurzschlusstromes in Ampere abhängig von der Position}\label{hugel}
-\end{figure}
 
 
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=150mm]{img/karte1.png}
-\caption[Relative Verteilung der Einstrahlung]{Relative Verteilung der Einstrahlung}\label{karte1}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=150mm]{img/vergleich23.png}
-\caption{Vergleich zweier Messungen}\label{vergleich}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=150mm]{img/tempm1.png}
-\caption[Temperatur der Zelle]{Temperatur der Zelle}\label{tm1}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=150mm]{img/tempm2.png}
-\caption[konstante Temperatur der Zelle]{konstante Temperatur der Zelle}\label{tm2}
-\end{figure}
-
-
-\section{Vermessung der Ausleuchtung einzelner Lampen}
+\section{Die Ausleuchtung einzelner Lampen}
 
 Die geringe Messzeit des Roboters, verglichen mit der mechanischen Methode, macht es möglich die Bestrahlungsstärkeverteilung der einzelnen Lampen in realistischer Zeit zu bestimmen.
 Veränderbar sind der Abstand zwischen Lampenfeld und Prüfebene. Die Leistungen der Lampen lassen sich einzeln steuern. 
@@ -1008,71 +975,207 @@ Einfacher Algorimus für Matlab:
 
 Zuerst muss eine Lampe bei verschiedenen Einstellungen (100, 90, 80 \%) gemessen werden, um den Zusammenhang von Einstellung der Lampenleistung mit der gemessenen Bestrahlungsstärke zu ermitteln.
 
-\begin{figure}
+\begin{figure} [htbp]
     \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E1.png}}
     \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E1a.png}}
 \caption{Lampe E1}
+\label{E1}
 \end{figure} 
 
-\begin{figure}
+\begin{figure} [htbp]
     \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E2.png}}
     \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E2a.png}}
 \caption{Lampe E2}
+\label{E2}
 \end{figure} 
 
-\begin{figure}
+\begin{figure} [htbp]
     \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E3.png}}
     \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E3a.png}}
 \caption{Lampe E3}
+\label{E3}
 \end{figure}
 
-\begin{figure}
+\begin{figure} [htbp]
     \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E4.png}}
     \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E4a.png}}
 \caption{Lampe E4}
+\label{E4}
 \end{figure} 
 
-\begin{figure}
+\begin{figure} [htbp]
     \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E5.png}}
     \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E5a.png}}
 \caption{Lampe E5}
+\label{E5}
 \end{figure} 
 
-\begin{figure}
+\begin{figure} [htbp]
     \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E6.png}}
     \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E6a.png}}
 \caption{Lampe E6}
+\label{E6}
 \end{figure} 
 
-\begin{figure}
+\begin{figure} [htbp]
     \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E7.png}}
     \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E7a.png}}
 \caption{Lampe E7}
+\label{E7}
 \end{figure} 
 
-\begin{figure}
+\begin{figure} [htbp]
     \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E8.png}}
     \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E8a.png}}
 \caption{Lampe E8}
+\label{E8}
 \end{figure} 
 
-\begin{figure}
+\begin{figure} [htbp]
     \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E9.png}}
     \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E9a.png}}
 \caption{Lampe E9}
+\label{E9}
 \end{figure} 
 
-\begin{figure}
+\begin{figure} [htbp]
     \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E10.png}}
     \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E10a.png}}
 \caption{Lampe E10}
+\label{E10}
 \end{figure} 
 
-Die Summe der Bestrahlungsstärke der einzelnen Lampen bei jeweils 100\% sollte gleich der Bestrahlungsstärke aller Lampen bei 100\% sein. Dem ist aber nicht so. Entweder sind die Lampen in den fast zwei Monaten zwischen den Messungen gealtert, oder es gibt nichtlineare Effekte. 
-Optimierung: Es gibt 10 Lampen, die sich laut Datenblatt zwischen 80 und 100\% betreiben lassen, wenn das Spektrum der Lampen gleich bleiben soll. Die zehn Lampen und 21  Werte pro Lampe, die Lampenleistung lässt sich in Ein-Prozent Schritten verändern, ergibt 21 hoch 10 verschiedene Einstellungen, das sind 16,7 Billionen Möglichkeiten. Da das Durchrechnen aller Möglichkeiten zu lange gedauert hätte, wurden 8 Lampen variert, mit jeweils 8 Werten pro Lampe (2-\% Schritte) berechnet, die beiden mittleren Lampen wurden mit 100\% fixiert. Diese Variante, mit einer Millionstel Möglichkeiten der vollstängigen Variante, benötigte eine Rechenzeit von etwa 10 Minuten. Mit diesen Ergebnis wurde eine nochmalige Berechnung mit diesmal 1\%-Schritten, aber weniger Schritten pro Lampe durchgeführt. So konnte eine minimierte Lösung durchgeführt werden. Allerdings kann nich garantiert werden, dass es sich bei dieser Lösung um ein globales Minimum handelt.
-Leider stimmt dieses berechnete Ergebnis NICHT mit der Messung überein.
+\begin{figure} [htbp]
+    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/b100.png}}
+    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/b100k.png}}
+\caption{Lampen E1 bis E10 100\%, berechnet aus den Einzelmessungen.}
+\label{b100}
+\end{figure} 
+
+\begin{figure} [htbp]
+    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/m100.png}}
+    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/m100k.png}}
+\caption{Lampen E1 bis E10 100\%, gemessen. }
+\label{m100}
+\end{figure} 
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=125mm]{img/vergleich100.png}
+\caption{Vergleich der gemessenen und berechneten Verteilung}\label{v100}
+\end{figure}
+
+\FloatBarrier
+
+\section{Variation der Lampenleistung und der Höhe des Lampenfeldes}
+
+Es wurden die Einstellung Arsenal 1100W mit einer Höhe 1870mm bzw. Arsenal 1100W mit einer Höhe 4200mm verwendet. Die Gesamteinstellung der Lampenleistung wurde von 96\% auf 80\% und auf 60\% verringert.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{ | c | c | c |c | c |}\hline
+{\bf} & {\bf Minimum} & {\bf Max} & {\bf Mittelwert} & {\bf w}\\ \hline
+\hline
+1 & 1 & 3 & 1 & 3\\ \hline
+\end{tabular}
+\caption{Temeraturabhängigkeit der Temperaturmessung}\label{TabT33}
+\end{table}
+
+\begin{figure} [htbp]
+    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/st96.png}}
+    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/st96k.png}}
+\caption{Standardeinstellungen 96\%}
+\label{st96}
+\end{figure} 
+
+\begin{figure} [htbp]
+    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/st80.png}}
+    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/st80k.png}}
+\caption{Standardeinstellungen 80\%}
+\label{st80}
+\end{figure} 
+
+\begin{figure} [htbp]
+    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/st60.png}}
+    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/st60k.png}}
+\caption{Standardeinstellungen 60\%}
+\label{st60}
+\end{figure} 
+
+\begin{figure} [htbp]
+    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/h96.png}}
+    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/h96k.png}}
+\caption{Standardeinstellungen 96\%, Lampenfeld hoch}
+\label{h96}
+\end{figure} 
+
+\begin{figure} [htbp]
+    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/h80.png}}
+    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/h80k.png}}
+\caption{Standardeinstellungen 80\%, Lampenfeld hoch}
+\label{h80}
+\end{figure}
+
+\FloatBarrier
+
+\section{Optimierung der Homogenität}
+
+\begin{figure} [htbp]
+    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/optb.png}}
+    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/optbk.png}}
+\caption{Die Berechnung der optimierten Ein stellung}
+\label{optb}
+\end{figure} 
+
+\begin{figure} [htbp]
+    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/opt26.png}}
+    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/opt26k.png}}
+\caption{Die Messung der optimierten Einstellungen.}
+\label{optm}
+\end{figure} 
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=125mm]{img/vergleich_opt.png}
+\caption{Vergleich der gemessenen und berechneten Verteilung}\label{v26}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+Die Summe der Bestrahlungsstärke der einzelnen Lampen bei jeweils 100\% ist annähernd gleich der Bestrahlungsstärke aller Lampen bei 100\% sein. 
+Optimierung: Es gibt 10 Lampen, die sich laut Datenblatt zwischen 80 und 100\% betreiben lassen, wenn das Spektrum der Lampen gleich bleiben soll. Die zehn Lampen und 21  Werte pro Lampe, die Lampenleistung lässt sich in Ein-Prozent Schritten verändern, ergibt 21 hoch 10 verschiedene Einstellungen, das sind 16,7 Billionen Möglichkeiten. Da das Durchrechnen aller Möglichkeiten zu lange gedauert hätte, wurden 8 Lampen variert, mit jeweils 8 Werten pro Lampe (2-\% Schritte) berechnet, die beiden mittleren Lampen wurden mit 100\% fixiert. Diese Variante, mit einer Millionstel Möglichkeiten der vollständigen Variante, benötigte eine Rechenzeit von etwa 10 Minuten. Mit diesen Ergebnis wurde eine nochmalige Berechnung mit diesmal 1\%-Schritten, aber weniger Schritten pro Lampe durchgeführt. So konnte eine minimierte Lösung durchgeführt werden. Allerdings kann nich garantiert werden, dass es sich bei dieser Lösung um ein globales Minimum handelt.
+Das gemessene Ergebnis der optimierten Einstellung ist besser über die gesamte Ebene als die Standardeinstellungen.
+Allerdings sind die Messbereiche für die Zwei-Prozentige bzw. Fünf-Prozentige Homogenität kleiner als bei den Standardeinstellungen. So macht diese Optimierung nur in Ausnahmefällen Sinn. Die Optimierung hatte Abweichung der Homogenität der gesamten Ebene verbessert.
+
+\begin{figure}
+    \subfigure[Standardeinstellungen]{\includegraphics[width=0.49\textwidth]{img/zweist.png}}
+    \subfigure[Optimierte Einstellungen]{\includegraphics[width=0.49\textwidth]{img/zweiopt.png}}
+\caption{Vergleich der 2\% Messbereiche}
+\label{zwei}
+\end{figure} 
+
+\begin{figure}
+    \subfigure[Standardeinstellungen]{\includegraphics[width=0.49\textwidth]{img/funfst.png}}
+    \subfigure[Optimierte Einstellungen]{\includegraphics[width=0.49\textwidth]{img/funfopt.png}}
+\caption{Vergleich der 5\% Messbereiche}
+\label{funf}
+\end{figure} 
+
+
+
+ 
 
 Aber diese Messung (mit eingeschalteter externer Referenzspannung) hat bewiesen wie konstant zwei aufeinanderfolgende Messungen sein können. In diesem Fall haben sich die Durchschnittswerte der beiden Messungen um nur 0,013\% unterschieden. 
+
+
 
 
  
