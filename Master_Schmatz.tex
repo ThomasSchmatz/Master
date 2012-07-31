@@ -585,11 +585,11 @@ Dabei ist es egal, ob es sich um eine helle Linie auf dunklen Untergrund, oder e
 Abbildung \ref{abw} zeigt die Anordnung des Sensorarrays, die einzelnen Sensoren sind mit A bis I bezeichnet. Mögliche Abweichungen der Linie von der Idealposition sind, auf der linken Seite, der zeitliche Versatz auf der rechten Seite, zu sehen.
 
 \subsection{Auswertung der Temperatur- und Strommesswerte}\thispagestyle{empty}
-Aufgrund von Rauschen der ADC-Werte, wurden alle Messwerte über 500 Einzelmessungen gemittelt. Die Quelle des Rauschens wurde nicht ermittelt. Der notwendige Messzeit dafür beträgt unter einer halben Sekunde. Ohne Mittelung des Messwerte schwankten die Messungen $\pm$5 Werte des ADC, das sind $\pm$0,5$\%$ bei maximalen Ausnützung bzw. $\pm$1$\%$ bei halber Ausnützung des ADC Wertebereichs.
+Aufgrund von Rauschen der ADC-Werte, wurden alle Messwerte über 500 Einzelmessungen gemittelt. Die Quelle des Rauschens wurde nicht ermittelt. Der notwendige Messzeit dafür beträgt unter einer halben Sekunde. Ohne Mittelung des Messwerte schwankten die Messungen $\pm$5 Werte des ADC, das sind $\pm$0,5$\%$ bei maximalen Ausnützung bzw. $\pm$1$\%$ bei halber Ausnützung des ADC-Wertebereichs. Die gemittelten ADC-Werte werden direkt auf die SD-Karte in das Messfile gespeichert. Die eigentliche Auswertung erfolgt erst im Matlab Programm.
  
 \subsection{Programmablauf}\thispagestyle{empty}
 
-Das Steuerprogramm ist als Zustandsautomat konzipiert (siehe Abbildung \ref{abl}):
+Das Steuerprogramm ist ein Zustandsautomat (siehe Abbildung \ref{abl}):
 \begin{itemize}
 \item Zustand s (Start): zu Programmstart, nach 60 Sekunden Wechsel in den Zustand v. Diese Zeitspanne dient zum schließen des Messeinschubes des Sonnensimulators nach dem Einschalten des Roboters.
 \item Zustand v: Vorwärtsfahren inklusive Regelung, Wechsel durch erkannte Ecke in den Zustand a, bzw. durch erkannten Messpunkt Wechsel in den Zustand m.
@@ -601,8 +601,8 @@ Das Steuerprogramm ist als Zustandsautomat konzipiert (siehe Abbildung \ref{abl}
 \item Zustand b: Um die Ecke des Typ 2 fahren, danach Wechsel in den Zustand x.
 \item Zustand c: Um die Ecke des Typ 1 fahren, danach Wechsel in den Zustand l. 
 \item Zustand d: Um die Ecke des Typ 2 fahren, danach Wechsel in den Zustand p.
-\item Zustand p, x: Ausrichten, danach Wechsel zu q bzw. y.
-\item Zustand q, y: Ausrichten, danach Wechsel zu v bzw. z.
+\item Zustand p, x: Ausrichten, danach Wechsel zu Zustand q bzw. y.
+\item Zustand q, y: Ausrichten, danach Wechsel zu Zustand v bzw. z.
 \end{itemize}
 
 Während der Geradeaus-Fahrt wird versucht sowohl die seitliche Verschiebung d als auch die Verdrehung k zu minimieren. Wenn beide Werte innerhalb gewisser Toleranzen sind, fährt der Roboter geradeaus. Die Schranken der Regelung sind in Abbildung \ref{schr} zu sehen. Die Regelung funktioniert als 3 Punktregler für die Verdrehung, und als Dreipunktregler für die Verschiebung, wobei bei einer zu großen Verdrehung und Verschiebung, die Verschiebung ausgeglichen wird. Zusätzlich gibt es noch eine Bewegung, die sich aus Geradeaus-Fahrt und Drehung zusammensetzt, und bei nicht zu großen Verdrehungen angewendet wird.
@@ -856,7 +856,7 @@ Da die Platine A temperaturstabiler als die Platine B ist, wurde Platine A zur M
 
 \chapter{Messung}\thispagestyle{empty}
 
-Diese Kapitel beschreibt die Messvorbereitung, den Messaufbau, die eigentliche Messung und die Auswertung der Messdaten. Um was geht es? Um die Messung. Zur Messung gehört der Messaufbau, der Messablauf und die Auswertung der Messung. Weiters werden Messungen bei verschiedenen Einstellungen diskutiert. 
+Diese Kapitel beschreibt die Messvorbereitung, den Messaufbau, die eigentliche Messung und die Auswertung der Messdaten. Das Messsystem wurde verwendet um die Ausleuchtung der einzelnen Lampen zu ermitteln, und daraus eine für die Messebene optimierte Einstellung zu finden.
 
 \section{Messaufbau}\thispagestyle{empty}
 Dieser Abschnitt behandelt den Messaufbau. Die Messung der Bestrahlungsstärkeverteilung findet im Sonnensimulator statt. Zuerst muss eine Messebene geschaffen werden. Die, im normalen Messalltag vermessenen, Module liegen auf verschiebbaren Metallschienen auf. Damit der Roboter fahren kann, braucht er eine ebene Fläche. Diese Fläche ist aus logistischen Gründen aus drei einzelnen Holzplatten gebildet, was einige zusätzliche Probleme bereitet hat. Auf der Oberseite der Platten befindet sich die Messpunkte und eine Führungslinie, welcher der Roboter folgt. Zur Messung wird der Roboter an das linke Ende der Linie gestellt, er fährt nach dem Einschalten selbständig das Messprogramm ab.
@@ -867,41 +867,43 @@ Dieser Abschnitt behandelt den Messaufbau. Die Messung der Bestrahlungsstärkeve
 \caption{Eine Fahrt des Roboters auf der Messbahn}\label{robofahrt}
 \end{figure}
 
-  \subsection{Platten}\thispagestyle{empty}
-Drei Holzplatten bilden die Messebene für den Roboter. Eine große Platte wäre eine bessere Alternative gewesen, aber aus logistischen Gründen ist die Messebene auf drei Platten aufgeteilt. Weil für die drei Platten leichter ein Platz zum Aufbewahren gefunden werden kann. Die 250 mal 125 Zentimeter großen und 18 Millimeter dicken Holzplattenlatte sind gerade noch hantierbar. 
-Die Platten sind schwarz, damit sie einen möglichst geringen Reflexionskoeffizienten haben. Um einen großen Unterschied im Reflexionskoeffizienten zu haben, ist die Messbahn weiß gehalten. Sowohl der schwarze Untergrund als auch die weiße Bahn ist mit Kunstharzfarbe ausgeführt. Beim Hantieren mit den Platten können kleine Beschädigungen der Messbahn entstehen. Da diese Beschädigungen  den Messablauf stören können, ist es ratsam vor der Messung die Bahn mit einem weißen Klebeband (Isolierband) auszubessern.
-Die Platten müssen eng aneinander anliegen, damit der Roboter von einer Platte zur anderen fahren kann. Damit keine zu groß Stufe wegen unterschiedlicher Duschbiegung der Platten entsteht ist auf der Rückseite der Holzplatten Aluminiumbleche befestigt, auf einer Seite angeschraubt, die danebenliegende Platte liegt darauf.
-Da die Breite aller 3 Platten geringer ist als die Breite der Lade des Sonnensimulators, werden, damit die Messungen zu verschiedenen Zeitpunkten verglichen werden können, die Platten so weit wie möglich nach rechts geschoben. Am Rand liegen die Platten auf Aluschienen auf.
-Die Messpunkte liegen im Raster von 15 Zentimeter. Die Führungslinie 25,4 Millimeter daneben, gemessen vom Zentrum des Messpunktes zur Mitte der Linie. Die Messpunkte sind kleine Quadrate der Seitenlänge von 14 bis 15 Millimeter. Die Messbahn ist ebenfalls 14 bis 15 Millimeter breit. Die Position der Messpunkte ist auf etwa ein bis zwei Millimeter genau.
-Die Messpunkte liegen im Abstand von 15 cm, damit ist auch der Abstand zwischen den Messbahnen 15 cm, der Roboter muss nur 15 cm seitwärts fahren. Die Übergänge der Messbahn von einer Platte zur nächsten sind mit weißem Isolierband  der Breite 14 Millimeter zu überbrücken. Beschädigung der Messbahn, welche durch unsanftes Handling der Platten entstehen können, sind ebenfalls mit weißem Isolierband zu Überkleben.
-Die Messebene wird aus 3 Holzplatten gebildet, diese sind auf der Oberseite schwarz gefärbt und mit einer weißen mäanderförmigen Spur versehen. Die Platten hängen durch, dadurch ist die Messebene nicht eben. Schlimmer ist der nicht gleiche Durchhang verschiedener Platten. So kommt es zu einem Höhenunterschied zwischen den Platten. Um diese Stufen zu verringern wurde auf der Unterseite der Platten mit dem geringeren Durchhang eine kleine Aluplatte befestigt um eine Auflage für die andere Platte zu schaffen. Eine zu große Stufe behindert den Roboter beim Fahren. Weil an der Stufe nicht alle Haltepunkte zuverlässig erkannt werden können.
+\subsection{Platten}\thispagestyle{empty}
+Die Messebene des Roboters wird von drei Holzplatten gebildet. Eine einzelne große Platte wäre eine bessere Alternative gewesen, aber aus Gründen der Hanhabung ist die Messebene auf drei Platten aufgeteilt. Eine einzelne 3,70x3,50 Meter große Platte wäre zu schwer und zu unhandlich. Die einzelnen Platten sind 250 mal 125 (bzw. 120) Zentimeter groß und 18 Millimeter dick.
+Die Platten sind auf der Messseite schwarz angestrichen, um einen möglichst geringen Reflexionskoeffizienten haben. Die Messbahn ist weiß ausgeführt. Sowohl der schwarze Untergrund als auch die weiße Bahn besteht aus Kunstharzfarbe, welche UV-beständig ist. Da beim Hantieren mit den Platten kleine Beschädigungen der Messbahn entstehen können. Diese Beschädigungen können den Messablauf stören, so ist es sinnvoll vor der Messung die Bahn mit einem weißen Klebeband (Isolierband) auszubessern.
+Die Platten müssen möglichst eng aneinander anliegen, damit der Roboter beim Übergang von einer Platte zur nächsten möglichst wenig behindert wird. Damit keine zu groß Stufe wegen unterschiedlicher Duschbiegung der Platten entsteht sind auf der Rückseite der Holzplatten an einigen Stellen Aluminiumbleche befestigt. An der höheren Platte wurde das Blech angeschraubt, die tieferliegende Platte liegt darauf auf. Die Bleche wurden an den Stellen mit den größten Durchhang befestigt.
+Eine zu große Stufe behindert den Roboter beim Fahren, und erschwert das zuverlässige Erkennen von Messpunkten nahe der Stufe. Mit den Modifikationen an den Platten werden nun alle Messpunkte zuverlässig erkannt.
+Die Breite aller 3 Platten geringer ist als die Breite des Einschubes des Sonnensimulators. Damit die Messungen zu verschiedenen Zeitpunkten verglichen werden können, sind die Platten nach rechts auf Anschlag zu schieben.
+Die Messpunkte liegen im Raster von 15 Zentimeter. Der Abstand zwischen dem Mittelpunkt eines Messpunktes und der Mitte der Führungslinie beträgt 40,6mm. Die Messpunkte sind kleine Quadrate der Seitenlänge von 14 bis 15 Millimeter. Die Messbahn ist ebenfalls 14 bis 15 Millimeter breit. Die Position der Messpunkte ist auf etwa ein bis zwei Millimeter genau.
+Die Messpunkte liegen im Abstand von 15 cm, damit ist auch der Abstand zwischen den Messbahnen 15 cm. Die Übergänge der Messbahn von einer Platte zur nächsten sind mit weißem Isolierband  der Breite 14 Millimeter zu überbrücken. Beschädigung der Messbahn, welche durch unsanftes Handling der Platten entstehen können, sind ebenfalls mit weißem Isolierband zu Überkleben.
+Eine zu große Stufe behindert den Roboter beim Fahren, und erschwert das zuverlässige Erkennen von Messpunkten nahe der Stufe. Mit den Modifikationen an den Platten werden nun alle Messpunkte zuverlässig erkannt.  
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/dreiplatten10.png}
-\caption{Messbahn auf den Platten}\label{platten}
+\caption{Die Lage der Messbahn auf den Platten}\label{platten}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=125mm]{img/messpunkte.png}
+\caption{Die Lage der Messpunkte auf den Platten}\label{punkte}
 \end{figure}
 
 
 
 \subsection{Ablauf}\thispagestyle{empty}
-Vor der Messung ist der Akku des Roboters voll zu laden. Der roboter ist auf mechanische Beschädigung zu Untersuchen, eventuell ist ein Rad locker, dann lässt es sich entlang der Achse verschieben.
-Zuallererst sind die Platten auf Beschädigung zu untersuchen. Beschädigungen der Messbahn sind mit einem weißen Isolierband zu überkleben. Beschädigungen des Holzes direkt neben der Messbahn sind mit schawrzer Farbe auszubessern. Stellen, die der Sensor nicht sehen kann, sind egal.
-Die Platten sind in den Einschub des Sonnensimulators zu legen. Das ist ein Puzzle und nicht schwer. Beginnend rechts. Die Übergänge der Messbahn von einer Platte zur nächsten sind mit weißem Isolierband  der Breite 14mm zu überbrücken. Beschädigung der Messbahn, welche durch unsanftes Handling der Platten entstehen können, sind ebenfalls mit weißem Isolierband zu Überkleben.
-
-
-
+Vor der Messung ist der Akku des Roboters voll zu laden. Der Roboter ist auf mechanische Beschädigung zu untersuchen, besonders der Zustand der Räder ist zu kontrollieren.
+Vor dem Einlegen der Platten in den Einschub des Sonnensimulators sind diese auf Beschädigungen zu untersuchen. Eine Beschädigung der Messbahn ist mit einem weißen Isolierband zu überkleben. Beschädigungen des Holzes direkt neben der Messbahn sind mit schwarzer Farbe auszubessern. Beschädigung an Stellen, die nicht im Sichtfeld das Sensorarray liegen können, sind egal.
+Die Platten sind in den Einschub des Sonnensimulators zu legen. Begonnen wird mit der rechten Platte. Die Übergänge der Messbahn von einer Platte zur nächsten sind mit weißem Isolierband  der Breite 14mm zu überbrücken. 
 Roboter wird auf das linke vordere Ende der Messbahn gestellt. Der Roboter muss dabei auf der Messbahn stehen. Kleinere Abweichungen der Idealposition werden beim losfahren korrigiert. 
-Vor der eigentlichen Messfahrt ist eine Testfahrt mit geöffneter Lade des Sonnensimulators zu empfehlen. Besonders die Übergänge von einer Platte zur nächsten können Probleme schaffen.
-Nach der bestandenen Testfahrt wird der Sonnensimulator eingeschaltet. Bis zur Messung sind 20 bis 30 Minuten zu warten, bis die Temperaturen im Simulator stabil sind. Der Roboter kann während dieser Zeit im Sonnensimulator stehen. Die Messzelle sollte allerdings abgeschattet werden, damit diese sich nicht aufheizt. 
-Zum Starten wird der Schalter von 0 auf 1 umgelegt. Damit wird der Mikrocontroller mit Spannung versorgt. Das Programm startet. Nach einer Pause von 60 Sekunden, die zum Schließen des Sonnensimulators notwendig ist, fährt der Roboter los. Eine Messfahrt dauert etwa 13 Minuten. Nach Ablauf dieser Zeit wird der Roboter entnommen und die Daten der SD-Karte entnommen, oder der Roboter wird auf die Startposition gestellt um weitere Messfahrten durchzuführen.
+Vor der eigentlichen Messfahrt ist eine Testfahrt mit geöffneter Lade des Sonnensimulators zu empfehlen. 
+Nach der bestandenen Testfahrt wird der Sonnensimulator eingeschaltet. Bis zur Messung sind 20 bis 30 Minuten zu warten, bis die Temperaturen im Simulator und das Spektrum der Lampen stabil sind. Der Roboter kann während dieser Zeit im Sonnensimulator stehen. Die Messzelle sollte allerdings abgeschattet werden, damit diese sich nicht aufheizt. 
+Zum Starten wird der Schalter von 0 auf 1 umgelegt. Damit wird der Mikrocontroller mit Spannung versorgt. Das Programm startet. Nach einer Pause von 60 Sekunden, die zum Schließen des Sonnensimulators notwendig ist, fährt der Roboter los. Eine Messfahrt, inklusive der Wartezeit vor der Fahrt, dauert etwa 13 Minuten. Nach Ablauf dieser Zeit wird der Roboter entnommen und die Daten der SD-Karte entnommen, oder der Roboter wird auf die Startposition gestellt um weitere Messfahrten durchzuführen.
 
 
 \section{Auswertung}\thispagestyle{empty}
 
-
 Die Messwerte werden auf SD-Karte als Textdatei gespeichert. Für jeden Messwert gibt es eine eigene Zeile. In jeder Zeile sind Messzeit in Millisekunden, der ADC-Wert für den Kurzschlussstrom, der ADC Wert für die Zelltemperatur, der ADC Wert für die Umgebungstemperatur, und jeweils einen Zählerwert für Messpunkt, Reihe und Spalte. Die einzelnen Werte sind durch einen Tabulator getrennt, damit ist die Datei in Excel und Matlab bearbeitbar.  
-
 Die Tabelle \ref{TabSD} zeigt wie die Daten auf der SD-Karte gespeichert sind. Es sind nicht alle Werte für die Auswertung notwendig. Der Erste Wert ist die Zeit in Millisekunden, die seit dem Einschalten des Roboters vergangen ist. Die nächsten 3 Werte sind werte des Analogdigtalwandlers im Bereich von Null bis 1023, diese Werte werden ohne Umrechnung direkt auf die SD Karte gespeichert. Es sind 308 Messpunkte, 14 mal 22, es kann vorkommen, am Übergang von einer Platte zur anderen, dass ein Messpunkt ausgelassen wird. Das ist erkennbar wenn nicht 308 Messwerte im datalog-File sind. Um den Fehler leicht zu finden wurde Spalte und Reihe mit aufgezeichnet. Sind in einer Spalte nur 13 Messwerte, fehlt in dieser Spalte ein Wert. Anhand der mit aufgezeichneten Zeit kann der fehlende Messpunktes lokalisiert werden. Das geschieht nicht automatisch Der Messwert wird anhand der neben liegenden Werte geschätzt. Alternativ werden nur Messfahrten mit allen Punkten ausgewertet.
  
 \begin{table}[htbp]
@@ -954,14 +956,28 @@ end
 
 Beschreibung verbal: Es gibt 308 Messwerte. Die ersten 14 werden in die erste Reihe des Arrays gelegt. Die nächsten 14 in die zweite Reihe, aber in in absteigender Reihenfolge. Das heißt in die 14. Spalte der 2. Reihe wird der 15 Wert gelegt, also erste Reihe von links nach rechts, die zweite Reihe von rechts nach links, die dritte Reihe wieder von links nach rechts, usw.
 
-
-
-
-
-
-
 Der ADC Wert des Kurschlussstromes wird in Ampere umgerechnet. Verwendet wird dazu die in im Abschnitt Kalibrierung gewonnene Formel.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=125mm]{img/g3d.png}
+\caption{Die 3D Ansicht der Ausleuchtung}\label{g3d}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=125mm]{img/g2d.png}
+\caption{Die 2D Ansicht der Ausleuchtung}\label{g2d}
+\end{figure}
+
+\begin{figure} [htbp]
+    \subfigure[Zelltemperatur]{\includegraphics[width=0.49\textwidth]{img/tcell.png}}
+    \subfigure[Umgebungstemperatur]{\includegraphics[width=0.49\textwidth]{img/t2.png}}
+\caption{Die Temperaturen der Zelle und der Umgebung.}
+\label{t}
+\end{figure} 
+
+\FloatBarrier
 
 
 \section{Die Ausleuchtung einzelner Lampen}
@@ -1069,16 +1085,26 @@ Zuerst muss eine Lampe bei verschiedenen Einstellungen (100, 90, 80 \%) gemessen
 
 \section{Variation der Lampenleistung und der Höhe des Lampenfeldes}
 
-Es wurden die Einstellung Arsenal 1100W mit einer Höhe 1870mm bzw. Arsenal 1100W mit einer Höhe 4200mm verwendet. Die Gesamteinstellung der Lampenleistung wurde von 96\% auf 80\% und auf 60\% verringert.
+Es wurden die Einstellung Arsenal 1100W mit einer Höhe 1870mm bzw. Arsenal 1100W mit einer Höhe 4200mm verwendet. Die Gesamteinstellung der Lampenleistung wurde von 96\% auf 80\% und auf 60\% verringert. Die Kühllufttemperatur war 15$^{\circ}$C . Von jeder Einstellung wurden zwei Messungen gemacht.
 
 \begin{table}[htbp]
 \centering
-\begin{tabular}{ | c | c | c |c | c |}\hline
-{\bf} & {\bf Minimum} & {\bf Max} & {\bf Mittelwert} & {\bf w}\\ \hline
+\begin{tabular}{ | c | c | c | c | c | }\hline
+{\bf} & {\bf G\_{mean}} & {\bf G\_{max}} & {\bf G\_{min}} & {\bf w}\\ \hline
 \hline
-1 & 1 & 3 & 1 & 3\\ \hline
+96\%, 1870mm & 799.0 & 899.0 & 744.3 & 9.40\\ \hline
+96\%, 1870mm & 799.6 & 898.3 & 747.0 & 9.19\\ \hline
+80\%, 1870mm & 618.9 & 697.2 & 577.3 & 9.40\\ \hline
+80\%, 1870mm & 619.4 & 697.3 & 578.0 & 9.35\\ \hline
+60\%, 1870mm & 402.4 & 449.6 & 374.7 & 9.09\\ \hline
+60\%, 1870mm & 400.9 & 448.2 & 371.7 & 9.33\\ \hline
+
+96\%, 4200mm & 468.9 & 509.5 & 410.3 & 10.78\\ \hline
+96\%, 4200mm & 469.1 & 509.3 & 411.1 & 10.66\\ \hline
+80\%, 4200mm & 269.2 & 395.2 & 318.9 & 10.69\\ \hline
+80\%, 4200mm & 269.1 & 395.3 & 320.0 & 10.52\\ \hline
 \end{tabular}
-\caption{Temeraturabhängigkeit der Temperaturmessung}\label{TabT33}
+\caption{Die Veränderung der Lampenparameter}\label{TabG}
 \end{table}
 
 \begin{figure} [htbp]
@@ -1120,6 +1146,47 @@ Es wurden die Einstellung Arsenal 1100W mit einer Höhe 1870mm bzw. Arsenal 1100
 
 \section{Optimierung der Homogenität}
 
+Das Kernstück des Optimierungsalgorithmus: Es werden verschiedene Kombinationen der Lampeneinstellungen der zehn Lampen vorgenommen. Dabei wird das Minimum der Gleichmäßigkeit der Bestrahlungsstärkeverteilung über die Testfläche gesucht:
+\begin{equation}
+ Non-uniformity (\%) = [\frac{max irradiance - min irradiance}{max irradiance + min irradiance}] \times (100\%)
+\end{equation}
+
+\begin{verbatim}
+for k1=96:1:100
+    for k2=88:1:94
+        for k4=83:1:87
+            for k5=92:1:100
+                for k6=85:1:90
+                    for k7=82:1:86
+                        for k9=87:1:91
+                            for k10=88:1:92
+                                G = (k1*1.33-33)/100*G1 + (k2*1.33-33)/100*G2 + G3 + (k4*1.33-33)/100*G4 + 		                                    (k5*1.33-33)/100*G5 + (k6*1.33-33)/100*G6 + (k7*1.33-33)/100*G7 + G8 +  
+                                    (k9*1.33-33)/100*G9 + (k10*1.33-33)/100*G10;
+                                Gmin = min(min(G));
+                                Gmax = max(max(G));
+                                w_neu = (Gmax - Gmin)/(Gmax + Gmin) * 100;
+                                if(w_neu<w)
+                                    w = w_neu;
+                                    K1=k1;
+                                    K2=k2;
+                                    K4=k4;
+                                    K5=k5;
+                                    K6=k6;
+                                    K7=k7;
+                                    K9=k9;
+                                    K10=k10;                                  
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+\end{verbatim}
+
+
 \begin{figure} [htbp]
     \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/optb.png}}
     \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/optbk.png}}
@@ -1154,6 +1221,39 @@ Die Summe der Bestrahlungsstärke der einzelnen Lampen bei jeweils 100\% ist ann
 Optimierung: Es gibt 10 Lampen, die sich laut Datenblatt zwischen 80 und 100\% betreiben lassen, wenn das Spektrum der Lampen gleich bleiben soll. Die zehn Lampen und 21  Werte pro Lampe, die Lampenleistung lässt sich in Ein-Prozent Schritten verändern, ergibt 21 hoch 10 verschiedene Einstellungen, das sind 16,7 Billionen Möglichkeiten. Da das Durchrechnen aller Möglichkeiten zu lange gedauert hätte, wurden 8 Lampen variert, mit jeweils 8 Werten pro Lampe (2-\% Schritte) berechnet, die beiden mittleren Lampen wurden mit 100\% fixiert. Diese Variante, mit einer Millionstel Möglichkeiten der vollständigen Variante, benötigte eine Rechenzeit von etwa 10 Minuten. Mit diesen Ergebnis wurde eine nochmalige Berechnung mit diesmal 1\%-Schritten, aber weniger Schritten pro Lampe durchgeführt. So konnte eine minimierte Lösung durchgeführt werden. Allerdings kann nich garantiert werden, dass es sich bei dieser Lösung um ein globales Minimum handelt.
 Das gemessene Ergebnis der optimierten Einstellung ist besser über die gesamte Ebene als die Standardeinstellungen.
 Allerdings sind die Messbereiche für die Zwei-Prozentige bzw. Fünf-Prozentige Homogenität kleiner als bei den Standardeinstellungen. So macht diese Optimierung nur in Ausnahmefällen Sinn. Die Optimierung hatte Abweichung der Homogenität der gesamten Ebene verbessert.
+
+Der Suchalgorithmus für den größten Bereich, in dem die 2\% bzw. 5\% Abweichung der Homogenität gilt:
+\begin{verbatim}
+for m=1:13
+    for n=1:21
+        for k = 1:(14-m)
+            for l = 1:(22-n)
+                max=0;
+                min=1500;
+                for i = k:k+m
+                    for j = l:l+n
+                        if (G(i,j) > max ) max = G(i,j);
+                        end
+                        if (G(i,j) < min) min = G(i,j);
+                        end
+                        
+                    end
+                end
+                w2 = (max - min)/(max + min) * 100;
+                % Suche maximale Größe, wo die 2% bzw. 5% Schwankungsbreite
+                % eingehalten wird:
+                if((w2<2)&&((m+1)*(n+1)>((m2+1)*(n2+1)))&&(m>2))
+                    n2 = n;
+                    m2 = m;
+                    k2 = k;
+                    l2 = l;
+                    w3 = w2;
+                end
+            end
+        end
+    end
+end
+\end{verbatim}
 
 \begin{figure}
     \subfigure[Standardeinstellungen]{\includegraphics[width=0.49\textwidth]{img/zweist.png}}
