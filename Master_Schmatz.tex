@@ -273,11 +273,13 @@ Laut IEC 60891 \cite{norm891} berechnet sich die Einstrahlung aus dem gemessenen
 \begin{equation}
 G = \frac{1000Wm^{-2}I_{RC}}{I_{RC,STC}} [1 - \alpha_{RC}(T_{RC}-25^{\circ} C]
 \end{equation}
+Bei konstanter Temperatur ist der Kurzschlussstrom linear abhängig von der Bestrahlungsstärke (siehe Abbildung \ref{mpp}).
+Für die Temperaturkorrektur ist es notwendig die Zelltemperatur zum Zeitpunkt der Messung zu wissen, sowie den Temperaturkoeffizienten $\alpha_{RC}$. 
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/kennlinien.png}
-\caption{Abhängigkeit des MPP von der Einstrahlung. Quelle: \cite{pv}}\label{mpp}
+\caption{Die lineare Abhängigkeit des Kurzschlussstromes von der Einstrahlung. Quelle: \cite{pv}}\label{mpp}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -503,11 +505,11 @@ Die Zelle ist über ein 25cm langes Kabel mit dem Durchmesser von 4 mm$^2$, ein 
 
 
 \subsection{Das Shield}\thispagestyle{empty}
-Unter einem Shield versteht man eine Platine die auf einem Arduino aufgesteckt werden kann, und benutzerspezifische Funktionalität beinhaltet. Im Falle des Messroboters befindet sich die 5V-Erzeugung, die -5V-Erzeugung, die SD-Karte und diverse Buchsen zum Anschluss der Messplatinen und des Sensorarray auf der Shield-Platine. 
-Die SD-Karte benötigt eine 3.3V Versorgung, welcher der Arduino liefert. Dazu sind keine wieteren Bauteile nötig. 
-Zusätzlich gibt es einen Pegelwandler, welcher die 5V-Level der digitalen Signale des Arduino auf 3.3V-Level für den SD-Karten.
+Unter einem Shield versteht man eine Platine die auf einem Arduino aufgesteckt werden kann, und benutzerspezifische Funktionalität beinhaltet. Im Falle des Messroboters befindet sich die 5V-Erzeugung, die -5V-Erzeugung, die SD-Karte und diverse Steckerbuchsen zum Anschluss der Messplatinen, der Motortreiberplatine und des Sensorarray auf der Shield-Platine. 
+Der SD-Karten-Connector HSR-163 \cite{hsr} benötigt eine 3.3V Versorgung, welcher der Arduino liefert. Dazu sind keine weiteren Bauteile nötig. 
+Zusätzlich gibt es einen TC7600-Pegelwandler \cite{tc7660}, welcher die 5V-Level der digitalen Signale des Arduino auf das für die SD-Karte notwendige 3,3V wandelt.
 In der Abbildung  \ref{shield} sind die verschieden Bauteile farbig markiert:
-Klemmen zur Versorgung mit Akku-Spannung (rosa), Buchse zur Kommunikation mit der Sensor-Array Platine (violett). Eine 10-poligeBuchse zur Verbindung mit der Motortreiberplatine (violett). Insgesamt vier vierpolige Stecker (rosa) für verschiedene Messplatinen, wovon nur drei in Gebrauch sind: für die Strommessung und die beiden Temperaturmessungen.
+Klemmen zur Versorgung mit Akku-Spannung (rosa), Buchse zur Kommunikation mit der Sensor-Array Platine (violett). Eine 10-polige Buchse zur Verbindung mit der Motortreiberplatine (violett). Insgesamt vier vierpolige Stecker (rosa) für verschiedene Messplatinen, wovon nur drei in Gebrauch sind: für die Strommessung und die beiden Temperaturmessungen.
 
 \begin{figure}[htbp]
 \centering
@@ -521,8 +523,6 @@ Zum Platinenlayout: Links, der 4-pinige Stecker dient zur Stromversorgung (+5V, 
 Warum Präzisionswiderstände? Weil temperaturstabiler als herkömmliche Widerstände. 
 Warum zwei Widerstände zum Einstellen der Verstärkung des Instrumentenverstärkers? Weil es keinen Präzesionswiderstand gab der in etwa dem berechneten Wert entsprach. Daher wurden zwei 51,1$ßOmega$ Widerstand parallel geschaltet, das entspricht einen 25,55$ßOmega$ Widerstand.
 
-
-Was würde man heute anders machen? Der Temperaturbereich ist genauer bekannt. Damit könnte der Messbereich des ADC besser ausgenutzt werden. Nachher ist man immer klüger! Siehe Kapitel Kalibrierung. Erst dort wurde der maximal mögliche ADC- und Widerstandswert ermittelt, weil der Instrumentenverstärker nicht bis 5V aussteuern kann, sondern nur bis etwa 4,2V, bzw. einem ADC-Wert von etwa 850. Daher sollte der maximale Messwert wesentlich kleiner sein, damit Unklarheiten, ob die Begrenzung schon erreicht ist, vermieden werden. 
 
 
 \begin{figure}[htbp]
@@ -875,7 +875,8 @@ Eine zu große Stufe behindert den Roboter beim Fahren, und erschwert das zuverl
 Die Breite aller 3 Platten geringer ist als die Breite des Einschubes des Sonnensimulators. Damit die Messungen zu verschiedenen Zeitpunkten verglichen werden können, sind die Platten nach rechts auf Anschlag zu schieben.
 Die Messpunkte liegen im Raster von 15 Zentimeter. Der Abstand zwischen dem Mittelpunkt eines Messpunktes und der Mitte der Führungslinie beträgt 40,6mm. Die Messpunkte sind kleine Quadrate der Seitenlänge von 14 bis 15 Millimeter. Die Messbahn ist ebenfalls 14 bis 15 Millimeter breit. Die Position der Messpunkte ist auf etwa ein bis zwei Millimeter genau.
 Die Messpunkte liegen im Abstand von 15 cm, damit ist auch der Abstand zwischen den Messbahnen 15 cm. Die Übergänge der Messbahn von einer Platte zur nächsten sind mit weißem Isolierband  der Breite 14 Millimeter zu überbrücken. Beschädigung der Messbahn, welche durch unsanftes Handling der Platten entstehen können, sind ebenfalls mit weißem Isolierband zu Überkleben.
-Eine zu große Stufe behindert den Roboter beim Fahren, und erschwert das zuverlässige Erkennen von Messpunkten nahe der Stufe. Mit den Modifikationen an den Platten werden nun alle Messpunkte zuverlässig erkannt.  
+Eine zu große Stufe behindert den Roboter beim Fahren, und erschwert das zuverlässige Erkennen von Messpunkten nahe der Stufe. Mit den Modifikationen an den Platten werden nun alle Messpunkte zuverlässig erkannt. 
+Da die Messzelle nicht im Zentrum des Messroboters sitzt, sondern um zwei cm nach unten verschoben ist, gilt dies auch für die Positionen der Messpunkte, die Abbildung \ref{punkte} im Vergleich zur Abbildung \ref{platten} verdeutlicht das.
 
 \begin{figure}[htbp]
 \centering
@@ -889,6 +890,11 @@ Eine zu große Stufe behindert den Roboter beim Fahren, und erschwert das zuverl
 \caption{Die Lage der Messpunkte auf den Platten}\label{punkte}
 \end{figure}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=75mm]{img/lampen.png}
+\caption{Die Anordnung der Lampen über der Messebene.}\label{Lampen}
+\end{figure}
 
 
 \subsection{Ablauf}\thispagestyle{empty}
@@ -954,9 +960,21 @@ for(i=0:307)
 end
 \end{verbatim}
 
-Beschreibung verbal: Es gibt 308 Messwerte. Die ersten 14 werden in die erste Reihe des Arrays gelegt. Die nächsten 14 in die zweite Reihe, aber in in absteigender Reihenfolge. Das heißt in die 14. Spalte der 2. Reihe wird der 15 Wert gelegt, also erste Reihe von links nach rechts, die zweite Reihe von rechts nach links, die dritte Reihe wieder von links nach rechts, usw.
-
 Der ADC Wert des Kurschlussstromes wird in Ampere umgerechnet. Verwendet wird dazu die in im Abschnitt Kalibrierung gewonnene Formel.
+\begin{verbatim}
+A = (I +4.5766)/119.2; 
+\end{verbatim}
+Aus diesem Kurzschlussstrom wird die Bestrahlungsstärke berechnet:
+\begin{verbatim}
+G(i,j) = 1000 * A(i,j) / 4.99 * ( 1 - 0.00048 * (TTm(i,j) - 25));
+\end{verbatim}
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=75mm]{img/lampen.png}
+\caption{Die Anordnung der Lampen über der Messebene.}\label{Lampen}
+\end{figure}
 
 \begin{figure}[htbp]
 \centering
@@ -984,12 +1002,7 @@ Der ADC Wert des Kurschlussstromes wird in Ampere umgerechnet. Verwendet wird da
 
 Die geringe Messzeit des Roboters, verglichen mit der mechanischen Methode, macht es möglich die Bestrahlungsstärkeverteilung der einzelnen Lampen in realistischer Zeit zu bestimmen.
 Veränderbar sind der Abstand zwischen Lampenfeld und Prüfebene. Die Leistungen der Lampen lassen sich einzeln steuern. 
-Die Lampen wurden einzeln mit einer Lampenleistung von 100\% vermessen, die anderen Lampen waren jeweils auf 0\%. Aus den Werten der Einzelmessung wurde optimierte Gesamtausleuchtung errechnet. Diese optimierte Einstellung (welche noch zu messen ist) wird den Herstellerangaben verglichen. Dann wir sich zeigen ob die Methode erfolgsversprechend ist.
-Einfacher Algorimus für Matlab:
-- Leistung einzelner Lampen nur zwischen 100 und 80%: 
-- Eine der mittleren Lampen auf 100\% festsetzen, andere Lampen in einem Bereich von 80\% bis 100\% varieren lassen. Nicht alle Lampen alle 20 Schritte machen lassen. 20 hoch 9 wären sehr viele Rechenschritte.
-
-Zuerst muss eine Lampe bei verschiedenen Einstellungen (100, 90, 80 \%) gemessen werden, um den Zusammenhang von Einstellung der Lampenleistung mit der gemessenen Bestrahlungsstärke zu ermitteln.
+Die Lampen wurden einzeln mit einer Lampenleistung von 100\% vermessen, die anderen Lampen waren jeweils auf 0\%.
 
 \begin{figure} [htbp]
     \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E1.png}}
@@ -1085,7 +1098,7 @@ Zuerst muss eine Lampe bei verschiedenen Einstellungen (100, 90, 80 \%) gemessen
 
 \section{Variation der Lampenleistung und der Höhe des Lampenfeldes}
 
-Es wurden die Einstellung Arsenal 1100W mit einer Höhe 1870mm bzw. Arsenal 1100W mit einer Höhe 4200mm verwendet. Die Gesamteinstellung der Lampenleistung wurde von 96\% auf 80\% und auf 60\% verringert. Die Kühllufttemperatur war 15$^{\circ}$C . Von jeder Einstellung wurden zwei Messungen gemacht.
+Es wurden die Einstellung Arsenal 1100W mit einer Höhe 1870mm bzw. Arsenal 1100W mit einer Höhe 4200mm verwendet. Die Gesamteinstellung der Lampenleistung wurde von 96\% auf 80\% und auf 60\% verringert. Die Einstellungen der einzelnen Lampen sind in Abbildung \ref{std} dargestellt. Die Kühllufttemperatur war 15$^{\circ}$C . Von jeder Einstellung wurden zwei Messungen gemacht.
 
 \begin{table}[htbp]
 \centering
@@ -1106,6 +1119,13 @@ Es wurden die Einstellung Arsenal 1100W mit einer Höhe 1870mm bzw. Arsenal 1100
 \end{tabular}
 \caption{Die Veränderung der Lampenparameter}\label{TabG}
 \end{table}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=75mm]{img/std.png}
+\caption{Die Anordnung der Lampen über der Messebene.}\label{std}
+\end{figure}
+
 
 \begin{figure} [htbp]
     \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/st96.png}}
@@ -1150,6 +1170,7 @@ Das Kernstück des Optimierungsalgorithmus: Es werden verschiedene Kombinationen
 \begin{equation}
  Non-uniformity (\%) = [\frac{max irradiance - min irradiance}{max irradiance + min irradiance}] \times (100\%)
 \end{equation}
+Die beiden mittleren Lampen werden auf 100\% belassen. Die anderen Lampen werden zuerst in 3\% Schritten zwischen 80 und 100\% variiert. Dann werden, um das unter den 3\%-Schrittweiteneinstellungen gefunden Minimum, die Lampen in 1\% Schritten variiert. So werden statt der theoretisch möglichen 16,7 Billionen Möglichkeiten, nur wenige Millionen durchgerechnet, somit bleibt die Rechenzeit im Minutenbereich.
 
 \begin{verbatim}
 for k1=96:1:100
@@ -1186,11 +1207,19 @@ for k1=96:1:100
 end
 \end{verbatim}
 
+Mit dem Algorithmus wurden die in Abbildung \ref{opt} dargestellten Einstellungen gefunden.
 
 \begin{figure} [htbp]
     \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/optb.png}}
     \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/optbk.png}}
-\caption{Die Berechnung der optimierten Ein stellung}
+\caption{Die berechneten optimalen Einstellungen der einzelnen Lampen.}
+\label{optb}
+\end{figure} 
+
+\begin{figure} [htbp]
+    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/optb.png}}
+    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/optbk.png}}
+\caption{Die Berechnung der optimierten Einstellung}
 \label{optb}
 \end{figure} 
 
