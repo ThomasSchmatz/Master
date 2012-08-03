@@ -117,7 +117,7 @@ und auch noch nicht ver"offentlicht. Ich versichere, dass die abgegebene Version
 Die Arbeit umfasst die Planung und Realisierung eines selbstfahrenden Messroboters, der die Bestrahlungsst"arkeverteilung in der Prüfebene eines station"aren Sonnensimulators erfasst. Neben den Einstrahlungsdaten werden werden zus"atzliche Informationen über die Umgebungsbedingungen im Prüfkanal aufgezeichnet. Bei der Umsetzung wurden Rapid-Prototyping Techniken (3D-Druck, Platinenfräse und Lasercutter) eingesetzt. Behandelt werden theoretische Grundlagen und normative Anforderungen an station"are Sonnensimulatoren, sowie Messunsicherheitsberechnungen und Validierung des Gesamtsystems.
 \\ \vfill
 % Bitte 3-5 deutsche Schlagw"orter eingeben, die die Arbeit charakterisieren:
-\paragraph*{Schlagw"orter:} Sonnensimulator, Messroboter, Bestrahlungsstärke
+\paragraph*{Schlagwörter:} Sonnensimulator, Messroboter, Bestrahlungsstärke
 
 
 \newpage
@@ -1098,7 +1098,7 @@ Die Lampen wurden einzeln mit einer Lampenleistung von 100\% vermessen, die ande
 
 \section{Variation der Lampenleistung und der Höhe des Lampenfeldes}
 
-Es wurden die Einstellung Arsenal 1100W mit einer Höhe 1870mm bzw. Arsenal 1100W mit einer Höhe 4200mm verwendet. Die Gesamteinstellung der Lampenleistung wurde von 96\% auf 80\% und auf 60\% verringert. Die Einstellungen der einzelnen Lampen sind in Abbildung \ref{std} dargestellt. Die Kühllufttemperatur war 15$^{\circ}$C . Von jeder Einstellung wurden zwei Messungen gemacht.
+Es wurden die Einstellung Arsenal 1100W mit einer Höhe 1870mm bzw. Arsenal 1100W mit einer Höhe 4200mm verwendet. Abbildung \ref{std} zeigt die Einstellungen der einzelnen Lampen. Die Gesamteinstellung der Lampenleistung wurde von 96\% auf 80\% und auf 60\% verringert. Die Einstellungen der einzelnen Lampen sind in Abbildung \ref{std} dargestellt. Die Kühllufttemperatur war 15$^{\circ}$C . Von jeder Einstellung wurden zwei Messungen gemacht.
 
 \begin{table}[htbp]
 \centering
@@ -1117,13 +1117,13 @@ Es wurden die Einstellung Arsenal 1100W mit einer Höhe 1870mm bzw. Arsenal 1100
 80\%, 4200mm & 269.2 & 395.2 & 318.9 & 10.69\\ \hline
 80\%, 4200mm & 269.1 & 395.3 & 320.0 & 10.52\\ \hline
 \end{tabular}
-\caption{Die Veränderung der Lampenparameter}\label{TabG}
+\caption{Die mittlere, maximale und minimale Einstrahlung in Abhängigkeit der Lampenparameter}\label{TabG}
 \end{table}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/std.png}
-\caption{Die Anordnung der Lampen über der Messebene.}\label{std}
+\caption{Die Standard-Einstellungen der einzelnen zehn Lampen.}\label{std}
 \end{figure}
 
 
@@ -1284,6 +1284,8 @@ for m=1:13
 end
 \end{verbatim}
 
+\FloatBarrier
+
 \begin{figure}
     \subfigure[Standardeinstellungen]{\includegraphics[width=0.49\textwidth]{img/zweist.png}}
     \subfigure[Optimierte Einstellungen]{\includegraphics[width=0.49\textwidth]{img/zweiopt.png}}
@@ -1298,23 +1300,28 @@ end
 \label{funf}
 \end{figure} 
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=150mm]{img/fensterstd.png}
+\caption{Die Lage der gefundenen Fenster mit den Standardeinstellungen}\label{fstd}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=150mm]{img/fensteropt.png}
+\caption{Die Lage der gefundenen Fenster mit den optimierten Einstellungen}\label{fopt}
+\end{figure}
 
 
+
+\FloatBarrier
  
-
-Aber diese Messung (mit eingeschalteter externer Referenzspannung) hat bewiesen wie konstant zwei aufeinanderfolgende Messungen sein können. In diesem Fall haben sich die Durchschnittswerte der beiden Messungen um nur 0,013\% unterschieden. 
-
-
-
-
- 
-
-
-
-
-
 \section{Schlussfolgerung}\thispagestyle{empty}
 
+Die Arbeit hat gezeigt, dass es möglich ist, durch ein automatisiertes Messsystem die Messzeit und den Messablauf zu verkürzen bzw. zu vereinfachen.
+Prizipiell ist diese Art von Messsystem auch für andere Sonnensimulatoren mit horizontaler Messfläche geeignet.
+Aus diesen Messsystem kann eine kommerzielle Variante entwickelt werden.
+Ein kommerzialisierte Variante sollte allerdings kleiner, flacher und robuster sein.
 Der Roboter erleichtert die Messung der Bestrahlungsstärkemessung enorm. Durch die kurze Messdauer ist es möglich die Bestrahlungsstärke in periodischen Zeitabständen zu vermessen, um so die Alterung der Lampen zu dokumentieren. 
 Diese Art von Messroboter kann in jedem stationären Sonnensimulator entsprechender Größe zur Vermessung der Bestrahlungsstärkeverteilung verwendet werden. 
 Die Verwendung des Messroboters erlaubt die Bestrahlungsstärkeverteilung einzelner Lampen zu ermitteln.
