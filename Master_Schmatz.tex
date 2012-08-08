@@ -17,6 +17,8 @@
 
 \usepackage{morefloats} 
 
+\usepackage[usenames,dvipsnames]{xcolor}
+
 \usepackage{placeins}
 
 
@@ -382,11 +384,20 @@ Dieser Abschnitt beschreibt die Entwicklung der Elektronik. Die Funktionalität 
 Das Gehirn des Roboters ist ein Arduino Mega 2560 Mikrocontroller Board. Darauf aufgesteckt ist ein sogenanntes Shield, eine selbst entwickelte Platine, das die $\pm$5V Spannungsversorgung, die Schnittstellen zu den anderen Platinen und einen SD-Karten Einschub beheimatet.
 Es gibt 3 Messplatinen, eine für den Kurzschlussstrom der Messzelle, zwei für Temperaturmessungen. Eine Platine überwacht den Ladezustand des Akkus. Die Steuerung der vier Motoren ist auf einer Platine zusammengefasst.
 Die einzelnen Komponenten sind wie in Abbildung \ref{elek} auf der Bodenplatte angeordnet.
+Die horizontale Anordnung ist in Abbildung \ref{vorne} zu erkennen: Das Sensorarray zur Erkennung der Bodenmarkierungen ist unterhalb der Bodenplatte befestigt, auf der Bodenplatte findet die restliche Elektronik und die Motoren Platz, die Messzelle ist auf der Oberseite des Messroboters angebracht.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=100mm]{img/bodenplatte.png}
 \caption{Die Anordnung der Elektronik auf der Bodenplatte im Roboter}\label{elek}
 \end{figure}
+ 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=150mm]{img/vorne.png}
+\caption{Die horizontale Anordnung der Elektronik im Roboter}\label{vorne}
+\end{figure}
+
+\FloatBarrier
  
 \subsection{Motorensteuerung}\thispagestyle{empty}
 
@@ -407,6 +418,8 @@ Der Roboter wird mit einem Lithium-Ionen-Akku versorgt. Die Spannung beträgt, a
 \includegraphics[width=125mm]{img/hdrive.png}
 \caption{Das Layout der Motortreiberplatine.}\label{hbridge2}
 \end{figure}
+
+\FloatBarrier
 
 \subsection{Optische Sensoren}\thispagestyle{empty}
 Die optische Sensorik dient der Positionsbestimmung. Der Roboter bewegt während der Messung auf Holzplatten, die aus Gründen, welche unten genauer erläutert werden, schwarz sind, der Roboter orientiert sich an einer aus geraden Teilstücken bestehenden weißen Linienfolge. 
@@ -576,13 +589,21 @@ Dabei ist es egal, ob es sich um eine helle Linie auf dunklen Untergrund, oder e
 
 \begin{figure}
 \centering
+    \subfigure[Anordnung des Sensorarrays]{\includegraphics[width=50mm]{img/array3.png}}
+    \subfigure[Die Idealposition der Linie]{\includegraphics[width=50mm]{img/array4.png}}
+\caption{Das Sensorarray}
+\label{arr}
+\end{figure} 
+
+\begin{figure}
+\centering
     \subfigure[Versatz]{\includegraphics[width=50mm]{img/array5.png}}
     \subfigure[Verdrehung]{\includegraphics[width=50mm]{img/array6.png}}
 \caption{Die mögliche Abweichungen der Linie von der Idealposition}
 \label{abw}
 \end{figure} 
 
-Abbildung \ref{abw} zeigt die Anordnung des Sensorarrays, die einzelnen Sensoren sind mit A bis I bezeichnet. Mögliche Abweichungen der Linie von der Idealposition sind, auf der linken Seite, der zeitliche Versatz auf der rechten Seite, zu sehen.
+Abbildung \ref{arr} zeigt die Anordnung des Sensorarrays, die einzelnen Sensoren sind mit A bis I bezeichnet. Mögliche Abweichungen der Linie von der Idealposition sind in Abbildung \ref{abw}, auf der linken Seite, der zeitliche Versatz auf der rechten Seite, zu sehen.
 
 \subsection{Auswertung der Temperatur- und Strommesswerte}\thispagestyle{empty}
 Aufgrund von Rauschen der ADC-Werte, wurden alle Messwerte über 500 Einzelmessungen gemittelt. Die Quelle des Rauschens wurde nicht ermittelt. Der notwendige Messzeit dafür beträgt unter einer halben Sekunde. Ohne Mittelung des Messwerte schwankten die Messungen $\pm$5 Werte des ADC, das sind $\pm$0,5$\%$ bei maximalen Ausnützung bzw. $\pm$1$\%$ bei halber Ausnützung des ADC-Wertebereichs. Die gemittelten ADC-Werte werden direkt auf die SD-Karte in das Messfile gespeichert. Die eigentliche Auswertung erfolgt erst im Matlab Programm.
@@ -621,8 +642,10 @@ Bei der Seitwärts-Fahrt wurde eine verbesserte Regelung angewandt, statt zwei D
 
 Da die Linie für das Rechtsfahren nicht in einer Ecke endet, sondern einfach endet, kann die Regelung bis zum Ende verwendet werden. Somit entfällt ein Teil des um-die-Ecke-Fahrens. Die Faktoren des P-Regler (800, 1600) wurden durch umfangreiche Testfahrten ermittelt.
 
-Es gibt zwei Arten von Ecken. Einmal die Ecke des Typs 1, welche eine wirkliche Ecke darstellen. Und dann die Ecke des Typs 2, welches ein Eck mit einer Lücke sind.
-Die beiden unterschiedlichen Arten von Ecken wurden begründet durch die unterschiedlichen Fahreigenschaften/ Fahrdynamik beim Geradeausfahren und dem Seitwärtsfahren. Deshalb gibt es beim Seitwärtsfahren auch den weiterentwickelten Regelungsalgorithmus, der sich dann aber als sehr kompakt herausgestellt hat.
+Es gibt zwei Arten von Ecken. Einmal die Ecke des Typs 1, welche eine wirkliche Ecke darstellen. Und dann die Ecke des Typs 2, welches ein Ecke mit einer Lücke sind.
+Die beiden unterschiedlichen Arten von Ecken wurden erforderlich durch die unterschiedlichen Fahreigenschaften beim Geradeausfahren und dem Seitwärtsfahren.
+
+
 
 \begin{figure}[htbp]
 \centering
@@ -638,8 +661,15 @@ Die beiden unterschiedlichen Arten von Ecken wurden begründet durch die untersc
 
 \begin{figure}[htbp]
 \centering
+\includegraphics[width=100mm]{img/detail.png}
+\caption{Eine Deatailansicht der beiden Typen von Ecken.}\label{ecken}
+\end{figure}
+
+
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=50mm]{img/ecke2.png}
-\caption{Ums Eck fahren}\label{eck}
+\caption{Der Um-die-Ecke-Fahr-Algorithmus.}\label{eck}
 \end{figure}
 
 
@@ -742,6 +772,8 @@ Die mit Excel gewonnen Gleichungen der Ausgleichsgerade für Messschaltung A (si
     \begin{equation}
      R_B(ADC) = \frac{ADC_B + 4023,6}{40,027}
   \end{equation}
+
+ 
 
 
 \section{Messzelle}\thispagestyle{empty}
@@ -886,7 +918,7 @@ Da die Messzelle nicht im Zentrum des Messroboters sitzt, sondern um zwei cm nac
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=125mm]{img/messpunkte.png}
+\includegraphics[width=125mm]{img/punkte.png}
 \caption{Die Lage der Messpunkte auf den Platten}\label{punkte}
 \end{figure}
 
@@ -946,7 +978,7 @@ n_{295}  &.& .&.& n_{308}
 \end{pmatrix}
 \end{equation}
 
-Um die eindimensionale Datenwurst Datenwurst in ein zweidimesionales Array, das der realen Anordnung der Messpunkte entspricht, wird folgender Algorithmus verwendet:
+Um die eindimensionalen Messdaten in ein zweidimensionales Array, das der realen Anordnung der Messpunkte entspricht, wird folgender Algorithmus verwendet:
 \begin{verbatim}
 j=1; k=1; l=1;
 
@@ -968,13 +1000,16 @@ Aus diesem Kurzschlussstrom wird die Bestrahlungsstärke berechnet:
 \begin{verbatim}
 G(i,j) = 1000 * A(i,j) / 4.99 * ( 1 - 0.00048 * (TTm(i,j) - 25));
 \end{verbatim}
+Die Abbildungen \ref{g3d} und \ref{g3d} zeigen die gemessene Bestrahlungsstärkeverteilung.
+
+Die Zelltemperatur \textit{TTM} wird aus den Werten der 3. Spalte des Messfiles errechnet. Diese Werte werden wie die Strommesswerte in eine zweidimensionales Array umgewandelt. Die Umrechnung geschieht in zwei Schritten. Zuerst werden die ADC Werte in den Widerstand des Pt100 umgerechnet, und daraus wird die Temperatur berechnet.
+
+\begin{verbatim}
+Rm = (Tm +4038.9)/40.107; % ADC --> Widerstand
+TTm = (Rm-100.03)/0.3879; % Widerstand --> Temperatur
+\end{verbatim}
 
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=75mm]{img/lampen.png}
-\caption{Die Anordnung der Lampen über der Messebene.}\label{Lampen}
-\end{figure}
 
 \begin{figure}[htbp]
 \centering
