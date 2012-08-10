@@ -116,7 +116,7 @@ und auch noch nicht ver"offentlicht. Ich versichere, dass die abgegebene Version
 
 
 \section*{Kurzfassung}\thispagestyle{empty}
-Die Arbeit umfasst die Planung und Realisierung eines selbstfahrenden Messroboters, der die Bestrahlungsst"arkeverteilung in der Prüfebene eines station"aren Sonnensimulators erfasst. Neben den Einstrahlungsdaten werden werden zus"atzliche Informationen über die Umgebungsbedingungen im Prüfkanal aufgezeichnet. Bei der Umsetzung wurden Rapid-Prototyping Techniken (3D-Druck, Platinenfräse und Lasercutter) eingesetzt. Behandelt werden theoretische Grundlagen und normative Anforderungen an station"are Sonnensimulatoren, sowie Messunsicherheitsberechnungen und Validierung des Gesamtsystems.
+Die Arbeit umfasst die Planung und Realisierung eines selbst fahrenden Messroboters, der die Bestrahlungsstärkeverteilung in der Prüfebene eines stationären Sonnensimulators erfasst. Neben den Einstrahlungsdaten werden werden zusätzliche Informationen über die Umgebungsbedingungen im Prüfkanal aufgezeichnet. Bei der Umsetzung wurden Rapid-Prototyping Techniken (3D-Druck, Platinenfräse und Lasercutter) eingesetzt. Behandelt werden theoretische Grundlagen und normative Anforderungen an stationäre Sonnensimulatoren und Validierung des Gesamtsystems.
 \\ \vfill
 % Bitte 3-5 deutsche Schlagw"orter eingeben, die die Arbeit charakterisieren:
 \paragraph*{Schlagwörter:} Sonnensimulator, Messroboter, Bestrahlungsstärke
@@ -132,10 +132,10 @@ This paper discripes the planning and the realisation of a autonomous measuremen
 \newpage
 
 \section*{Danksagung}\thispagestyle{empty}
-Ich danke meinen Eltern für die Unterstützung und Geduld, die sie während des Studiums aufgebracht haben.
-Ich danke meinen Hochschulbetreuer für die umfangreiche Betreuung.
+Ich danke meiner Mutter für die Unterstützung und Geduld, die sie während des Studiums aufgebracht haben.
+Ich danke meinen Hochschulbetreuer Bernhard Kubicek für die umfangreiche Betreuung.
 Ich danke meinen Firmenbetreuer Thomas Krametz für die Zeit die er sich genommen hat.
-Und für problemlose Verlängerung meines Praktikums und der Diplomarbeit schulde ich Herrn Wolfgang Hribernik Wolfgang großen Dank.
+Und für problemlose Verlängerung meines Praktikums und der Diplomarbeit schulde ich Herrn Wolfgang Hribernik großen Dank.
 \newpage
 
 \tableofcontents\thispagestyle{empty}
@@ -152,7 +152,7 @@ Dieses Kapitel beschreibt die Notwendigkeit von Messungen im stationären Sonnen
 
 \section{Stationäre Photovoltaik Sonnensimulatoren} \thispagestyle{empty}
 
-Photovoltaik-Sonnensimulatoren werden zur elektrischen Charakterisierung und Prüfung von Photovoltaik-Modulen verwendet. Der wesentliche Vorteil liegt darin, dass die Durchführung unter reproduzierbaren Umweltbedingungen (Bestrahlungsstärke, spektrale Zusammensetzung des einfallenden Lichtes und die Prüfgutstemperatur)  ermöglicht wird. Grundsätzlich werden bei konventionellen Systemen gepulste und stationäre Simulatoren, welche kontinuierlich leuchten, unterschieden. Erstere brauchen weniger Energie und heizen die Messobjekte nicht auf, und werden für die Leistungsmessung von Zellen und Modulen verwendet. Allerdings ist Blitzlänge bauartbedingt auf wenige Millisekunden begrenzt. Stationäre Simulatoren werden für Voralterung von Modulen verwendet.
+Photovoltaik-Sonnensimulatoren werden zur elektrischen Charakterisierung und Prüfung von Photovoltaik-Modulen verwendet. Der wesentliche Vorteil gegenüber Messungen im Sonnenlicht liegt darin, dass die Durchführung unter reproduzierbaren Umweltbedingungen (Bestrahlungsstärke, spektrale Zusammensetzung des einfallenden Lichtes und die Prüfgutstemperatur)  ermöglicht wird. Grundsätzlich werden bei konventionellen Systemen gepulste und stationäre Simulatoren, welche kontinuierlich leuchten, unterschieden. Erstere brauchen weniger Energie und heizen die Messobjekte nicht auf, und werden für die Leistungsmessung von Zellen und Modulen verwendet. Allerdings ist Blitzlänge bauartbedingt auf wenige Millisekunden begrenzt. Stationäre Simulatoren werden unter anderem für Voralterung von Modulen verwendet.
 Im Allgemeinen werden Messergebnisse auf Standard-Prüfbedingungen (STC) bezogen, die durch 1000W/m$^2$, 25$^{\circ}$C und AM1.5 definiert ist. Die Air Mass (AM) beschreibt das Verhältnis des Weges des einfallenden Sonnenlichtes durch die Atmosphäre bezogen auf senkrechten Einfall (siehe Abbildung \ref{airmass}). Je länger der Weg des Lichtes durch die Atmosphäre desto größer ist der Einfluss durch Streuung, Reflexion und Absorption, was sowohl die Stärke der Einstrahlung als auch die spektrale Zusammensetzung des Sonnenlichtes vom Sonnenstand abhängig macht. 
 \begin{equation}
      AM = \frac {L} {L_0} \approx \frac{1}{cos~ z}
@@ -194,7 +194,7 @@ Die Testobjekte werden mittels Prüfgut-Einschub in einem Windkanal positioniert
 
 
 \section{Normative Anforderungen}\thispagestyle{empty}
-Die IEC Norm 60904-9 \cite{norm9} stellt Anforderungen an Sonnensimulatoren. Ein Sonnensimulator wird anhand von 3 Kriterien bewertet: 
+In der IEC Norm 60904-9 \cite{norm9} werden die Anforderungen an Sonnensimulatoren definiert. Ein Sonnensimulator wird anhand von 3 Kriterien bewertet: 
 \begin{itemize}
 \item die spektrale Übereinstimmung mit dem in Tabelle \ref{TabS1} aufgelisteten Wellenlängenbereichen. Zum AM1.5 Referenzspektrum sind durch die großen Schranken erhebliche Unterschiede möglich.
 \begin{table}[htbp]
@@ -206,7 +206,7 @@ Die IEC Norm 60904-9 \cite{norm9} stellt Anforderungen an Sonnensimulatoren. Ein
 2  & 500 - 600 & 19,9\\ \hline
 3  & 600 - 700 & 18,4\\ \hline
 4  & 700 - 800 & 14,9\\ \hline
-5  & 900 - 900 & 12,5\\ \hline
+5  & 800 - 900 & 12,5\\ \hline
 6  & 900 - 1100 & 15,9\\ \hline
 \end{tabular}
 \caption{Spektralle Strahlungsverteilung nach IEC 60904-9}\label{TabS1}
@@ -235,6 +235,7 @@ C  & 0,4 - 2,0 & 10 \% & 10 \% & 10 \%\\ \hline
 \end{tabular}
 \caption{Anforderungen an die 3 verschiedenen Simulatorklassen}\label{TabS2}
 \end{table}
+Der Roboter misst von diesen drei Kategorien nur die Verteilung der Bestrahlungsstärke in der Messebene.
 
 
 
@@ -292,13 +293,13 @@ Für die Temperaturkorrektur ist es notwendig die Zelltemperatur zum Zeitpunkt d
 
 \chapter{Entwicklungsprozess}\thispagestyle{empty}
 
-Diese Kapitel beschreibt die Entwicklung des Roboters und ist in 3 Abschnitte gegliedert: das mechanische Design, die Elektronik und die dazugehörige Software.
-Dabei wurde teilweise parallel gearbeitet. Zur Entwicklung der Fahrregelung musste die Bodenplatte, aber nicht der Aufbau des Chassis fertig sein. Ebenso musste reichte ein Teil der Elektronik aus, die Messplatinen und die endgültige Stromversorgung war zur Entwicklung der Fahrregelung nicht notwendig. Das hatte den Nachteil, dass die Größe mancher Komponenten (z.B. der Akku) nur abgeschätzt werden konnte, und der Roboter nicht auf eine minimale Größe hin optimiert wurde.
+Diese Kapitel beschreibt die Entwicklung des Roboters und ist in drei Abschnitte gegliedert: das mechanische Design, die Elektronik und die Steuerungs- und Messsoftware.
+Die Entwicklung geschah zum Teil parallel. Zur Entwicklung der Fahrregelung musste die Bodenplatte, aber nicht der Aufbau des Chassis fertig sein. Ebenso musste reichte ein Teil der Elektronik aus, die Messplatinen und die endgültige Stromversorgung war zur Entwicklung der Fahrregelung nicht notwendig. Das hatte den Nachteil, dass die Größe mancher Komponenten (z.B. der Akku) nur abgeschätzt werden konnte, und der Roboter nicht auf eine minimale Größe hin optimiert wurde.
 
 \section{Mechanische Komponenten}\thispagestyle{empty}
 
-Dieser Abschnitt behandelt die Entwicklung der mechanischen Komponenten, diese sind die 4 Mecanumräder und die Chassis des Roboters. Die maximale Bauhöhe ist durch den Windkanal im Sonnensimulator beschränkt, die minimale Bauhöhe ist durch den Durchmesser der Räder gegeben.
-Mit der Größe der Messzelle ist auch die minimale Ausdehnung in den beiden anderen Dimensionen festgelegt. Eine weiter Einschränkung beim Design war, dass die Motoren, der Akku und die Elektronik im Inneren des Roboters Platz finden mussten, und der Roboter länger und breiter als die Messzelle wurde (siehe Abbildung \ref{oben}).
+Dieser Abschnitt behandelt die Entwicklung der mechanischen Komponenten, diese sind die vier Mecanumräder und das Chassis des Roboters. Die maximale Bauhöhe ist durch den Windkanal im Sonnensimulator beschränkt, die minimale Bauhöhe ist durch den Durchmesser der Räder gegeben.
+Mit der Größe der Messzelle ist auch die minimale Ausdehnung in den beiden anderen Dimensionen festgelegt. Eine weiter Einschränkung beim Design war, dass die Motoren, der Akku und die Elektronik im Inneren des Roboters Platz finden mussten, wodurch der Roboter länger und breiter als die Messzelle wurde (siehe Abbildung \ref{oben}).
 
 \begin{figure}[htbp]
 \centering
@@ -401,21 +402,21 @@ Die horizontale Anordnung ist in Abbildung \ref{vorne} zu erkennen: Das Sensorar
  
 \subsection{Motorensteuerung}\thispagestyle{empty}
 
-Die Motorplatine \ref{hbridge2} besteht aus zwei integrierten H-Brücken-Bausteinen (IC1, IC2), einer 16 poligen Buchse und fünf zweipoligen Buchsen für die Stromversorgung und den Anschluss der vier Motoren. Bei den integrierten H-Brücken-Baustein handelt es sich um einen NJM2670 \cite{njm}, welcher zwei H-Brücken in einem Baustein vereint, zusätzlich verfügen diese Bausteine über eine interne Logik, welche Kurzschlüsse über die Brücke unmöglich macht.
+Die Motorplatine besteht aus zwei integrierten H-Brücken-Bausteinen (IC1, IC2), einer 16 poligen Buchse und fünf zweipoligen Buchsen für die Stromversorgung und den Anschluss der vier Motoren. Bei den integrierten H-Brücken-Baustein handelt es sich um einen NJM2670 \cite{njm}, welcher zwei H-Brücken in einem Baustein vereint, zusätzlich verfügen diese Bausteine über eine interne Logik, welche Kurzschlüsse über die Brücke unmöglich macht.
 Die Drehzahl der Motoren wird mit Pulsweitenmodulation variiert. Dabei ist es wichtig, dass die Transistoren in der Brücke schnell genug schalten können. Die PWM-Ausgänge des Arduino arbeiten mit einer Frequenz von etwa 500Hz \cite{pwm}.
 Die Gleichspannungsmotoren sind Getriebemotoren mit der Bezeichnung RB 35, und einem Übersetzungsverhältnis von 1:200. Die maximale Versorgungsspannung wurde mit 12V angegeben. Die Leerlaufdrehzahl beträgt bei 12V Versorgungsspannung 20 Umdrehungen pro Minute.
 Der Roboter wird mit einem Lithium-Ionen-Akku versorgt. Die Spannung beträgt, abhängig vom Ladezustand zwischen 16,4V und 15,0V. Damit die 12V-Motoren nicht überlastet werden, wird bei der Pulsweitenmodulation ein maximales Tastverhältnis von 50\% eingehalten.
- 
+Die in der Abbildung \ref{hbridge1} der Schaltung und der Abbildung \ref{hbridge1} der Platine sind die gleichen Bauteile mit der selben Farbe markiert, so sind etwa die NJM2670-Bausteine gelb gefärbt.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=150mm]{img/HBrucke.png}
-\caption{Der Schaltplan der Motortreiberplatine.}\label{hbridge2}
+\caption{Der Schaltplan der Motortreiberplatine.}\label{hbridge1}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=125mm]{img/hdrive.png}
+\includegraphics[width=100mm]{img/hdrive.png}
 \caption{Das Layout der Motortreiberplatine.}\label{hbridge2}
 \end{figure}
 
@@ -626,9 +627,9 @@ Das Steuerprogramm ist ein Zustandsautomat (siehe Abbildung \ref{abl}):
 \item Zustand q, y: Ausrichten, danach Wechsel zu Zustand v bzw. z.
 \end{itemize}
 
-Während der Geradeaus-Fahrt wird versucht sowohl die seitliche Verschiebung d als auch die Verdrehung k zu minimieren. Wenn beide Werte innerhalb gewisser Toleranzen sind, fährt der Roboter geradeaus. Die Schranken der Regelung sind in Abbildung \ref{schr} zu sehen. Die Regelung funktioniert als 3 Punktregler für die Verdrehung, und als Dreipunktregler für die Verschiebung, wobei bei einer zu großen Verdrehung und Verschiebung, die Verschiebung ausgeglichen wird. Zusätzlich gibt es noch eine Bewegung, die sich aus Geradeaus-Fahrt und Drehung zusammensetzt, und bei nicht zu großen Verdrehungen angewendet wird.
+Während der Geradeaus-Fahrt wird versucht sowohl die seitliche Verschiebung d als auch die Verdrehung k zu minimieren. Wenn beide Werte innerhalb gewisser Toleranzen sind, fährt der Roboter geradeaus. Die Schranken der Regelung sind in Abbildung \ref{schr} zu sehen. Die Regelung funktioniert als Dreipunktregler für die Verdrehung, und als Dreipunktregler für die Verschiebung, wobei Verschiebung eine höhere Priorität hat als die Verdrehung. Zusätzlich gibt es noch zwei weiter Bewegungsmoden (\textbf{vtl}, \textbf{vtr}), die sich aus einer Geradeaus-Fahrt und einer überlagerten Drehung zusammensetzen, und bei nicht zu großen Verdrehungen angewendet wird.
 
-Bei der Seitwärts-Fahrt wurde eine verbesserte Regelung angewandt, statt zwei Dreipunktreglern, wurde zwei P-Regler verwendet. Dabei wird zur Fahrt nach Rechts eine Vor/Zurück-Fahrt und eine Drehung überlagert. Somit gibt es keine ruckartigen Übergänge von einer Bewegung zur nächsten.
+Bei der Seitwärts-Fahrt wurde eine verbesserte Regelung angewandt, statt zwei Dreipunktreglern, wurde zwei P-Regler verwendet. Da die Motoren einen maximalen Wert für die Ansteuerung haben handelt es sich um eine Regelung mit Sättigung. Zur normalen Fahrt nach Rechts eine von der Verschiebung abhängige Vor/Zurück-Fahrt bzw. eine von der Verdrehung abhängige Drehung überlagert . Somit gibt es keine ruckartigen Übergänge von einem Bewegungsmodus zum Anderen.
 
 \begin{verbatim}
   vz = int(800*d2);
@@ -676,8 +677,7 @@ Die beiden unterschiedlichen Arten von Ecken wurden erforderlich durch die unter
 \chapter{Kalibration}\thispagestyle{empty}
 
 Dieses Kapitel beschreibt die Kalibrierung der Messsensoren. Es gibt drei Messplatinen, eine für die Messung des Kurzschlussstromes der Messzelle, und zwei identisch aufgebaute Messplatinen zur Messung der Zelltemperatur beziehungsweise der Umgebungstemperatur. Die Strom-Messplatine wandelt den Kurzschlussstrom der Messzelle in eine Spannung um, die in einem für den ADC des Arduino auswertbaren Bereich (0 bis 5 Volt) ist. Die beiden Messschaltungen zur Temperaturmessung wandeln die Größe der temperaturabhängigen Messwiderstände, jeweils ein Pt-100, in eine Spannung um.
-Die ADC-Messwerte wurden über die USB-Schnittstelle des Roboters ausgelesen. Dafür benötigt der Roboter ein einfaches Kalibrierprogramm.
-
+Zur Kalibrierung werden die ADC-Messwerte über die USB-Schnittstelle des Roboters ausgeben. Dazu muss der Programmwahlschalter auf \textbf{K} gestellt werden.
 
 
 \section{Temperatursensoren}\thispagestyle{empty}
@@ -930,10 +930,10 @@ Da die Messzelle nicht im Zentrum des Messroboters sitzt, sondern um zwei cm nac
 
 
 \subsection{Ablauf}\thispagestyle{empty}
-Vor der Messung ist der Akku des Roboters voll zu laden. Der Roboter ist auf mechanische Beschädigung zu untersuchen, besonders der Zustand der Räder ist zu kontrollieren.
+Vor der Messung ist der Ladezustand des Akkus zu messen, und gegebenenfalls nachzuladen. Der Roboter ist auf mechanische Beschädigung zu untersuchen, besonders der Zustand der Räder ist zu kontrollieren.
 Vor dem Einlegen der Platten in den Einschub des Sonnensimulators sind diese auf Beschädigungen zu untersuchen. Eine Beschädigung der Messbahn ist mit einem weißen Isolierband zu überkleben. Beschädigungen des Holzes direkt neben der Messbahn sind mit schwarzer Farbe auszubessern. Beschädigung an Stellen, die nicht im Sichtfeld das Sensorarray liegen können, sind egal.
 Die Platten sind in den Einschub des Sonnensimulators zu legen. Begonnen wird mit der rechten Platte. Die Übergänge der Messbahn von einer Platte zur nächsten sind mit weißem Isolierband  der Breite 14mm zu überbrücken. 
-Roboter wird auf das linke vordere Ende der Messbahn gestellt. Der Roboter muss dabei auf der Messbahn stehen. Kleinere Abweichungen der Idealposition werden beim losfahren korrigiert. 
+Die Startposition des Roboters ist die linke vordere Ende der Messbahn. Der Roboter muss mit dem Sensorarray auf der Messbahn stehen, das Sensorarray befindet sich in der Mitte des Roboters. Kleinere Abweichungen der Idealposition werden beim losfahren korrigiert. 
 Vor der eigentlichen Messfahrt ist eine Testfahrt mit geöffneter Lade des Sonnensimulators zu empfehlen. 
 Nach der bestandenen Testfahrt wird der Sonnensimulator eingeschaltet. Bis zur Messung sind 20 bis 30 Minuten zu warten, bis die Temperaturen im Simulator und das Spektrum der Lampen stabil sind. Der Roboter kann während dieser Zeit im Sonnensimulator stehen. Die Messzelle sollte allerdings abgeschattet werden, damit diese sich nicht aufheizt. 
 Zum Starten wird der Schalter von 0 auf 1 umgelegt. Damit wird der Mikrocontroller mit Spannung versorgt. Das Programm startet. Nach einer Pause von 60 Sekunden, die zum Schließen des Sonnensimulators notwendig ist, fährt der Roboter los. Eine Messfahrt, inklusive der Wartezeit vor der Fahrt, dauert etwa 13 Minuten. Nach Ablauf dieser Zeit wird der Roboter entnommen und die Daten der SD-Karte entnommen, oder der Roboter wird auf die Startposition gestellt um weitere Messfahrten durchzuführen.

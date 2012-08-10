@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.4.2)  6 JUL 2012 14:27
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.4.2)  9 AUG 2012 13:55
 entering extended mode
 **Master_Schmatz.tex
-("C:\Dokumente und Einstellungen\SchmatzT\Desktop\Master2\Master_Schmatz.tex"
+("C:\Dokumente und Einstellungen\SchmatzT\Desktop\Master\Master_Schmatz.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -512,6 +512,67 @@ File: babel.def 2008/07/08 v3.8m Babel common definitions
 \l@naustrian = a dialect from \language\l@ngerman 
 Package babel Info: Making " an active character on input line 92.
 ))
+("C:\Dokumente und Einstellungen\SchmatzT\Eigene Dateien\MikeTex\tex\latex\more
+floats\morefloats.sty"
+Package: morefloats 2012/01/28 v1.0f Raise limit of unprocessed floats (HMM; DH
+)
+Package morefloats Info: Maximum number of possible floats asked for: 36.
+(morefloats)             LaTeX might run out of memory before this
+(morefloats)             (in which case it will notify you).
+(morefloats)              on input line 171.
+\bx@S=\insert233
+\bx@T=\insert232
+\bx@U=\insert231
+\bx@V=\insert230
+\bx@W=\insert229
+\bx@X=\insert228
+\bx@Y=\insert227
+\bx@Z=\insert226
+\bx@AA=\insert225
+\bx@AB=\insert224
+\bx@AC=\insert223
+\bx@AD=\insert222
+\bx@AE=\insert221
+\bx@AF=\insert220
+\bx@AG=\insert219
+\bx@AH=\insert218
+\bx@AI=\insert217
+\bx@AJ=\insert216
+)
+("C:\Dokumente und Einstellungen\SchmatzT\Eigene Dateien\MikeTex\tex\latex\xcol
+or\xcolor.sty"
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+("C:\Dokumente und Einstellungen\SchmatzT\Eigene Dateien\MikeTex\tex\latex\00mi
+ktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Package option `usenames' ignored on input line 216.
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+("C:\Dokumente und Einstellungen\SchmatzT\Eigene Dateien\MikeTex\tex\latex\pdft
+ex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+\Gread@gobject=\count100
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+
+("C:\Dokumente und Einstellungen\SchmatzT\Eigene Dateien\MikeTex\tex\latex\grap
+hics\dvipsnam.def"
+File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+("C:\Dokumente und Einstellungen\SchmatzT\Eigene Dateien\MikeTex\tex\latex\plac
+eins\placeins.sty"
+Package: placeins 2005/04/18  v 2.2
+)
 ("C:\Dokumente und Einstellungen\SchmatzT\Eigene Dateien\MikeTex\tex\latex\ams\
 math\amsmath.sty"
 Package: amsmath 2000/07/18 v2.13 AMS math features
@@ -538,13 +599,13 @@ Package: amsbsy 1999/11/29 v1.2d
 math\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count100
+\inf@bad=\count101
 LaTeX Info: Redefining \frac on input line 211.
-\uproot@=\count101
-\leftroot@=\count102
+\uproot@=\count102
+\leftroot@=\count103
 LaTeX Info: Redefining \overline on input line 307.
-\classnum@=\count103
-\DOTSCASE@=\count104
+\classnum@=\count104
+\DOTSCASE@=\count105
 LaTeX Info: Redefining \ldots on input line 379.
 LaTeX Info: Redefining \dots on input line 382.
 LaTeX Info: Redefining \cdots on input line 467.
@@ -553,15 +614,15 @@ LaTeX Info: Redefining \cdots on input line 467.
 \big@size=\dimen109
 LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
-\macc@depth=\count105
-\c@MaxMatrixCols=\count106
+\macc@depth=\count106
+\c@MaxMatrixCols=\count107
 \dotsspace@=\muskip11
-\c@parentequation=\count107
-\dspbrk@lvl=\count108
+\c@parentequation=\count108
+\dspbrk@lvl=\count109
 \tag@help=\toks18
-\row@=\count109
-\column@=\count110
-\maxfields@=\count111
+\row@=\count110
+\column@=\count111
+\maxfields@=\count112
 \andhelp@=\toks19
 \eqnshift@=\dimen110
 \alignsep@=\dimen111
@@ -600,21 +661,6 @@ yhdr\fancyhdr.sty"
 \f@ncyO@olf=\skip58
 \f@ncyO@orf=\skip59
 )
-("C:\Dokumente und Einstellungen\SchmatzT\Eigene Dateien\MikeTex\tex\latex\grap
-hics\color.sty"
-Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
-
-("C:\Dokumente und Einstellungen\SchmatzT\Eigene Dateien\MikeTex\tex\latex\00mi
-ktex\color.cfg"
-File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
-)
-Package color Info: Driver file: pdftex.def on input line 130.
-
-("C:\Dokumente und Einstellungen\SchmatzT\Eigene Dateien\MikeTex\tex\latex\pdft
-ex-def\pdftex.def"
-File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-\Gread@gobject=\count112
-))
 ("C:\Dokumente und Einstellungen\SchmatzT\Eigene Dateien\MikeTex\tex\latex\psnf
 ss\helvet.sty"
 Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
@@ -676,29 +722,33 @@ igure\subfigure.cfg")
 irow\multirow.sty"
 \bigstrutjot=\dimen122
 )
-("C:\Dokumente und Einstellungen\SchmatzT\Desktop\Master2\Master_Schmatz.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 63.
+("C:\Dokumente und Einstellungen\SchmatzT\Desktop\Master\Master_Schmatz.aux"
+
+LaTeX Warning: Label `optb' multiply defined.
+
+)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 69.
 
 ("C:\Dokumente und Einstellungen\SchmatzT\Eigene Dateien\MikeTex\tex\latex\base
 \t1cmss.fd"
 File: t1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 \AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 63.
+Package hyperref Info: Link coloring OFF on input line 69.
 
 ("C:\Dokumente und Einstellungen\SchmatzT\Eigene Dateien\MikeTex\tex\latex\hype
 rref\nameref.sty"
@@ -710,12 +760,12 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count117
 )
-LaTeX Info: Redefining \ref on input line 63.
-LaTeX Info: Redefining \pageref on input line 63.
-LaTeX Info: Redefining \nameref on input line 63.
+LaTeX Info: Redefining \ref on input line 69.
+LaTeX Info: Redefining \pageref on input line 69.
+LaTeX Info: Redefining \nameref on input line 69.
 
-("C:\Dokumente und Einstellungen\SchmatzT\Desktop\Master2\Master_Schmatz.out")
-("C:\Dokumente und Einstellungen\SchmatzT\Desktop\Master2\Master_Schmatz.out")
+("C:\Dokumente und Einstellungen\SchmatzT\Desktop\Master\Master_Schmatz.out")
+("C:\Dokumente und Einstellungen\SchmatzT\Desktop\Master\Master_Schmatz.out")
 \@outlinefile=\write3
 
 ("C:\Dokumente und Einstellungen\SchmatzT\Eigene Dateien\MikeTex\tex\context\ba
@@ -733,39 +783,39 @@ se\supp-pdf.mkii"
 \makeMPintoPDFobject=\count123
 \everyMPtoPDFconversion=\toks24
 )
-LaTeX Font Info:    Try loading font information for T1+phv on input line 71.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 77.
 
 ("C:\Dokumente und Einstellungen\SchmatzT\Eigene Dateien\MikeTex\tex\latex\psnf
 ss\t1phv.fd"
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
-) <img/BM_2011.pdf, id=151, 598.235pt x 820.06375pt>
+) <img/BM_2011.pdf, id=171, 598.235pt x 820.06375pt>
 File: img/BM_2011.pdf Graphic file (type pdf)
 
 <use img/BM_2011.pdf>
-Package pdftex.def Info: img/BM_2011.pdf used on input line 72.
+Package pdftex.def Info: img/BM_2011.pdf used on input line 78.
 (pdftex.def)             Requested size: 598.74472pt x 845.10056pt.
- <img/FHTW_Logo_4c.pdf, id=152, 295.1025pt x 91.34125pt>
+ <img/FHTW_Logo_4c.pdf, id=172, 295.1025pt x 91.34125pt>
 File: img/FHTW_Logo_4c.pdf Graphic file (type pdf)
 
 <use img/FHTW_Logo_4c.pdf>
-Package pdftex.def Info: img/FHTW_Logo_4c.pdf used on input line 73.
+Package pdftex.def Info: img/FHTW_Logo_4c.pdf used on input line 79.
 (pdftex.def)             Requested size: 219.5848pt x 67.96777pt.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 74.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 80.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 74.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 80.
 
-Underfull \hbox (badness 1158) in paragraph at lines 85--85
+Underfull \hbox (badness 1158) in paragraph at lines 91--91
 \T1/phv/b/n/20.74 Be-strah-lungs-stär-ke-ver-tei-lung in ei-nem
  []
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 85.
+LaTeX Font Info:    Try loading font information for U+msa on input line 91.
 
 ("C:\Dokumente und Einstellungen\SchmatzT\Eigene Dateien\MikeTex\tex\latex\amsf
 onts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 85.
+LaTeX Font Info:    Try loading font information for U+msb on input line 91.
 
 ("C:\Dokumente und Einstellungen\SchmatzT\Eigene Dateien\MikeTex\tex\latex\amsf
 onts\umsb.fd"
@@ -774,640 +824,942 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 
 {C:/Dokumente und Einstellungen/SchmatzT/Lokale Einstellungen/Anwendungsdaten/M
 iKTeX/2.9/pdftex/config/pdftex.map} <C:/Dokumente und Einstellungen/SchmatzT/De
-sktop/Master2/img/BM_2011.pdf> <C:/Dokumente und Einstellungen/SchmatzT/Desktop
-/Master2/img/FHTW_Logo_4c.pdf>]
+sktop/Master/img/BM_2011.pdf> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/
+Master/img/FHTW_Logo_4c.pdf>]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 100.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 106.
  [2]
-Underfull \hbox (badness 1173) in paragraph at lines 113--114
+Underfull \hbox (badness 1173) in paragraph at lines 119--120
 \T1/cmss/m/n/10.95 Pla-ti-nen-frä-se und La-ser-cut-ter) ein-ge-setzt. Be-han-d
 elt wer-den theo-re-ti-sche Grund-la-gen und
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--114
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 122--123
+Underfull \hbox (badness 10000) in paragraph at lines 128--129
 
  []
 
 [4] [5]
-("C:\Dokumente und Einstellungen\SchmatzT\Desktop\Master2\Master_Schmatz.toc"
+("C:\Dokumente und Einstellungen\SchmatzT\Desktop\Master\Master_Schmatz.toc"
 [6
 
 ])
 \tf@toc=\write4
  [7]
 Kapitel 1.
+<img/airmass2.png, id=264, 934.49126pt x 470.75874pt>
+File: img/airmass2.png Graphic file (type png)
+ <use img/airmass2.png>
+Package pdftex.def Info: img/airmass2.png used on input line 166.
+(pdftex.def)             Requested size: 355.65944pt x 179.17032pt.
 
-LaTeX Warning: Citation `wurf' on page 1 undefined on input line 153.
-
-
-LaTeX Warning: Citation `norm3' on page 1 undefined on input line 154.
-
-<img/Solar_Spectrum.png, id=235, 803.0pt x 597.23125pt>
+<img/Solar_Spectrum.png, id=267, 803.0pt x 597.23125pt>
 File: img/Solar_Spectrum.png Graphic file (type png)
 
 <use img/Solar_Spectrum.png>
-Package pdftex.def Info: img/Solar_Spectrum.png used on input line 161.
-(pdftex.def)             Requested size: 284.52756pt x 211.62216pt.
-
-
-LaTeX Warning: Citation `sun' on page 1 undefined on input line 162.
-
-
-LaTeX Warning: Citation `sun' on page 1 undefined on input line 162.
-
+Package pdftex.def Info: img/Solar_Spectrum.png used on input line 172.
+(pdftex.def)             Requested size: 355.65944pt x 264.52313pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.176 
+l.187 
        [1
 
-] <img/sunsimulator.jpg, id=249, 3276.24pt x 2457.18pt>
-File: img/sunsimulator.jpg Graphic file (type jpg)
+]
 
-<use img/sunsimulator.jpg>
-Package pdftex.def Info: img/sunsimulator.jpg used on input line 180.
-(pdftex.def)             Requested size: 284.52756pt x 213.3755pt.
-
-
-LaTeX Warning: Citation `norm9' on page 2 undefined on input line 186.
-
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 188
-.
-LaTeX Font Info:    No file OMScmss.fd. on input line 188.
-
-LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbullet' on input line 188.
+LaTeX Font Warning: Font shape `T1/cmss/m/sc' in size <9> not available
+(Font)              Font shape `T1/cmr/m/sc' tried instead on input line 187.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.206 \end{equation}
-                     [2 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master
-2/img/Solar_Spectrum.png>]
+l.187 
+       [2 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/airmass2.
+png> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/Solar_Spectrum
+.png>] <img/sunsimulator.jpg, id=292, 3276.24pt x 2457.18pt>
+File: img/sunsimulator.jpg Graphic file (type jpg)
 
-LaTeX Font Warning: Font shape `T1/cmss/m/sc' in size <9> not available
-(Font)              Font shape `T1/cmr/m/sc' tried instead on input line 206.
-
+<use img/sunsimulator.jpg>
+Package pdftex.def Info: img/sunsimulator.jpg used on input line 191.
+(pdftex.def)             Requested size: 355.65944pt x 266.72876pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.206 \end{equation}
-                     [3 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master
-2/img/sunsimulator.jpg>]
-
-LaTeX Warning: Citation `iea00' on page 4 undefined on input line 234.
-
-<img/cell.png, id=262, 772.8875pt x 575.14874pt>
-File: img/cell.png Graphic file (type png)
- <use img/cell.png>
-Package pdftex.def Info: img/cell.png used on input line 238.
-(pdftex.def)             Requested size: 355.65944pt x 264.66817pt.
+l.199 \item d
+             ie spektrale Ãœbereinstimmung mit dem in Tabelle \ref{TabS1} au...
+[3 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/sunsimulator.jpg
+>]
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 199
+.
+LaTeX Font Info:    No file OMScmss.fd. on input line 199.
 
 
-LaTeX Warning: Citation `cell' on page 4 undefined on input line 239.
+LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbullet' on input line 199.
 
-
-LaTeX Warning: Citation `cell' on page 4 undefined on input line 239.
-
-<img/esb.png, id=264, 603.25375pt x 319.1925pt>
-File: img/esb.png Graphic file (type png)
- <use img/esb.png>
-Package pdftex.def Info: img/esb.png used on input line 246.
-(pdftex.def)             Requested size: 284.52756pt x 150.5465pt.
-
-
-LaTeX Warning: Citation `esb' on page 4 undefined on input line 247.
-
-
-LaTeX Warning: Citation `esb' on page 4 undefined on input line 247.
-
+<img/zelle2.png, id=302, 654.445pt x 469.755pt>
+File: img/zelle2.png Graphic file (type png)
+ <use img/zelle2.png>
+Package pdftex.def Info: img/zelle2.png used on input line 248.
+(pdftex.def)             Requested size: 355.65944pt x 255.29103pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.251 
-       [4]pdfTeX warning (ext4): destination with the same identifier (name{pag
-e.5}) has been already used, duplicate ignored
+       [4] <img/esb2.png, id=315, 1991.44pt x 723.70375pt>
+File: img/esb2.png Graphic file (type png)
+ <use img/esb2.png>
+Package pdftex.def Info: img/esb2.png used on input line 256.
+(pdftex.def)             Requested size: 355.65944pt x 129.2451pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.251 
-       [5 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/cell.png
-> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/esb.png>]
-<img/kennlinie.png, id=278, 799.98875pt x 546.04pt>
+l.261 
+       [5 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/zelle2.pn
+g>] <img/kennlinie.png, id=327, 799.98875pt x 546.04pt>
 File: img/kennlinie.png Graphic file (type png)
- <use img/kennlinie.png>
-Package pdftex.def Info: img/kennlinie.png used on input line 260.
+
+<use img/kennlinie.png>
+Package pdftex.def Info: img/kennlinie.png used on input line 270.
 (pdftex.def)             Requested size: 355.65944pt x 242.7579pt.
-
-
-LaTeX Warning: Citation `norm891' on page 6 undefined on input line 265.
-
-<img/mpp.png, id=281, 401.5pt x 250.9375pt>
-File: img/mpp.png Graphic file (type png)
- <use img/mpp.png>
-Package pdftex.def Info: img/mpp.png used on input line 271.
-(pdftex.def)             Requested size: 213.39566pt x 133.3753pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.275 \chapter
-              {Entwicklungsprozess}\thispagestyle{empty} [6 <C:/Dokumente und E
-instellungen/SchmatzT/Desktop/Master2/img/kennlinie.png>]pdfTeX warning (ext4):
- destination with the same identifier (name{page.7}) has been already used, dup
-licate ignored
+l.278 \end{equation}
+                     [6 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master
+/img/esb2.png> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/kenn
+linie.png>] <img/kennlinien.png, id=344, 691.58376pt x 395.4775pt>
+File: img/kennlinien.png Graphic file (type png)
+
+<use img/kennlinien.png>
+Package pdftex.def Info: img/kennlinien.png used on input line 284.
+(pdftex.def)             Requested size: 355.65944pt x 203.38655pt.
+ <img/el.png, id=347, 834.11626pt x 628.3475pt>
+File: img/el.png Graphic file (type png)
+
+<use img/el.png>
+Package pdftex.def Info: img/el.png used on input line 290.
+(pdftex.def)             Requested size: 284.52756pt x 214.33522pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.275 \chapter
+l.294 \chapter
               {Entwicklungsprozess}\thispagestyle{empty} [7 <C:/Dokumente und E
-instellungen/SchmatzT/Desktop/Master2/img/mpp.png>]
+instellungen/SchmatzT/Desktop/Master/img/kennlinien.png> <C:/Dokumente und Eins
+tellungen/SchmatzT/Desktop/Master/img/el.png>]
 Kapitel 2.
+<img/oben2.png, id=354, 2710.125pt x 1706.375pt>
+File: img/oben2.png Graphic file (type png)
+ <use img/oben2.png>
+Package pdftex.def Info: img/oben2.png used on input line 306.
+(pdftex.def)             Requested size: 355.65944pt x 223.91951pt.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 296.
-[8
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 311.
+ [8
 
-] <img/gerade.png, id=304, 166.6225pt x 221.82875pt>
+ <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/oben2.png>]
+<img/gerade.png, id=364, 166.6225pt x 221.82875pt>
 File: img/gerade.png Graphic file (type png)
  <use img/gerade.png>
-Package pdftex.def Info: img/gerade.png used on input line 303.
+Package pdftex.def Info: img/gerade.png used on input line 328.
 (pdftex.def)             Requested size: 142.26378pt x 189.41167pt.
 
-<img/seitw.png, id=305, 166.6225pt x 219.82124pt>
+<img/seitw.png, id=365, 166.6225pt x 219.82124pt>
 File: img/seitw.png Graphic file (type png)
  <use img/seitw.png>
-Package pdftex.def Info: img/seitw.png used on input line 304.
+Package pdftex.def Info: img/seitw.png used on input line 329.
 (pdftex.def)             Requested size: 142.26378pt x 187.69754pt.
 
-<img/dreh.png, id=306, 169.63374pt x 220.825pt>
+<img/dreh.png, id=366, 169.63374pt x 220.825pt>
 File: img/dreh.png Graphic file (type png)
  <use img/dreh.png>
-Package pdftex.def Info: img/dreh.png used on input line 305.
+Package pdftex.def Info: img/dreh.png used on input line 330.
 (pdftex.def)             Requested size: 142.26378pt x 185.20193pt.
 
-<img/wheel.png, id=307, 647.41875pt x 566.115pt>
+<img/wheel.png, id=367, 647.41875pt x 566.115pt>
 File: img/wheel.png Graphic file (type png)
  <use img/wheel.png>
-Package pdftex.def Info: img/wheel.png used on input line 311.
+Package pdftex.def Info: img/wheel.png used on input line 336.
 (pdftex.def)             Requested size: 213.39566pt x 186.59393pt.
 
-<img/rad.jpg, id=308, 411.78844pt x 397.485pt>
+<img/rad.jpg, id=368, 411.78844pt x 397.485pt>
 File: img/rad.jpg Graphic file (type jpg)
  <use img/rad.jpg>
-Package pdftex.def Info: img/rad.jpg used on input line 317.
+Package pdftex.def Info: img/rad.jpg used on input line 342.
 (pdftex.def)             Requested size: 213.39566pt x 205.98376pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 321--333
-
- []
-
-[9 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/gerade.png> <C:
-/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/seitw.png> <C:/Dokume
-nte und Einstellungen/SchmatzT/Desktop/Master2/img/dreh.png> <C:/Dokumente und 
-Einstellungen/SchmatzT/Desktop/Master2/img/wheel.png>]
-Underfull \hbox (badness 3354) in paragraph at lines 334--336
-[]\T1/cmss/m/n/10.95 Analyse von ei-nem ABS-Kunststoff: Cha-rac-te-ri-za-ti-on 
-of Ma-te-ri-al Pro-per-ties $\OML/cmm/m/it/10.95 http \OT1/cmr/m/n/10.95 :
- []
-
-
-Overfull \hbox (103.89163pt too wide) in paragraph at lines 334--336
-\OML/cmm/m/it/10.95 ==www:stratasys:com=sitecore=shell=Applications= =media=For
-tus=Files=PDFs=MaterialPropertiesReport \OMS/cmss/m/n/10.95  
- []
-
-[10 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/rad.jpg>]
-<img/gehause3.png, id=329, 1545.775pt x 1678.27pt>
+ [9] [10 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/gerade.png
+> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/seitw.png> <C:/Do
+kumente und Einstellungen/SchmatzT/Desktop/Master/img/dreh.png> <C:/Dokumente u
+nd Einstellungen/SchmatzT/Desktop/Master/img/wheel.png>] [11 <C:/Dokumente und 
+Einstellungen/SchmatzT/Desktop/Master/img/rad.jpg>]
+<img/gehause3.png, id=394, 1545.775pt x 1678.27pt>
 File: img/gehause3.png Graphic file (type png)
  <use img/gehause3.png>
-Package pdftex.def Info: img/gehause3.png used on input line 364.
+Package pdftex.def Info: img/gehause3.png used on input line 371.
 (pdftex.def)             Requested size: 355.65944pt x 386.14763pt.
 
-<img/robo3d.png, id=330, 1367.1075pt x 636.3775pt>
+<img/robo3d.png, id=395, 1367.1075pt x 636.3775pt>
 File: img/robo3d.png Graphic file (type png)
  <use img/robo3d.png>
-Package pdftex.def Info: img/robo3d.png used on input line 370.
+Package pdftex.def Info: img/robo3d.png used on input line 377.
 (pdftex.def)             Requested size: 355.65944pt x 165.55135pt.
 
-<img/bodenplatte.png, id=332, 772.8875pt x 839.135pt>
+<img/bodenplatte.png, id=398, 772.8875pt x 839.135pt>
 File: img/bodenplatte.png Graphic file (type png)
 
 <use img/bodenplatte.png>
-Package pdftex.def Info: img/bodenplatte.png used on input line 383.
+Package pdftex.def Info: img/bodenplatte.png used on input line 391.
 (pdftex.def)             Requested size: 284.52756pt x 308.91298pt.
+ [12 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/gehause3.png>]
+ <img/vorne.png, id=405, 1063.975pt x 255.95625pt>
+File: img/vorne.png Graphic file (type png)
 
-
-LaTeX Warning: Citation `njm' on page 11 undefined on input line 389.
-
-
-LaTeX Warning: Citation `pwm' on page 11 undefined on input line 390.
-
-[11] [12 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/gehause3.
-png> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/robo3d.png>]
-[13 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/bodenplatte.pn
-g>] <img/HBrucke.png, id=352, 914.41624pt x 565.11125pt>
+<use img/vorne.png>
+Package pdftex.def Info: img/vorne.png used on input line 397.
+(pdftex.def)             Requested size: 426.79134pt x 102.6697pt.
+ [13 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/robo3d.png>] [
+14 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/bodenplatte.png>
+ <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/vorne.png>] <img/H
+Brucke.png, id=421, 914.41624pt x 565.11125pt>
 File: img/HBrucke.png Graphic file (type png)
- <use img/HBrucke.png>
-Package pdftex.def Info: img/HBrucke.png used on input line 397.
+
+<use img/HBrucke.png>
+Package pdftex.def Info: img/HBrucke.png used on input line 413.
 (pdftex.def)             Requested size: 426.79134pt x 263.75702pt.
+ <img/hdrive.png, id=422, 693.59125pt x 334.24875pt>
+File: img/hdrive.png Graphic file (type png)
 
-<img/array.png, id=353, 1034.86626pt x 576.1525pt>
+<use img/hdrive.png>
+Package pdftex.def Info: img/hdrive.png used on input line 419.
+(pdftex.def)             Requested size: 284.52756pt x 137.11937pt.
+ [15 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/HBrucke.png>] 
+<img/cny1.png, id=432, 400.49625pt x 186.6975pt>
+File: img/cny1.png Graphic file (type png)
+
+<use img/cny1.png>
+Package pdftex.def Info: img/cny1.png used on input line 435.
+(pdftex.def)             Requested size: 215.19551pt x 100.3166pt.
+ <img/cny2.png, id=433, 378.41376pt x 228.855pt>
+File: img/cny2.png Graphic file (type png)
+
+<use img/cny2.png>
+Package pdftex.def Info: img/cny2.png used on input line 436.
+(pdftex.def)             Requested size: 215.19551pt x 130.14488pt.
+ <img/array.png, id=434, 1034.86626pt x 576.1525pt>
 File: img/array.png Graphic file (type png)
- <use img/array.png>
-Package pdftex.def Info: img/array.png used on input line 412.
+
+<use img/array.png>
+Package pdftex.def Info: img/array.png used on input line 442.
 (pdftex.def)             Requested size: 355.65944pt x 198.00797pt.
+ [16 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/hdrive.png>] [
+17 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/cny1.png> <C:/Do
+kumente und Einstellungen/SchmatzT/Desktop/Master/img/cny2.png> <C:/Dokumente u
+nd Einstellungen/SchmatzT/Desktop/Master/img/array.png>]
+<img/array21.png, id=449, 985.6825pt x 988.69376pt>
+File: img/array21.png Graphic file (type png)
+ <use img/array21.png>
+Package pdftex.def Info: img/array21.png used on input line 453.
+(pdftex.def)             Requested size: 284.52756pt x 285.40135pt.
 
-<img/array2.png, id=354, 614.295pt x 591.20876pt>
-File: img/array2.png Graphic file (type png)
- <use img/array2.png>
-Package pdftex.def Info: img/array2.png used on input line 422.
-(pdftex.def)             Requested size: 355.65944pt x 342.2969pt.
- [14 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/HBrucke.png>]
-
-<img/sensor_array.jpg, id=359, 2826.56pt x 2119.92pt>
+<img/sensor_array.jpg, id=450, 2826.56pt x 2119.92pt>
 File: img/sensor_array.jpg Graphic file (type jpg)
 
 <use img/sensor_array.jpg>
-Package pdftex.def Info: img/sensor_array.jpg used on input line 428.
+Package pdftex.def Info: img/sensor_array.jpg used on input line 459.
 (pdftex.def)             Requested size: 355.65944pt x 266.7361pt.
+ [18 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/array21.png>] 
+<img/refu.png, id=457, 726.715pt x 219.82124pt>
+File: img/refu.png Graphic file (type png)
 
+<use img/refu.png>
+Package pdftex.def Info: img/refu.png used on input line 474.
+(pdftex.def)             Requested size: 284.52756pt x 86.06535pt.
+ <img/refu2.png, id=458, 495.8525pt x 182.6825pt>
+File: img/refu2.png Graphic file (type png)
 
-LaTeX Warning: Reference `akku' on page 15 undefined on input line 438.
-
-[15 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/array.png>]
-[16 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/array2.png>]
-[17 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/sensor_array.j
-pg>] <img/ArduinoMega2.jpg, id=375, 523.9575pt x 254.45062pt>
+<use img/refu2.png>
+Package pdftex.def Info: img/refu2.png used on input line 480.
+(pdftex.def)             Requested size: 284.52756pt x 104.82697pt.
+ [19 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/sensor_array.j
+pg> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/refu.png>] <img
+/ArduinoMega2.jpg, id=465, 523.9575pt x 254.45062pt>
 File: img/ArduinoMega2.jpg Graphic file (type jpg)
 
 <use img/ArduinoMega2.jpg>
-Package pdftex.def Info: img/ArduinoMega2.jpg used on input line 453.
+Package pdftex.def Info: img/ArduinoMega2.jpg used on input line 493.
 (pdftex.def)             Requested size: 284.52756pt x 138.1778pt.
+ <img/kenn2.png, id=467, 242.9075pt x 260.975pt>
+File: img/kenn2.png Graphic file (type png)
+
+<use img/kenn2.png>
+Package pdftex.def Info: img/kenn2.png used on input line 503.
+(pdftex.def)             Requested size: 142.26378pt x 152.84299pt.
+ [20 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/refu2.png> <C:
+/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/ArduinoMega2.jpg>] <im
+g/i1.png, id=475, 998.73125pt x 322.20375pt>
+File: img/i1.png Graphic file (type png)
+
+<use img/i1.png>
+Package pdftex.def Info: img/i1.png used on input line 509.
+(pdftex.def)             Requested size: 284.52756pt x 91.78969pt.
+ <img/i2.png, id=476, 637.38126pt x 340.27126pt>
+File: img/i2.png Graphic file (type png)
+
+<use img/i2.png>
+Package pdftex.def Info: img/i2.png used on input line 515.
+(pdftex.def)             Requested size: 213.39566pt x 113.92018pt.
+ [21 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/kenn2.png> <C:
+/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/i1.png> <C:/Dokumente 
+und Einstellungen/SchmatzT/Desktop/Master/img/i2.png>]
+<img/shield.png, id=487, 867.24pt x 594.22pt>
+File: img/shield.png Graphic file (type png)
+ <use img/shield.png>
+Package pdftex.def Info: img/shield.png used on input line 530.
+(pdftex.def)             Requested size: 355.65944pt x 243.69525pt.
 
 
-LaTeX Warning: Citation `ref200' on page 18 undefined on input line 458.
+LaTeX Warning: Command \ss invalid in math mode on input line 538.
 
-<img/tmess.png, id=378, 978.65625pt x 445.665pt>
+Missing character: There is no ÿ in font cmr10!
+
+LaTeX Warning: Command \ss invalid in math mode on input line 538.
+
+Missing character: There is no ÿ in font cmr10!
+<img/tmess.png, id=491, 978.65625pt x 445.665pt>
 File: img/tmess.png Graphic file (type png)
  <use img/tmess.png>
-Package pdftex.def Info: img/tmess.png used on input line 463.
+Package pdftex.def Info: img/tmess.png used on input line 544.
 (pdftex.def)             Requested size: 355.65944pt x 161.96254pt.
 
-<img/tmess2.png, id=379, 641.39626pt x 303.1325pt>
+<img/tmess2.png, id=492, 641.39626pt x 303.1325pt>
 File: img/tmess2.png Graphic file (type png)
  <use img/tmess2.png>
-Package pdftex.def Info: img/tmess2.png used on input line 469.
+Package pdftex.def Info: img/tmess2.png used on input line 550.
 (pdftex.def)             Requested size: 284.52756pt x 134.47493pt.
 
-[18 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/ArduinoMega2.j
-pg> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/tmess.png>]
-<img/Arduino.png, id=389, 487.8225pt x 595.22375pt>
+[22 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/shield.png>]
+[23 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/tmess.png> <C:/
+Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/tmess2.png>]
+<img/Arduino.png, id=507, 487.8225pt x 595.22375pt>
 File: img/Arduino.png Graphic file (type png)
  <use img/Arduino.png>
-Package pdftex.def Info: img/Arduino.png used on input line 483.
+Package pdftex.def Info: img/Arduino.png used on input line 568.
 (pdftex.def)             Requested size: 284.52756pt x 347.17365pt.
 
-[19 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/tmess2.png>]
-[20 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/Arduino.png>]
-<img/array5.png, id=400, 181.67876pt x 181.67876pt>
+[24 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/Arduino.png>]
+<img/array3.png, id=515, 181.67876pt x 181.67876pt>
+File: img/array3.png Graphic file (type png)
+ <use img/array3.png>
+Package pdftex.def Info: img/array3.png used on input line 593.
+(pdftex.def)             Requested size: 142.26378pt x 142.26605pt.
+
+<img/array4.png, id=516, 181.67876pt x 181.67876pt>
+File: img/array4.png Graphic file (type png)
+ <use img/array4.png>
+Package pdftex.def Info: img/array4.png used on input line 594.
+(pdftex.def)             Requested size: 142.26378pt x 142.26605pt.
+
+<img/array5.png, id=517, 181.67876pt x 181.67876pt>
 File: img/array5.png Graphic file (type png)
  <use img/array5.png>
-Package pdftex.def Info: img/array5.png used on input line 508.
+Package pdftex.def Info: img/array5.png used on input line 601.
 (pdftex.def)             Requested size: 142.26378pt x 142.26605pt.
 
-<img/array6.png, id=401, 181.67876pt x 181.67876pt>
+<img/array6.png, id=518, 181.67876pt x 181.67876pt>
 File: img/array6.png Graphic file (type png)
  <use img/array6.png>
-Package pdftex.def Info: img/array6.png used on input line 509.
+Package pdftex.def Info: img/array6.png used on input line 602.
 (pdftex.def)             Requested size: 142.26378pt x 142.26605pt.
 
-<img/ablauf2.png, id=402, 712.6625pt x 431.6125pt>
-File: img/ablauf2.png Graphic file (type png)
- <use img/ablauf2.png>
-Package pdftex.def Info: img/ablauf2.png used on input line 521.
-(pdftex.def)             Requested size: 426.79134pt x 258.47554pt.
-
-<img/schranken.png, id=403, 642.4pt x 481.8pt>
-File: img/schranken.png Graphic file (type png)
- <use img/schranken.png>
-Package pdftex.def Info: img/schranken.png used on input line 527.
-(pdftex.def)             Requested size: 213.39566pt x 160.04578pt.
- [21 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/array5.png> <
-C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/array6.png>] [22 <C
-:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/ablauf2.png (PNG cop
-y)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/schranken.png>
-]
-[23] [24]
-Kapitel 3.
-<img/messa.png, id=426, 538.01pt x 355.3275pt>
-File: img/messa.png Graphic file (type png)
- <use img/messa.png>
-Package pdftex.def Info: img/messa.png used on input line 629.
-(pdftex.def)             Requested size: 284.52756pt x 187.91603pt.
-
-<img/messb.png, id=427, 518.93875pt x 344.28625pt>
-File: img/messb.png Graphic file (type png)
- <use img/messb.png>
-Package pdftex.def Info: img/messb.png used on input line 667.
-(pdftex.def)             Requested size: 284.52756pt x 188.77489pt.
-
-
-LaTeX Warning: Citation `berger' on page 25 undefined on input line 685.
-
-<img/zelle.jpg, id=432, 2826.56pt x 2119.92pt>
-File: img/zelle.jpg Graphic file (type jpg)
- <use img/zelle.jpg>
-Package pdftex.def Info: img/zelle.jpg used on input line 689.
-(pdftex.def)             Requested size: 213.39566pt x 160.02225pt.
-
-<img/Isc.png, id=433, 894.34125pt x 482.80376pt>
-File: img/Isc.png Graphic file (type png)
- <use img/Isc.png>
-Package pdftex.def Info: img/Isc.png used on input line 695.
-(pdftex.def)             Requested size: 426.79134pt x 230.40237pt.
- [25
-
-]
-[26 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/messa.png>]
-[27 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/messb.png>]
-[28 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/zelle.jpg> <C:
-/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/Isc.png>]
-<img/16grad.png, id=458, 607.26875pt x 349.305pt>
-File: img/16grad.png Graphic file (type png)
- <use img/16grad.png>
-Package pdftex.def Info: img/16grad.png used on input line 744.
-(pdftex.def)             Requested size: 426.79134pt x 245.49786pt.
- [29]
-[30 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/16grad.png>]
-[31]
-Kapitel 4.
-<img/robofahrt.jpg, id=480, 509.2626pt x 382.0674pt>
-File: img/robofahrt.jpg Graphic file (type jpg)
- <use img/robofahrt.jpg>
-Package pdftex.def Info: img/robofahrt.jpg used on input line 801.
-(pdftex.def)             Requested size: 284.52756pt x 213.46657pt.
-
-[32
-
- <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/robofahrt.jpg>] <
-img/messbahn1.png, id=486, 566.115pt x 371.88937pt>
-File: img/messbahn1.png Graphic file (type png)
- <use img/messbahn1.png>
-Package pdftex.def Info: img/messbahn1.png used on input line 817.
-(pdftex.def)             Requested size: 355.65944pt x 233.64464pt.
-
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 863--865
-
- []
-
-[34 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/messbahn1.png 
-(PNG copy)>]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 881.
+[25 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/array3.png (PNG
+ copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/array4.png>
+] [26 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/array5.png> <
+C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/array6.png>]
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 634.
 
 
 ("C:\Dokumente und Einstellungen\SchmatzT\Eigene Dateien\MikeTex\tex\latex\base
 \t1cmtt.fd"
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-) <img/hugel.png, id=498, 1284.8pt x 698.61pt>
-File: img/hugel.png Graphic file (type png)
- <use img/hugel.png>
-Package pdftex.def Info: img/hugel.png used on input line 906.
-(pdftex.def)             Requested size: 426.79134pt x 232.06638pt.
+) <img/ablauf2.png, id=538, 712.6625pt x 431.6125pt>
+File: img/ablauf2.png Graphic file (type png)
 
-<img/karte1.png, id=499, 1284.8pt x 698.61pt>
-File: img/karte1.png Graphic file (type png)
- <use img/karte1.png>
-Package pdftex.def Info: img/karte1.png used on input line 914.
-(pdftex.def)             Requested size: 426.79134pt x 232.06638pt.
+<use img/ablauf2.png>
+Package pdftex.def Info: img/ablauf2.png used on input line 653.
+(pdftex.def)             Requested size: 426.79134pt x 258.47554pt.
+ <img/schranken.png, id=539, 642.4pt x 481.8pt>
+File: img/schranken.png Graphic file (type png)
 
-<img/vergleich23.png, id=500, 1284.8pt x 698.61pt>
-File: img/vergleich23.png Graphic file (type png)
- <use img/vergleich23.png>
-Package pdftex.def Info: img/vergleich23.png used on input line 920.
-(pdftex.def)             Requested size: 426.79134pt x 232.06638pt.
+<use img/schranken.png>
+Package pdftex.def Info: img/schranken.png used on input line 659.
+(pdftex.def)             Requested size: 227.62204pt x 170.71304pt.
+ <img/detail.png, id=540, 1141.26375pt x 665.48625pt>
+File: img/detail.png Graphic file (type png)
 
-<img/tempm1.png, id=501, 1284.8pt x 698.61pt>
-File: img/tempm1.png Graphic file (type png)
- <use img/tempm1.png>
-Package pdftex.def Info: img/tempm1.png used on input line 926.
-(pdftex.def)             Requested size: 426.79134pt x 232.06638pt.
+<use img/detail.png>
+Package pdftex.def Info: img/detail.png used on input line 665.
+(pdftex.def)             Requested size: 284.52756pt x 165.90404pt.
+ <img/ecke2.png, id=541, 262.9825pt x 431.6125pt>
+File: img/ecke2.png Graphic file (type png)
 
-<img/tempm2.png, id=502, 1284.8pt x 698.61pt>
-File: img/tempm2.png Graphic file (type png)
- <use img/tempm2.png>
-Package pdftex.def Info: img/tempm2.png used on input line 932.
-(pdftex.def)             Requested size: 426.79134pt x 232.06638pt.
- [35]
-[36 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/hugel.png> <C:
-/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/karte1.png>] [37 <C:/
-Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/vergleich23.png> <C:/D
-okumente und Einstellungen/SchmatzT/Desktop/Master2/img/tempm1.png>]
-<img/E1.png, id=527, 1284.8pt x 698.61pt>
+<use img/ecke2.png>
+Package pdftex.def Info: img/ecke2.png used on input line 672.
+(pdftex.def)             Requested size: 142.26378pt x 233.49535pt.
+ [27] [28 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/ablauf2.p
+ng (PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/schr
+anken.png>] [29 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/det
+ail.png> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/ecke2.png 
+(PNG copy)>]
+Kapitel 3.
+<img/messa.png, id=558, 538.01pt x 355.3275pt>
+File: img/messa.png Graphic file (type png)
+ <use img/messa.png>
+Package pdftex.def Info: img/messa.png used on input line 724.
+(pdftex.def)             Requested size: 284.52756pt x 187.91603pt.
+
+<img/messb.png, id=559, 518.93875pt x 344.28625pt>
+File: img/messb.png Graphic file (type png)
+ <use img/messb.png>
+Package pdftex.def Info: img/messb.png used on input line 762.
+(pdftex.def)             Requested size: 284.52756pt x 188.77489pt.
+
+<img/zelle.jpg, id=565, 2826.56pt x 2119.92pt>
+File: img/zelle.jpg Graphic file (type jpg)
+ <use img/zelle.jpg>
+Package pdftex.def Info: img/zelle.jpg used on input line 786.
+(pdftex.def)             Requested size: 213.39566pt x 160.02225pt.
+
+<img/Isc.png, id=566, 894.34125pt x 482.80376pt>
+File: img/Isc.png Graphic file (type png)
+ <use img/Isc.png>
+Package pdftex.def Info: img/Isc.png used on input line 792.
+(pdftex.def)             Requested size: 426.79134pt x 230.40237pt.
+ [30
+
+]
+[31 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/messa.png>]
+[32 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/messb.png>]
+[33 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/zelle.jpg> <C:/
+Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/Isc.png>]
+<img/16grad.png, id=593, 607.26875pt x 349.305pt>
+File: img/16grad.png Graphic file (type png)
+ <use img/16grad.png>
+Package pdftex.def Info: img/16grad.png used on input line 841.
+(pdftex.def)             Requested size: 426.79134pt x 245.49786pt.
+ [34]
+[35 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/16grad.png>]
+[36]
+Kapitel 4.
+<img/robofahrt.jpg, id=615, 509.2626pt x 382.0674pt>
+File: img/robofahrt.jpg Graphic file (type jpg)
+ <use img/robofahrt.jpg>
+Package pdftex.def Info: img/robofahrt.jpg used on input line 898.
+(pdftex.def)             Requested size: 284.52756pt x 213.46657pt.
+
+[37
+
+ <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/robofahrt.jpg>] <i
+mg/dreiplatten10.png, id=623, 3713.875pt x 2622.79875pt>
+File: img/dreiplatten10.png Graphic file (type png)
+
+<use img/dreiplatten10.png>
+Package pdftex.def Info: img/dreiplatten10.png used on input line 915.
+(pdftex.def)             Requested size: 355.65944pt x 251.16951pt.
+
+<img/punkte.png, id=624, 1856.9375pt x 1310.8975pt>
+File: img/punkte.png Graphic file (type png)
+ <use img/punkte.png>
+Package pdftex.def Info: img/punkte.png used on input line 921.
+(pdftex.def)             Requested size: 355.65944pt x 251.07338pt.
+
+<img/lampen.png, id=625, 301.125pt x 150.5625pt>
+File: img/lampen.png Graphic file (type png)
+ <use img/lampen.png>
+Package pdftex.def Info: img/lampen.png used on input line 927.
+(pdftex.def)             Requested size: 213.39566pt x 106.70253pt.
+ [38]
+[39 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/dreiplatten10.p
+ng> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/punkte.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 964--966
+
+ []
+
+[40 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/lampen.png>]
+<img/g3d.png, id=645, 964.35281pt x 523.9575pt>
+File: img/g3d.png Graphic file (type png)
+ <use img/g3d.png>
+Package pdftex.def Info: img/g3d.png used on input line 1016.
+(pdftex.def)             Requested size: 355.65944pt x 193.23763pt.
+
+<img/g2d.png, id=646, 964.35281pt x 523.9575pt>
+File: img/g2d.png Graphic file (type png)
+ <use img/g2d.png>
+Package pdftex.def Info: img/g2d.png used on input line 1022.
+(pdftex.def)             Requested size: 355.65944pt x 193.23763pt.
+
+<img/tcell.png, id=647, 964.35281pt x 523.9575pt>
+File: img/tcell.png Graphic file (type png)
+ <use img/tcell.png>
+Package pdftex.def Info: img/tcell.png used on input line 1027.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+
+<img/t2.png, id=648, 964.35281pt x 523.9575pt>
+File: img/t2.png Graphic file (type png)
+ <use img/t2.png>
+Package pdftex.def Info: img/t2.png used on input line 1028.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+ [41] [42 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/g3d.png (
+PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/g2d.png 
+(PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/tcell.p
+ng (PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/t2.p
+ng (PNG copy)>]
+<img/E1.png, id=666, 964.35281pt x 523.9575pt>
 File: img/E1.png Graphic file (type png)
  <use img/E1.png>
-Package pdftex.def Info: img/E1.png used on input line 949.
-(pdftex.def)             Requested size: 215.19551pt x 117.00323pt.
+Package pdftex.def Info: img/E1.png used on input line 1043.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
 
-<img/E1a.png, id=528, 1284.8pt x 698.61pt>
+<img/E1a.png, id=667, 964.35281pt x 523.9575pt>
 File: img/E1a.png Graphic file (type png)
  <use img/E1a.png>
-Package pdftex.def Info: img/E1a.png used on input line 950.
-(pdftex.def)             Requested size: 215.19551pt x 117.00323pt.
+Package pdftex.def Info: img/E1a.png used on input line 1044.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
 
-<img/E2.png, id=529, 1284.8pt x 698.61pt>
+<img/E2.png, id=668, 964.35281pt x 523.9575pt>
 File: img/E2.png Graphic file (type png)
  <use img/E2.png>
-Package pdftex.def Info: img/E2.png used on input line 955.
-(pdftex.def)             Requested size: 215.19551pt x 117.00323pt.
+Package pdftex.def Info: img/E2.png used on input line 1050.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
 
-<img/E2a.png, id=530, 1284.8pt x 698.61pt>
+<img/E2a.png, id=669, 964.35281pt x 523.9575pt>
 File: img/E2a.png Graphic file (type png)
  <use img/E2a.png>
-Package pdftex.def Info: img/E2a.png used on input line 956.
-(pdftex.def)             Requested size: 215.19551pt x 117.00323pt.
+Package pdftex.def Info: img/E2a.png used on input line 1051.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
 
-<img/E3.png, id=531, 1284.8pt x 698.61pt>
+<img/E3.png, id=670, 964.35281pt x 523.9575pt>
 File: img/E3.png Graphic file (type png)
  <use img/E3.png>
-Package pdftex.def Info: img/E3.png used on input line 961.
-(pdftex.def)             Requested size: 215.19551pt x 117.00323pt.
+Package pdftex.def Info: img/E3.png used on input line 1057.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
 
-<img/E3a.png, id=532, 1284.8pt x 698.61pt>
+<img/E3a.png, id=671, 964.35281pt x 523.9575pt>
 File: img/E3a.png Graphic file (type png)
  <use img/E3a.png>
-Package pdftex.def Info: img/E3a.png used on input line 962.
-(pdftex.def)             Requested size: 215.19551pt x 117.00323pt.
+Package pdftex.def Info: img/E3a.png used on input line 1058.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
 
-<img/E4.png, id=533, 1284.8pt x 698.61pt>
+<img/E4.png, id=672, 964.35281pt x 523.9575pt>
 File: img/E4.png Graphic file (type png)
  <use img/E4.png>
-Package pdftex.def Info: img/E4.png used on input line 967.
-(pdftex.def)             Requested size: 215.19551pt x 117.00323pt.
+Package pdftex.def Info: img/E4.png used on input line 1064.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
 
-<img/E4a.png, id=534, 1284.8pt x 698.61pt>
+<img/E4a.png, id=673, 964.35281pt x 523.9575pt>
 File: img/E4a.png Graphic file (type png)
  <use img/E4a.png>
-Package pdftex.def Info: img/E4a.png used on input line 968.
-(pdftex.def)             Requested size: 215.19551pt x 117.00323pt.
+Package pdftex.def Info: img/E4a.png used on input line 1065.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
 
-<img/E5.png, id=535, 1284.8pt x 698.61pt>
+<img/E5.png, id=674, 964.35281pt x 523.9575pt>
 File: img/E5.png Graphic file (type png)
  <use img/E5.png>
-Package pdftex.def Info: img/E5.png used on input line 973.
-(pdftex.def)             Requested size: 215.19551pt x 117.00323pt.
+Package pdftex.def Info: img/E5.png used on input line 1071.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
 
-<img/E5a.png, id=536, 1284.8pt x 698.61pt>
+<img/E5a.png, id=675, 964.35281pt x 523.9575pt>
 File: img/E5a.png Graphic file (type png)
  <use img/E5a.png>
-Package pdftex.def Info: img/E5a.png used on input line 974.
-(pdftex.def)             Requested size: 215.19551pt x 117.00323pt.
+Package pdftex.def Info: img/E5a.png used on input line 1072.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
 
-<img/E6.png, id=537, 1284.8pt x 698.61pt>
+<img/E6.png, id=676, 964.35281pt x 523.9575pt>
 File: img/E6.png Graphic file (type png)
  <use img/E6.png>
-Package pdftex.def Info: img/E6.png used on input line 979.
-(pdftex.def)             Requested size: 215.19551pt x 117.00323pt.
+Package pdftex.def Info: img/E6.png used on input line 1078.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
 
-<img/E6a.png, id=538, 1284.8pt x 698.61pt>
+<img/E6a.png, id=677, 964.35281pt x 523.9575pt>
 File: img/E6a.png Graphic file (type png)
  <use img/E6a.png>
-Package pdftex.def Info: img/E6a.png used on input line 980.
-(pdftex.def)             Requested size: 215.19551pt x 117.00323pt.
+Package pdftex.def Info: img/E6a.png used on input line 1079.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
 
-<img/E7.png, id=539, 1284.8pt x 698.61pt>
+<img/E7.png, id=678, 964.35281pt x 523.9575pt>
 File: img/E7.png Graphic file (type png)
  <use img/E7.png>
-Package pdftex.def Info: img/E7.png used on input line 985.
-(pdftex.def)             Requested size: 215.19551pt x 117.00323pt.
+Package pdftex.def Info: img/E7.png used on input line 1085.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
 
-<img/E7a.png, id=540, 1284.8pt x 698.61pt>
+<img/E7a.png, id=679, 964.35281pt x 523.9575pt>
 File: img/E7a.png Graphic file (type png)
  <use img/E7a.png>
-Package pdftex.def Info: img/E7a.png used on input line 986.
-(pdftex.def)             Requested size: 215.19551pt x 117.00323pt.
+Package pdftex.def Info: img/E7a.png used on input line 1086.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
 
-<img/E8.png, id=541, 1284.8pt x 698.61pt>
+<img/E8.png, id=680, 964.35281pt x 523.9575pt>
 File: img/E8.png Graphic file (type png)
  <use img/E8.png>
-Package pdftex.def Info: img/E8.png used on input line 991.
-(pdftex.def)             Requested size: 215.19551pt x 117.00323pt.
+Package pdftex.def Info: img/E8.png used on input line 1092.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
 
-<img/E8a.png, id=542, 1284.8pt x 698.61pt>
+<img/E8a.png, id=681, 964.35281pt x 523.9575pt>
 File: img/E8a.png Graphic file (type png)
  <use img/E8a.png>
-Package pdftex.def Info: img/E8a.png used on input line 992.
-(pdftex.def)             Requested size: 215.19551pt x 117.00323pt.
+Package pdftex.def Info: img/E8a.png used on input line 1093.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
 
-<img/E9.png, id=543, 1284.8pt x 698.61pt>
+<img/E9.png, id=682, 964.35281pt x 523.9575pt>
 File: img/E9.png Graphic file (type png)
  <use img/E9.png>
-Package pdftex.def Info: img/E9.png used on input line 997.
-(pdftex.def)             Requested size: 215.19551pt x 117.00323pt.
+Package pdftex.def Info: img/E9.png used on input line 1099.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
 
-<img/E9a.png, id=544, 1284.8pt x 698.61pt>
+<img/E9a.png, id=683, 964.35281pt x 523.9575pt>
 File: img/E9a.png Graphic file (type png)
  <use img/E9a.png>
-Package pdftex.def Info: img/E9a.png used on input line 998.
-(pdftex.def)             Requested size: 215.19551pt x 117.00323pt.
+Package pdftex.def Info: img/E9a.png used on input line 1100.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
 
-<img/E10.png, id=545, 1284.8pt x 698.61pt>
+<img/E10.png, id=684, 964.35281pt x 523.9575pt>
 File: img/E10.png Graphic file (type png)
  <use img/E10.png>
-Package pdftex.def Info: img/E10.png used on input line 1003.
-(pdftex.def)             Requested size: 215.19551pt x 117.00323pt.
+Package pdftex.def Info: img/E10.png used on input line 1106.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
 
-<img/E10a.png, id=546, 1284.8pt x 698.61pt>
+<img/E10a.png, id=685, 964.35281pt x 523.9575pt>
 File: img/E10a.png Graphic file (type png)
  <use img/E10a.png>
-Package pdftex.def Info: img/E10a.png used on input line 1004.
-(pdftex.def)             Requested size: 215.19551pt x 117.00323pt.
- [38 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/tempm2.png> <
-C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/E1.png> <C:/Dokumen
-te und Einstellungen/SchmatzT/Desktop/Master2/img/E1a.png>] [39 <C:/Dokumente u
-nd Einstellungen/SchmatzT/Desktop/Master2/img/E2.png> <C:/Dokumente und Einstel
-lungen/SchmatzT/Desktop/Master2/img/E2a.png> <C:/Dokumente und Einstellungen/Sc
-hmatzT/Desktop/Master2/img/E3.png> <C:/Dokumente und Einstellungen/SchmatzT/Des
-ktop/Master2/img/E3a.png> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Mast
-er2/img/E4.png> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/E4
-a.png>] [40 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/E5.png
-> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/E5a.png> <C:/Dok
-umente und Einstellungen/SchmatzT/Desktop/Master2/img/E6.png> <C:/Dokumente und
- Einstellungen/SchmatzT/Desktop/Master2/img/E6a.png> <C:/Dokumente und Einstell
-ungen/SchmatzT/Desktop/Master2/img/E7.png> <C:/Dokumente und Einstellungen/Schm
-atzT/Desktop/Master2/img/E7a.png>] [41 <C:/Dokumente und Einstellungen/SchmatzT
-/Desktop/Master2/img/E8.png> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/M
-aster2/img/E8a.png> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/im
-g/E9.png> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/E9a.png>
- <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master2/img/E10.png> <C:/Doku
-mente und Einstellungen/SchmatzT/Desktop/Master2/img/E10a.png>]
-No file Master_Schmatz.bbl.
-[42]
-("C:\Dokumente und Einstellungen\SchmatzT\Desktop\Master2\Master_Schmatz.lof"
+Package pdftex.def Info: img/E10a.png used on input line 1107.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
 
-LaTeX Warning: Citation `cell' on page 43 undefined on input line 5.
+<img/b100.png, id=686, 964.35281pt x 523.9575pt>
+File: img/b100.png Graphic file (type png)
+ <use img/b100.png>
+Package pdftex.def Info: img/b100.png used on input line 1113.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+
+<img/b100k.png, id=687, 964.35281pt x 523.9575pt>
+File: img/b100k.png Graphic file (type png)
+ <use img/b100k.png>
+Package pdftex.def Info: img/b100k.png used on input line 1114.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+
+<img/m100.png, id=688, 964.35281pt x 523.9575pt>
+File: img/m100.png Graphic file (type png)
+ <use img/m100.png>
+Package pdftex.def Info: img/m100.png used on input line 1120.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+
+<img/m100k.png, id=689, 964.35281pt x 523.9575pt>
+File: img/m100k.png Graphic file (type png)
+ <use img/m100k.png>
+Package pdftex.def Info: img/m100k.png used on input line 1121.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+
+<img/vergleich100.png, id=690, 964.35281pt x 523.9575pt>
+File: img/vergleich100.png Graphic file (type png)
+
+<use img/vergleich100.png>
+Package pdftex.def Info: img/vergleich100.png used on input line 1128.
+(pdftex.def)             Requested size: 355.65944pt x 193.23763pt.
+ [43 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/E1.png (PNG co
+py)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/E1a.png (PNG c
+opy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/E2.png (PNG c
+opy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/E2a.png (PNG 
+copy)>] [44 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/E3.png 
+(PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/E3a.png
+ (PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/E4.png
+ (PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/E4a.pn
+g (PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/E5.pn
+g (PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/E5a.p
+ng (PNG copy)>] [45 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img
+/E6.png (PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img
+/E6a.png (PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/im
+g/E7.png (PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/im
+g/E7a.png (PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/i
+mg/E8.png (PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/i
+mg/E8a.png (PNG copy)>] [46 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Ma
+ster/img/E9.png (PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Ma
+ster/img/E9a.png (PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/M
+aster/img/E10.png (PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/
+Master/img/E10a.png (PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Deskto
+p/Master/img/b100.png (PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desk
+top/Master/img/b100k.png (PNG copy)>] [47 <C:/Dokumente und Einstellungen/Schma
+tzT/Desktop/Master/img/m100.png (PNG copy)> <C:/Dokumente und Einstellungen/Sch
+matzT/Desktop/Master/img/m100k.png (PNG copy)> <C:/Dokumente und Einstellungen/
+SchmatzT/Desktop/Master/img/vergleich100.png (PNG copy)>]
+Underfull \hbox (badness 6910) in paragraph at lines 1155--1155
+[][]\T1/cmss/m/n/10.95 Die mitt-le-re, ma-xi-ma-le und mi-ni-ma-le Ein-strah-lu
+ng in Ab-hän-gig-keit der
+ []
+
+<img/std.png, id=750, 301.125pt x 180.675pt>
+File: img/std.png Graphic file (type png)
+ <use img/std.png>
+Package pdftex.def Info: img/std.png used on input line 1160.
+(pdftex.def)             Requested size: 213.39566pt x 128.04305pt.
+
+<img/st96.png, id=751, 964.35281pt x 523.9575pt>
+File: img/st96.png Graphic file (type png)
+ <use img/st96.png>
+Package pdftex.def Info: img/st96.png used on input line 1166.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+
+<img/st96k.png, id=752, 964.35281pt x 523.9575pt>
+File: img/st96k.png Graphic file (type png)
+ <use img/st96k.png>
+Package pdftex.def Info: img/st96k.png used on input line 1167.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+
+<img/st80.png, id=753, 964.35281pt x 523.9575pt>
+File: img/st80.png Graphic file (type png)
+ <use img/st80.png>
+Package pdftex.def Info: img/st80.png used on input line 1173.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+
+<img/st80k.png, id=754, 964.35281pt x 523.9575pt>
+File: img/st80k.png Graphic file (type png)
+ <use img/st80k.png>
+Package pdftex.def Info: img/st80k.png used on input line 1174.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+
+<img/st60.png, id=755, 964.35281pt x 523.9575pt>
+File: img/st60.png Graphic file (type png)
+ <use img/st60.png>
+Package pdftex.def Info: img/st60.png used on input line 1180.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+
+<img/st60k.png, id=756, 964.35281pt x 523.9575pt>
+File: img/st60k.png Graphic file (type png)
+ <use img/st60k.png>
+Package pdftex.def Info: img/st60k.png used on input line 1181.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+
+<img/h96.png, id=757, 964.35281pt x 523.9575pt>
+File: img/h96.png Graphic file (type png)
+ <use img/h96.png>
+Package pdftex.def Info: img/h96.png used on input line 1187.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+
+<img/h96k.png, id=758, 964.35281pt x 523.9575pt>
+File: img/h96k.png Graphic file (type png)
+ <use img/h96k.png>
+Package pdftex.def Info: img/h96k.png used on input line 1188.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+
+<img/h80.png, id=759, 964.35281pt x 523.9575pt>
+File: img/h80.png Graphic file (type png)
+ <use img/h80.png>
+Package pdftex.def Info: img/h80.png used on input line 1194.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+
+<img/h80k.png, id=760, 964.35281pt x 523.9575pt>
+File: img/h80k.png Graphic file (type png)
+ <use img/h80k.png>
+Package pdftex.def Info: img/h80k.png used on input line 1195.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+ [48 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/std.png>] [49 
+<C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/st96.png (PNG copy)
+> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/st96k.png (PNG co
+py)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/st80.png (PNG 
+copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/st80k.png (P
+NG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/st60.png 
+(PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/st60k.p
+ng (PNG copy)>] [50 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img
+/h96.png (PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/im
+g/h96k.png (PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/
+img/h80.png (PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master
+/img/h80k.png (PNG copy)>]
+Overfull \hbox (771.72179pt too wide) in paragraph at lines 1243--1243
+[]                                \T1/cmtt/m/n/10.95 G = (k1*1.33-33)/100*G1 + 
+(k2*1.33-33)/100*G2 + G3 + (k4*1.33-33)/100*G4 +                               
+       (k5*1.33-33)/100*G5 + (k6*1.33-33)/100*G6 + (k7*1.33-33)/100*G7 + G8 +[]
+ 
+ []
 
 
-LaTeX Warning: Citation `esb' on page 43 undefined on input line 6.
+Overfull \hbox (13.50008pt too wide) in paragraph at lines 1243--1243
+[]                                    \T1/cmtt/m/n/10.95 (k9*1.33-33)/100*G9 + 
+(k10*1.33-33)/100*G10;[] 
+ []
 
-[43
+
+LaTeX Warning: Reference `opt' on page 51 undefined on input line 1245.
+
+<img/optb.png, id=791, 964.35281pt x 523.9575pt>
+File: img/optb.png Graphic file (type png)
+ <use img/optb.png>
+Package pdftex.def Info: img/optb.png used on input line 1248.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+
+<img/optbk.png, id=792, 964.35281pt x 523.9575pt>
+File: img/optbk.png Graphic file (type png)
+ <use img/optbk.png>
+Package pdftex.def Info: img/optbk.png used on input line 1249.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+File: img/optb.png Graphic file (type png)
+
+<use img/optb.png>
+Package pdftex.def Info: img/optb.png used on input line 1255.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+File: img/optbk.png Graphic file (type png)
+ <use img/optbk.png>
+Package pdftex.def Info: img/optbk.png used on input line 1256.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+
+<img/opt26.png, id=793, 964.35281pt x 523.9575pt>
+File: img/opt26.png Graphic file (type png)
+ <use img/opt26.png>
+Package pdftex.def Info: img/opt26.png used on input line 1262.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+
+<img/opt26k.png, id=794, 964.35281pt x 523.9575pt>
+File: img/opt26k.png Graphic file (type png)
+ <use img/opt26k.png>
+Package pdftex.def Info: img/opt26k.png used on input line 1263.
+(pdftex.def)             Requested size: 215.19551pt x 116.91795pt.
+
+<img/vergleich_opt.png, id=795, 964.35281pt x 523.9575pt>
+File: img/vergleich_opt.png Graphic file (type png)
+
+<use img/vergleich_opt.png>
+Package pdftex.def Info: img/vergleich_opt.png used on input line 1270.
+(pdftex.def)             Requested size: 355.65944pt x 193.23763pt.
+ [51] [52 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/optb.png 
+(PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/optbk.p
+ng (PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/opt2
+6.png (PNG copy)> <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/o
+pt26k.png (PNG copy)>] [53 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Mas
+ter/img/vergleich_opt.png (PNG copy)>]
+<img/zweist.png, id=819, 1030.85126pt x 602.25pt>
+File: img/zweist.png Graphic file (type png)
+ <use img/zweist.png>
+Package pdftex.def Info: img/zweist.png used on input line 1325.
+(pdftex.def)             Requested size: 215.19551pt x 125.72269pt.
+
+<img/zweiopt.png, id=820, 1037.8775pt x 602.25pt>
+File: img/zweiopt.png Graphic file (type png)
+ <use img/zweiopt.png>
+Package pdftex.def Info: img/zweiopt.png used on input line 1326.
+(pdftex.def)             Requested size: 215.19551pt x 124.86804pt.
+
+<img/funfst.png, id=821, 1031.855pt x 602.25pt>
+File: img/funfst.png Graphic file (type png)
+ <use img/funfst.png>
+Package pdftex.def Info: img/funfst.png used on input line 1332.
+(pdftex.def)             Requested size: 215.19551pt x 125.59402pt.
+
+<img/funfopt.png, id=822, 1037.8775pt x 602.25pt>
+File: img/funfopt.png Graphic file (type png)
+ <use img/funfopt.png>
+Package pdftex.def Info: img/funfopt.png used on input line 1333.
+(pdftex.def)             Requested size: 215.19551pt x 124.86804pt.
+
+<img/fensterstd.png, id=823, 1856.9375pt x 1310.8975pt>
+File: img/fensterstd.png Graphic file (type png)
+
+<use img/fensterstd.png>
+Package pdftex.def Info: img/fensterstd.png used on input line 1340.
+(pdftex.def)             Requested size: 426.79134pt x 301.28006pt.
+
+<img/fensteropt.png, id=824, 1856.9375pt x 1310.8975pt>
+File: img/fensteropt.png Graphic file (type png)
+
+<use img/fensteropt.png>
+Package pdftex.def Info: img/fensteropt.png used on input line 1346.
+(pdftex.def)             Requested size: 426.79134pt x 301.28006pt.
+ [54 <C:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/zweist.png> <C
+:/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/zweiopt.png>] [55 <C:
+/Dokumente und Einstellungen/SchmatzT/Desktop/Master/img/funfst.png> <C:/Dokume
+nte und Einstellungen/SchmatzT/Desktop/Master/img/funfopt.png> <C:/Dokumente un
+d Einstellungen/SchmatzT/Desktop/Master/img/fensterstd.png>] [56 <C:/Dokumente 
+und Einstellungen/SchmatzT/Desktop/Master/img/fensteropt.png>]
+("C:\Dokumente und Einstellungen\SchmatzT\Desktop\Master\Master_Schmatz.bbl"
+[57]
+Underfull \hbox (badness 10000) in paragraph at lines 33--36
+[]\T1/cmss/m/n/10.95 ``Sonnensimulator für PV-Module,'' []$http : / / www . str
+ama-[]mps . de / produktportfolio /
+ []
+
+
+Underfull \hbox (badness 6792) in paragraph at lines 56--60
+[]\T1/cmss/m/n/10.95 ``Strom-Spannungs-Kennlinie ei-ner So-lar-zel-le,'' Bild, 
+Wi-ki-pe-dia, GNU Free Do-cu-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--60
+\T1/cmss/m/n/10.95 men-ta-ti-on Li-cen-se, []$http : / / de . wikipedia . org /
+ w / index . php ? title = Datei : Standard _ iv _ de .
+ []
+
+) [58
+
+]
+("C:\Dokumente und Einstellungen\SchmatzT\Desktop\Master\Master_Schmatz.lof"
+[59
 
 ])
 \tf@lof=\write5
- [44]
-("C:\Dokumente und Einstellungen\SchmatzT\Desktop\Master2\Master_Schmatz.lot")
+ [60]
+("C:\Dokumente und Einstellungen\SchmatzT\Desktop\Master\Master_Schmatz.lot")
 \tf@lot=\write6
 
-[45
+[61
 
-] [46
+] [62
 
 ]
 Anhang A.
-[47
+[63
 
-] [48] [49] [50] [51] [52] [53]
-Overfull \hbox (126.6675pt too wide) in paragraph at lines 1737--1737
-[]        \T1/cmtt/m/n/10.95 delay(250);   // damit die Str"ome der Fahrmotoren
- keinen Einfluss auf die AD-Wandlung haben[] 
+] [64] [65] [66] [67] [68] [69] [70]
+Overfull \hbox (132.32587pt too wide) in paragraph at lines 2120--2120
+[]          \T1/cmtt/m/n/10.95 delay(250);   // damit die Ströme der Fahrmotore
+n keinen Einfluss auf die AD-Wandlung haben[] 
  []
 
-[54] [55] [56] [57] [58] [59]
-Overfull \hbox (13.50008pt too wide) in paragraph at lines 1737--1737
-[]      \T1/cmtt/m/n/10.95 if((A>bleak2)||(D>bleak2)||(G>bleak2)||(C>bleak2)||(
-F>bleak2)||(I>bleak2))[] 
+[71] [72] [73] [74] [75] [76]
+Overfull \hbox (24.81682pt too wide) in paragraph at lines 2120--2120
+[]        \T1/cmtt/m/n/10.95 if((A>bleak2)||(D>bleak2)||(G>bleak2)||(C>bleak2)|
+|(F>bleak2)||(I>bleak2))[] 
  []
 
-[60]
-Overfull \hbox (13.50008pt too wide) in paragraph at lines 1737--1737
-[]      \T1/cmtt/m/n/10.95 if((A>bleak2)||(B>bleak2)||(C>bleak2)||(G>bleak2)||(
-H>bleak2)||(I>bleak2))[] 
+
+Overfull \hbox (24.81682pt too wide) in paragraph at lines 2120--2120
+[]        \T1/cmtt/m/n/10.95 if((A>bleak2)||(B>bleak2)||(C>bleak2)||(G>bleak2)|
+|(H>bleak2)||(I>bleak2))[] 
  []
 
-[61]
+[77] [78]
 Anhang B.
-[62
+[79
 
-] [63]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1845.
- [64]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1845.
+] [80]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2233.
+ [81]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2233.
 
-("C:\Dokumente und Einstellungen\SchmatzT\Desktop\Master2\Master_Schmatz.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1845.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1845.
+("C:\Dokumente und Einstellungen\SchmatzT\Desktop\Master\Master_Schmatz.aux")
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2233.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2233.
 
 Package rerunfilecheck Info: File `Master_Schmatz.out' has not changed.
-(rerunfilecheck)             Checksum: 6A415BD29E69772FC3CA03DEE565A9EC;2468.
+(rerunfilecheck)             Checksum: 42A716E192BB8E4F974E72786C3C18C8;2851.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1415,39 +1767,43 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 8774 strings out of 494045
- 130742 string characters out of 3134208
- 239932 words of memory out of 3000000
- 11672 multiletter control sequences out of 15000+200000
- 30799 words of font info for 51 fonts, out of 3000000 for 9000
+ 9706 strings out of 494045
+ 143324 string characters out of 3134208
+ 269260 words of memory out of 3000000
+ 12440 multiletter control sequences out of 15000+200000
+ 31626 words of font info for 52 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  38i,12n,51p,1023b,516s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Dokumente und Einstellungen\SchmatzT\Lokale Einstellungen\Anwendungsdate
-n\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1095.pk> <C:\Dokumente und 
+n\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsi1095.pk> <C:\Dokumente und 
 Einstellungen\SchmatzT\Lokale Einstellungen\Anwendungsdaten\MiKTeX\2.9\fonts\pk
-\ljfour\jknappen\ec\dpi600\ecss0900.pk> <C:\Dokumente und Einstellungen\Schmatz
+\ljfour\jknappen\ec\dpi600\ectt1095.pk> <C:\Dokumente und Einstellungen\Schmatz
 T\Lokale Einstellungen\Anwendungsdaten\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\d
 pi600\ecsx1095.pk> <C:\Dokumente und Einstellungen\SchmatzT\Lokale Einstellunge
-n\Anwendungsdaten\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1095.pk>{C:
-/Dokumente und Einstellungen/SchmatzT/Eigene Dateien/MikeTex/fonts/enc/dvips/fo
-ntname/8r.enc}<C:/Dokumente und Einstellungen/SchmatzT/Eigene Dateien/MikeTex/f
-onts/type1/public/amsfonts/cm/cmex10.pfb><C:/Dokumente und Einstellungen/Schmat
-zT/Eigene Dateien/MikeTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Dokumen
-te und Einstellungen/SchmatzT/Eigene Dateien/MikeTex/fonts/type1/public/amsfont
-s/cm/cmmi8.pfb><C:/Dokumente und Einstellungen/SchmatzT/Eigene Dateien/MikeTex/
-fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Dokumente und Einstellungen/Schmat
-zT/Eigene Dateien/MikeTex/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Dokumente
- und Einstellungen/SchmatzT/Eigene Dateien/MikeTex/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb><C:/Dokumente und Einstellungen/SchmatzT/Eigene Dateien/MikeTex/f
-onts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Dokumente und Einstellungen/Schmatz
-T/Eigene Dateien/MikeTex/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Dokumente und 
-Einstellungen/SchmatzT/Eigene Dateien/MikeTex/fonts/type1/urw/helvetic/uhvr8a.p
-fb>
-Output written on Master_Schmatz.pdf (71 pages, 6824204 bytes).
+n\Anwendungsdaten\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss0900.pk> <C
+:\Dokumente und Einstellungen\SchmatzT\Lokale Einstellungen\Anwendungsdaten\MiK
+TeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1095.pk>{C:/Dokumente und Einste
+llungen/SchmatzT/Eigene Dateien/MikeTex/fonts/enc/dvips/fontname/8r.enc}<C:/Dok
+umente und Einstellungen/SchmatzT/Eigene Dateien/MikeTex/fonts/type1/public/ams
+fonts/cm/cmex10.pfb><C:/Dokumente und Einstellungen/SchmatzT/Eigene Dateien/Mik
+eTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Dokumente und Einstellungen/
+SchmatzT/Eigene Dateien/MikeTex/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Do
+kumente und Einstellungen/SchmatzT/Eigene Dateien/MikeTex/fonts/type1/public/am
+sfonts/cm/cmr10.pfb><C:/Dokumente und Einstellungen/SchmatzT/Eigene Dateien/Mik
+eTex/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Dokumente und Einstellungen/Sc
+hmatzT/Eigene Dateien/MikeTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Dok
+umente und Einstellungen/SchmatzT/Eigene Dateien/MikeTex/fonts/type1/public/ams
+fonts/cm/cmsy8.pfb><C:/Dokumente und Einstellungen/SchmatzT/Eigene Dateien/Mike
+Tex/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Dokumente und Einstellungen/Schmatz
+T/Eigene Dateien/MikeTex/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on Master_Schmatz.pdf (88 pages, 9662764 bytes).
 PDF statistics:
- 1114 PDF objects out of 1200 (max. 8388607)
- 198 named destinations out of 1000 (max. 500000)
- 597 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1465 PDF objects out of 1728 (max. 8388607)
+ 301 named destinations out of 1000 (max. 500000)
+ 862 words of extra memory for PDF output out of 10000 (max. 10000000)
 
