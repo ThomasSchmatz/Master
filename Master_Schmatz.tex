@@ -152,7 +152,7 @@ Dieses Kapitel beschreibt die Notwendigkeit von Messungen im stationären Sonnen
 
 \section{Stationäre Photovoltaik Sonnensimulatoren} \thispagestyle{empty}
 
-Photovoltaik-Sonnensimulatoren werden zur elektrischen Charakterisierung und Prüfung von Photovoltaik-Modulen verwendet. Der wesentliche Vorteil gegenüber Messungen im Sonnenlicht liegt darin, dass die Durchführung unter reproduzierbaren Umweltbedingungen (Bestrahlungsstärke, spektrale Zusammensetzung des einfallenden Lichtes und die Prüfgutstemperatur)  ermöglicht wird. Grundsätzlich werden bei konventionellen Systemen gepulste und stationäre Simulatoren, welche kontinuierlich leuchten, unterschieden. Erstere brauchen weniger Energie und heizen die Messobjekte nicht auf, und werden für die Leistungsmessung von Zellen und Modulen verwendet. Allerdings ist Blitzlänge bauartbedingt auf wenige Millisekunden begrenzt. Stationäre Simulatoren werden unter anderem für Voralterung von Modulen verwendet.
+Photovoltaik-Sonnensimulatoren werden zur elektrischen Charakterisierung und Prüfung von Photovoltaik-Modulen verwendet. Der wesentliche Vorteil gegenüber Messungen im Sonnenlicht liegt darin, dass die Durchführung unter reproduzierbaren Umweltbedingungen (Bestrahlungsstärke, spektrale Zusammensetzung des einfallenden Lichtes und die Prüfgutstemperatur)  ermöglicht wird. Grundsätzlich werden bei konventionellen Systemen gepulste und stationäre Simulatoren, welche kontinuierlich leuchten, unterschieden. Erstere brauchen weniger Energie, heizen die Messobjekte nicht auf, und werden für die Leistungsmessung von Zellen und Modulen verwendet. Allerdings ist Blitzlänge bauartbedingt auf wenige Millisekunden begrenzt. Stationäre Simulatoren werden unter anderem für Voralterung von Modulen verwendet.
 Im Allgemeinen werden Messergebnisse auf Standard-Prüfbedingungen (STC) bezogen, die durch 1000W/m$^2$, 25$^{\circ}$C und AM1.5 definiert ist. Die Air Mass (AM) beschreibt das Verhältnis des Weges des einfallenden Sonnenlichtes durch die Atmosphäre bezogen auf senkrechten Einfall (siehe Abbildung \ref{airmass}). Je länger der Weg des Lichtes durch die Atmosphäre desto größer ist der Einfluss durch Streuung, Reflexion und Absorption, was sowohl die Stärke der Einstrahlung als auch die spektrale Zusammensetzung des Sonnenlichtes vom Sonnenstand abhängig macht. 
 \begin{equation}
      AM = \frac {L} {L_0} \approx \frac{1}{cos~ z}
@@ -170,7 +170,7 @@ Die meisten am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/am.png}
-\caption[Sonnenspektrum]{Der Vergleich von Spektrum des Sonnenlichtes im Weltall (AM0), der Strahlung eines schwarzen Körpers von 5960K und dem AM1.5 Spektrum. Quelle: \cite{jn}}\label{sunspec}
+\caption[Sonnenspektrum]{Der Vergleich von Spektrum des Sonnenlichtes im Weltall (AM0), der Strahlung eines schwarzen Körpers von 5960K und dem AM1.5 Spektrum. Quelle: \cite{n01}}\label{sunspec}
 \end{figure}
 
 
@@ -310,11 +310,11 @@ Mit der Größe der Messzelle ist auch die minimale Ausdehnung in den beiden and
 
 \subsection{Die Mecanum-Plattform}\thispagestyle{empty}
 Mecanum-Räder erlauben einem Fahrzeug, ohne mechanischer Lenkung, sich in jede Richtung zu bewegen. Benannt ist es nach dem schwedischen Unternehmen Macanum, welches dieses Rad 1971 entwickelt hat \cite{mecanum}. 
-Jedes Rad wird über einen eigenen Motor angetrieben, und verfügt über eine separate Ansteuerung. Die Räder bestehen aus einer Felge (siehe Abbbildung \ref{rad}), auf der unter einem Winkel von 45 Grad befestigte, ballige Rollen so angebracht sind, die über den Abrollumfang einen exakten Kreis bilden (siehe Abbbildung \ref{rad2}). In die 8 Löcher der Felge werden Kugellager eingeklebt. Jedes der vier Räder besteht aus einer Felge, insgesamt 16 Laufrollen, 8 Kugellager, 8 M4x45mm Schraube, 8 M4 Muttern, sowie 16 M4 Beilagscheiben. 
-Das Rad ist mit einer M3 Schraube und einer M3 Mutter an der Motorachse fixiert.
+Jedes Rad wird mit einem eigenen Motor angetrieben, und verfügt über eine separate Ansteuerung. Die Räder bestehen aus einer Felge (siehe Abbbildung \ref{rad}), auf der unter einem Winkel von 45 Grad befestigte, ballige Rollen so angebracht sind, die über den Abrollumfang einen Kreis bilden (siehe Abbbildung \ref{rad2}). In die 8 Löcher der Felge werden Kugellager eingeklebt. Jedes der vier Räder besteht aus einer Felge, insgesamt 16 Laufrollen, 8 Kugellager, 8 M4x45mm Schraube, 8 M4-Muttern, sowie 16 M4-Beilagscheiben. 
+Das Rad ist mit einer M3-Schraube und einer M3-Mutter an der Motorachse fixiert.
 Die Felgen und die Laufrollen wurden mit einem Ultimaker 3D-Drucker gedruckt. 
-Die Vorlage namens Mecanum Wheel MK2 stammt von http://www.thingiverse.com/thing:2473, und kann unter der Attribution-NonCommercial-ShareAlike 3.0 Unported Lizenz nicht kommerziell verwendet werden.
-Die Laufrollen so angepasst, dass die Mutter bzw. der Schraubenkopf in der Rolle versenkt ist, damit das Rad insgesamt kompakter ist. Zum bearbeiten wurde OpenSCAD, ein 3D-Compiler, verwendet. 
+Die Vorlage namens Mecanum Wheel MK2 stammt von http://www.thingiverse.com/thing:2473, und kann unter der Attribution-NonCommercial-ShareAlike 3.0 Unported Lizenz nicht-kommerziell verwendet werden.
+Die Laufrollen so angepasst, dass die Mutter sowie der Schraubenkopf in der Rolle versenkt ist, damit das Rad insgesamt kompakter ist. Zum bearbeiten wurde OpenSCAD, ein 3D-Compiler, verwendet. 
 
 Durch die Schräganordnung der Laufrollen entstehen beim Antreiben eines Rades zwei Kraftkomponenten, eine in Querrichtung und eine in Längsrichtung des Fahrzeuges. Gegeneinander gerichtete Kräfte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich (siehe Abbildung \ref{fahrman}). So ist es nicht nur möglich den Roboter in Längsrichtung vor und zurück zu bewegen, sondern auch in Querrichtung (normal zur Längsrichtung) zu bewegen, ebenso sind Drehungen am Stand möglich. Damit braucht ein mit Mecanumrädern ausgestatteter Roboter keine Lenkung. Aber es sind zwar vier Motoren notwendig, damit jedes Rad einzeln angesteuert werden kann.   
 Die Kugellager sind in den 8 Löchern der Felge verklebt. Zuerst mit Superkleber, allerdings haben sich einige Kugellager im laufe der Zeit gelöst und beeinflussten so das Fahrverhalten negativ. Eine dauerhafte Verbindung von Kugellager mit der Felge ist für den störungsfreien Betrieb des Roboters unumgänglich. 
@@ -328,19 +328,19 @@ Die Kugellager sind wartungsfrei. Das wenige UV-Licht, das den ABS-Kunststoff er
     \subfigure[Vor/Zurück-Fahren]{\includegraphics[width=50mm]{img/gerade.png}}
     \subfigure[Das Seitwärtsfahren]{\includegraphics[width=50mm]{img/seitw.png}}
      \subfigure[Drehen am Stand]{\includegraphics[width=50mm]{img/dreh.png}}
-\caption{Einige mögliche Fahrmanöver eines Mecanum-Rad-Roboters}\label{fahrman}
+\caption{Einige der möglichen Fahrmanöver eines Mecanum-Rad-Fahrzeuges}\label{fahrman}
 \end{figure} 
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/wheel.png}
-\caption{Die Felge des Mecanum Rades}\label{rad}
+\caption{Die Felge eines Mecanum Rades}\label{rad}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/rad.jpg}
-\caption{Ein fertig Rad, montiert am Roboter.}\label{rad2}
+\caption{Ein komplettes Rad, montiert am Roboter.}\label{rad2}
 \end{figure}
 
 
@@ -463,11 +463,11 @@ Anschlüsse: Es ist eine 16-polige Leiterplattenbuchse für die Analogsignale, 5
 
 
 \subsection{Spannungversorgung}\thispagestyle{empty}
-Die Energie zum Betrieb des Roboters stammt aus einem Kokam 14,6V 4000mAh Litihum Lithium-Polymer-Akkumulator. Es wird empfohlen vor jeden Messzyklus den Akku zu laden. Ein voller Akku reicht für mehr mehrere Stunden Dauerbetrieb. Der Akku ist mit einer im Anschlusskabel integrierten Schmelzsicherung geschützt. Zum Laden des Akkus muss der Akku vom Roboter abgesteckt werden und an das Ladegerät angeschlossen werden. Zum Schutz vor Kurzschlüssen ist der Akku mit einer im Anschlusskabel integrierten Schmelzsicherung gesichert. Da zum Laden der Akku aus dem Roboter entfernt und an das Akkuladegerät angeschlossen werden muss, könnte versehentlich der Akku kurzgeschlossen werden. Zum Laden wird ein Ultramat 16 S verwendet, der über einen Balanceranschluss verfügt, und somit alle vier Zellen des Akkus auf die gleiche Spannung lädt. 
+Der Roboters wird mit einem Kokam 14,6V 4000mAh Litihum Lithium-Polymer-Akkumulator \cite{kokam} mit Energie versorgt. Es wird empfohlen vor jeden Messzyklus den Akku zu laden. Ein voller Akku reicht für mehr mehrere Stunden Dauerbetrieb. Der Akku ist mit einer im Anschlusskabel integrierten Schmelzsicherung geschützt. Zum Laden des Akkus muss der Akku vom Roboter abgesteckt werden und an das Ladegerät angeschlossen werden. Zum Schutz vor Kurzschlüssen ist der Akku mit einer im Anschlusskabel integrierten Schmelzsicherung gesichert. Da zum Laden der Akku aus dem Roboter entfernt und an das Akkuladegerät angeschlossen werden muss, könnte versehentlich der Akku kurzgeschlossen werden. Zum Laden wird ein Ultramat 16 S verwendet, der über einen Balanceranschluss verfügt, und somit alle vier Zellen des Akkus auf die gleiche Spannung lädt. 
 Der Akku kann mit bis zu 200A belastet werden, allerdings liegt der maximale Strom aller 4 Motoren und der restlichen Elektronik liegt bei einem Ampere. Die Motoren werden direkt mit der Akkuspannung versorgt. Die Versorgungsspannung schwankt zwischen der vollen Akkuspannung 16,4V und 15V nach mehr als 10 Messfahrten.
-Die 5 Volt Versorgung des Mikrocontrollers wurde mit einem RECOM R-785.0-1.0 DC-DC Konverter \cite{ref5} gelöst. Er ist pinkompatibel zu einem 7805, allerdings mit einer größeren Dicke, und bietet die Vorteile einer geringen Verlustleistung und einer sehr genauen Ausgangsspannung. 
+Die 5 Volt Versorgung des Mikrocontrollers wurde mit einem RECOM R-785.0-1.0 DC-DC Konverter \cite{ref5} gelöst. Er ist pinkompatibel zu einem 7805-Spannungsregler, allerdings mit etwas größeren Ausmaßen, und bietet die Vorteile einer geringen Verlustleistung und einer sehr genauen Ausgangsspannung. 
 Der Ladezustand der einzelnen Zellen des Akkus wird mit einer eigens dafür entwickelten Schaltung überwacht. Sollte die Spannung einer Zelle unter 3,3V sinken, wird die Stromversorgung zum Roboter mittels FET unterbrochen, und ein akustisches Warnung ausgegeben. Damit wird eine Tiefentladung verhindert, was zu einer irreversiblen Schädigung und einem Kapazitätsverlust führen kann. Eigentlich könnte der Akku bis zu 2,7V pro Zelle entladen werden.
-Die Analog-Digitalwandlung des Arduino benötigt eine Referenzspannung, entweder die Versorgungsspannung, was jedoch zu ungenau ist. Als Spannungsreferenz wird daher ein LT1021 5V Präzisionsspannungsquelle verwendet. Da dieses Bauelement nachträglich hinzugefügt wurde, ist es auf einer eigenen kleinen Platine untergebracht.
+Die Analog-Digitalwandlung des Arduino benötigt eine Referenzspannung, entweder die Versorgungsspannung, was jedoch zu ungenau ist. Als Spannungsreferenz wird daher eine LT1021 5V-Präzisionsspannungsquelle \cite{lt1021} verwendet. Da dieses Bauelement nachträglich hinzugefügt wurde, ist es auf einer eigenen kleinen Platine untergebracht (siehe Abbildungen \ref{refu} und \ref{refu2}).
 
 \begin{figure}[htbp]
 \centering
@@ -477,7 +477,7 @@ Die Analog-Digitalwandlung des Arduino benötigt eine Referenzspannung, entweder
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=100mm]{img/refu2.png}
+\includegraphics[width=80mm]{img/refu2.png}
 \caption{Das Platinenlayout der 5V Referenzspannung.}\label{refu2}
 \end{figure}
 
@@ -533,9 +533,14 @@ Klemmen zur Versorgung mit Akku-Spannung (rosa), Buchse zur Kommunikation mit de
 
 \subsection{Temperaturmessung}\thispagestyle{empty}
 Der Spannungsabfall an einem temperaturstabilen 100$\Omega$ Widerstand wird mit dem Spannungsabfall an einem PT100 verglichen. Durch beide Widerstände fließt ein Strom von 100$\mu$A. Als Stromquelle dient eine sehr präzise REF200-Stromquelle\cite{ref200}, welche zwei mal 100 Mikroampere $\pm$0.5$\%$ liefert. Abbildung \ref{tmess} zeigt den Schaltplan, Abbildung \ref{tmess2} zeigt das Platinenlayout. Zur besseren Idendifikation sind die Bauteile in beiden Abbildungen mit den gleichen Farben eingefärbt. 
-Zum Platinenlayout: Links, der 4-pinige Stecker dient zur Stromversorgung (+5V, GND, -5V) und dem Abgriff des analogen Messsignales. Dimensionierung des Verstärkungswiderstandes: ...
-Warum Präzisionswiderstände? Weil temperaturstabiler als herkömmliche Widerstände. 
-Warum zwei Widerstände zum Einstellen der Verstärkung des Instrumentenverstärkers? Weil es keinen Präzesionswiderstand gab der in etwa dem berechneten Wert entsprach. Daher wurden zwei 51,1$ßOmega$ Widerstand parallel geschaltet, das entspricht einen 25,55$ßOmega$ Widerstand.
+Zum Platinenlayout: Links, der 4-pinige Stecker dient zur Stromversorgung (+5V, GND, -5V) und dem Abgriff des analogen Messsignales. 
+Präzisionswiderstände wurden eingesetzt, weil sie temperaturstabiler als herkömmliche Widerstände sind. 
+Da es keinen Präzesionswiderstand gab der in etwa dem berechneten Wert entsprach. Daher wurden zwei 51,1$ßOmega$ Widerstand parallel geschaltet, das entspricht einen 25,55$ßOmega$ Widerstand.
+Die Verstärkung des INA114 berechnet sich nach \cite{ina114} wie folgt:
+
+\begin{equation}
+ G = 1 + \frac{50k\Omega}{R_G}
+\end{equation} 
 
 
 
@@ -891,7 +896,7 @@ Da die Platine A temperaturstabiler als die Platine B ist, wurde Platine A zur M
 Diese Kapitel beschreibt die Messvorbereitung, den Messaufbau, die eigentliche Messung und die Auswertung der Messdaten. Das Messsystem wurde verwendet um die Ausleuchtung der einzelnen Lampen zu ermitteln, und daraus eine für die Messebene optimierte Einstellung zu finden.
 
 \section{Messaufbau}\thispagestyle{empty}
-Dieser Abschnitt behandelt den Messaufbau. Die Messung der Bestrahlungsstärkeverteilung findet im Sonnensimulator statt. Zuerst muss eine Messebene geschaffen werden. Die, im normalen Messalltag vermessenen, Module liegen auf verschiebbaren Metallschienen auf. Damit der Roboter fahren kann, braucht er eine ebene Fläche. Diese Fläche ist aus logistischen Gründen aus drei einzelnen Holzplatten gebildet, was einige zusätzliche Probleme bereitet hat. Auf der Oberseite der Platten befindet sich die Messpunkte und eine Führungslinie, welcher der Roboter folgt. Zur Messung wird der Roboter an das linke Ende der Linie gestellt, er fährt nach dem Einschalten selbständig das Messprogramm ab.
+Dieser Abschnitt behandelt den Messaufbau. Die Messung der Bestrahlungsstärkeverteilung findet im Sonnensimulator statt. Zuerst muss eine Messebene geschaffen werden, auf welcher der Roboter fahren kann. Diese Fläche ist aus logistischen Gründen aus drei einzelnen Holzplatten gebildet, was zuerst einige zusätzliche Probleme bereitet hat. Auf der Oberseite der Platten befindet sich die Messpunkte und eine Führungslinie, welcher der Roboter folgt. Zur Messung wird der Roboter an das linke Ende der Linie gestellt, er fährt nach dem Einschalten selbständig das Messprogramm ab.
 
 \begin{figure}[htbp]
 \centering
@@ -900,7 +905,7 @@ Dieser Abschnitt behandelt den Messaufbau. Die Messung der Bestrahlungsstärkeve
 \end{figure}
 
 \subsection{Platten}\thispagestyle{empty}
-Die Messebene des Roboters wird von drei Holzplatten gebildet. Eine einzelne große Platte wäre eine bessere Alternative gewesen, aber aus Gründen der Hanhabung ist die Messebene auf drei Platten aufgeteilt. Eine einzelne 3,70x3,50 Meter große Platte wäre zu schwer und zu unhandlich. Die einzelnen Platten sind 250 mal 125 (bzw. 120) Zentimeter groß und 18 Millimeter dick.
+Die Messebene des Roboters wird von drei Holzplatten gebildet. Eine einzelne große Platte wäre eine bessere Alternative gewesen, aber aus Gründen der Hanhabung ist die Messebene auf drei Platten aufgeteilt. Eine einzelne 3,70 Meter mal 2,50 Meter große Platte wäre zu schwer und zu unhandlich. Die einzelnen Platten messen 250 Zentimeter mal 125 (bzw. 120) Zentimeter, und sind 18 Millimeter dick.
 Die Platten sind auf der Messseite schwarz angestrichen, um einen möglichst geringen Reflexionskoeffizienten haben. Die Messbahn ist weiß ausgeführt. Sowohl der schwarze Untergrund als auch die weiße Bahn besteht aus Kunstharzfarbe, welche UV-beständig ist. Da beim Hantieren mit den Platten kleine Beschädigungen der Messbahn entstehen können. Diese Beschädigungen können den Messablauf stören, so ist es sinnvoll vor der Messung die Bahn mit einem weißen Klebeband (Isolierband) auszubessern.
 Die Platten müssen möglichst eng aneinander anliegen, damit der Roboter beim Übergang von einer Platte zur nächsten möglichst wenig behindert wird. Damit keine zu groß Stufe wegen unterschiedlicher Duschbiegung der Platten entsteht sind auf der Rückseite der Holzplatten an einigen Stellen Aluminiumbleche befestigt. An der höheren Platte wurde das Blech angeschraubt, die tieferliegende Platte liegt darauf auf. Die Bleche wurden an den Stellen mit den größten Durchhang befestigt.
 Eine zu große Stufe behindert den Roboter beim Fahren, und erschwert das zuverlässige Erkennen von Messpunkten nahe der Stufe. Mit den Modifikationen an den Platten werden nun alle Messpunkte zuverlässig erkannt.
@@ -1244,6 +1249,12 @@ end
 
 Mit dem Algorithmus wurden die in Abbildung \ref{opt} dargestellten Einstellungen gefunden.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=75mm]{img/std.png}
+\caption{Die optimierten Einstellungen der einzelnen zehn Lampen.}\label{opt}
+\end{figure}
+
 \begin{figure} [htbp]
     \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/optb.png}}
     \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/optbk.png}}
@@ -1398,8 +1409,8 @@ Die 3D-Drucktechnik versprach zwar eine schnelle Entwicklung, sprich ein Rapid P
 % \addsec{Abk"urzungsverzeichnis} zu ersetzen
 \addchap{Abk"urzungsverzeichnis}
 \hspace{-17mm}\begin{tabular}{>{\raggedleft}p{0.2\linewidth} p{0.75\linewidth} p{0.1\linewidth}}
-www & World Wide Web \\
-URL & Uniform Resource Locator
+AM & Air Mass \\
+STC & Standard Test Conditions
 \end{tabular}
 
 
