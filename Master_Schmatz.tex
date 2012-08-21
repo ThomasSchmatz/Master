@@ -159,7 +159,7 @@ Im Allgemeinen werden Messergebnisse auf Standard-Prüfbedingungen (STC) bezogen
 \end{equation}
 Wobei L die Länge des Weges des Sonnenlichtes durch die Atmosphäre, L$_0$ die Weglänge bei senkrechten Einfall und z der Zenitwinkel des Sonnenstandes in Grad ist (\cite{wurf} S. 30). Dabei handelt es sich um eine Näherung, welche die Krümmung der Erdoberfläche und der Atmosphäre vernachlässigt. Für kleine Werte der Air Mass ist die Näherung aber hinreichend genau.
 Die spektrale Verteilung des Referenzsonnenspektrums AM1.5 (siehe Abbildung \ref{sunspec}) ist durch die Norm IEC 60904-3 \cite{norm3} festgelegt. Das Spektrum des Sonnenlichtes im Weltall AM0 entspricht in etwa der thermische Strahlung eines schwarzen Körpers mit 5250$^\circ$C.
-Die meisten am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$) können das Spektrum nicht verändern, da sie Metallhalogenid-Lampen verwenden, sie sind also für einen Sonnenstand beschränkt. Es gibt Sonnensimulatoren auf LED-Basis. Das gewünschte Spektrum wird dort mit vielen LEDs unterschiedlicher Wellenlänge realisiert, somit sind auch unterschiedliche Spektren und Bestrahlungsstärken realisierbar. Das beschränkt sich zurzeit auf Simulatoren in Zellgröße.  Es gibt bereits LED-Sonnensimulatoren für Module am Markt. (\cite{mps}) Ein Vorteil dieses Systems ist die lange Lebensdauer der Lampen, welche für 10 Millionen Messungen reicht. 
+Die meisten am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$) können das Spektrum nicht verändern, da sie Metallhalogenid-Lampen verwenden, sie sind also für einen Sonnenstand beschränkt. Es gibt Sonnensimulatoren auf LED-Basis. Das gewünschte Spektrum wird dort mit vielen LEDs unterschiedlicher Wellenlänge realisiert, somit sind auch unterschiedliche Spektren und Bestrahlungsstärken realisierbar. Das beschränkt sich zurzeit auf Simulatoren in Zellgröße.  Es gibt bereits LED-Sonnensimulatoren für Module am Markt \cite{mps}. Ein Vorteil dieses Systems ist die lange Lebensdauer der Lampen, welche für 10 Millionen Messungen reicht. 
 
 \begin{figure}[htbp]
 \centering
@@ -179,7 +179,7 @@ Die meisten am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$
 
 Mit der SolarConstant 4000 (siehe Abbildung \ref{sunsim}) der Firma Atlas kann die Einwirkung der Sonne auf Testobjekte simuliert werden. Dazu ist das Gerät mit zehn Metallhalogenid-Strahlungsquelle Lampen zu je 4kW. Durch die Füllung der Lampen mit Halogeniden wird ein möglichst kontinuierliches Spektrum erzeugt. Die Leuchten sind mit Filterscheiben ausgestattet, welche das abgestrahlte Licht dem AM1.5 Spektrum annähern.
 Jede Lampe wird von einem eigenen elektronisch geregelten Vorschaltgerät versorgt, welches für einen gleichmäßigen und flimmerfreien Betrieb sorgt.
-Da die Lampen nicht für eine Heißzündung ausgelegt sind, und dabei eventuell zerstört werden können, ist eine Sperrzeit von 10 Minuten zum Abkülen vorgesehen, bevor die Lampen wieder eingeschaltet werden können.
+Da die Lampen nicht für eine Heißzündung ausgelegt sind, wobei sie eventuell zerstört werden können, ist eine Sperrzeit von 10 Minuten zum Abkülen vorgesehen, bevor sich die Lampen wieder einschalten lassen.
 Die Strahlungsleistung lässt sich reduzieren indem das gesamte Lampenfeld in die Höhe gefahren wird.
 Weiters lässt sich die Bestrahlungsstärke einzelner Lampen über die Variation der elektrischen Leistung des Vorschaltgerätes variieren.
 Allerdings führt eine Variation der elektrischen Leistung zu einer Änderung der spektralen Strahlungsverteilung. Aus diesem Grund wird vom Hersteller empfohlen \cite{atlas}, die Helligkeit der Lampen nur zwischen 80 und 100 \% zu variieren.
@@ -189,7 +189,7 @@ Die Testobjekte werden mittels Prüfgut-Einschub in einem Windkanal positioniert
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/sunsimulator.jpg}
-\caption[Sonnensimulator]{Der Aufbau des Sonnensimulators: Die 10 Metallhalogenoid Strahler befestift an der höhenverstellbaren Aufhängung, der Windkanal und die Prüfebene.}\label{sunsim}
+\caption[Sonnensimulator]{Der Aufbau des Sonnensimulators: Die zehn Metallhalogenoid-Strahler befestigt an der höhenverstellbaren Aufhängung, der Windkanal und die Prüfebene.}\label{sunsim}
 \end{figure}
 
 
@@ -240,9 +240,9 @@ Der Roboter misst von diesen drei Kategorien nur die Verteilung der Bestrahlungs
 
 
 \section{Theorie Referenzzelle}\thispagestyle{empty}
-Eine Solarzelle wandeln die Energie des Lichtes in elektrische Energie um. Eine Referenzzelle ist eine speziell für Messungen kalibrierte Solarzelle. Eine Referenzzellen ist eine genau vermessene Solarzellen, die als Strahlungsmessgerät dient. Wichtig ist, dass die Referenzzelle eine ähnliche spektralle Empfindlichkeit hat wie die zu messenden Zelle bzw. das zu messende Modul
+Eine Solarzelle wandelt die Energie des Lichtes in elektrische Energie um. Eine Referenzzelle ist eine speziell für Messungen kalibrierte Solarzelle, die dort als Strahlungsmessgerät dient. Wichtig ist, dass die Referenzzelle eine ähnliche spektrale Empfindlichkeit hat wie die zu messenden Zelle bzw. das zu messende Modul
 Es gibt verschiedene Solarzellentechnologien. Es gibt kristalline Siliziumzellen und Dünnschichtzellen . Die kristallinen Siliziumzellen werden in monokristalline Zellen und multikristalline Zellen unterschieden. Beide zusammen machen über 80\% des weltweiten Photovoltaikmarktes aus \cite{iea00}. Als Referenzzelle für Messungen werden ausschließlich kristalline Zellen verwendet. 
-Eine Siliziumsolarzelle ist eine großflächigen Diode. Die Sperrschicht ist dabei dem Sonnenlicht ausgesetzt. Gelangt ein Lichtquanten in die Sperrschicht kann aufgrund des inneren Photoeffektes ein Elektron/Loch Paar erzeugt werden. Durch das elektrische Feld in der Sperrschicht werden die Ladungsträger getrennt bevor sie kombinieren können. Elektronen bewegen aufgrund ihrer negativen Ladung entgegen der Feldrichtung in die n-Zone. Löcher wandern in Feldrichtung zur Raumladungsfreien p-Zone. Die Leerlaufspannung einer Solarzelle ist kleiner als die Diffusionsspannung, der Spannung über die Raumladungszone, die der Diffusion von Ladungsträgern entgegenwirkt.
+Eine Siliziumsolarzelle ist eine großflächigen Diode (siehe Abbildung \ref{cell}). Die Sperrschicht ist dabei dem Sonnenlicht ausgesetzt. Gelangt ein Lichtquanten in die Sperrschicht kann aufgrund des inneren Photoeffektes ein Elektron/Loch Paar erzeugt werden. Durch das elektrische Feld in der Sperrschicht werden die Ladungsträger getrennt bevor sie kombinieren können. Elektronen bewegen aufgrund ihrer negativen Ladung entgegen der Feldrichtung in die n-Zone. Löcher wandern in Feldrichtung zur raumladungsfreien p-Zone. Die Leerlaufspannung einer Solarzelle ist kleiner als die Diffusionsspannung, der Spannung über die Raumladungszone, die der Diffusion von Ladungsträgern entgegenwirkt.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/zelle2.png}
@@ -250,10 +250,10 @@ Eine Siliziumsolarzelle ist eine großflächigen Diode. Die Sperrschicht ist dab
 \end{figure}
 
 
-Unbeleuchtet funktioniert die Solarzelle wie eine normale Halbleiterdiode, welche einen Durchlassstrom von p- nach n-Seite fließen lässt, falls eine Spannung von p nach n anliegt. Bei Beleuchtung wird zusätzlich ein Photostrom erzeugt, welcher proportional zur Bestrahlungsstärke und der Zellfläche ist. Das Zweidiodenmodel (siehe Abbildung ~\ref{esb}) besteht daher aus einer Stromquelle, dazu parallel zwei Dioden, einen Parallelwiderstand und einem Serienwiderstand. Der Parallelwiderstand fasst Kurzschlüsse zusammen, die realen Solarzellen am Rand oder an den Korngrenzen auftreten können. Mit dem Serienwiderstand werden alle Spannungsabfälle in der Solarzelle erfasst. Die beiden Dioden bilden die Rekombinations- und Diffusionsprozesse in einer realen Solarzelle ab. Eine ideale Solarzelle hat einen Serienwiderstand von null und einen Parallelwiderstand von unendlich. 
+Unbeleuchtet funktioniert die Solarzelle wie eine normale Halbleiterdiode, welche einen Durchlassstrom von p- nach n-Seite fließen lässt, falls eine Spannung von p nach n anliegt. Bei Beleuchtung wird zusätzlich ein Photostrom erzeugt, welcher proportional zur Bestrahlungsstärke und der Zellfläche ist. Das Zweidiodenmodel (siehe Abbildung \ref{esb}) besteht daher aus einer Stromquelle, dazu parallel zwei Dioden, einen Parallelwiderstand und einem Serienwiderstand. Der Parallelwiderstand fasst Kurzschlüsse zusammen, die realen Solarzellen am Rand oder an den Korngrenzen auftreten können. Mit dem Serienwiderstand werden alle Spannungsabfälle in der Solarzelle erfasst. Die beiden Dioden bilden die Rekombinations- und Diffusionsprozesse in einer realen Solarzelle ab. Eine ideale Solarzelle hat einen Serienwiderstand von null und einen Parallelwiderstand von unendlich. 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=125mm]{img/esb2.png}
+\includegraphics[width=100mm]{img/esb2.png}
 \caption{Das Zweidiodenmodell einer Sorlarzelle. Quelle: \cite{pv}}\label{esb}
 \end{figure}
 
@@ -277,7 +277,7 @@ Laut IEC 60891 \cite{norm891} berechnet sich die Einstrahlung aus dem gemessenen
 G = \frac{1000Wm^{-2}I_{RC}}{I_{RC,STC}} [1 - \alpha_{RC}(T_{RC}-25^{\circ} C]
 \end{equation}
 Bei konstanter Temperatur ist der Kurzschlussstrom linear abhängig von der Bestrahlungsstärke (siehe Abbildung \ref{mpp}).
-Für die Temperaturkorrektur ist es notwendig die Zelltemperatur zum Zeitpunkt der Messung zu wissen, sowie den Temperaturkoeffizienten $\alpha_{RC}$. 
+Für die Temperaturkorrektur ist es notwendig die Zelltemperatur zum Zeitpunkt der Messung zu kennen, sowie den Temperaturkoeffizienten $\alpha_{RC}$. 
 
 \begin{figure}[htbp]
 \centering
@@ -314,10 +314,10 @@ Jedes Rad wird mit einem eigenen Motor angetrieben, und verfügt über eine sepa
 Das Rad ist mit einer M3-Schraube und einer M3-Mutter an der Motorachse fixiert.
 Die Felgen und die Laufrollen wurden mit einem Ultimaker 3D-Drucker gedruckt. 
 Die Vorlage namens Mecanum Wheel MK2 stammt von http://www.thingiverse.com/thing:2473, und kann unter der Attribution-NonCommercial-ShareAlike 3.0 Unported Lizenz nicht-kommerziell verwendet werden.
-Die Laufrollen so angepasst, dass die Mutter sowie der Schraubenkopf in der Rolle versenkt ist, damit das Rad insgesamt kompakter ist. Zum bearbeiten wurde OpenSCAD, ein 3D-Compiler, verwendet. 
+Die Laufrollen wurden modifiziert, so dass die Mutter sowie der Schraubenkopf in der Rolle versenkt sind, damit das Rad insgesamt kompakter ist. In die Felge  Zum bearbeiten wurde OpenSCAD, ein 3D-Compiler, verwendet. 
 
-Durch die Schräganordnung der Laufrollen entstehen beim Antreiben eines Rades zwei Kraftkomponenten, eine in Querrichtung und eine in Längsrichtung des Fahrzeuges. Gegeneinander gerichtete Kräfte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich (siehe Abbildung \ref{fahrman}). So ist es nicht nur möglich den Roboter in Längsrichtung vor und zurück zu bewegen, sondern auch in Querrichtung (normal zur Längsrichtung) zu bewegen, ebenso sind Drehungen am Stand möglich. Damit braucht ein mit Mecanumrädern ausgestatteter Roboter keine Lenkung. Aber es sind zwar vier Motoren notwendig, damit jedes Rad einzeln angesteuert werden kann.   
-Die Kugellager sind in den 8 Löchern der Felge verklebt. Zuerst mit Superkleber, allerdings haben sich einige Kugellager im laufe der Zeit gelöst und beeinflussten so das Fahrverhalten negativ. Eine dauerhafte Verbindung von Kugellager mit der Felge ist für den störungsfreien Betrieb des Roboters unumgänglich. 
+Durch die Schräganordnung der Laufrollen entstehen beim Antreiben eines Rades zwei Kraftkomponenten, eine in Querrichtung sowie eine in Längsrichtung des Fahrzeuges. Gegeneinander gerichtete Kräfte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich (siehe Abbildung \ref{fahrman}). So ist es nicht nur möglich den Roboter in Längsrichtung vor und zurück zu bewegen, sondern auch in Querrichtung (normal zur Längsrichtung) zu bewegen, ebenso sind Drehungen am Stand möglich. Damit braucht ein mit Mecanumrädern ausgestatteter Roboter keine Lenkung. Allerdings sind vier Motoren notwendig, damit jedes Rad einzeln angesteuert werden kann.   
+Die Kugellager sind in den acht passenden Löchern der Felge verklebt. Zuerst mit Superkleber, allerdings haben sich einige Kugellager im laufe der Zeit gelöst und beeinflussten so das Fahrverhalten negativ, danach mit einem Zweikomponentenkleber. Eine dauerhafte Verbindung von Kugellager mit der Felge ist für den störungsfreien Betrieb des Roboters unumgänglich. 
 Zwischen den Rollen und dem Kugellager sorgen Beilagscheiben für einen reibungsarmen Betrieb. 
 Die Schrauben der Rollen lösen sich im Betrieb nicht. Die Schraube, welche die Felge an der Motorachse befestig hat, löste sich regelmäßig, bis diese Verbindung mit einem Kleber (Uhu Alleskleber) gesichert wurde.
 An den Rollen ist keine Abnützung erkennbar. Die gebrochenen Ringe der Kugellager brachen schon während der Erstmontage, verschlimmert hat sich während der Betriebes nichts.
@@ -344,10 +344,10 @@ Die Kugellager sind wartungsfrei. Das wenige UV-Licht, das den ABS-Kunststoff er
 \end{figure}
 
 
-Mit OpenSCAD entsteht ein dreidimensionales Modell eines Werkstückes. Damit fängt eine 3D-Drucker wenig an. Ein 3D-Druck setzt sich aus sehr vielen Liniensegmenten zusammen. Dazu muss das 3D-Modell in einzelne dünne Schichten und einzelne Linien zerlegt werden. Dieser Vorgang wird als "Slicing" bezeichnet. Dazu wurde das Programm pronterface verwendet. Mit OpenSCAD wird zunächst ein stl-File erzeugt, dann produziert pronterface daruas die Fahrbefehle für den 3D-Drucker in Form eines g-Files. Als Druckmaterial wurde ABS (Acrylnitril-Butadien-Styrol) verwendet, welches in einem Temperaturbereich von 215 bis 230 Grad Celsius per Extruder verarbeitet werden kann.    
-Die Druckzeit pro Rolle betrug 20 Minuten. Insgesamt mussten 64 Rollen gefertigt werden. Die Druckzeit pro Felge betrug etwa drei Stunden, der Roboter benötigte 4 Felgen. Es gibt insgesamt zwei verschiedene Felgentypen, mit nach links oder nach rechts geneigten Rollen. 
+Mit OpenSCAD entsteht ein dreidimensionales Modell eines Werkstückes. Damit fängt ein 3D-Drucker nichts an. Ein 3D-Druck setzt sich aus sehr vielen Liniensegmenten zusammen. Dazu muss das 3D-Modell in einzelne dünne Schichten und einzelne Linien zerlegt werden. Dieser Vorgang wird als "Slicing" bezeichnet. Dazu wurde das Programm pronterface verwendet. Mit OpenSCAD wird zunächst ein stl-File erzeugt, dann produziert pronterface daruas die Fahrbefehle für den 3D-Drucker in Form eines g-Files. Als Druckmaterial wurde ABS (Acrylnitril-Butadien-Styrol) verwendet, welches in einem Temperaturbereich von 215 bis 230 Grad Celsius per Extruder verarbeitet werden kann.    
+Die Druckzeit pro Rolle betrug 20 Minuten. Insgesamt mussten 64 Rollen gefertigt werden. Die Druckzeit pro Felge betrug etwa drei Stunden, der Roboter benötigte 4 Felgen. Es gibt zwei verschiedene Felgentypen, mit nach links oder nach rechts geneigten Rollen. 
 Dazu kommen noch vorbereitende Testdrucke bis die einzelnen Komponenten optimiert waren und der Drucker befriedigend Ergebnisse lieferte. 
-Nach dem Drucken mussten die Teile nachbearbeitet werden.  Die Löcher für die Kugellager mussten per Hand passend gefeilt werden. Beim  Einsetzen der Kugellager brachen manche der Halterungen. Mit Klebstoff konnten die Kugellager auch in die gebrochenen Halterungen eingebaut werden. Die dauerhafte Haltbarkeit dieser Konstruktion ist allerdings mit einem Fragezeichen behaftet.
+Nach dem Drucken mussten die Teile nachbearbeitet werden.  Die Löcher für die Kugellager mussten per Hand passend gefeilt werden. Beim  Einsetzen der Kugellager brachen zwar manche der Halterungen, aber mit Klebstoff konnten die Kugellager auch in die gebrochenen Halterungen fixiert werden. Die dauerhafte Haltbarkeit dieser Klebungen war allerdings anfangs mit einem Fragezeichen behaftet. Die erste Klebung der Kugellager hat den Testalltag nicht überstanden. Trotz loser Kugellager konnte der Roboter dennoch erfolgreich Messfahrten durchführen. Mit einem Zweikomponentenkleber wurden die Kugellager ein zweites Mal, diesmal hoffentlich dauerhafter, eingeklebt.
 
 \subsection{Chassis}\thispagestyle{empty}
 
@@ -424,12 +424,14 @@ Die in der Abbildung \ref{hbridge1} der Schaltung und der Abbildung \ref{hbridge
 
 \subsection{Optische Sensoren}\thispagestyle{empty}
 Die optische Sensorik dient der Positionsbestimmung. Der Roboter bewegt während der Messung auf Holzplatten, die aus Gründen, welche unten genauer erläutert werden, schwarz sind, der Roboter orientiert sich an einer aus geraden Teilstücken bestehenden weißen Linienfolge. 
-Als Sensor wurde ein CNY70 \cite{cny} verwendet. Der CNY 70 ist ein Reflexionssensor, bestehend aus einer Infrarot-Led und einem Phototransistor in einem kompakten 7x7x6 Millimeter Gehäuse. Die LED sendet Infrarotlicht mit einem Maximum bei 950nm aus, welches an einer nahen Fläche reflektiert wird, und einem Phototransistor ansteuert. (siehe Abbildung \ref{cny}) Der Phototransistor verfügt über einen Tageslichtfilter. Damit können Unterschiede des Reflektionkoeffizienten gemessen werden. Das Messprinzip funktioniert bei einem Abstand von wenigen Millimetern.  Deshalb sind die Markierungen weiß auf schwarzen Untergrund. Eine Anordnung von neun solcher Sensoren in einem 3-mal-3 Array kann sowohl vertikale als auch horizontale Linien sowie Ecken erkennen. Zusätzlich gibt es einen 10. Sensor, der die Stopmarkierungen für die Messungen erkennt.
+Als Sensor wurde ein CNY70 \cite{cny} verwendet. Der CNY 70 ist ein Reflexionssensor, bestehend aus einer Infrarot-LED und einem Phototransistor in einem kompakten 7x7x6 Millimeter großen Gehäuse. Die LED sendet Infrarotlicht mit einem Maximum bei 950nm aus, welches an einer nahen Fläche reflektiert wird, und den Phototransistor ansteuert. (siehe Abbildung \ref{cny}) Der Phototransistor verfügt über einen Tageslichtfilter. Damit können Unterschiede des Reflektionskoeffizienten gemessen werden. Das Messprinzip funktioniert bei einem Abstand von wenigen Millimetern.  Deshalb sind die Markierungen weiß auf schwarzen Untergrund. Eine Anordnung von neun solcher Sensoren in einem drei-mal-drei Array kann sowohl vertikale als auch horizontale Linien sowie Ecken erkennen. Zusätzlich gibt es einen zehnten Sensor, der die Stopmarkierungen für die Messungen erkennt.
 Die neun Sensoren sind im Rastermaß 15,2 mm (= 0,6 Zoll) angeordnet. Der Stopsensor hat einen Abstand von 40,6 mm (= 1,6 Zoll) zu dem Sensorarray. 
 Der Strom durch die LEDs ist mittels Potentiometer einstellbar. 
 Die Platine ist zweiseitig ausgeführt, allerdings sind alle Bauteile an der Unterseite der Platine montiert, bis auf die OPVs in SMD-Ausführung. Das ursprüngliche Layout wurde um folgende zwei Änderungen modifiziert:
-- Auf die Steuerleitung des Transistors wurde vergessen. Da es noch freie Pins am 16-poligen Stecker gab, wurde diese Verbindung mittels Draht hergestellt.
-- Die Platine wird mit der 5 Volt Versorgung der restlichen Elektronik versorgt, welche konstanter als die 7805-Variante ist, und um Probleme mit zwei verschiedenen 5 Volt Versorgungen zu vermeiden. Dazu wurde der ursprünglich vorgesehene 7805 ausgebaut, und eine weiterer freier Pin des 16-poligen Steckers verwendet.
+\begin{itemize}
+\item Auf die Steuerleitung des Transistors wurde vergessen. Da es noch freie Pins am 16-poligen Stecker gab, wurde diese Verbindung mittels Draht hergestellt.
+\item Die Platine wird mit der 5 Volt Versorgung der restlichen Elektronik versorgt, welche konstanter als die 7805-Variante ist, und um Probleme mit zwei verschiedenen 5 Volt Versorgungen zu vermeiden. Dazu wurde der ursprünglich vorgesehene 7805 ausgebaut, und eine weiterer freier Pin des 16-poligen Steckers verwendet.
+\end{itemize}
 
 \begin{figure}
     \subfigure[Gehäuse und Innenleben]{\includegraphics[width=0.49\textwidth]{img/cny1.png}}
@@ -905,8 +907,8 @@ Dieser Abschnitt behandelt den Messaufbau. Die Messung der Bestrahlungsstärkeve
 \end{figure}
 
 \subsection{Platten}\thispagestyle{empty}
-Die Messebene des Roboters wird von drei Holzplatten gebildet. Eine einzelne große Platte wäre eine bessere Alternative gewesen, aber aus Gründen der Hanhabung ist die Messebene auf drei Platten aufgeteilt. Eine einzelne 3,70 Meter mal 2,50 Meter große Platte wäre zu schwer und zu unhandlich. Die einzelnen Platten messen 250 Zentimeter mal 125 (bzw. 120) Zentimeter, und sind 18 Millimeter dick.
-Die Platten sind auf der Messseite schwarz angestrichen, um einen möglichst geringen Reflexionskoeffizienten haben. Die Messbahn ist weiß ausgeführt. Sowohl der schwarze Untergrund als auch die weiße Bahn besteht aus Kunstharzfarbe, welche UV-beständig ist. Da beim Hantieren mit den Platten kleine Beschädigungen der Messbahn entstehen können. Diese Beschädigungen können den Messablauf stören, so ist es sinnvoll vor der Messung die Bahn mit einem weißen Klebeband (Isolierband) auszubessern.
+Die Messebene des Roboters wird von drei Holzplatten gebildet. Eine einzelne große Platte wäre eine bessere Alternative gewesen, aber aus Gründen der Handhabung ist die Messebene auf drei Platten aufgeteilt. Eine einzelne 3,70 Meter mal 2,50 Meter große Platte wäre zu schwer und zu unhandlich. Die einzelnen Platten messen 250 Zentimeter mal 125 (bzw. 120) Zentimeter, und sind 18 Millimeter dick.
+Die Platten sind auf der Messseite schwarz angestrichen, um einen möglichst geringen Reflexionskoeffizienten haben. Die Messbahn ist weiß ausgeführt. Sowohl der schwarze Untergrund als auch die weiße Bahn besteht aus Kunstharzfarbe, welche UV-beständig und abriebfest ist. Da beim Hantieren mit den Platten dennoch kleine Beschädigungen der Messbahn entstehen können, welche den Messablauf beeinträchtigen können, so ist es sinnvoll, vor der Messung die Bahn einer optischen Kontrolle zu unterziehen und gegebenenfalls mit einem weißen Klebeband (z.B. Isolierband) auszubessern.
 Die Platten müssen möglichst eng aneinander anliegen, damit der Roboter beim Übergang von einer Platte zur nächsten möglichst wenig behindert wird. Damit keine zu groß Stufe wegen unterschiedlicher Duschbiegung der Platten entsteht sind auf der Rückseite der Holzplatten an einigen Stellen Aluminiumbleche befestigt. An der höheren Platte wurde das Blech angeschraubt, die tieferliegende Platte liegt darauf auf. Die Bleche wurden an den Stellen mit den größten Durchhang befestigt.
 Eine zu große Stufe behindert den Roboter beim Fahren, und erschwert das zuverlässige Erkennen von Messpunkten nahe der Stufe. Mit den Modifikationen an den Platten werden nun alle Messpunkte zuverlässig erkannt.
 Die Breite aller 3 Platten geringer ist als die Breite des Einschubes des Sonnensimulators. Damit die Messungen zu verschiedenen Zeitpunkten verglichen werden können, sind die Platten nach rechts auf Anschlag zu schieben.
