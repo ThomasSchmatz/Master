@@ -444,7 +444,7 @@ Die Platine ist zweiseitig ausgeführt, allerdings sind alle Bauteile an der Unt
 \includegraphics[width=125mm]{img/array.png}
 \caption{Der Schaltplan des Sensorarrays.}\label{array}
 \end{figure}
-Die LEDs sind parallel geschaltet und werde alle über den Feldeffekttransistor Q1 des Typs IRF530 \cite{irf} geschaltet.
+Die LEDs sind parallel geschaltet und werden alle über den Feldeffekttransistor Q1 vom Typs IRF530 \cite{irf} geschaltet.
 Der Strom durch die LEDs wird mit einem LM317 geregelt. Da der Widerstand als Potentiometer ausgeführt ist lässt sich der Strom einstellen. Trotz einer nicht konstanten Versorgungsspannung kann so einer konstanter STrom geliefert werden. Um das analoge Messsignal der Phototransistoren nicht zu belasten, werden die analogen Photosignale über einen Spannungsfolger geführt. Die OPVs benötigen allerdings eine symmetrische Versorgung mit $\pm$5 V. Beide Spannungen werden über den Stecker geliefert.
 Es gibt weiteren Stecker mit 2 Pins, welche die Spannungsversorgung mit 16 Volt und GND sicherstellt. 
 Die Platine verfügt um drei Bohrlöcher mit jeweils drei Millimeter Durchmesser zu Befestigung.
@@ -498,12 +498,12 @@ eine stabile 5 Volt Spannung gewonnen. Diese 5 Volt werden direkt mit dem 5 Volt
 
 \subsection{Strommessung}\thispagestyle{empty}
 Der Kurzschlussstrom der Messzelle wird mit einer eigenen Platine gemessen. Der Strom wird mittels Spannungsabfall an einem 10m$\Omega$ Shunt-Widerstand gemessen. Zu berücksichtigen ist allerdings auch der Spannungsabfall auf der Verbindung von der Zelle zum Shunt-Widerstand.
-Die Zelle ist über ein 25cm langes Kabel mit dem Durchmesser von 4 mm$^2$, ein 7cm langes Kabel mit dem Durchmesser von 6mm$^2$, und zwei Bananenstecker mit der Messplatine verbunden. Der Widerstand dieser Verbindung zusammen mit dem Messshunt beträgt etwa 40 m$\Omega$, was bei einem Kurzschlusstrom von etwa 5 A zu einem Spannungsabfall von 200mV führt. Der gemessene Strom ist damit nicht mehr der Kurzschlussstrom. Abbildung \ref{kenn2} zeigt die Widerstandsgerade im Vergleich zur Kennline einer Zelle.
+Die Zelle ist über ein 25cm langes Kabel mit dem Durchmesser von 4 mm$^2$, ein 7cm langes Kabel mit dem Durchmesser von 6mm$^2$, und zwei Bananenstecker mit der Messplatine verbunden. Der Widerstand dieser Verbindung zusammen mit dem Mess-Shunt beträgt etwa 40 m$\Omega$, was bei einem Kurzschlussstrom von etwa 5 A zu einem Spannungsabfall von 200mV führt. Der gemessene Strom ist damit nicht mehr der Kurzschlussstrom. Abbildung \ref{kenn2} zeigt die Widerstandsgerade im Vergleich zur Kennlinie einer Zelle.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=50mm]{img/kenn2.png}
-\caption{Einfluss des Widerstandes im Messpfad auf den gemessenen Strom}\label{kenn2}
+\caption{Verschiebung des Arbeitspunktes durch den Widerstand im Messpfad.}\label{kenn2}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -521,8 +521,8 @@ Die Zelle ist über ein 25cm langes Kabel mit dem Durchmesser von 4 mm$^2$, ein 
 
 
 \subsection{Das Shield}\thispagestyle{empty}
-Unter einem Shield versteht man eine Platine die auf einem Arduino aufgesteckt werden kann, und benutzerspezifische Funktionalität beinhaltet. Im Falle des Messroboters befindet sich die 5V-Erzeugung, die -5V-Erzeugung, die SD-Karte und diverse Steckerbuchsen zum Anschluss der Messplatinen, der Motortreiberplatine und des Sensorarray auf der Shield-Platine. 
-Der SD-Karten-Connector HSR-163 \cite{hsr} benötigt eine 3.3V Versorgung, welcher der Arduino liefert. Dazu sind keine weiteren Bauteile nötig. 
+Unter einem Shield versteht man eine Platine die auf einem Arduino aufgesteckt werden kann, und benutzerspezifische Funktionalität beinhaltet. Im Falle des Messroboters befindet sich die Spannungsversorgung mit $\pm$5V, die SD-Karte und diverse Steckerbuchsen zum Anschluss der Messplatinen, der Motortreiberplatine und des Sensorarrays auf der Shield-Platine. 
+Der SD-Karten-Connector HSR-163 \cite{hsr} benötigt eine 3,3V Versorgung, welcher der Arduino liefert. Dazu sind keine weiteren Bauteile nötig. 
 Zusätzlich gibt es einen TC7600-Pegelwandler \cite{tc7660}, welcher die 5V-Level der digitalen Signale des Arduino auf das für die SD-Karte notwendige 3,3V wandelt.
 In der Abbildung  \ref{shield} sind die verschieden Bauteile farbig markiert:
 Klemmen zur Versorgung mit Akku-Spannung (rosa), Buchse zur Kommunikation mit der Sensor-Array Platine (violett). Eine 10-polige Buchse zur Verbindung mit der Motortreiberplatine (violett). Insgesamt vier vierpolige Stecker (rosa) für verschiedene Messplatinen, wovon nur drei in Gebrauch sind: für die Strommessung und die beiden Temperaturmessungen.
@@ -898,7 +898,7 @@ Da die Platine A temperaturstabiler als die Platine B ist, wurde Platine A zur M
 Diese Kapitel beschreibt die Messvorbereitung, den Messaufbau, die eigentliche Messung und die Auswertung der Messdaten. Das Messsystem wurde verwendet um die Ausleuchtung der einzelnen Lampen zu ermitteln, und daraus eine für die Messebene optimierte Einstellung zu finden.
 
 \section{Messaufbau}\thispagestyle{empty}
-Dieser Abschnitt behandelt den Messaufbau. Die Messung der Bestrahlungsstärkeverteilung findet im Sonnensimulator statt. Zuerst muss eine Messebene geschaffen werden, auf welcher der Roboter fahren kann. Diese Fläche ist aus logistischen Gründen aus drei einzelnen Holzplatten gebildet, was zuerst einige zusätzliche Probleme bereitet hat. Auf der Oberseite der Platten befindet sich die Messpunkte und eine Führungslinie, welcher der Roboter folgt. Zur Messung wird der Roboter an das linke Ende der Linie gestellt, er fährt nach dem Einschalten selbständig das Messprogramm ab.
+Dieser Abschnitt behandelt den Messaufbau. Die Messung der Bestrahlungsstärkeverteilung findet im Sonnensimulator statt. Zuerst muss eine Messebene geschaffen werden, auf welcher der Roboter fahren kann. Diese Fläche ist aus logistischen Gründen aus drei einzelnen Holzplatten gebildet, was zuerst einige zusätzliche Probleme bereitet hat. Auf der Oberseite der Platten befinden sich die Messpunkte und die Führungslinie, welcher der Roboter folgt. Zu Beginn der Messung wird der Roboter an das linke Ende der Linie gestellt, er fährt nach dem Einschalten selbständig das Messprogramm ab.
 
 \begin{figure}[htbp]
 \centering
@@ -906,13 +906,13 @@ Dieser Abschnitt behandelt den Messaufbau. Die Messung der Bestrahlungsstärkeve
 \caption{Eine Fahrt des Roboters auf der Messbahn}\label{robofahrt}
 \end{figure}
 
-\subsection{Platten}\thispagestyle{empty}
+\subsection{Die Messebene}\thispagestyle{empty}
 Die Messebene des Roboters wird von drei Holzplatten gebildet. Eine einzelne große Platte wäre eine bessere Alternative gewesen, aber aus Gründen der Handhabung ist die Messebene auf drei Platten aufgeteilt. Eine einzelne 3,70 Meter mal 2,50 Meter große Platte wäre zu schwer und zu unhandlich. Die einzelnen Platten messen 250 Zentimeter mal 125 (bzw. 120) Zentimeter, und sind 18 Millimeter dick.
-Die Platten sind auf der Messseite schwarz angestrichen, um einen möglichst geringen Reflexionskoeffizienten haben. Die Messbahn ist weiß ausgeführt. Sowohl der schwarze Untergrund als auch die weiße Bahn besteht aus Kunstharzfarbe, welche UV-beständig und abriebfest ist. Da beim Hantieren mit den Platten dennoch kleine Beschädigungen der Messbahn entstehen können, welche den Messablauf beeinträchtigen können, so ist es sinnvoll, vor der Messung die Bahn einer optischen Kontrolle zu unterziehen und gegebenenfalls mit einem weißen Klebeband (z.B. Isolierband) auszubessern.
-Die Platten müssen möglichst eng aneinander anliegen, damit der Roboter beim Übergang von einer Platte zur nächsten möglichst wenig behindert wird. Damit keine zu groß Stufe wegen unterschiedlicher Duschbiegung der Platten entsteht sind auf der Rückseite der Holzplatten an einigen Stellen Aluminiumbleche befestigt. An der höheren Platte wurde das Blech angeschraubt, die tieferliegende Platte liegt darauf auf. Die Bleche wurden an den Stellen mit den größten Durchhang befestigt.
+Die Platten sind auf der Messseite schwarz angestrichen, um die Reflexion möglichst gering zu halten. Die Messbahn sowie die Messpunkte sind weiß ausgeführt. Sowohl der schwarze Untergrund als auch die weiße Bahn besteht aus Kunstharzfarbe, welche UV-beständig und abriebfest ist. Da beim Hantieren mit den Platten dennoch kleine Beschädigungen der Messbahn entstehen können, welche den Messablauf beeinträchtigen können, so ist es sinnvoll, vor der Messung die Bahn einer optischen Kontrolle zu unterziehen und gegebenenfalls mit einem geeigneten weißen Klebeband (z.B. einem 14mm breiten Isolierband) auszubessern.
+Die Platten müssen möglichst eng aneinander anliegen, damit der Roboter beim Übergang von einer Platte zur nächsten möglichst wenig behindert wird. Damit keine zu groß Stufe wegen unterschiedlicher Durchbiegung der Platten entsteht sind auf der Rückseite der Holzplatten an einigen Stellen Aluminiumbleche befestigt. An der höheren Platte wurde das Blech angeschraubt, die tiefer liegende Platte liegt darauf auf. Die Bleche wurden an den Stellen mit den größten Durchhang befestigt.
 Eine zu große Stufe behindert den Roboter beim Fahren, und erschwert das zuverlässige Erkennen von Messpunkten nahe der Stufe. Mit den Modifikationen an den Platten werden nun alle Messpunkte zuverlässig erkannt.
 Die Breite aller 3 Platten geringer ist als die Breite des Einschubes des Sonnensimulators. Damit die Messungen zu verschiedenen Zeitpunkten verglichen werden können, sind die Platten nach rechts auf Anschlag zu schieben.
-Die Messpunkte liegen im Raster von 15 Zentimeter. Der Abstand zwischen dem Mittelpunkt eines Messpunktes und der Mitte der Führungslinie beträgt 40,6mm. Die Messpunkte sind kleine Quadrate der Seitenlänge von 14 bis 15 Millimeter. Die Messbahn ist ebenfalls 14 bis 15 Millimeter breit. Die Position der Messpunkte ist auf etwa ein bis zwei Millimeter genau.
+Die Messpunkte liegen im Raster von 15 Zentimeter. Der Abstand zwischen dem Mittelpunkt eines Messpunktes und der Mitte der Führungslinie beträgt 40,6mm. Die Messpunkte sind kleine Quadrate der Seitenlänge von 14 Millimeter. Die Messbahn ist ebenfalls 14 Millimeter breit. Die Position der Messpunkte ist auf etwa ein bis zwei Millimeter genau.
 Die Messpunkte liegen im Abstand von 15 cm, damit ist auch der Abstand zwischen den Messbahnen 15 cm. Die Übergänge der Messbahn von einer Platte zur nächsten sind mit weißem Isolierband  der Breite 14 Millimeter zu überbrücken. Beschädigung der Messbahn, welche durch unsanftes Handling der Platten entstehen können, sind ebenfalls mit weißem Isolierband zu Überkleben.
 Eine zu große Stufe behindert den Roboter beim Fahren, und erschwert das zuverlässige Erkennen von Messpunkten nahe der Stufe. Mit den Modifikationen an den Platten werden nun alle Messpunkte zuverlässig erkannt. 
 Da die Messzelle nicht im Zentrum des Messroboters sitzt, sondern um zwei cm nach unten verschoben ist, gilt dies auch für die Positionen der Messpunkte, die Abbildung \ref{punkte} im Vergleich zur Abbildung \ref{platten} verdeutlicht das.
@@ -943,13 +943,14 @@ Die Platten sind in den Einschub des Sonnensimulators zu legen. Begonnen wird mi
 Die Startposition des Roboters ist die linke vordere Ende der Messbahn. Der Roboter muss mit dem Sensorarray auf der Messbahn stehen, das Sensorarray befindet sich in der Mitte des Roboters. Kleinere Abweichungen der Idealposition werden beim losfahren korrigiert. 
 Vor der eigentlichen Messfahrt ist eine Testfahrt mit geöffneter Lade des Sonnensimulators zu empfehlen. 
 Nach der bestandenen Testfahrt wird der Sonnensimulator eingeschaltet. Bis zur Messung sind 20 bis 30 Minuten zu warten, bis die Temperaturen im Simulator und das Spektrum der Lampen stabil sind. Der Roboter kann während dieser Zeit im Sonnensimulator stehen. Die Messzelle sollte allerdings abgeschattet werden, damit diese sich nicht aufheizt. 
-Zum Starten wird der Schalter von 0 auf 1 umgelegt. Damit wird der Mikrocontroller mit Spannung versorgt. Das Programm startet. Nach einer Pause von 60 Sekunden, die zum Schließen des Sonnensimulators notwendig ist, fährt der Roboter los. Eine Messfahrt, inklusive der Wartezeit vor der Fahrt, dauert etwa 13 Minuten. Nach Ablauf dieser Zeit wird der Roboter entnommen und die Daten der SD-Karte entnommen, oder der Roboter wird auf die Startposition gestellt um weitere Messfahrten durchzuführen.
+Zum Starten wird der Ein/Aus-Schalter von 0 auf 1 umgelegt, der Programmauswahlschalter muss auf der Position M (Messen) stehen. Dadurch wird der Mikrocontroller mit Spannung versorgt. Das Programm startet. Nach einer Pause von 60 Sekunden, die zum Schließen des Sonnensimulators notwendig ist, fährt der Roboter los. Eine Messfahrt, inklusive der Wartezeit vor der Fahrt, dauert etwa 13 Minuten. Nach Ablauf dieser Zeit wird der Roboter entnommen und die Daten der SD-Karte entnommen, oder der Roboter wird auf die Startposition gestellt um weitere Messfahrten durchzuführen.
 
 
 \section{Auswertung}\thispagestyle{empty}
 
-Die Messwerte werden auf SD-Karte als Textdatei gespeichert. Für jeden Messwert gibt es eine eigene Zeile. In jeder Zeile sind Messzeit in Millisekunden, der ADC-Wert für den Kurzschlussstrom, der ADC Wert für die Zelltemperatur, der ADC Wert für die Umgebungstemperatur, und jeweils einen Zählerwert für Messpunkt, Reihe und Spalte. Die einzelnen Werte sind durch einen Tabulator getrennt, damit ist die Datei in Excel und Matlab bearbeitbar.  
-Die Tabelle \ref{TabSD} zeigt wie die Daten auf der SD-Karte gespeichert sind. Es sind nicht alle Werte für die Auswertung notwendig. Der Erste Wert ist die Zeit in Millisekunden, die seit dem Einschalten des Roboters vergangen ist. Die nächsten 3 Werte sind werte des Analogdigtalwandlers im Bereich von Null bis 1023, diese Werte werden ohne Umrechnung direkt auf die SD Karte gespeichert. Es sind 308 Messpunkte, 14 mal 22, es kann vorkommen, am Übergang von einer Platte zur anderen, dass ein Messpunkt ausgelassen wird. Das ist erkennbar wenn nicht 308 Messwerte im datalog-File sind. Um den Fehler leicht zu finden wurde Spalte und Reihe mit aufgezeichnet. Sind in einer Spalte nur 13 Messwerte, fehlt in dieser Spalte ein Wert. Anhand der mit aufgezeichneten Zeit kann der fehlende Messpunktes lokalisiert werden. Das geschieht nicht automatisch Der Messwert wird anhand der neben liegenden Werte geschätzt. Alternativ werden nur Messfahrten mit allen Punkten ausgewertet.
+Die Messwerte werden auf der SD-Karte als Textdatei gespeichert. Für jeden Messpunkt gibt es eine eigene Zeile in der Textdatei. Gespeichert werden Messzeit in Millisekunden, der ADC-Wert für den Kurzschlussstrom, der ADC Wert für die Zelltemperatur, der ADC Wert für die Umgebungstemperatur, und jeweils einen Zählerwert für Messpunkt, Reihe und Spalte. Die einzelnen Werte sind durch einen Tabulator getrennt, damit ist die Datei in Excel und Matlab bearbeitbar.  
+Die Tabelle \ref{TabSD} zeigt wie die Daten auf der SD-Karte gespeichert sind. Es sind nicht alle Werte für die Auswertung notwendig. Der Erste Wert ist die Zeit in Millisekunden, die seit dem Einschalten des Roboters vergangen ist. Die nächsten 3 Werte sind Werte des Analogdigitalwandlers im Bereich von Null bis 1023, diese Werte werden ohne Umrechnung direkt auf die SD-Karte gespeichert. Es sind insgesamt 308 Messpunkte, 22 Reihen mit jeweils 14 Werten.  
+
  
 \begin{table}[htbp]
 \centering
@@ -999,7 +1000,7 @@ for(i=0:307)
 end
 \end{verbatim}
 
-Der ADC Wert des Kurschlussstromes wird in Ampere umgerechnet. Verwendet wird dazu die in im Abschnitt Kalibrierung gewonnene Formel.
+Der ADC Wert des Kurschlussstromes wird in Ampere umgerechnet. Dazu wird die in im Abschnitt Kalibrierung gewonnene Formel verwendet.
 \begin{verbatim}
 A = (I +4.5766)/119.2; 
 \end{verbatim}
@@ -1042,9 +1043,10 @@ TTm = (Rm-100.03)/0.3879; % Widerstand --> Temperatur
 
 \section{Die Ausleuchtung einzelner Lampen}
 
-Die geringe Messzeit des Roboters, verglichen mit der mechanischen Methode, macht es möglich die Bestrahlungsstärkeverteilung der einzelnen Lampen in realistischer Zeit zu bestimmen.
-Veränderbar sind der Abstand zwischen Lampenfeld und Prüfebene. Die Leistungen der Lampen lassen sich einzeln steuern. 
-Die Lampen wurden einzeln mit einer Lampenleistung von 100\% vermessen, die anderen Lampen waren jeweils auf 0\%.
+Die geringe Messzeit des Roboters, verglichen mit der mechanischen Methode, macht es möglich die Verteilung der Bestrahlungsstärke aller einzelnen Lampen in relativ kurzer Zeit zu messen. Die Lampen wurden einzeln mit einer Lampenleistung von 100\% vermessen, die anderen Lampen waren jeweils auf 0\%. Das Lampenfeld war für alle Einzelmessungen in einer Höhe von 1870mm.
+Die einzelnen Messungen sind in den Abbildungen \ref{E1} bis \ref{E10} abgebildet.
+Die rechnerische Kombination aller zehn Lampen ist in Abbildung \ref{b100} zu sehen, im Vergleich dazu in Abbildung \ref{m100} die gemessene Bestrahlungsstärke aller zehn Lampen bei 100\%.
+Abbildung \ref{v100} zeigt das Verhältnis der gemessenen Werte zu den berechneten.
 
 \begin{figure} [htbp]
     \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E1.png}}
@@ -1153,7 +1155,6 @@ Es wurden die Einstellung Arsenal 1100W mit einer Höhe 1870mm bzw. Arsenal 1100
 80\%, 1870mm & 619.4 & 697.3 & 578.0 & 9.35\\ \hline
 60\%, 1870mm & 402.4 & 449.6 & 374.7 & 9.09\\ \hline
 60\%, 1870mm & 400.9 & 448.2 & 371.7 & 9.33\\ \hline
-
 96\%, 4200mm & 468.9 & 509.5 & 410.3 & 10.78\\ \hline
 96\%, 4200mm & 469.1 & 509.3 & 411.1 & 10.66\\ \hline
 80\%, 4200mm & 269.2 & 395.2 & 318.9 & 10.69\\ \hline
