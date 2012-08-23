@@ -152,19 +152,19 @@ Dieses Kapitel beschreibt die Notwendigkeit von Messungen im stationären Sonnen
 
 \section{Stationäre Photovoltaik Sonnensimulatoren} \thispagestyle{empty}
 
-Photovoltaik-Sonnensimulatoren werden zur elektrischen Charakterisierung und Prüfung von Photovoltaik-Modulen verwendet. Der wesentliche Vorteil gegenüber Messungen im Sonnenlicht liegt darin, dass die Durchführung unter reproduzierbaren Umweltbedingungen (Bestrahlungsstärke, spektrale Zusammensetzung des einfallenden Lichtes und die Prüfgutstemperatur)  ermöglicht wird. Grundsätzlich werden bei konventionellen Systemen gepulste und stationäre Simulatoren, welche kontinuierlich leuchten, unterschieden. Erstere brauchen weniger Energie, heizen die Messobjekte nicht auf, und werden für die Leistungsmessung von Zellen und Modulen verwendet. Allerdings ist Blitzlänge bauartbedingt auf wenige Millisekunden begrenzt. Stationäre Simulatoren werden unter anderem für Voralterung von Modulen verwendet.
+Photovoltaik-Sonnensimulatoren werden zur elektrischen Charakterisierung und Prüfung von Photovoltaik-Modulen verwendet. Der wesentliche Vorteil gegenüber Messungen im Sonnenlicht liegt darin, dass die Durchführung unter reproduzierbaren Umweltbedingungen (Bestrahlungsstärke, spektrale Zusammensetzung des einfallenden Lichtes und die Prüfgutstemperatur)  ermöglicht wird. Grundsätzlich werden bei konventionellen Systemen gepulste und stationäre Simulatoren, welche kontinuierlich leuchten, unterschieden. Erstere brauchen weniger Energie, heizen die Messobjekte nicht auf, und werden für die Leistungsmessung von Zellen und Modulen verwendet. Die Blitzlänge ist bauartbedingt auf wenige Millisekunden begrenzt. Stationäre Simulatoren werden unter anderem für Voralterung von Modulen verwendet.
 Im Allgemeinen werden Messergebnisse auf Standard-Prüfbedingungen (STC) bezogen, die durch 1000W/m$^2$, 25$^{\circ}$C und AM1.5 definiert ist. Die Air Mass (AM) beschreibt das Verhältnis des Weges des einfallenden Sonnenlichtes durch die Atmosphäre bezogen auf senkrechten Einfall (siehe Abbildung \ref{airmass}). Je länger der Weg des Lichtes durch die Atmosphäre desto größer ist der Einfluss durch Streuung, Reflexion und Absorption, was sowohl die Stärke der Einstrahlung als auch die spektrale Zusammensetzung des Sonnenlichtes vom Sonnenstand abhängig macht. 
 \begin{equation}
      AM = \frac {L} {L_0} \approx \frac{1}{cos~ z}
 \end{equation}
-Wobei L die Länge des Weges des Sonnenlichtes durch die Atmosphäre, L$_0$ die Weglänge bei senkrechten Einfall und z der Zenitwinkel des Sonnenstandes in Grad ist (\cite{wurf} S. 30). Dabei handelt es sich um eine Näherung, welche die Krümmung der Erdoberfläche und der Atmosphäre vernachlässigt. Für kleine Werte der Air Mass ist die Näherung aber hinreichend genau.
-Die spektrale Verteilung des Referenzsonnenspektrums AM1.5 (siehe Abbildung \ref{sunspec}) ist durch die Norm IEC 60904-3 \cite{norm3} festgelegt. Das Spektrum des Sonnenlichtes im Weltall AM0 entspricht in etwa der thermische Strahlung eines schwarzen Körpers mit 5250$^\circ$C.
-Die meisten am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$) können das Spektrum nicht verändern, da sie Metallhalogenid-Lampen verwenden, sie sind also für einen Sonnenstand beschränkt. Es gibt Sonnensimulatoren auf LED-Basis. Das gewünschte Spektrum wird dort mit vielen LEDs unterschiedlicher Wellenlänge realisiert, somit sind auch unterschiedliche Spektren und Bestrahlungsstärken realisierbar. Das beschränkt sich zurzeit auf Simulatoren in Zellgröße.  Es gibt bereits LED-Sonnensimulatoren für Module am Markt \cite{mps}. Ein Vorteil dieses Systems ist die lange Lebensdauer der Lampen, welche für 10 Millionen Messungen reicht. 
+Wobei L die Länge des Weges des Sonnenlichtes durch die Atmosphäre, L$_0$ die Weglänge bei senkrechten Einfall und z der Zenitwinkel des Sonnenstandes in Grad ist (\cite{wurf} S. 30). Dabei handelt es sich um eine Näherung, welche die Krümmung der Erdoberfläche und der Atmosphäre vernachlässigt. Für kleine Werte von AM ist diese Näherung aber hinreichend genau.
+Die spektrale Verteilung des Referenzsonnenspektrums AM1.5 (siehe Abbildung \ref{sunspec}) ist in der IEC-Norm 60904-3 \cite{norm3} definiert. Das Spektrum des Sonnenlichtes im Weltall AM0 entspricht in etwa der thermische Strahlung eines schwarzen Körpers mit 5250$^\circ$C (siehe Abbildung \ref{sunspec}).
+Die meisten am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$) können das Spektrum nicht verändern, da sie Metallhalogenid-Lampen verwenden, sie sind also für einen Sonnenstand beschränkt. Es gibt Sonnensimulatoren auf LED-Basis. Das gewünschte Spektrum wird dort mit vielen LEDs unterschiedlicher Wellenlänge realisiert, somit sind auch unterschiedliche Spektren und Bestrahlungsstärken realisierbar. Es gibt bereits LED-Sonnensimulatoren für Module am Markt \cite{mps}. Ein Vorteil dieses Systems ist die lange Lebensdauer der Lampen, welche laut Herstellerangaben für 10 Millionen Messungen reicht. 
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/berlin.png}
-\caption[Sonnenspektrum]{Höchster Sonnenstand und AM-Werte für verschiedene Tage in Berlin und Kairo. Quelle: \cite{q01}}\label{airmass}
+\caption[Sonnenspektrum]{Vergelich des höchsten Sonnenstand und dazugehöriger AM-Werte für verschiedene Tage in Berlin und Kairo. Quelle: \cite{q01}}\label{airmass}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -182,7 +182,7 @@ Jede Lampe wird von einem eigenen elektronisch geregelten Vorschaltgerät versor
 Da die Lampen nicht für eine Heißzündung ausgelegt sind, wobei sie eventuell zerstört werden können, ist eine Sperrzeit von 10 Minuten zum Abkülen vorgesehen, bevor sich die Lampen wieder einschalten lassen.
 Die Strahlungsleistung lässt sich reduzieren indem das gesamte Lampenfeld in die Höhe gefahren wird.
 Weiters lässt sich die Bestrahlungsstärke einzelner Lampen über die Variation der elektrischen Leistung des Vorschaltgerätes variieren.
-Allerdings führt eine Variation der elektrischen Leistung zu einer Änderung der spektralen Strahlungsverteilung. Aus diesem Grund wird vom Hersteller empfohlen \cite{atlas}, die Helligkeit der Lampen nur zwischen 80 und 100 \% zu variieren.
+Allerdings führt eine Variation der elektrischen Leistung zu einer Änderung des Spektrums der Lampen. Aus diesem Grund wird vom Hersteller empfohlen \cite{atlas}, die Leistung der Lampen nur zwischen 80 und 100 \% zu variieren.
 Die Testobjekte werden mittels Prüfgut-Einschub in einem Windkanal positioniert, dessen obere Abdeckung aus einem geeigneten Solarglas besteht. Die geneigte Glasplatte bewirkt eine Querschnittreduktion des Luftkanales und somit eine Erhöhung der Strömungsgeschwindigkeit zwischen Zuluft- und Abluftseite. Diese stetige Erhöhung der Geschwindigkeit ist notwendig, damit die sich erwärmende Zuluft eine konstante Kühlwirkung hat, um die Testobjekt auf konstanter Temperatur zu halten.
 
 
@@ -193,7 +193,7 @@ Die Testobjekte werden mittels Prüfgut-Einschub in einem Windkanal positioniert
 \end{figure}
 
 
-\section{Normative Anforderungen}\thispagestyle{empty}
+\section{Normative Anforderungen an Sonnensimulatoren}\thispagestyle{empty}
 In der IEC Norm 60904-9 \cite{norm9} werden die Anforderungen an Sonnensimulatoren definiert. Ein Sonnensimulator wird anhand von 3 Kriterien bewertet: 
 \begin{itemize}
 \item die spektrale Übereinstimmung mit dem in Tabelle \ref{TabS1} aufgelisteten Wellenlängenbereichen. Zum AM1.5 Referenzspektrum sind durch die großen Schranken erhebliche Unterschiede möglich.
@@ -221,7 +221,7 @@ In der IEC Norm 60904-9 \cite{norm9} werden die Anforderungen an Sonnensimulator
 \end{equation}
 \end{itemize}
 
-Tabelle \ref{TabS2} gibt die Anforderungen an, nach denen Sonnensimulatoren in den Klassen A,B und C klassifiziert werden. Die Sonnensimulatorklasse ABB bedeutet eine 0,75- bis 1,25-fache Übereinstimmung in allen in Tabelle \ref{TabS1} angeführten Schranken, eine Homogenität der Einstrahlung zwischen 2\% und 5\% im Messbereich, und eine zeitliche Stabilität zwischen 2\% und 5\%. 
+Die Tabelle \ref{TabS2} gibt die Anforderungen an, nach denen Sonnensimulatoren in den Klassen A, B und C klassifiziert werden. Die Sonnensimulatorklasse ABB bedeutet eine 0,75- bis 1,25-fache Übereinstimmung in allen in Tabelle \ref{TabS1} angeführten Schranken, eine Homogenität der Einstrahlung zwischen 2\% und 5\% im Messbereich, und eine zeitliche Stabilität zwischen 2\% und 5\%. 
 \begin{table}[htbp]
 \centering
 \begin{tabular}{ | c | c | c | c | c |}\hline
@@ -240,7 +240,7 @@ Der Roboter misst von diesen drei Kategorien nur die Verteilung der Bestrahlungs
 
 
 \section{Theorie Referenzzelle}\thispagestyle{empty}
-Eine Solarzelle wandelt die Energie des Lichtes in elektrische Energie um. Eine Referenzzelle ist eine speziell für Messungen kalibrierte Solarzelle, die dort als Strahlungsmessgerät dient. Wichtig ist, dass die Referenzzelle eine ähnliche spektrale Empfindlichkeit hat wie die zu messenden Zelle bzw. das zu messende Modul
+Eine Solarzelle wandelt die Energie des Lichtes in elektrische Energie um. Eine Referenzzelle ist eine speziell für Messungen kalibrierte Solarzelle, welche als Strahlungsmessgerät dient. Wichtig ist, dass die Referenzzelle eine ähnliche spektrale Empfindlichkeit hat wie die zu messenden Zelle bzw. das zu messende Modul
 Es gibt verschiedene Solarzellentechnologien. Es gibt kristalline Siliziumzellen und Dünnschichtzellen . Die kristallinen Siliziumzellen werden in monokristalline Zellen und multikristalline Zellen unterschieden. Beide zusammen machen über 80\% des weltweiten Photovoltaikmarktes aus \cite{iea00}. Als Referenzzelle für Messungen werden ausschließlich kristalline Zellen verwendet. 
 Eine Siliziumsolarzelle ist eine großflächigen Diode (siehe Abbildung \ref{cell}). Die Sperrschicht ist dabei dem Sonnenlicht ausgesetzt. Gelangt ein Lichtquanten in die Sperrschicht kann aufgrund des inneren Photoeffektes ein Elektron/Loch Paar erzeugt werden. Durch das elektrische Feld in der Sperrschicht werden die Ladungsträger getrennt bevor sie kombinieren können. Elektronen bewegen aufgrund ihrer negativen Ladung entgegen der Feldrichtung in die n-Zone. Löcher wandern in Feldrichtung zur raumladungsfreien p-Zone. Die Leerlaufspannung einer Solarzelle ist kleiner als die Diffusionsspannung, der Spannung über die Raumladungszone, die der Diffusion von Ladungsträgern entgegenwirkt.
 \begin{figure}[htbp]
@@ -268,7 +268,7 @@ Der Füllfaktor ist das Verhältnis der Fläche des Rechteckes mit den Seitenlä
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/kennlinie.png}
-\caption{Dunkel- und Hellkennlinien. Modifiert nach \cite{kl}}\label{kennlinie}
+\caption{Die Dunkel- und Hellkennlinie Eines Solarzelle. Modifiziert nach \cite{kl}}\label{kennlinie}
 \end{figure}
 
 Die Kennlinie der Solarzelle ist von der Einstrahlung abhängig (siehe Abbildung \ref{mpp}). Der Kurzschlusstrom ist direkt proportional zur Einstrahlung.
@@ -285,10 +285,12 @@ Für die Temperaturkorrektur ist es notwendig die Zelltemperatur zum Zeitpunkt d
 \caption{Die lineare Abhängigkeit des Kurzschlussstromes von der Einstrahlung. Quelle: \cite{pv}}\label{mpp}
 \end{figure}
 
+In der Abbildung \ref{el} ist ein Elektrolumineszenz-Aufnahme der verwendeten Messzelle zu sehen. Es ist deutlich die multikristalline Struktur der Zelle zu erkennen. 
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=100mm]{img/el.png}
-\caption{Eine EL-Aufnahme der verwendeten Messzelle}\label{el}
+\caption{Eine EL-Aufnahme der verwendeten Messzelle.}\label{el}
 \end{figure}
 
 \chapter{Entwicklungsprozess}\thispagestyle{empty}
@@ -304,7 +306,7 @@ Mit der Größe der Messzelle ist auch die minimale Ausdehnung in den beiden and
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/oben2.png}
-\caption{Der Roboter aus der Vogelperspektive}\label{oben}
+\caption{Der Roboter aus der Vogelperspektive.}\label{oben}
 \end{figure}
   
 
@@ -328,13 +330,13 @@ Die Kugellager sind wartungsfrei. Das wenige UV-Licht, das den ABS-Kunststoff er
     \subfigure[Vor/Zurück-Fahren]{\includegraphics[width=50mm]{img/gerade.png}}
     \subfigure[Das Seitwärtsfahren]{\includegraphics[width=50mm]{img/seitw.png}}
      \subfigure[Drehen am Stand]{\includegraphics[width=50mm]{img/dreh.png}}
-\caption{Einige der möglichen Fahrmanöver eines Mecanum-Rad-Fahrzeuges}\label{fahrman}
+\caption{Einige der möglichen Fahrmanöver eines Mecanum-Rad-Fahrzeuges.}\label{fahrman}
 \end{figure} 
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/wheel.png}
-\caption{Die Felge eines Mecanum Rades}\label{rad}
+\caption{Die Felge eines Mecanum Rades.}\label{rad}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -345,9 +347,9 @@ Die Kugellager sind wartungsfrei. Das wenige UV-Licht, das den ABS-Kunststoff er
 
 
 Mit OpenSCAD entsteht ein dreidimensionales Modell eines Werkstückes. Damit fängt ein 3D-Drucker nichts an. Ein 3D-Druck setzt sich aus sehr vielen Liniensegmenten zusammen. Dazu muss das 3D-Modell in einzelne dünne Schichten und einzelne Linien zerlegt werden. Dieser Vorgang wird als "Slicing" bezeichnet. Dazu wurde das Programm pronterface verwendet. Mit OpenSCAD wird zunächst ein stl-File erzeugt, dann produziert pronterface daruas die Fahrbefehle für den 3D-Drucker in Form eines g-Files. Als Druckmaterial wurde ABS (Acrylnitril-Butadien-Styrol) verwendet, welches in einem Temperaturbereich von 215 bis 230 Grad Celsius per Extruder verarbeitet werden kann.    
-Die Druckzeit pro Rolle betrug 20 Minuten. Insgesamt mussten 64 Rollen gefertigt werden. Die Druckzeit pro Felge betrug etwa drei Stunden, der Roboter benötigte 4 Felgen. Es gibt zwei verschiedene Felgentypen, mit nach links oder nach rechts geneigten Rollen. 
-Dazu kommen noch vorbereitende Testdrucke bis die einzelnen Komponenten optimiert waren und der Drucker befriedigend Ergebnisse lieferte. 
-Nach dem Drucken mussten die Teile nachbearbeitet werden.  Die Löcher für die Kugellager mussten per Hand passend gefeilt werden. Beim  Einsetzen der Kugellager brachen zwar manche der Halterungen, aber mit Klebstoff konnten die Kugellager auch in die gebrochenen Halterungen fixiert werden. Die dauerhafte Haltbarkeit dieser Klebungen war allerdings anfangs mit einem Fragezeichen behaftet. Die erste Klebung der Kugellager hat den Testalltag nicht überstanden. Trotz loser Kugellager konnte der Roboter dennoch erfolgreich Messfahrten durchführen. Mit einem Zweikomponentenkleber wurden die Kugellager ein zweites Mal, diesmal hoffentlich dauerhafter, eingeklebt.
+Die Druckzeit pro Rolle betrug 20 Minuten. Insgesamt mussten 64 Rollen gefertigt werden. Die Druckzeit pro Felge betrug etwa drei Stunden, der Roboter benötigte vier Felgen. Es gibt zwei verschiedene Felgentypen, mit nach links oder nach rechts geneigten Rollen. 
+Die Zeitaufwand wurde durch vorbereitende Testdrucke, bis die einzelnen Komponenten optimiert waren und der Drucker befriedigend Ergebnisse lieferte, sowie Fehldrücke, zusätzlich verlängert. 
+Nach dem Drucken mussten die Teile nachbearbeitet werden. Die Löcher für die Kugellager mussten per Hand passend gefeilt werden. Beim  Einsetzen der Kugellager brachen zwar manche der Halterungen, aber mit Klebstoff konnten die Kugellager auch in die gebrochenen Halterungen fixiert werden. Die dauerhafte Haltbarkeit dieser Klebungen war allerdings anfangs mit einem Fragezeichen behaftet. Die erste Klebung der Kugellager hat den Testalltag nicht überstanden. Trotz loser Kugellager konnte der Roboter dennoch erfolgreich Messfahrten durchführen. Mit einem Zweikomponentenkleber wurden die Kugellager ein zweites Mal, diesmal dauerhaft, eingeklebt.
 
 \subsection{Chassis}\thispagestyle{empty}
 
@@ -369,13 +371,13 @@ Die Messzelle ist am Roboter oben befestigt.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/gehause3.png}
-\caption[Chassis]{Die Schnittvorlage des Chassis}\label{gehause}
+\caption[Chassis]{Die Schnittvorlage des Chassis.}\label{gehause}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/robo3d.png}
-\caption[Chassis]{Ein 3D-Modell der Chassis}\label{robo3d}
+\caption[Chassis]{Ein 3D-Modell des Chassis.}\label{robo3d}
 \end{figure}
 
 
@@ -403,8 +405,8 @@ Die horizontale Anordnung ist in Abbildung \ref{vorne} zu erkennen: Das Sensorar
 \subsection{Motorensteuerung}\thispagestyle{empty}
 
 Die Motorplatine besteht aus zwei integrierten H-Brücken-Bausteinen (IC1, IC2), einer 16 poligen Buchse und fünf zweipoligen Buchsen für die Stromversorgung und den Anschluss der vier Motoren. Bei den integrierten H-Brücken-Baustein handelt es sich um einen NJM2670 \cite{njm}, welcher zwei H-Brücken in einem Baustein vereint, zusätzlich verfügen diese Bausteine über eine interne Logik, welche Kurzschlüsse über die Brücke unmöglich macht.
-Die Drehzahl der Motoren wird mit Pulsweitenmodulation variiert. Dabei ist es wichtig, dass die Transistoren in der Brücke schnell genug schalten können. Die PWM-Ausgänge des Arduino arbeiten mit einer Frequenz von etwa 500Hz \cite{pwm}.
-Die Gleichspannungsmotoren sind Getriebemotoren mit der Bezeichnung RB 35, und einem Übersetzungsverhältnis von 1:200. Die maximale Versorgungsspannung wurde mit 12V angegeben. Die Leerlaufdrehzahl beträgt bei 12V Versorgungsspannung 20 Umdrehungen pro Minute.
+Die Drehzahl der Motoren wird mit Pulsweitenmodulation variiert. Die PWM-Ausgänge des Arduino arbeiten mit einer Frequenz von etwa 500Hz \cite{pwm}, was den Transistoren der Brücke keinerlei Probleme bereitet.
+Die Gleichspannungsmotoren sind Getriebemotoren mit der Bezeichnung RB 35, und einem Übersetzungsverhältnis von 1:200. Die maximale Versorgungsspannung wurde mit 12V angegeben. Die Leerlaufdrehzahl beträgt bei einer Versorgungsspannung von 12V 20 Umdrehungen pro Minute.
 Der Roboter wird mit einem Lithium-Ionen-Akku versorgt. Die Spannung beträgt, abhängig vom Ladezustand zwischen 16,4V und 15,0V. Damit die 12V-Motoren nicht überlastet werden, wird bei der Pulsweitenmodulation ein maximales Tastverhältnis von 50\% eingehalten.
 Die in der Abbildung \ref{hbridge1} der Schaltung und der Abbildung \ref{hbridge1} der Platine sind die gleichen Bauteile mit der selben Farbe markiert, so sind etwa die NJM2670-Bausteine gelb gefärbt.
 
@@ -434,9 +436,10 @@ Die Platine ist zweiseitig ausgeführt, allerdings sind alle Bauteile an der Unt
 \end{itemize}
 
 \begin{figure}
-    \subfigure[Gehäuse und Innenleben]{\includegraphics[width=0.49\textwidth]{img/cny1.png}}
-    \subfigure[Funktion]{\includegraphics[width=0.49\textwidth]{img/cny2.png}}
-\caption{Der Bauteil CNY70} \label{cny}
+\centering
+    \subfigure[Gehäuse und Innenleben]{\includegraphics[width=0.4\textwidth]{img/cny1.png}}
+    \subfigure[Funktion]{\includegraphics[width=0.4\textwidth]{img/cny2.png}}
+\caption{Der Bauteil CNY70.} \label{cny}
 \end{figure} 
 
 \begin{figure}[htbp]
@@ -1287,20 +1290,10 @@ Mit dem Algorithmus wurden die in Abbildung \ref{opt} dargestellten Einstellunge
 
 
 
-
-
-
-
-
-
-
-
-Die Summe der Bestrahlungsstärke der einzelnen Lampen bei jeweils 100\% ist annähernd gleich der Bestrahlungsstärke aller Lampen bei 100\% sein. 
-Optimierung: Es gibt 10 Lampen, die sich laut Datenblatt zwischen 80 und 100\% betreiben lassen, wenn das Spektrum der Lampen gleich bleiben soll. Die zehn Lampen und 21  Werte pro Lampe, die Lampenleistung lässt sich in Ein-Prozent Schritten verändern, ergibt 21 hoch 10 verschiedene Einstellungen, das sind 16,7 Billionen Möglichkeiten. Da das Durchrechnen aller Möglichkeiten zu lange gedauert hätte, wurden 8 Lampen variert, mit jeweils 8 Werten pro Lampe (2-\% Schritte) berechnet, die beiden mittleren Lampen wurden mit 100\% fixiert. Diese Variante, mit einer Millionstel Möglichkeiten der vollständigen Variante, benötigte eine Rechenzeit von etwa 10 Minuten. Mit diesen Ergebnis wurde eine nochmalige Berechnung mit diesmal 1\%-Schritten, aber weniger Schritten pro Lampe durchgeführt. So konnte eine minimierte Lösung durchgeführt werden. Allerdings kann nich garantiert werden, dass es sich bei dieser Lösung um ein globales Minimum handelt.
 Das gemessene Ergebnis der optimierten Einstellung ist besser über die gesamte Ebene als die Standardeinstellungen.
-Allerdings sind die Messbereiche für die Zwei-Prozentige bzw. Fünf-Prozentige Homogenität kleiner als bei den Standardeinstellungen. So macht diese Optimierung nur in Ausnahmefällen Sinn. Die Optimierung hatte Abweichung der Homogenität der gesamten Ebene verbessert.
+Allerdings sind die Messbereiche für die Zwei-Prozentige bzw. Fünf-Prozentige Homogenität kleiner als bei den Standardeinstellungen. So macht diese Optimierung nur in Ausnahmefällen Sinn. Die Optimierung hatte die Homogenität der gesamten Ebene verbessert.
 
-Der Suchalgorithmus für den größten Bereich, in dem die 2\% bzw. 5\% Abweichung der Homogenität gilt:
+Der Suchalgorithmus für den größten Bereich, in dem die 2\% bzw. 5\% Abweichung der Homogenität gilt: Es wird für alle möglichen Teilmatrizen der Bestrahlungsstärke-Matrix die Homogenität berechnet, und so die größte gesucht, welche die 2\% bzw. die 5\% Bedingung erfüllt.
 \begin{verbatim}
 for m=1:13
     for n=1:21
@@ -1332,6 +1325,11 @@ for m=1:13
     end
 end
 \end{verbatim}
+
+Die Abbildung \ref{zwei} zeigt den Vergleich des 2\%-Fensters zwischen den Standardeinstellungen und dem optimierten Einstellungen.
+Die Abbildung \ref{funf} zeigt den Vergleich des 5\%-Fensters zwischen den Standardeinstellungen und dem optimierten Einstellungen.
+In der Abbildung \ref{fstd} zeigt den 5\%-Bereich (gelb) und zwei 2\%-Bereiche (blau) mit den Standardeinstellungen.
+Die 2\%- und 5\%-Bereiche der optimierten Einstellungen sind in Abbildung \ref{fopt} zu sehen. Der 5\%-Bereich mit den Standardeinstellungen größer.  
 
 \FloatBarrier
 
@@ -1413,6 +1411,7 @@ Die 3D-Drucktechnik versprach zwar eine schnelle Entwicklung, sprich ein Rapid P
 \addchap{Abk"urzungsverzeichnis}
 \hspace{-17mm}\begin{tabular}{>{\raggedleft}p{0.2\linewidth} p{0.75\linewidth} p{0.1\linewidth}}
 AM & Air Mass \\
+EL & Elektrolumineszenz \\
 STC & Standard Test Conditions
 \end{tabular}
 
