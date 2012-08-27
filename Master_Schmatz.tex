@@ -468,8 +468,8 @@ Anschlüsse: Es ist eine 16-polige Leiterplattenbuchse für die Analogsignale, 5
 
 
 \subsection{Spannungversorgung}\thispagestyle{empty}
-Der Roboters wird mit einem Kokam 14,6V 4000mAh Litihum Lithium-Polymer-Akkumulator \cite{kokam} mit Energie versorgt. Es wird empfohlen vor jeden Messzyklus den Akku zu laden. Ein voller Akku reicht für mehr mehrere Stunden Dauerbetrieb. Der Akku ist mit einer im Anschlusskabel integrierten Schmelzsicherung geschützt. Zum Laden des Akkus muss der Akku vom Roboter abgesteckt werden und an das Ladegerät angeschlossen werden. Zum Schutz vor Kurzschlüssen ist der Akku mit einer im Anschlusskabel integrierten Schmelzsicherung gesichert. Da zum Laden der Akku aus dem Roboter entfernt und an das Akkuladegerät angeschlossen werden muss, könnte versehentlich der Akku kurzgeschlossen werden. Zum Laden wird ein Ultramat 16 S verwendet, der über einen Balanceranschluss verfügt, und somit alle vier Zellen des Akkus auf die gleiche Spannung lädt. 
-Der Akku kann mit bis zu 200A belastet werden, allerdings liegt der maximale Strom aller 4 Motoren und der restlichen Elektronik liegt bei einem Ampere. Die Motoren werden direkt mit der Akkuspannung versorgt. Die Versorgungsspannung schwankt zwischen der vollen Akkuspannung 16,4V und 15V nach mehr als 10 Messfahrten.
+Der Roboters wird mit einem Kokam 14,8V 4000mAh Litihum Lithium-Polymer-Akkumulator, bestehend aus 4 Zellen \cite{kokam}, mit Energie versorgt. Ein voller Akku reicht für mehr mehrere Stunden Messbetrieb. Zum Laden des Akkus, was vor jedem Messzyklus empfehlenswert ist, muss der Akku vom Roboter abgesteckt werden und an das Ladegerät angeschlossen werden. Zum Schutz vor Kurzschlüssen ist der Akku mit einer im Anschlusskabel integrierten Schmelzsicherung gesichert. Da zum Laden der Akku aus dem Roboter entfernt und an das Akkuladegerät angeschlossen werden muss, könnte versehentlich der Akku kurzgeschlossen werden. Zum Laden wird ein Ultramat 16 S verwendet, der über einen Balanceranschluss verfügt, und somit alle vier Zellen des Akkus auf die gleiche Spannung lädt. 
+Der Akku kann mit bis zu 200A belastet werden, allerdings liegt der maximale Strom aller 4 Motoren und der restlichen Elektronik des Roboters bei einem Ampere. Die Motoren werden direkt mit der Akkuspannung versorgt. Die Versorgungsspannung schwankt zwischen der vollen Akkuspannung 16,4V und 15V nach mehr als 10 Messfahrten.
 Die 5 Volt Versorgung des Mikrocontrollers wurde mit einem RECOM R-785.0-1.0 DC-DC Konverter \cite{ref5} gelöst. Er ist pinkompatibel zu einem 7805-Spannungsregler, allerdings mit etwas größeren Ausmaßen, und bietet die Vorteile einer geringen Verlustleistung und einer sehr genauen Ausgangsspannung. 
 Der Ladezustand der einzelnen Zellen des Akkus wird mit einer eigens dafür entwickelten Schaltung überwacht. Sollte die Spannung einer Zelle unter 3,3V sinken, wird die Stromversorgung zum Roboter mittels FET unterbrochen, und ein akustisches Warnung ausgegeben. Damit wird eine Tiefentladung verhindert, was zu einer irreversiblen Schädigung und einem Kapazitätsverlust führen kann. Eigentlich könnte der Akku bis zu 2,7V pro Zelle entladen werden.
 Die Analog-Digitalwandlung des Arduino benötigt eine Referenzspannung, entweder die Versorgungsspannung, was jedoch zu ungenau ist. Als Spannungsreferenz wird daher eine LT1021 5V-Präzisionsspannungsquelle \cite{lt1021} verwendet. Da dieses Bauelement nachträglich hinzugefügt wurde, ist es auf einer eigenen kleinen Platine untergebracht (siehe Abbildungen \ref{refu} und \ref{refu2}).
@@ -496,12 +496,12 @@ eine stabile 5 Volt Spannung gewonnen. Diese 5 Volt werden direkt mit dem 5 Volt
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=100mm]{img/ArduinoMega2.jpg}
-\caption[Arduino Mega 2560]{Arduino Mega 2560}\label{ardu}
+\caption[Arduino Mega 2560]{DAs Arduino Mega 2560 Mikrocontroller-Board.}\label{ardu}
 \end{figure}
 
 \subsection{Strommessung}\thispagestyle{empty}
 Der Kurzschlussstrom der Messzelle wird mit einer eigenen Platine gemessen. Der Strom wird mittels Spannungsabfall an einem 10m$\Omega$ Shunt-Widerstand gemessen. Zu berücksichtigen ist allerdings auch der Spannungsabfall auf der Verbindung von der Zelle zum Shunt-Widerstand.
-Die Zelle ist über ein 25cm langes Kabel mit dem Durchmesser von 4 mm$^2$, ein 7cm langes Kabel mit dem Durchmesser von 6mm$^2$, und zwei Bananenstecker mit der Messplatine verbunden. Der Widerstand dieser Verbindung zusammen mit dem Mess-Shunt beträgt etwa 40 m$\Omega$, was bei einem Kurzschlussstrom von etwa 5 A zu einem Spannungsabfall von 200mV führt. Der gemessene Strom ist damit nicht mehr der Kurzschlussstrom. Abbildung \ref{kenn2} zeigt die Widerstandsgerade im Vergleich zur Kennlinie einer Zelle.
+Die Zelle ist über ein 25cm langes Kabel mit dem Durchmesser von 4 mm$^2$, ein 7cm langes Kabel mit dem Durchmesser von 6mm$^2$, und zwei Bananenstecker mit der Messplatine verbunden. Der Widerstand dieser Verbindung zusammen mit dem Mess-Shunt beträgt etwa 40m$\Omega$, was bei einem Kurzschlussstrom von etwa 5 A zu einem Spannungsabfall von 200mV führt. Der gemessene Strom ist damit nicht mehr der Kurzschlussstrom. Abbildung \ref{kenn2} zeigt die Widerstandsgerade im Vergleich zur Kennlinie einer Zelle.
 
 \begin{figure}[htbp]
 \centering
@@ -512,13 +512,13 @@ Die Zelle ist über ein 25cm langes Kabel mit dem Durchmesser von 4 mm$^2$, ein 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=100mm]{img/i1.png}
-\caption{Die Schaltung zur Strommessung}\label{i1}
+\caption{Die Schaltung zur Strommessung.}\label{i1}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/i2.png}
-\caption{Die Platine zur Strommessung}\label{i2}
+\caption{Die Platine zur Strommessung.}\label{i2}
 \end{figure}
 
 
@@ -538,27 +538,32 @@ Klemmen zur Versorgung mit Akku-Spannung (rosa), Buchse zur Kommunikation mit de
 
 \subsection{Temperaturmessung}\thispagestyle{empty}
 Der Spannungsabfall an einem temperaturstabilen 100$\Omega$ Widerstand wird mit dem Spannungsabfall an einem PT100 verglichen. Durch beide Widerstände fließt ein Strom von 100$\mu$A. Als Stromquelle dient eine sehr präzise REF200-Stromquelle\cite{ref200}, welche zwei mal 100 Mikroampere $\pm$0.5$\%$ liefert. Abbildung \ref{tmess} zeigt den Schaltplan, Abbildung \ref{tmess2} zeigt das Platinenlayout. Zur besseren Idendifikation sind die Bauteile in beiden Abbildungen mit den gleichen Farben eingefärbt. 
-Zum Platinenlayout: Links, der 4-pinige Stecker dient zur Stromversorgung (+5V, GND, -5V) und dem Abgriff des analogen Messsignales. 
+Im Platinenlayout dient der 4-pinige Stecker zur Stromversorgung (+5V, GND, -5V) und dem Abgriff des analogen Messsignales. Die zweipinige Buchse wird zum Anschluss des Temperaturmesswiderstandes verwendet.
 Präzisionswiderstände wurden eingesetzt, weil sie temperaturstabiler als herkömmliche Widerstände sind. 
-Da es keinen Präzesionswiderstand gab der in etwa dem berechneten Wert entsprach. Daher wurden zwei 51,1$ßOmega$ Widerstand parallel geschaltet, das entspricht einen 25,55$ßOmega$ Widerstand.
 Die Verstärkung des INA114 berechnet sich nach \cite{ina114} wie folgt:
 
 \begin{equation}
  G = 1 + \frac{50k\Omega}{R_G}
 \end{equation} 
 
+Aus der Abbildung \ref{pt100} erkennt man, dass der interessante Messbereich von 100 bis etwa 120$\Omega$ reicht, am Eingang des Instrumentenverstärkers liegen also maximal 2mV an, mit einer Verstärkung von 2000, wird daraus 4V, daher ist ein Widerstand von etwa 25$\Omega$ notwendig. Da es keinen solchen Präzisionswiderstand gab, wurden zwei 51,1$\Omega$ Widerstand parallel geschaltet. 
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=100mm]{img/pt100.png}
+\caption{Die Kennlinie eines Pt100 im Bereich von  	10$^{\circ}$C bis 40$^{\circ}$C, inklusive der linearen Näherung.}\label{pt100}
+\end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/tmess.png}
-\caption{Schaltung der Temperaturmessung}\label{tmess}
+\caption{Die Schaltung der Temperaturmessung.}\label{tmess}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=100mm]{img/tmess2.png}
-\caption{Layout der Temperarurmessung}\label{tmess2}
+\caption{Das Layout der Temperarurmessung.}\label{tmess2}
 \end{figure}
 
 
@@ -1025,13 +1030,13 @@ TTm = (Rm-100.03)/0.3879; % Widerstand --> Temperatur
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/g3d.png}
-\caption{Die 3D Ansicht der Ausleuchtung}\label{g3d}
+\caption{Die 3D-Ansicht der Ausleuchtung}\label{g3d}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/g2d.png}
-\caption{Die 2D Ansicht der Ausleuchtung}\label{g2d}
+\caption{Die 2D-Ansicht der Ausleuchtung}\label{g2d}
 \end{figure}
 
 \begin{figure} [htbp]
@@ -1046,92 +1051,92 @@ TTm = (Rm-100.03)/0.3879; % Widerstand --> Temperatur
 
 \section{Die Ausleuchtung einzelner Lampen}
 
-Die geringe Messzeit des Roboters, verglichen mit der mechanischen Methode, macht es möglich die Verteilung der Bestrahlungsstärke aller einzelnen Lampen in relativ kurzer Zeit zu messen. Die Lampen wurden einzeln mit einer Lampenleistung von 100\% vermessen, die anderen Lampen waren jeweils auf 0\%. Das Lampenfeld war für alle Einzelmessungen in einer Höhe von 1870mm.
+Durch die geringe Messzeit eines Messvorganges, war es möglich die Verteilung der Bestrahlungsstärke aller einzelnen Lampen in relativ kurzer Zeit zu messen. Die Lampen wurden einzeln mit einer Lampenleistung von 100\% vermessen, alle anderen Lampen waren jeweils auf 0\%. Das Lampenfeld war für alle Einzelmessungen in einer Höhe von 1870mm.
 Die einzelnen Messungen sind in den Abbildungen \ref{E1} bis \ref{E10} abgebildet.
 Die rechnerische Kombination aller zehn Lampen ist in Abbildung \ref{b100} zu sehen, im Vergleich dazu in Abbildung \ref{m100} die gemessene Bestrahlungsstärke aller zehn Lampen bei 100\%.
 Abbildung \ref{v100} zeigt das Verhältnis der gemessenen Werte zu den berechneten.
 
 \begin{figure} [htbp]
-    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E1.png}}
-    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E1a.png}}
-\caption{Lampe E1}
+    \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/E1.png}}
+    \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/E1a.png}}
+\caption{Die Ausleuchtung der Lampe E1.}
 \label{E1}
 \end{figure} 
 
 \begin{figure} [htbp]
-    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E2.png}}
-    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E2a.png}}
-\caption{Lampe E2}
+    \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/E2.png}}
+    \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/E2a.png}}
+\caption{Die Ausleuchtung der Lampe E2.}
 \label{E2}
 \end{figure} 
 
 \begin{figure} [htbp]
-    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E3.png}}
-    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E3a.png}}
-\caption{Lampe E3}
+    \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/E3.png}}
+    \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/E3a.png}}
+\caption{Die Ausleuchtung der Lampe E3.}
 \label{E3}
 \end{figure}
 
 \begin{figure} [htbp]
-    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E4.png}}
-    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E4a.png}}
-\caption{Lampe E4}
+    \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/E4.png}}
+    \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/E4a.png}}
+\caption{Die Ausleuchtung der Lampe E4.}
 \label{E4}
 \end{figure} 
 
 \begin{figure} [htbp]
-    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E5.png}}
-    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E5a.png}}
-\caption{Lampe E5}
+    \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/E5.png}}
+    \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/E5a.png}}
+\caption{Die Ausleuchtung der Lampe E5.}
 \label{E5}
 \end{figure} 
 
 \begin{figure} [htbp]
-    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E6.png}}
-    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E6a.png}}
-\caption{Lampe E6}
+    \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/E6.png}}
+    \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/E6a.png}}
+\caption{Die Ausleuchtung der Lampe E6.}
 \label{E6}
 \end{figure} 
 
 \begin{figure} [htbp]
-    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E7.png}}
-    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E7a.png}}
-\caption{Lampe E7}
+    \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/E7.png}}
+    \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/E7a.png}}
+\caption{Die Ausleuchtung der Lampe E7.}
 \label{E7}
 \end{figure} 
 
 \begin{figure} [htbp]
-    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E8.png}}
-    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E8a.png}}
-\caption{Lampe E8}
+    \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/E8.png}}
+    \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/E8a.png}}
+\caption{Die Ausleuchtung der Lampe E8.}
 \label{E8}
 \end{figure} 
 
 \begin{figure} [htbp]
-    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E9.png}}
-    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E9a.png}}
-\caption{Lampe E9}
+    \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/E9.png}}
+    \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/E9a.png}}
+\caption{Die Ausleuchtung der Lampe E9.}
 \label{E9}
 \end{figure} 
 
 \begin{figure} [htbp]
-    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/E10.png}}
-    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/E10a.png}}
-\caption{Lampe E10}
+    \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/E10.png}}
+    \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/E10a.png}}
+\caption{Die Ausleuchtung der Lampe E10.}
 \label{E10}
 \end{figure} 
 
 \begin{figure} [htbp]
-    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/b100.png}}
-    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/b100k.png}}
-\caption{Lampen E1 bis E10 100\%, berechnet aus den Einzelmessungen.}
+    \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/b100.png}}
+    \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/b100k.png}}
+\caption{Die Lampen E1 bis E10 100\%, berechnet aus den Einzelmessungen.}
 \label{b100}
 \end{figure} 
 
 \begin{figure} [htbp]
-    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/m100.png}}
-    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/m100k.png}}
-\caption{Lampen E1 bis E10 100\%, gemessen. }
+    \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/m100.png}}
+    \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/m100k.png}}
+\caption{Die Lampen E1 bis E10 100\%, gemessen. }
 \label{m100}
 \end{figure} 
 
@@ -1174,36 +1179,36 @@ Es wurden die Einstellung Arsenal 1100W mit einer Höhe 1870mm bzw. Arsenal 1100
 
 
 \begin{figure} [htbp]
-    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/st96.png}}
-    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/st96k.png}}
+    \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/st96.png}}
+    \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/st96k.png}}
 \caption{Standardeinstellungen 96\%}
 \label{st96}
 \end{figure} 
 
 \begin{figure} [htbp]
-    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/st80.png}}
-    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/st80k.png}}
+    \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/st80.png}}
+    \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/st80k.png}}
 \caption{Standardeinstellungen 80\%}
 \label{st80}
 \end{figure} 
 
 \begin{figure} [htbp]
-    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/st60.png}}
-    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/st60k.png}}
+    \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/st60.png}}
+    \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/st60k.png}}
 \caption{Standardeinstellungen 60\%}
 \label{st60}
 \end{figure} 
 
 \begin{figure} [htbp]
-    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/h96.png}}
-    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/h96k.png}}
+    \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/h96.png}}
+    \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/h96k.png}}
 \caption{Standardeinstellungen 96\%, Lampenfeld hoch}
 \label{h96}
 \end{figure} 
 
 \begin{figure} [htbp]
-    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/h80.png}}
-    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/h80k.png}}
+    \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/h80.png}}
+    \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/h80k.png}}
 \caption{Standardeinstellungen 80\%, Lampenfeld hoch}
 \label{h80}
 \end{figure}
@@ -1212,7 +1217,7 @@ Es wurden die Einstellung Arsenal 1100W mit einer Höhe 1870mm bzw. Arsenal 1100
 
 \section{Optimierung der Homogenität}
 
-Das Kernstück des Optimierungsalgorithmus: Es werden verschiedene Kombinationen der Lampeneinstellungen der zehn Lampen vorgenommen. Dabei wird das Minimum der Gleichmäßigkeit der Bestrahlungsstärkeverteilung über die Testfläche gesucht:
+Die Homogenität über die e Optimierungsalgorithmus: Es werden verschiedene Kombinationen der Lampeneinstellungen der zehn Lampen vorgenommen. Dabei wird das Minimum der Gleichmäßigkeit der Bestrahlungsstärkeverteilung über die Testfläche gesucht:
 \begin{equation}
  Non-uniformity (\%) = [\frac{max irradiance - min irradiance}{max irradiance + min irradiance}] \times (100\%)
 \end{equation}
@@ -1262,22 +1267,22 @@ Mit dem Algorithmus wurden die in Abbildung \ref{opt} dargestellten Einstellunge
 \end{figure}
 
 \begin{figure} [htbp]
-    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/optb.png}}
-    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/optbk.png}}
+    \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/optb.png}}
+    \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/optbk.png}}
 \caption{Die berechneten optimalen Einstellungen der einzelnen Lampen.}
 \label{optb}
 \end{figure} 
 
 \begin{figure} [htbp]
-    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/optb.png}}
-    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/optbk.png}}
+    \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/optb.png}}
+    \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/optbk.png}}
 \caption{Die Berechnung der optimierten Einstellung.}
 \label{optb}
 \end{figure} 
 
 \begin{figure} [htbp]
-    \subfigure[3D Ansicht]{\includegraphics[width=0.49\textwidth]{img/opt26.png}}
-    \subfigure[Landkarte]{\includegraphics[width=0.49\textwidth]{img/opt26k.png}}
+    \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/opt26.png}}
+    \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/opt26k.png}}
 \caption{Die Messung mit den optimierten Einstellungen.}
 \label{optm}
 \end{figure} 
@@ -2223,7 +2228,7 @@ display(G_mean);
 figure;
 surf(XI,YI,Gi); % in W/m2
 
-% Bestrahlungsstärke Landkarte mit Niveaulinien
+% Bestrahlungsstärke 2D-Darstellung mit Niveaulinien
 zlevs2 = 0.0:5:1000;
 figure;
 [C,h] = contourf(XI,YI,Gi,zlevs2);
