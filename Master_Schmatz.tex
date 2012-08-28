@@ -924,6 +924,7 @@ Die Messpunkte liegen im Raster von 15 Zentimeter. Der Abstand zwischen dem Mitt
 Die Messpunkte liegen im Abstand von 15 cm, damit ist auch der Abstand zwischen den Messbahnen 15 cm. Die Übergänge der Messbahn von einer Platte zur nächsten sind mit weißem Isolierband  der Breite 14 Millimeter zu überbrücken. Beschädigung der Messbahn, welche durch unsanftes Handling der Platten entstehen können, sind ebenfalls mit weißem Isolierband zu Überkleben.
 Eine zu große Stufe behindert den Roboter beim Fahren, und erschwert das zuverlässige Erkennen von Messpunkten nahe der Stufe. Mit den Modifikationen an den Platten werden nun alle Messpunkte zuverlässig erkannt. 
 Da die Messzelle nicht im Zentrum des Messroboters sitzt, sondern um zwei cm nach unten verschoben ist, gilt dies auch für die Positionen der Messpunkte, die Abbildung \ref{punkte} im Vergleich zur Abbildung \ref{platten} verdeutlicht das.
+Da die Messzelle eine Abmessung von 125mm mal 125mm hat ist der gesamte Messbereich etwa 12cm größer als die größten Punktabstände. Der gesamte Messbereich ist somit 207cm mal 327cm groß.
 
 \begin{figure}[htbp]
 \centering
@@ -934,7 +935,7 @@ Da die Messzelle nicht im Zentrum des Messroboters sitzt, sondern um zwei cm nac
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/punkte.png}
-\caption{Die Lage der Messpunkte auf den Platten}\label{punkte}
+\caption{Die Lage der Messpunkte auf den Platten. Der gesamte Messbereich ist gelb gekennzeichnet.}\label{punkte}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -1030,19 +1031,19 @@ TTm = (Rm-100.03)/0.3879; % Widerstand --> Temperatur
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/g3d.png}
-\caption{Die 3D-Ansicht der Ausleuchtung}\label{g3d}
+\caption{Die 3D-Ansicht der Ausleuchtung.}\label{g3d}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/g2d.png}
-\caption{Die 2D-Ansicht der Ausleuchtung}\label{g2d}
+\caption{Die 2D-Ansicht der Ausleuchtung.}\label{g2d}
 \end{figure}
 
 \begin{figure} [htbp]
-    \subfigure[Zelltemperatur]{\includegraphics[width=0.49\textwidth]{img/tcell.png}}
-    \subfigure[Umgebungstemperatur]{\includegraphics[width=0.49\textwidth]{img/t2.png}}
-\caption{Die Temperaturen der Zelle und der Umgebung.}
+    \subfigure[Die Zelltemperatur.]{\includegraphics[width=0.49\textwidth]{img/tcell.png}}
+    \subfigure[Die Umgebungstemperatur.]{\includegraphics[width=0.49\textwidth]{img/t2.png}}
+\caption{Die Temperaturen der Zelle und der Umgebung während einer Messfahrt.}
 \label{t}
 \end{figure} 
 
@@ -1334,7 +1335,43 @@ end
 Die Abbildung \ref{zwei} zeigt den Vergleich des 2\%-Fensters zwischen den Standardeinstellungen und dem optimierten Einstellungen.
 Die Abbildung \ref{funf} zeigt den Vergleich des 5\%-Fensters zwischen den Standardeinstellungen und dem optimierten Einstellungen.
 In der Abbildung \ref{fstd} zeigt den 5\%-Bereich (gelb) und zwei 2\%-Bereiche (blau) mit den Standardeinstellungen.
-Die 2\%- und 5\%-Bereiche der optimierten Einstellungen sind in Abbildung \ref{fopt} zu sehen. Der 5\%-Bereich mit den Standardeinstellungen größer.  
+Die 2\%- und 5\%-Bereiche der optimierten Einstellungen sind in Abbildung \ref{fopt} zu sehen. Der 5\%-Bereich mit den Standardeinstellungen größer.
+In der Ausschreibung des Sonnensimulators war eine 3,4m x 2,2m bzw. 2,6m x 3m große Fläche mit einer Homogenität von 10\% respektive 5\% gefordert. 
+Das Ergebnis der Validierung ist in Tballe \ref{Tab11} zu sehen. Im Vergleich dazu die Messmethode mit dem Roboter und den Standardeinstellungen des Sonnensimulators in Tabelle \ref{Tabstd}.
+
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{ | c | c |}\hline
+$\pm 10\%$ & $2,25m \times 3,45m$  \\ \hline
+$\pm 5\%$ & $1,8m \times 3,15m$    \\ \hline
+$\pm 2\%$ & $0,9m \times 0,6m$     \\ \hline
+\end{tabular}
+\caption{Validierung 2011}\label{Tab11}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{ | c | c |}\hline
+$\pm 10\%$ & $2,07m \times 3,27m$  \\ \hline
+$\pm 5\%$ & $1,77m \times 1,77m$    \\ \hline
+$\pm 2\%$ & $0,87m \times 0,72m$     \\ \hline
+\end{tabular}
+\caption{Standardeinstellungen}\label{Tabstd}
+\end{table}
+Diese Methode liefert kleinere Gebiete als die Validierung im Vorjahr.
+
+Mit den optimierten Einstellungen (Tabelle \ref{Tabopt}) sind die 2\%- und 5\%-Gebiete nochmals kleiner. Das erklärt sich dadurch, dass der Algorithmus nur die Homogenität über die gesamte Messfläche minimiert hat.
+\begin{table}[htbp]
+\centering
+\begin{tabular}{ | c | c |}\hline
+$\pm 10\%$ & $2,07m \times 3,27m$  \\ \hline
+$\pm 5\%$ & $1,07m \times 2,97m$    \\ \hline
+$\pm 2\%$ & $0,72m \times 0,72m$     \\ \hline
+\end{tabular}
+\caption{Optimierte Einstellungen}\label{Tabopt}
+\end{table}
 
 \FloatBarrier
 
@@ -1346,7 +1383,7 @@ Die 2\%- und 5\%-Bereiche der optimierten Einstellungen sind in Abbildung \ref{f
 \end{figure} 
 
 \begin{figure}
-    \subfigure[Standardeinstellungen]{\includegraphics[width=0.49\textwidth]{img/funfst.png}}
+    \subfigure[Standardeinstellungen]{\includegraphics[width=0.49\textwidth]{img/funfstd.png}}
     \subfigure[Optimierte Einstellungen]{\includegraphics[width=0.49\textwidth]{img/funfopt.png}}
 \caption{Vergleich der 5\% Messbereiche}
 \label{funf}
