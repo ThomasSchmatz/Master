@@ -119,23 +119,23 @@ und auch noch nicht ver"offentlicht. Ich versichere, dass die abgegebene Version
 Die Arbeit umfasst die Planung und Realisierung eines selbst fahrenden Messroboters, der die Bestrahlungsstärkeverteilung in der Prüfebene eines stationären Sonnensimulators erfasst. Neben den Einstrahlungsdaten werden werden zusätzliche Informationen über die Umgebungsbedingungen im Prüfkanal aufgezeichnet. Bei der Umsetzung wurden Rapid-Prototyping Techniken (3D-Druck, Platinenfräse und Lasercutter) eingesetzt. Behandelt werden theoretische Grundlagen und normative Anforderungen an stationäre Sonnensimulatoren und Validierung des Gesamtsystems.
 \\ \vfill
 % Bitte 3-5 deutsche Schlagw"orter eingeben, die die Arbeit charakterisieren:
-\paragraph*{Schlagwörter:} Sonnensimulator, Messroboter, Bestrahlungsstärke
+\paragraph*{Schlagwörter:} Sonnensimulator, Messroboter, Bestrahlungsstärke, Mecanum-Rad
 
 
 \newpage
 
 \section*{Abstract}\thispagestyle{empty}
-This paper discripes the planning and the realisation of a autonomous measurement robot. The robot measures the irradiance in a test plane of a continous solar simulator.
+This paper discripes the planning and the realisation of a autonomous measurement robot. The robot measures the irradiance in a test plane of a continous solar simulator. Together with the irradiotion information the roboter collects additional temperature data. Rapid-Prototyping techiques (3d-printing and Lasercutter) were used. The teoretical fundamentals and the normative requirement of sun simulators are also be treated.
 \\ \vfill
 % Bitte 3-5 englische Keywords eingeben, die die Arbeit charakterisieren:
-\paragraph*{Keywords:} Measurement Robot, Measurment of Solar Radiation, Arduino, Mecanum Wheel, Keyword 5
+\paragraph*{Keywords:} Sun Simulator, Measurement Robot, Solar Radiation, Mecanum Wheel
 \newpage
 
 \section*{Danksagung}\thispagestyle{empty}
 Ich danke meiner Mutter für die Unterstützung und Geduld, die sie während des Studiums aufgebracht haben.
 Ich danke meinen Hochschulbetreuer Bernhard Kubicek für die umfangreiche Betreuung.
 Ich danke meinen Firmenbetreuer Thomas Krametz für die Zeit die er sich genommen hat.
-Und für problemlose Verlängerung meines Praktikums und der Diplomarbeit schulde ich Herrn Wolfgang Hribernik großen Dank.
+Und für problemlose Verlängerung meines Praktikums und der Diplomarbeit schulde ich Herr Wolfgang Hribernik großen Dank.
 \newpage
 
 \tableofcontents\thispagestyle{empty}
@@ -148,23 +148,23 @@ Und für problemlose Verlängerung meines Praktikums und der Diplomarbeit schuld
 % \chapter[Kurzform]{Lange "Uberschrift}
 \chapter{Aufgabenstellung}
 
-Dieses Kapitel beschreibt die Notwendigkeit von Messungen im stationären Sonnensimulator, den Aufbau eines solchen Simulators, sowie dessen normativen Anforderungen. Ferner wird die Funktion einer Photovoltaik-Zelle beschrieben.
+Dieses Kapitel beschreibt den Nutzen von Messungen im stationären Sonnensimulator, den Aufbau eines solchen Simulators, sowie dessen normative Anforderungen. Zudem wird die Funktion einer Photovoltaik-Zelle beschrieben.
 
 \section{Stationäre Photovoltaik Sonnensimulatoren} \thispagestyle{empty}
 
 Photovoltaik-Sonnensimulatoren werden zur elektrischen Charakterisierung und Prüfung von Photovoltaik-Modulen verwendet. Der wesentliche Vorteil gegenüber Messungen im Sonnenlicht liegt darin, dass die Durchführung unter reproduzierbaren Umweltbedingungen (Bestrahlungsstärke, spektrale Zusammensetzung des einfallenden Lichtes und die Prüfgutstemperatur)  ermöglicht wird. Grundsätzlich werden bei konventionellen Systemen gepulste und stationäre Simulatoren, welche kontinuierlich leuchten, unterschieden. Erstere brauchen weniger Energie, heizen die Messobjekte nicht auf, und werden für die Leistungsmessung von Zellen und Modulen verwendet. Die Blitzlänge ist bauartbedingt auf wenige Millisekunden begrenzt. Stationäre Simulatoren werden unter anderem für Voralterung von Modulen verwendet.
 Im Allgemeinen werden Messergebnisse auf Standard-Prüfbedingungen (STC) bezogen, die durch 1000W/m$^2$, 25$^{\circ}$C und AM1.5 definiert ist. Die Air Mass (AM) beschreibt das Verhältnis des Weges des einfallenden Sonnenlichtes durch die Atmosphäre bezogen auf senkrechten Einfall (siehe Abbildung \ref{airmass}). Je länger der Weg des Lichtes durch die Atmosphäre desto größer ist der Einfluss durch Streuung, Reflexion und Absorption, was sowohl die Stärke der Einstrahlung als auch die spektrale Zusammensetzung des Sonnenlichtes vom Sonnenstand abhängig macht. 
 \begin{equation}
-     AM = \frac {L} {L_0} \approx \frac{1}{cos~ z}
+     AM = \frac {L} {L_0} \approx \frac{1}{cos~ z},
 \end{equation}
-Wobei L die Länge des Weges des Sonnenlichtes durch die Atmosphäre, L$_0$ die Weglänge bei senkrechten Einfall und z der Zenitwinkel des Sonnenstandes in Grad ist (\cite{wurf} S. 30). Dabei handelt es sich um eine Näherung, welche die Krümmung der Erdoberfläche und der Atmosphäre vernachlässigt. Für kleine Werte von AM ist diese Näherung aber hinreichend genau.
+wobei L die Länge des Weges des Sonnenlichtes durch die Atmosphäre, L$_0$ die Weglänge bei senkrechten Einfall und z der Zenitwinkel des Sonnenstandes ist (\cite{wurf} S. 30). Dabei handelt es sich um eine Näherung, welche die Krümmung der Erdoberfläche und der Atmosphäre vernachlässigt. Für kleine Werte vom AM ist diese Näherung aber hinreichend genau.
 Die spektrale Verteilung des Referenzsonnenspektrums AM1.5 (siehe Abbildung \ref{sunspec}) ist in der IEC-Norm 60904-3 \cite{norm3} definiert. Das Spektrum des Sonnenlichtes im Weltall AM0 entspricht in etwa der thermische Strahlung eines schwarzen Körpers mit 5250$^\circ$C (siehe Abbildung \ref{sunspec}).
 Die meisten am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$) können das Spektrum nicht verändern, da sie Metallhalogenid-Lampen verwenden, sie sind also für einen Sonnenstand beschränkt. Es gibt Sonnensimulatoren auf LED-Basis. Das gewünschte Spektrum wird dort mit vielen LEDs unterschiedlicher Wellenlänge realisiert, somit sind auch unterschiedliche Spektren und Bestrahlungsstärken realisierbar. Es gibt bereits LED-Sonnensimulatoren für Module am Markt \cite{mps}. Ein Vorteil dieses Systems ist die lange Lebensdauer der Lampen, welche laut Herstellerangaben für 10 Millionen Messungen reicht. 
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/berlin.png}
-\caption[Sonnenspektrum]{Vergelich des höchsten Sonnenstand und dazugehöriger AM-Werte für verschiedene Tage in Berlin und Kairo. Quelle: \cite{q01}}\label{airmass}
+\caption[Sonnenspektrum]{Vergleich des höchsten Sonnenstand und dazugehöriger AM-Werte für verschiedene Tage in Berlin und Kairo. Quelle: \cite{q01}}\label{airmass}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -177,7 +177,7 @@ Die meisten am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$
 \section{Sonnensimulator Aufbau}\thispagestyle{empty}
 
 
-Mit der SolarConstant 4000 (siehe Abbildung \ref{sunsim}) der Firma Atlas kann die Einwirkung der Sonne auf Testobjekte simuliert werden. Dazu ist das Gerät mit zehn Metallhalogenid-Strahlungsquelle Lampen zu je 4kW. Durch die Füllung der Lampen mit Halogeniden wird ein möglichst kontinuierliches Spektrum erzeugt. Die Leuchten sind mit Filterscheiben ausgestattet, welche das abgestrahlte Licht dem AM1.5 Spektrum annähern.
+Mit der SolarConstant 4000 (siehe Abbildung \ref{sunsim}) der Firma Atlas kann die Einwirkung der Sonne auf Testobjekte simuliert werden. Dazu ist das Gerät mit zehn Metallhalogenid-Strahlungsquelle Lampen zu je 4 kW. Durch die Füllung der Lampen mit Halogeniden wird ein möglichst kontinuierliches Spektrum erzeugt. Die Leuchten sind mit Filterscheiben ausgestattet, welche das abgestrahlte Licht dem AM1.5 Spektrum annähern.
 Jede Lampe wird von einem eigenen elektronisch geregelten Vorschaltgerät versorgt, welches für einen gleichmäßigen und flimmerfreien Betrieb sorgt.
 Da die Lampen nicht für eine Heißzündung ausgelegt sind, wobei sie eventuell zerstört werden können, ist eine Sperrzeit von 10 Minuten zum Abkülen vorgesehen, bevor sich die Lampen wieder einschalten lassen.
 Die Strahlungsleistung lässt sich reduzieren indem das gesamte Lampenfeld in die Höhe gefahren wird.
@@ -221,7 +221,7 @@ In der IEC Norm 60904-9 \cite{norm9} werden die Anforderungen an Sonnensimulator
 \end{equation}
 \end{itemize}
 
-Die Tabelle \ref{TabS2} gibt die Anforderungen an, nach denen Sonnensimulatoren in den Klassen A, B und C klassifiziert werden. Die Sonnensimulatorklasse ABB bedeutet eine 0,75- bis 1,25-fache Übereinstimmung in allen in Tabelle \ref{TabS1} angeführten Schranken, eine Homogenität der Einstrahlung zwischen 2\% und 5\% im Messbereich, und eine zeitliche Stabilität zwischen 2\% und 5\%. 
+Die Tabelle \ref{TabS2} gibt die Anforderungen an, nach denen Sonnensimulatoren in den Klassen A, B und C klassifiziert werden. Die Sonnensimulatorklasse ABB bedeutet eine 0,75- bis 1,25-fache Übereinstimmung in allen in Tabelle \ref{TabS1} angeführten Schranken, eine Homogenität der Einstrahlung zwischen 2\% und 5\% im Messbereich, und eine zeitliche Stabilität zwischen 2\% und 5\%. Der Roboter misst von diesen drei Kategorien nur die Verteilung der Bestrahlungsstärke in der Messebene.
 \begin{table}[htbp]
 \centering
 \begin{tabular}{ | c | c | c | c | c |}\hline
@@ -235,14 +235,13 @@ C  & 0,4 - 2,0 & 10 \% & 10 \% & 10 \%\\ \hline
 \end{tabular}
 \caption{Anforderungen an die 3 verschiedenen Simulatorklassen}\label{TabS2}
 \end{table}
-Der Roboter misst von diesen drei Kategorien nur die Verteilung der Bestrahlungsstärke in der Messebene.
 
 
 
 \section{Theorie Referenzzelle}\thispagestyle{empty}
-Eine Solarzelle wandelt die Energie des Lichtes in elektrische Energie um. Eine Referenzzelle ist eine speziell für Messungen kalibrierte Solarzelle, welche als Strahlungsmessgerät dient. Wichtig ist, dass die Referenzzelle eine ähnliche spektrale Empfindlichkeit hat wie die zu messenden Zelle bzw. das zu messende Modul
-Es gibt verschiedene Solarzellentechnologien. Es gibt kristalline Siliziumzellen und Dünnschichtzellen . Die kristallinen Siliziumzellen werden in monokristalline Zellen und multikristalline Zellen unterschieden. Beide zusammen machen über 80\% des weltweiten Photovoltaikmarktes aus \cite{iea00}. Als Referenzzelle für Messungen werden ausschließlich kristalline Zellen verwendet. 
-Eine Siliziumsolarzelle ist eine großflächigen Diode (siehe Abbildung \ref{cell}). Die Sperrschicht ist dabei dem Sonnenlicht ausgesetzt. Gelangt ein Lichtquanten in die Sperrschicht kann aufgrund des inneren Photoeffektes ein Elektron/Loch Paar erzeugt werden. Durch das elektrische Feld in der Sperrschicht werden die Ladungsträger getrennt bevor sie kombinieren können. Elektronen bewegen aufgrund ihrer negativen Ladung entgegen der Feldrichtung in die n-Zone. Löcher wandern in Feldrichtung zur raumladungsfreien p-Zone. Die Leerlaufspannung einer Solarzelle ist kleiner als die Diffusionsspannung, der Spannung über die Raumladungszone, die der Diffusion von Ladungsträgern entgegenwirkt.
+Eine Solarzelle wandelt die Energie des Lichtes teilweise in elektrische Energie um. Eine Referenzzelle ist eine speziell für Messungen kalibrierte Solarzelle, welche als Strahlungsmessgerät dient. Wichtig ist, dass die Referenzzelle eine ähnliche spektrale Empfindlichkeit hat, wie die zu messenden Zelle bzw. das zu messende Modul.
+Es gibt verschiedene Solarzellentechnologien. Es gibt kristalline Siliziumzellen und Dünnschichtzellen. Die kristallinen Siliziumzellen werden in monokristalline Zellen und multikristalline Zellen unterschieden. Beide zusammen machen über 80\% des weltweiten Photovoltaikmarktes aus \cite{iea00}. Als Referenzzelle für Messungen werden ausschließlich kristalline Zellen verwendet. 
+Eine Siliziumsolarzelle ist eine großflächigen Diode (siehe Abbildung \ref{cell}). Die Sperrschicht ist dabei dem Sonnenlicht ausgesetzt. Gelangt ein Lichtquant in die Sperrschicht, kann aufgrund des inneren Photoeffektes ein Elektron/Loch Paar erzeugt werden. Durch das elektrische Feld in der Sperrschicht werden die Ladungsträger getrennt bevor sie rekombinieren können. Elektronen bewegen aufgrund ihrer negativen Ladung entgegen der Feldrichtung in die n-Zone. Löcher wandern in Feldrichtung zur raumladungsfreien p-Zone. Die Leerlaufspannung einer Solarzelle ist kleiner als die Diffusionsspannung, der Spannung über die Raumladungszone, die der Diffusion von Ladungsträgern entgegenwirkt.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/zelle2.png}
@@ -261,7 +260,7 @@ Durch den zusätzlichen Photostrom verschiebt (siehe Abbildung ~\ref{kennlinie})
 
 Der Füllfaktor berechnet sich aus Strom im maximalen Leistungspunkt $I_{mp}$, Spannung im maximalen Leistungspunkt $U_{mp}$, Kurzschlusstrom $I_{sc}$ und Leerlaufspannung $U_{oc}$ zu:
   \begin{equation}
-     FF = \frac {I_{mp} U_{mp}} {I_{sc} U_{oc}}
+     FF = \frac {I_{mp} U_{mp}} {I_{sc} U_{oc}}~.
   \end{equation}
 Der Füllfaktor ist das Verhältnis der Fläche des Rechteckes mit den Seitenlängen I$_{mp}$ und U$_{mp}$ zu der Fläche des Rechteckes mit den Seitenlängen I$_{sc}$ und U$_{oc}$ (siehe Abbildung \ref{kennlinie}).
 
@@ -274,11 +273,11 @@ Der Füllfaktor ist das Verhältnis der Fläche des Rechteckes mit den Seitenlä
 Die Kennlinie der Solarzelle ist von der Einstrahlung abhängig (siehe Abbildung \ref{mpp}). Der Kurzschlusstrom ist direkt proportional zur Einstrahlung.
 Laut IEC 60891 \cite{norm891} berechnet sich die Einstrahlung aus dem gemessenen Kurzschlussstrom, den STC-Kurzschlussstrom, einen relativen Temperaturkoeffizienten und der Zelltemperatur:
 \begin{equation}
-G = \frac{1000Wm^{-2}I_{RC}}{I_{RC,STC}} [1 - \alpha_{RC}(T_{RC}-25^{\circ} C]
+G = \frac{1000Wm^{-2}I_{RC}}{I_{RC,STC}} [1 - \alpha_{RC}(T_{RC}-25^{\circ} C]~.
+\label{gg}
 \end{equation}
 Bei konstanter Temperatur ist der Kurzschlussstrom linear abhängig von der Bestrahlungsstärke (siehe Abbildung \ref{mpp}).
-Für die Temperaturkorrektur ist es notwendig die Zelltemperatur zum Zeitpunkt der Messung zu kennen, sowie den Temperaturkoeffizienten $\alpha_{RC}$. 
-
+Nach der Gleichung \ref{gg} ist der Kurzschlussstrom zusätzlich von der Temperatur anhängig, daher ist es notwendig die Temperatur der Zelle zum Zeitpunkt der Messung zu ermitteln, sowie den Temperaturkoeffizienten $\alpha_{RC}$ zu kennen.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/kennlinien.png}
@@ -295,36 +294,36 @@ In der Abbildung \ref{el} ist ein Elektrolumineszenz-Aufnahme der verwendeten Me
 
 \chapter{Entwicklungsprozess}\thispagestyle{empty}
 
-Diese Kapitel beschreibt die Entwicklung des Roboters und ist in drei Abschnitte gegliedert: das mechanische Design, die Elektronik und die Steuerungs- und Messsoftware.
-Die Entwicklung geschah zum Teil parallel. Zur Entwicklung der Fahrregelung musste die Bodenplatte, aber nicht der Aufbau des Chassis fertig sein. Ebenso musste reichte ein Teil der Elektronik aus, die Messplatinen und die endgültige Stromversorgung war zur Entwicklung der Fahrregelung nicht notwendig. Das hatte den Nachteil, dass die Größe mancher Komponenten (z.B. der Akku) nur abgeschätzt werden konnte, und der Roboter nicht auf eine minimale Größe hin optimiert wurde.
+Diese Kapitel beschreibt die Entwicklung des Roboters und ist in drei Abschnitte gegliedert: das mechanische Design, die Elektronik sowie die Steuerungs- und Messsoftware.
+Die Entwicklung der Software und der Hardware geschah zum Teil parallel. Zur Entwicklung der Fahrregelung musste die Bodenplatte, aber nicht der Aufbau des Chassis fertig sein. Ebenso reichte ein Teil der Elektronik aus, die Messplatinen und die endgültige Stromversorgung war zur Entwicklung der Fahrregelung nicht notwendig. Das hatte den Nachteil, dass die Größe mancher Komponenten (z.B. der Akku) nur abgeschätzt werden konnte, und der Roboter nicht auf eine minimale Größe hin optimiert wurde.
 
 \section{Mechanische Komponenten}\thispagestyle{empty}
 
-Dieser Abschnitt behandelt die Entwicklung der mechanischen Komponenten, diese sind die vier Mecanumräder und das Chassis des Roboters. Die maximale Bauhöhe ist durch den Windkanal im Sonnensimulator beschränkt, die minimale Bauhöhe ist durch den Durchmesser der Räder gegeben.
-Mit der Größe der Messzelle ist auch die minimale Ausdehnung in den beiden anderen Dimensionen festgelegt. Eine weiter Einschränkung beim Design war, dass die Motoren, der Akku und die Elektronik im Inneren des Roboters Platz finden mussten, wodurch der Roboter länger und breiter als die Messzelle wurde (siehe Abbildung \ref{oben}).
+Dieser Abschnitt behandelt die Entwicklung der mechanischen Komponenten. Diese sind die vier Mecanumräder und das Chassis des Roboters. Die maximale Bauhöhe ist durch den Windkanal im Sonnensimulator beschränkt, die minimale Bauhöhe ist durch den Durchmesser der Räder gegeben.
+Mit der Größe der Messzelle ist auch die minimale Ausdehnung in den beiden anderen Dimensionen festgelegt. Eine weiter Einschränkung beim Design war, dass die Motoren, der Akku und die Elektronik im Inneren des Roboters Platz finden mussten, wodurch der Roboter länger und breiter als die Messzelle wurde (siehe Abbildung \ref{oben}). In dem Bild des Roboters sind die Messzelle, sowie der Einschalter und der Programmwahlschalter zu erkennen.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=125mm]{img/oben2.png}
+\includegraphics[width=125mm]{img/oben3.png}
 \caption{Der Roboter aus der Vogelperspektive.}\label{oben}
 \end{figure}
   
 
 \subsection{Die Mecanum-Plattform}\thispagestyle{empty}
-Mecanum-Räder erlauben einem Fahrzeug, ohne mechanischer Lenkung, sich in jede Richtung zu bewegen. Benannt ist es nach dem schwedischen Unternehmen Macanum, welches dieses Rad 1971 entwickelt hat \cite{mecanum}. 
+Mecanum-Räder erlauben einem Fahrzeug ohne mechanischer Lenkung, sich in jede Richtung zu bewegen. Benannt ist es nach dem schwedischen Unternehmen Macanum, welches dieses Rad 1971 entwickelt hat \cite{mecanum}. 
 Jedes Rad wird mit einem eigenen Motor angetrieben, und verfügt über eine separate Ansteuerung. Die Räder bestehen aus einer Felge (siehe Abbbildung \ref{rad}), auf der unter einem Winkel von 45 Grad befestigte, ballige Rollen so angebracht sind, die über den Abrollumfang einen Kreis bilden (siehe Abbbildung \ref{rad2}). In die 8 Löcher der Felge werden Kugellager eingeklebt. Jedes der vier Räder besteht aus einer Felge, insgesamt 16 Laufrollen, 8 Kugellager, 8 M4x45mm Schraube, 8 M4-Muttern, sowie 16 M4-Beilagscheiben. 
 Das Rad ist mit einer M3-Schraube und einer M3-Mutter an der Motorachse fixiert.
-Die Felgen und die Laufrollen wurden mit einem Ultimaker 3D-Drucker gedruckt. 
-Die Vorlage namens Mecanum Wheel MK2 stammt von http://www.thingiverse.com/thing:2473, und kann unter der Attribution-NonCommercial-ShareAlike 3.0 Unported Lizenz nicht-kommerziell verwendet werden.
-Die Laufrollen wurden modifiziert, so dass die Mutter sowie der Schraubenkopf in der Rolle versenkt sind, damit das Rad insgesamt kompakter ist. In die Felge  Zum bearbeiten wurde OpenSCAD, ein 3D-Compiler, verwendet. 
+Die Felgen und die Laufrollen wurden mit einem Ultimaker 3D-Drucker [\cite{um})gedruckt. 
+Die Vorlage namens "Mecanum Wheel MK2" stammt von http://www.thingiverse.com/thing:2473, und kann unter der Attribution-NonCommercial-ShareAlike 3.0 Unported Lizenz nicht-kommerziell verwendet werden.
+Die Laufrollen wurden modifiziert, so dass die Mutter sowie der Schraubenkopf in der Rolle versenkt sind, damit das Rad insgesamt kompakter ist. Zum Bearbeiten wurde OpenSCAD, ein 3D-Compiler, verwendet. 
 
 Durch die Schräganordnung der Laufrollen entstehen beim Antreiben eines Rades zwei Kraftkomponenten, eine in Querrichtung sowie eine in Längsrichtung des Fahrzeuges. Gegeneinander gerichtete Kräfte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich (siehe Abbildung \ref{fahrman}). So ist es nicht nur möglich den Roboter in Längsrichtung vor und zurück zu bewegen, sondern auch in Querrichtung (normal zur Längsrichtung) zu bewegen, ebenso sind Drehungen am Stand möglich. Damit braucht ein mit Mecanumrädern ausgestatteter Roboter keine Lenkung. Allerdings sind vier Motoren notwendig, damit jedes Rad einzeln angesteuert werden kann.   
-Die Kugellager sind in den acht passenden Löchern der Felge verklebt. Zuerst mit Superkleber, allerdings haben sich einige Kugellager im laufe der Zeit gelöst und beeinflussten so das Fahrverhalten negativ, danach mit einem Zweikomponentenkleber. Eine dauerhafte Verbindung von Kugellager mit der Felge ist für den störungsfreien Betrieb des Roboters unumgänglich. 
+Die Kugellager sind in den acht passenden Löchern der Felge verklebt, zuerst mit einem handelsüblichen Sekundenkleber, allerdings haben sich einige Kugellager im Laufe der Zeit gelöst und beeinflussten so das Fahrverhalten negativ, danach mit einem Zweikomponentenkleber. Eine dauerhafte Verbindung von Kugellager mit der Felge ist für den störungsfreien Betrieb des Roboters unumgänglich. 
 Zwischen den Rollen und dem Kugellager sorgen Beilagscheiben für einen reibungsarmen Betrieb. 
-Die Schrauben der Rollen lösen sich im Betrieb nicht. Die Schraube, welche die Felge an der Motorachse befestig hat, löste sich regelmäßig, bis diese Verbindung mit einem Kleber (Uhu Alleskleber) gesichert wurde.
-An den Rollen ist keine Abnützung erkennbar. Die gebrochenen Ringe der Kugellager brachen schon während der Erstmontage, verschlimmert hat sich während der Betriebes nichts.
+Die Schrauben der Rollen lösen sich im Betrieb nicht. Die Schraube, welche die Felge an der Motorachse befestig hat, löste sich regelmäßig, bis diese Verbindung mit einem Kleber gesichert wurde.
+An den Rollen ist keine Abnützung erkennbar. Einige Halterungen der Kugellager brachen schon während der Erstmontage, verschlimmert hat sich während der Betriebes nichts.
 Es wurde lange mit teilweise defekten Rädern gefahren, ein Messbetrieb war aber dennoch möglich. Insgesamt ist die Mecanum-Plattform eine robuste Lösung für Messroboter.
-Die Kugellager sind wartungsfrei. Das wenige UV-Licht, das den ABS-Kunststoff erreicht hat auch nach Monaten noch keine negativen Auswirkungen auf die mechanischen Eigenschaften der Räder.
+Die Kugellager sind wartungsfrei. Das wenige UV-Licht, das den PLA-Kunststoff erreicht hat auch nach Monaten noch keine negativen Auswirkungen auf die mechanischen Eigenschaften der Räder.
 
 \begin{figure}
     \subfigure[Vor/Zurück-Fahren]{\includegraphics[width=50mm]{img/gerade.png}}
@@ -346,19 +345,19 @@ Die Kugellager sind wartungsfrei. Das wenige UV-Licht, das den ABS-Kunststoff er
 \end{figure}
 
 
-Mit OpenSCAD entsteht ein dreidimensionales Modell eines Werkstückes. Damit fängt ein 3D-Drucker nichts an. Ein 3D-Druck setzt sich aus sehr vielen Liniensegmenten zusammen. Dazu muss das 3D-Modell in einzelne dünne Schichten und einzelne Linien zerlegt werden. Dieser Vorgang wird als "Slicing" bezeichnet. Dazu wurde das Programm pronterface verwendet. Mit OpenSCAD wird zunächst ein stl-File erzeugt, dann produziert pronterface daruas die Fahrbefehle für den 3D-Drucker in Form eines g-Files. Als Druckmaterial wurde ABS (Acrylnitril-Butadien-Styrol) verwendet, welches in einem Temperaturbereich von 215 bis 230 Grad Celsius per Extruder verarbeitet werden kann.    
+Mit OpenSCAD entsteht ein dreidimensionales Modell eines Werkstückes. Damit fängt ein 3D-Drucker nichts an. Ein 3D-Druck setzt sich aus sehr vielen Liniensegmenten zusammen. Dazu muss das 3D-Modell in einzelne dünne Schichten und einzelne Linien zerlegt werden. Dieser Vorgang wird als "Slicing" bezeichnet. Dazu wurde das Programm Skeinforge verwendet. Mit OpenSCAD wird zunächst ein stl-File erzeugt, dann produziert Skeinforge daraus die Fahrbefehle für den 3D-Drucker in Form eines G-Code. Als Druckmaterial wurde PLA (polylactic acid) verwendet, welches in einem Temperaturbereich von 215 bis 230 Grad Celsius per Extruder verarbeitet werden kann.    
 Die Druckzeit pro Rolle betrug 20 Minuten. Insgesamt mussten 64 Rollen gefertigt werden. Die Druckzeit pro Felge betrug etwa drei Stunden, der Roboter benötigte vier Felgen. Es gibt zwei verschiedene Felgentypen, mit nach links oder nach rechts geneigten Rollen. 
 Die Zeitaufwand wurde durch vorbereitende Testdrucke, bis die einzelnen Komponenten optimiert waren und der Drucker befriedigend Ergebnisse lieferte, sowie Fehldrücke, zusätzlich verlängert. 
 Nach dem Drucken mussten die Teile nachbearbeitet werden. Die Löcher für die Kugellager mussten per Hand passend gefeilt werden. Beim  Einsetzen der Kugellager brachen zwar manche der Halterungen, aber mit Klebstoff konnten die Kugellager auch in die gebrochenen Halterungen fixiert werden. Die dauerhafte Haltbarkeit dieser Klebungen war allerdings anfangs mit einem Fragezeichen behaftet. Die erste Klebung der Kugellager hat den Testalltag nicht überstanden. Trotz loser Kugellager konnte der Roboter dennoch erfolgreich Messfahrten durchführen. Mit einem Zweikomponentenkleber wurden die Kugellager ein zweites Mal, diesmal dauerhaft, eingeklebt.
 
 \subsection{Chassis}\thispagestyle{empty}
 
-\noindent Das Chassis wurde aus Sperrholz gefertigt. Dieses Material wurde gewählt weil es leicht zu bearbeiten, robust und UV-beständig ist. Das Design wurde mit QCAD entwickelt. QCAD ist ein 2-dimensionales CAD Programm. 
+\noindent Das Chassis wurde aus Sperrholz gefertigt. Dieses Material wurde gewählt weil es leicht zu bearbeiten, robust und UV-beständig ist. Das Design wurde mit QCAD [\ref{qm}] entwickelt. QCAD ist ein 2-dimensionales CAD Programm. 
 Die Abmessungen des Chassis wurde im Wesentlichen abgestimmt auf: \begin{itemize}
 \item Den Durchmesser und der Breite der Mecanum Räder, die innerhalb des Chasis liegen, damit die Räder vor der UV Strahlung geschützt sind, kein Einfluss (Beschattung oder Reflexionen) auf die Messzelle besteht.
 \item Die Größe der Motoren.
-\item Den Arduino-Mikrocontroller , die Motorsteuerelektronik und die Messelektronik
-\item Den Akku zur Stromversorgung, die dazugehörende Akku Spannungsüberwachung 
+\item Den Arduino-Mikrocontroller , die Motorsteuerelektronik und die Messelektronik.
+\item Den Akku zur Stromversorgung, die dazugehörende Akku Spannungsüberwachung.
 \item Die Abmessung der eingekapselten Solarzelle.
  \end{itemize}
 
@@ -384,10 +383,10 @@ Die Messzelle ist am Roboter oben befestigt.
 \section{Elektronik}\thispagestyle{empty}
 
 Dieser Abschnitt beschreibt die Entwicklung der Elektronik. Die Funktionalität wurde auf verschiedene Module aufgeteilt. Das erleichterte die Platzierung der Elektronik innerhalb des Messroboters, die parallele Entwicklung von Elektronik und Software, sowie den Austausch von Komponenten im Fehlerfall. 
-Das Gehirn des Roboters ist ein Arduino Mega 2560 Mikrocontroller Board. Darauf aufgesteckt ist ein sogenanntes Shield, eine selbst entwickelte Platine, das die $\pm$5V Spannungsversorgung, die Schnittstellen zu den anderen Platinen und einen SD-Karten Einschub beheimatet.
-Es gibt 3 Messplatinen, eine für den Kurzschlussstrom der Messzelle, zwei für Temperaturmessungen. Eine Platine überwacht den Ladezustand des Akkus. Die Steuerung der vier Motoren ist auf einer Platine zusammengefasst.
+Der Mikrocontroller des Roboters ist Teil des Arduino Mega 2560 Boards. Darauf aufgesteckt ist ein sogenanntes Shield, eine selbst entwickelte Platine, die die $\pm$5V Spannungsversorgung, die Schnittstellen zu den anderen Platinen und einen SD-Karten Einschub beheimatet.
+Es gibt drei Messplatinen, eine für den Kurzschlussstrom der Messzelle, zwei für Temperaturmessungen. Eine Platine überwacht den Ladezustand des Akkus. Die Steuerung der vier Motoren ist auf einer Platine zusammengefasst.
 Die einzelnen Komponenten sind wie in Abbildung \ref{elek} auf der Bodenplatte angeordnet.
-Die horizontale Anordnung ist in Abbildung \ref{vorne} zu erkennen: Das Sensorarray zur Erkennung der Bodenmarkierungen ist unterhalb der Bodenplatte befestigt, auf der Bodenplatte findet die restliche Elektronik und die Motoren Platz, die Messzelle ist auf der Oberseite des Messroboters angebracht.
+Die horizontale Anordnung ist in Abbildung \ref{vorne} zu erkennen: Das Sensorarray zur Erkennung der Bodenmarkierungen ist unterhalb der Bodenplatte befestigt. Auf der Bodenplatte findet die restliche Elektronik und die Motoren Platz, die Messzelle ist auf der Oberseite des Messroboters angebracht.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=100mm]{img/bodenplatte.png}
