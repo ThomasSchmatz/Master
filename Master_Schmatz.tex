@@ -631,30 +631,38 @@ Aufgrund von Rauschen der ADC-Werte, wurden alle Messwerte über 500 Einzelmessu
  
 \subsection{Programmablauf}\thispagestyle{empty}
 
+
 Das Steuerprogramm ist ein Zustandsautomat (siehe Abbildung \ref{abl}):
+\begin{figure}[!]
+\centering
+\includegraphics[width=150mm]{img/ablauf2.png}
+\caption{Der Programmablauf}\label{abl}
+\end{figure}
 \begin{itemize}
-\item Zustand s (Start): zu Programmstart, nach 60 Sekunden Wechsel in den Zustand v. Diese Zeitspanne dient zum schließen des Messeinschubes des Sonnensimulators nach dem Einschalten des Roboters.
-\item Zustand v: Vorwärtsfahren inklusive Regelung, Wechsel durch erkannte Ecke in den Zustand a, bzw. durch erkannten Messpunkt Wechsel in den Zustand m.
-\item Zustand z: Rückwärtsfahren inklusive Regelung, Wechsel durch erkannte Ecke in den Zustand c, bzw. durch erkannten Messpunkt Wechsel in den Zustand m.
-\item Zustand m: Messpunkt, nach Abschluss der Messung wird der bisherige Messmodus fortgesetzt.
-\item Zustand r: Rechtsfahren mit Regelung, nach erkannter Ecke Wechsel in den Zustand b.
-\item Zustand l: Ebenfalls Rechtsfahren mit Regelung, nach erkannter Ecke Wechsel in den Zustand d.
-\item Zustand a: Um die Ecke des Typ 1 fahren, danach Wechsel in den Zustand r. 
-\item Zustand b: Um die Ecke des Typ 2 fahren, danach Wechsel in den Zustand x.
-\item Zustand c: Um die Ecke des Typ 1 fahren, danach Wechsel in den Zustand l. 
-\item Zustand d: Um die Ecke des Typ 2 fahren, danach Wechsel in den Zustand p.
-\item Zustand p, x: Ausrichten, danach Wechsel zu Zustand q bzw. y.
-\item Zustand q, y: Ausrichten, danach Wechsel zu Zustand v bzw. z.
+\item Zustand \textit{s} (Start): zu Programmstart, nach 60 Sekunden Wechsel in den Zustand \textit{v}. Diese Zeitspanne dient zum schließen des Messeinschubes des Sonnensimulators nach dem Einschalten des Roboters.
+\item Zustand \textit{v}: Vorwärtsfahren inklusive Regelung, Wechsel durch erkannte Ecke in den Zustand \textit{a}, bzw. durch erkannten Messpunkt Wechsel in den Zustand \textit{m}.
+\item Zustand \textit{z}: Rückwärtsfahren inklusive Regelung, Wechsel bei erkannter Ecke in den Zustand \textit{c}, bzw. durch erkannten Messpunkt Wechsel in den Zustand \textit{m}.
+\item Zustand \textit{m}: Messpunkt, nach Abschluss der Messung wird der bisherige Messmodus fortgesetzt.
+\item Zustand \textit{r}: Rechtsfahren mit Regelung, nach erkannter Ecke Wechsel in den Zustand \textit{b}.
+\item Zustand \textit{l}: Ebenfalls Rechtsfahren mit Regelung, nach erkannter Ecke Wechsel in den Zustand \textit{d}.
+\item Zustand \textit{a}: Um die Ecke des Typ 1 fahren, danach Wechsel in den Zustand \textit{r}. 
+\item Zustand \textit{b}: Um die Ecke des Typ 2 fahren, danach Wechsel in den Zustand \textit{x}.
+\item Zustand \textit{c}: Um die Ecke des Typ 1 fahren, danach Wechsel in den Zustand \textit{l}. 
+\item Zustand \textit{d}: Um die Ecke des Typ 2 fahren, danach Wechsel in den Zustand \textit{p}.
+\item Zustand \textit{p}, \textit{x}: Ausrichten, danach Wechsel zu Zustand \textit{q} bzw. \textit{y}.
+\item Zustand \textit{q}, \textit{y}: Ausrichten, danach Wechsel zu Zustand \textit{v} bzw. \textit{z}.
 \end{itemize}
 
 Während der Geradeaus-Fahrt wird versucht sowohl die seitliche Verschiebung d als auch die Verdrehung k zu minimieren. Wenn beide Werte innerhalb gewisser Toleranzen sind, fährt der Roboter geradeaus. Die Schranken der Regelung sind in Abbildung \ref{schr} zu sehen. Die Regelung funktioniert als Dreipunktregler für die Verdrehung, und als Dreipunktregler für die Verschiebung, wobei Verschiebung eine höhere Priorität hat als die Verdrehung. Zusätzlich gibt es noch zwei weiter Bewegungsmoden (\textbf{vtl}, \textbf{vtr}), die sich aus einer Geradeaus-Fahrt und einer überlagerten Drehung zusammensetzen, und bei nicht zu großen Verdrehungen angewendet wird.
 
-Bei der Seitwärts-Fahrt wurde eine verbesserte Regelung angewandt, statt zwei Dreipunktreglern, wurde zwei P-Regler verwendet. Da die Motoren einen maximalen Wert für die Ansteuerung haben handelt es sich um eine Regelung mit Sättigung. Zur normalen Fahrt nach Rechts eine von der Verschiebung abhängige Vor/Zurück-Fahrt bzw. eine von der Verdrehung abhängige Drehung überlagert . Somit gibt es keine ruckartigen Übergänge von einem Bewegungsmodus zum Anderen.
-
+Bei der Seitwärts-Fahrt wurde eine verbesserte Regelung angewandt, statt zwei Dreipunktreglern, wurde zwei P-Regler verwendet. Da die Motoren einen maximalen Wert für die Ansteuerung haben handelt es sich um eine Regelung mit Sättigung. Zur normalen Fahrt wird nach Rechts eine von der Verschiebung abhängige Vor/Zurück-Fahrt bzw. eine von der Verdrehung abhängige Drehung überlagert.
+Abhängig von der Verschiebung d2 und der Verdrehung k2,
 \begin{verbatim}
   vz = int(800*d2);
   turn = int(1600*k2);
-
+\end{verbatim}
+werden die vier Motoren (M1 bis M4) einzeln angesteuert.
+\begin{verbatim}
   M1(127 + vz + turn);
   M2(-127 + vz - turn);
   M3(-127 + vz + turn);
@@ -663,16 +671,12 @@ Bei der Seitwärts-Fahrt wurde eine verbesserte Regelung angewandt, statt zwei D
 
 Da die Linie für das Rechtsfahren nicht in einer Ecke endet, sondern einfach endet, kann die Regelung bis zum Ende verwendet werden. Somit entfällt ein Teil des um-die-Ecke-Fahrens. Die Faktoren des P-Regler (800, 1600) wurden durch umfangreiche Testfahrten ermittelt.
 
-Es gibt zwei Arten von Ecken. Einmal die Ecke des Typs 1, welche eine wirkliche Ecke darstellen. Und dann die Ecke des Typs 2, welches ein Ecke mit einer Lücke sind.
+Es gibt zwei Arten von Ecken. Einmal die Ecke des Typs 1, welche eine wirkliche Ecke darstellen. Sowie die Ecke des Typs 2, welche ein eine Unterbrechung der Linie beinhaltet (siehe Abbildung \ref{ecken}).
 Die beiden unterschiedlichen Arten von Ecken wurden erforderlich durch die unterschiedlichen Fahreigenschaften beim Geradeausfahren und dem Seitwärtsfahren.
 
 
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=150mm]{img/ablauf2.png}
-\caption{Der Programmablauf}\label{abl}
-\end{figure}
+
 
 \begin{figure}[htbp]
 \centering
@@ -687,12 +691,6 @@ Die beiden unterschiedlichen Arten von Ecken wurden erforderlich durch die unter
 \end{figure}
 
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=50mm]{img/ecke2.png}
-\caption{Der Um-die-Ecke-Fahr-Algorithmus.}\label{eck}
-\end{figure}
-
 
 \chapter{Kalibration}\thispagestyle{empty}
 
@@ -703,13 +701,18 @@ Zur Kalibrierung werden die ADC-Messwerte über die USB-Schnittstelle des Robote
 \section{Temperatursensoren}\thispagestyle{empty}
 Die Temperatur der Messzelle wird mit einem von unten aufgeklebten flächigen Folienmesswiderstand gemessen. 
 Ein zweiter Pt100, in kompakter Dünnschichtbauweise ausgeführt, misst die Temperatur der Umgebung. Beide Messskreise sind identisch aufgebaut, dennoch führen Bauteiltoleranzen zu leicht unterschiedlichen Verstärkungen.
-Für die Kaltbration der Temperaturmesselektronik wurden die Pt-100 Widerstände durch einen hoch genaues, einstellbares und kalibriertes Messnormal ersetzt. Der Widerstand wurde im Bereich von 100 bis 122 	$\Omega$  in 1 $\Omega$  Schritten verändert, was einer Temperatur von 0 bis 55 $^{\circ}$C entspricht. Die ADC-Werte wurden über die USB-Schnittstelle des Arduino ausgelesen. Es zeigte sich, dass die beiden Schaltungen leicht unterschiedliche Verstärkungen haben. Daher mussten jede Temperaturmessschaltung separat kalibriert werden.
+Für die Kalibration der Temperaturmesselektronik wurden die Pt-100 Widerstände durch einen hoch genaues, einstellbares und kalibriertes Messnormal ersetzt. Der Widerstand wurde im Bereich von 100 bis 122 	$\Omega$  in 1 $\Omega$  Schritten verändert, was einer Temperatur von 0 bis 55 $^{\circ}$C entspricht. Die ADC-Werte wurden über die USB-Schnittstelle des Arduino ausgelesen. Es zeigte sich, dass die beiden Schaltungen leicht unterschiedliche Verstärkungen haben. Daher mussten jede Temperaturmessschaltung separat kalibriert werden.
+Obwohl der 10-Bit ADC des Arduino einen Maximalwert von 1023 hat, ist bedingt durch die 5V Versorgung des Instrumentenverstärkers INA114 (\cite{ina114}), der maximale ADC-Wert bei 857, was einer Spannung von 4,18V entspricht.  
+
 
 \begin{table}[htbp]
 \centering
+\begin{tabular}{c c c}
+
 \begin{tabular}{ | c | c | }\hline
 {\bf R / $\Omega$ } & {\bf ADC Wert}\\ \hline
 \hline
+100 & ...\\ \hline
 101 & 12\\ \hline
 102 & 53\\ \hline
 103 & 93\\ \hline
@@ -733,20 +736,8 @@ Für die Kaltbration der Temperaturmesselektronik wurden die Pt-100 Widerstände
 121 & 815\\ \hline
 122 & 857\\ \hline
 \end{tabular}
-\caption{Die Messwerte der Kalibrierung Messschaltung A}\label{TabA}
-\end{table}
-
-Obwohl der 10-Bit ADC des Arduino einen Maximalwert von 1023 hat, ist bedingt durch den Einsatz des Instrumentenverstärkers INA114 (\cite{ina114}), der maximale ADC-Wert bei 857, was einer Spannung von 4,18V entspricht.  
 
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=100mm]{img/messa.png}
-\caption{Ausgleichsgerade Temperaturmessung A}\label{messa}
-\end{figure}
-
-\begin{table}[htbp]
-\centering
 \begin{tabular}{ | c | c | }\hline
 {\bf R / $\Omega$ } & {\bf ADC Wert}\\ \hline
 \hline
@@ -774,16 +765,26 @@ Obwohl der 10-Bit ADC des Arduino einen Maximalwert von 1023 hat, ist bedingt du
 121 & 820\\ \hline
 122 & 857\\ \hline
 \end{tabular}
-\caption{Die Messwerte der Kalibrierung Messschaltung B}\label{TabB}
+
+\end{tabular}
+\caption{Die Messwerte der Kalibrierung Messschaltung A und B.}\label{TabAB}
 \end{table}
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=100mm]{img/messa.png}
+\caption{Die Ausgleichsgerade der Temperaturmessung A.}\label{messa}
+\end{figure}
+
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=100mm]{img/messb.png}
-\caption{Ausgleichsgerade Temperaturmessung B}\label{messb}
+\caption{Die Ausgleichsgerade der Temperaturmessung B.}\label{messb}
 \end{figure}
 
-Die mit Excel gewonnen Gleichungen der Ausgleichsgerade für Messschaltung A (siehe Abbildung ~\ref{messa}) und B (siehe Abbildung ~\ref{messa}) werden verwendet um aus den ADC-Werten die dazugehörigen Widerstandswerte zu berechnen. 
+Die der Ausgleichsgerade für Messschaltung A (siehe Abbildung ~\ref{messa}) und B (siehe Abbildung ~\ref{messa}) werden verwendet um aus den ADC-Werten die dazugehörigen Widerstandswerte zu berechnen. 
 
   \begin{equation}
      R_A(ADC) = \frac{ADC_A + 4039,9}{40,107}
@@ -799,18 +800,18 @@ Die mit Excel gewonnen Gleichungen der Ausgleichsgerade für Messschaltung A (si
 \section{Messzelle}\thispagestyle{empty}
 
 
-Der Kurzschlussstrom der Messzelle wurde im Flasher (siehe Abbildung~\ref{zelleflasher}) über einen weiten Temperaturbereich gemessen (siehe Abbildung~\ref{tempkoef}). Es wurde mit der Berger Messlast \cite{berger} gemessen. Bei der Messung wurden die Leitungswiderstände der Messkabel minimiert, indem Kabel mit hohem Querschnitt (6mm$^2$) verwendet wurden, und die Kabel möglichst kurz gehalten wurden (<1,5m).
+Der Kurzschlussstrom der Messzelle (siehe Abbildung~\ref{zelleflasher}) wurde im Flasher über einen weiten Temperaturbereich gemessen (siehe Abbildung~\ref{tempkoef}). Es wurde mit der Berger Messlast \cite{berger} gemessen. Bei der Messung wurden die Leitungswiderstände der Messkabel minimiert, indem Kabel mit hohem Querschnitt (6mm$^2$) verwendet wurden, und die Kabel möglichst kurz gehalten wurden (<1,5m).
  
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/zelle.jpg}
-\caption{Ein Photo der Messzelle}\label{zelleflasher}
+\caption{Eine Aufnahme der Messzelle.}\label{zelleflasher}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=150mm]{img/Isc.png}
-\caption{Abhängigkeit des Kurzschlussstromes von der Temperatur}\label{tempkoef}
+\includegraphics[width=150mm]{img/tempkoef.png}
+\caption{Abhängigkeit des Kurzschlussstromes von der Temperatur.}\label{tempkoef}
 \end{figure}
 
   \begin{equation}
@@ -823,7 +824,7 @@ Der Kurzschlussstrom der Messzelle wurde im Flasher (siehe Abbildung~\ref{zellef
 
 \section{Strommessung}\thispagestyle{empty}
 
-Der Messroboter wurde für die Kalibrierung der Strommessung in eine Klimazelle platziert.  Die Temperatur der Klimazelle wurde im Bereich von 8 bis 35 $^{\circ}$C variiert. Durch den Messwiderstand der Strommessung wurde ein Strom im Bereich von 3 bis 8 A geschickt.  
+Der Messroboter wurde für die Kalibrierung der Kurzschlussstrommessung in eine Klimazelle platziert.  Die Temperatur der Klimazelle wurde im Bereich von 8 bis 35 $^{\circ}$C variiert. Durch den Messwiderstand der Strommessung wurde ein Strom im Bereich von 3 bis 8 A geschickt.  
 
 \begin{table}[htbp]
 \centering
@@ -853,13 +854,13 @@ T/$^{\circ}$C & I/mA & ADC Wert \\
  & 5000 & 590 \\
  & 6005 & 710 \\ \hline
 \end{tabular}
-\caption{Kalibrierung Strommessung}\label{TabS}
+\caption{Die Kalibrierung der Strommessung}\label{TabS}
 \end{table}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=150mm]{img/16grad.png}
-\caption{Lineraer Zusammenhang zwischen Strom und dem ADC-Wert}\label{ical}
+\caption{Lineraer Zusammenhang zwischen Strom und dem ADC-Wert.}\label{ical}
 \end{figure}
 
 \begin{equation}
@@ -869,9 +870,9 @@ T/$^{\circ}$C & I/mA & ADC Wert \\
 
 
 \section{Thermische Stabilität der Temperaturmessung}\thispagestyle{empty}
-Zur Bestimmung der Temperaturstabilität wurde der gesamte Roboter in ein Klimakammer gestellt. Der Pt100 wurde durch einen temperaturstabilen 110$\Omega$ simuliert.
-Es gab zwei Durchgänge dieses Versuches.
-Bei der ersten Messung zeigte sich, dass eine der beiden Messplatinen nicht temperaturstabil war. Durch das Tauschen der Ref200 Stromquelle dieser Platine konnte das Problem gelöst werden.
+Zur Bestimmung der Temperaturstabilität wurde der gesamte Roboter in eine Klimakammer plaziert. Der Pt100 wurde durch einen temperaturstabilen 110$\Omega$ simuliert.
+Beim ersten Messdurchgang zeigte sich, dass eine der beiden Messplatinen nicht temperaturstabil war (siehe Platine B in Tabelle \ref{TabT1}). Durch das Tauschen der Ref200 Stromquelle dieser Platine konnte das Problem gelöst werden. Wahrscheinlich wurde die nicht stabile Ref200-Stromquelle beim Einlöten beschädigt. Durch den Austausch der Referenzstromquelle der Platine B hat sich auch der ADC-Wert gegenüber der ersten Messung geändert. Tabelle \ref{TabT2}) zeigt die Werte nach dem Austausch.
+Da die Platine A temperaturstabiler als die Platine B ist, wurde Platine A zur Messung der Zelltemperatur ausgewählt, die Platine B wurde für die Messung der Umgebungstemperatur verwendet. 
 
 \begin{table}[htbp]
 \centering
@@ -888,7 +889,7 @@ Bei der ersten Messung zeigte sich, dass eine der beiden Messplatinen nicht temp
 23,5 & 368 & 403\\ \hline
 27,5 & 368 & 402\\ \hline
 \end{tabular}
-\caption{Temeraturabhängigkeit der Temperaturmessung}\label{TabT1}
+\caption{Die Umgebungstemeraturabhängigkeit der Temperaturmessung.}\label{TabT1}
 \end{table}
 
 \begin{table}[htbp]
@@ -900,7 +901,7 @@ Bei der ersten Messung zeigte sich, dass eine der beiden Messplatinen nicht temp
 20,1 & 368 & 379\\ \hline
 9,2 & 368 & 378\\ \hline
 \end{tabular}
-\caption{Temeraturabhängigkeit der Temperaturmessung}\label{TabT2}
+\caption{Temeraturabhängigkeit der Temperaturmessung.}\label{TabT2}
 \end{table}
 
 Durch den Austausch der Referenzstromquelle der Platine B hat sich auch der ADC-Wert gegenüber der ersten Messung geändert. Die Kalibrierwerte der Platine B \ref{TabB} sind nach diesem Austausch aufgenommen worden.
@@ -908,33 +909,32 @@ Da die Platine A temperaturstabiler als die Platine B ist, wurde Platine A zur M
 
 \chapter{Messung}\thispagestyle{empty}
 
-Diese Kapitel beschreibt die Messvorbereitung, den Messaufbau, die eigentliche Messung und die Auswertung der Messdaten. Das Messsystem wurde verwendet um die Ausleuchtung der einzelnen Lampen zu ermitteln, und daraus eine für die Messebene optimierte Einstellung zu finden.
+Diese Kapitel beschreibt die Messvorbereitungen, den Messaufbau, die eigentliche Messungen und die Auswertung der Messdaten. Das Messsystem wurde verwendet um die Ausleuchtung der einzelnen Lampen zu ermitteln, und daraus eine für die Messebene optimierte Einstellung zu finden.
 
 \section{Messaufbau}\thispagestyle{empty}
-Dieser Abschnitt behandelt den Messaufbau. Die Messung der Bestrahlungsstärkeverteilung findet im Sonnensimulator statt. Zuerst muss eine Messebene geschaffen werden, auf welcher der Roboter fahren kann. Diese Fläche ist aus logistischen Gründen aus drei einzelnen Holzplatten gebildet, was zuerst einige zusätzliche Probleme bereitet hat. Auf der Oberseite der Platten befinden sich die Messpunkte und die Führungslinie, welcher der Roboter folgt. Zu Beginn der Messung wird der Roboter an das linke Ende der Linie gestellt, er fährt nach dem Einschalten selbständig das Messprogramm ab.
+Die Messung der Bestrahlungsstärkeverteilung findet im Sonnensimulator statt. Zuerst muss eine Messebene geschaffen werden, auf welcher der Roboter fahren kann. Diese Fläche ist aus logistischen Gründen aus drei einzelnen Holzplatten gebildet, was zuerst einige zusätzliche Probleme bereitet hat. Auf der Oberseite der Platten befinden sich die Messpunkte und die Führungslinie, welcher der Roboter folgt. Zu Beginn der Messung wird der Roboter an das linke Ende der Linie gestellt, er fährt nach dem Einschalten selbständig das Messprogramm ab.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=100mm]{img/robofahrt.jpg}
-\caption{Eine Fahrt des Roboters auf der Messbahn}\label{robofahrt}
+\caption{Eine Fahrt des Roboters auf der Messbahn.}\label{robofahrt}
 \end{figure}
 
 \subsection{Die Messebene}\thispagestyle{empty}
-Die Messebene des Roboters wird von drei Holzplatten gebildet. Eine einzelne große Platte wäre eine bessere Alternative gewesen, aber aus Gründen der Handhabung ist die Messebene auf drei Platten aufgeteilt. Eine einzelne 3,70 Meter mal 2,50 Meter große Platte wäre zu schwer und zu unhandlich. Die einzelnen Platten messen 250 Zentimeter mal 125 (bzw. 120) Zentimeter, und sind 18 Millimeter dick.
+Die Messebene des Roboters wird von drei Holzplatten gebildet. Aus Gründen der Handhabung ist die Messebene auf drei Platten aufgeteilt. Eine einzelne 3,70 Meter mal 2,50 Meter große Platte wäre zu schwer und zu unhandlich. Die einzelnen Platten messen 250 Zentimeter mal 125 Zentimeter, und sind 18 Millimeter dick.
 Die Platten sind auf der Messseite schwarz angestrichen, um die Reflexion möglichst gering zu halten. Die Messbahn sowie die Messpunkte sind weiß ausgeführt. Sowohl der schwarze Untergrund als auch die weiße Bahn besteht aus Kunstharzfarbe, welche UV-beständig und abriebfest ist. Da beim Hantieren mit den Platten dennoch kleine Beschädigungen der Messbahn entstehen können, welche den Messablauf beeinträchtigen können, so ist es sinnvoll, vor der Messung die Bahn einer optischen Kontrolle zu unterziehen und gegebenenfalls mit einem geeigneten weißen Klebeband (z.B. einem 14mm breiten Isolierband) auszubessern.
 Die Platten müssen möglichst eng aneinander anliegen, damit der Roboter beim Übergang von einer Platte zur nächsten möglichst wenig behindert wird. Damit keine zu groß Stufe wegen unterschiedlicher Durchbiegung der Platten entsteht sind auf der Rückseite der Holzplatten an einigen Stellen Aluminiumbleche befestigt. An der höheren Platte wurde das Blech angeschraubt, die tiefer liegende Platte liegt darauf auf. Die Bleche wurden an den Stellen mit den größten Durchhang befestigt.
-Eine zu große Stufe behindert den Roboter beim Fahren, und erschwert das zuverlässige Erkennen von Messpunkten nahe der Stufe. Mit den Modifikationen an den Platten werden nun alle Messpunkte zuverlässig erkannt.
-Die Breite aller 3 Platten geringer ist als die Breite des Einschubes des Sonnensimulators. Damit die Messungen zu verschiedenen Zeitpunkten verglichen werden können, sind die Platten nach rechts auf Anschlag zu schieben.
+Eine zu große Stufe behindert den Roboter beim Fahren, und erschwert das zuverlässige Erkennen von Messpunkten nahe der Stufe.
+Die Breite aller 3 Platten ist geringer als die Breite des Einschubes des Sonnensimulators. Damit die Messungen zu verschiedenen Zeitpunkten verglichen werden können, ist die Position der Platten zum Einschub zu dokumentieren.
 Die Messpunkte liegen im Raster von 15 Zentimeter. Der Abstand zwischen dem Mittelpunkt eines Messpunktes und der Mitte der Führungslinie beträgt 40,6mm. Die Messpunkte sind kleine Quadrate der Seitenlänge von 14 Millimeter. Die Messbahn ist ebenfalls 14 Millimeter breit. Die Position der Messpunkte ist auf etwa ein bis zwei Millimeter genau.
-Die Messpunkte liegen im Abstand von 15 cm, damit ist auch der Abstand zwischen den Messbahnen 15 cm. Die Übergänge der Messbahn von einer Platte zur nächsten sind mit weißem Isolierband  der Breite 14 Millimeter zu überbrücken. Beschädigung der Messbahn, welche durch unsanftes Handling der Platten entstehen können, sind ebenfalls mit weißem Isolierband zu Überkleben.
-Eine zu große Stufe behindert den Roboter beim Fahren, und erschwert das zuverlässige Erkennen von Messpunkten nahe der Stufe. Mit den Modifikationen an den Platten werden nun alle Messpunkte zuverlässig erkannt. 
-Da die Messzelle nicht im Zentrum des Messroboters sitzt, sondern um zwei cm nach unten verschoben ist, gilt dies auch für die Positionen der Messpunkte, die Abbildung \ref{punkte} im Vergleich zur Abbildung \ref{platten} verdeutlicht das.
+Die Messpunkte liegen im Abstand von 15 cm, damit ist auch der Abstand zwischen den Messbahnen 15 cm. Die Übergänge der Messbahn von einer Platte zur nächsten sind mit weißem Isolierband zu überbrücken. 
+Da die Messzelle nicht im Zentrum des Messroboters sitzt, sondern um zwei Zentimeter ist, gilt dies auch für die Positionen der Messpunkte, die Abbildung \ref{punkte} im Vergleich zur Abbildung \ref{platten} verdeutlicht das.
 Da die Messzelle eine Abmessung von 125mm mal 125mm hat ist der gesamte Messbereich etwa 12cm größer als die größten Punktabstände. Der gesamte Messbereich ist somit 207cm mal 327cm groß.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/dreiplatten10.png}
-\caption{Die Lage der Messbahn auf den Platten}\label{platten}
+\caption{Die Lage der Messbahn auf den Platten.}\label{platten}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -950,7 +950,7 @@ Da die Messzelle eine Abmessung von 125mm mal 125mm hat ist der gesamte Messbere
 \end{figure}
 
 
-\subsection{Ablauf}\thispagestyle{empty}
+\subsection{Messablauf}\thispagestyle{empty}
 Vor der Messung ist der Ladezustand des Akkus zu messen, und gegebenenfalls nachzuladen. Der Roboter ist auf mechanische Beschädigung zu untersuchen, besonders der Zustand der Räder ist zu kontrollieren.
 Vor dem Einlegen der Platten in den Einschub des Sonnensimulators sind diese auf Beschädigungen zu untersuchen. Eine Beschädigung der Messbahn ist mit einem weißen Isolierband zu überkleben. Beschädigungen des Holzes direkt neben der Messbahn sind mit schwarzer Farbe auszubessern. Beschädigung an Stellen, die nicht im Sichtfeld das Sensorarray liegen können, sind egal.
 Die Platten sind in den Einschub des Sonnensimulators zu legen. Begonnen wird mit der rechten Platte. Die Übergänge der Messbahn von einer Platte zur nächsten sind mit weißem Isolierband  der Breite 14mm zu überbrücken. 
@@ -962,15 +962,15 @@ Zum Starten wird der Ein/Aus-Schalter von 0 auf 1 umgelegt, der Programmauswahls
 
 \section{Auswertung}\thispagestyle{empty}
 
-Die Messwerte werden auf der SD-Karte als Textdatei gespeichert. Für jeden Messpunkt gibt es eine eigene Zeile in der Textdatei. Gespeichert werden Messzeit in Millisekunden, der ADC-Wert für den Kurzschlussstrom, der ADC Wert für die Zelltemperatur, der ADC Wert für die Umgebungstemperatur, und jeweils einen Zählerwert für Messpunkt, Reihe und Spalte. Die einzelnen Werte sind durch einen Tabulator getrennt, damit ist die Datei in Excel und Matlab bearbeitbar.  
-Die Tabelle \ref{TabSD} zeigt wie die Daten auf der SD-Karte gespeichert sind. Es sind nicht alle Werte für die Auswertung notwendig. Der Erste Wert ist die Zeit in Millisekunden, die seit dem Einschalten des Roboters vergangen ist. Die nächsten 3 Werte sind Werte des Analogdigitalwandlers im Bereich von Null bis 1023, diese Werte werden ohne Umrechnung direkt auf die SD-Karte gespeichert. Es sind insgesamt 308 Messpunkte, 22 Reihen mit jeweils 14 Werten.  
+Die Messwerte werden auf der SD-Karte als Textdatei gespeichert. Für jeden Messpunkt gibt es eine eigene Zeile in der Textdatei. Gespeichert werden Messzeit in Millisekunden, der ADC-Wert für den Kurzschlussstrom, der ADC Wert für die Zelltemperatur, der ADC Wert für die Umgebungstemperatur, und jeweils einen Zählerwert für Messpunkt, Reihe und Spalte. Die einzelnen Werte sind durch einen Tabulator getrennt, damit ist die Datei in Matlab bearbeitbar.  
+Tabelle \ref{TabSD} zeigt wie die Daten auf der SD-Karte gespeichert sind. Der erste Wert ist die Zeit in Millisekunden, die seit dem Einschalten des Roboters vergangen ist. Die nächsten 3 Werte sind Werte des Analogdigitalwandlers im Bereich von Null bis 1023, diese Werte werden ohne Umrechnung direkt auf die SD-Karte gespeichert. Es sind insgesamt 308 Messpunkte, 22 Reihen mit jeweils 14 Werten.  
 
  
 \begin{table}[htbp]
 \centering
 \begin{tabular}{ | c | c | c | c | c | c | c | } 
 \hline
-$\frac{t}{ms}$ & I$_{SC}$ & T$_{Zelle}$ & T$_{Umgebung}$ & Messpunkt & Messpunkt 2 & Messreihe \\
+$\frac{t}{ms}$ & I$_{SC}$ & T$_{Zelle}$ & T$_{Umgebung}$ & Messpunkt & Messreihe & Messspalte \\
 \hline
 \hline
 {165515} & {466} & {437} & {237} & {47} & {5} & {4} \\
@@ -1000,7 +1000,7 @@ n_{295}  &.& .&.& n_{308}
 \end{pmatrix}
 \end{equation}
 
-Um die eindimensionalen Messdaten in ein zweidimensionales Array, das der realen Anordnung der Messpunkte entspricht, wird folgender Algorithmus verwendet:
+Um die eindimensionalen Messdaten in ein zweidimensionales Array, das der realen Anordnung der Messpunkte entspricht, wird folgender Matlab-Code verwendet:
 \begin{verbatim}
 j=1; k=1; l=1;
 
@@ -1018,7 +1018,7 @@ Der ADC Wert des Kurschlussstromes wird in Ampere umgerechnet. Dazu wird die in 
 \begin{verbatim}
 A = (I +4.5766)/119.2; 
 \end{verbatim}
-Aus diesem Kurzschlussstrom wird die Bestrahlungsstärke berechnet:
+Aus diesem Kurzschlussstrom wird die temperaturkompensierte Bestrahlungsstärke berechnet:
 \begin{verbatim}
 G(i,j) = 1000 * A(i,j) / 4.99 * ( 1 - 0.00048 * (TTm(i,j) - 25));
 \end{verbatim}
@@ -1060,7 +1060,7 @@ TTm = (Rm-100.03)/0.3879; % Widerstand --> Temperatur
 Durch die geringe Messzeit eines Messvorganges, war es möglich die Verteilung der Bestrahlungsstärke aller einzelnen Lampen in relativ kurzer Zeit zu messen. Die Lampen wurden einzeln mit einer Lampenleistung von 100\% vermessen, alle anderen Lampen waren jeweils auf 0\%. Das Lampenfeld war für alle Einzelmessungen in einer Höhe von 1870mm.
 Die einzelnen Messungen sind in den Abbildungen \ref{E1} bis \ref{E10} abgebildet.
 Die rechnerische Kombination aller zehn Lampen ist in Abbildung \ref{b100} zu sehen, im Vergleich dazu in Abbildung \ref{m100} die gemessene Bestrahlungsstärke aller zehn Lampen bei 100\%.
-Abbildung \ref{v100} zeigt das Verhältnis der gemessenen Werte zu den berechneten.
+Abbildung \ref{v100} zeigt das Verhältnis der gemessenen Werte zu den berechneten. Die maximalen Abweichungen der gemessenen Werte zu den berechneten sind +0,57\% und -3,57\%, die mittlere Abweichung liegt bei -1,8\%. 
 
 \begin{figure} [htbp]
     \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/E1.png}}
@@ -1156,7 +1156,7 @@ Abbildung \ref{v100} zeigt das Verhältnis der gemessenen Werte zu den berechnet
 
 \section{Variation der Lampenleistung und der Höhe des Lampenfeldes}
 
-Es wurden die Einstellung Arsenal 1100W mit einer Höhe 1870mm bzw. Arsenal 1100W mit einer Höhe 4200mm verwendet. Abbildung \ref{std} zeigt die Einstellungen der einzelnen Lampen. Die Gesamteinstellung der Lampenleistung wurde von 96\% auf 80\% und auf 60\% verringert. Die Einstellungen der einzelnen Lampen sind in Abbildung \ref{std} dargestellt. Die Kühllufttemperatur war 15$^{\circ}$C . Von jeder Einstellung wurden zwei Messungen gemacht.
+Es wurden die Standard-Einstellungen "Arsenal 1100W" mit einer Höhe 1870mm bzw. mit einer Höhe 4200mm verwendet. Abbildung \ref{std} zeigt die Einstellungen der einzelnen Lampen der Standardeinstellungen. Die Gesamteinstellung der Lampenleistung wurde von 96\% auf 80\% und auf 60\% verringert. Die Einstellungen der einzelnen Lampen sind in Abbildung \ref{std} dargestellt. Die Kühllufttemperatur war 15$^{\circ}$C . Von jeder Einstellung wurden zwei Messungen gemacht.
 
 \begin{table}[htbp]
 \centering
@@ -1174,48 +1174,48 @@ Es wurden die Einstellung Arsenal 1100W mit einer Höhe 1870mm bzw. Arsenal 1100
 80\%, 4200mm & 269.2 & 395.2 & 318.9 & 10.69\\ \hline
 80\%, 4200mm & 269.1 & 395.3 & 320.0 & 10.52\\ \hline
 \end{tabular}
-\caption{Die mittlere, maximale und minimale Einstrahlung in Abhängigkeit der Lampenparameter}\label{TabG}
+\caption{Die mittlere, maximale und minimale Einstrahlung, sowie die Nichtgleichmäßigkeit der Einstrahlung w in Abhängigkeit der Lampenparameter.}\label{TabG}
 \end{table}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/std.png}
-\caption{Die Standard-Einstellungen der einzelnen zehn Lampen.}\label{std}
+\caption{Die Standard-Einstellungen ("Arsenal 1100W") der einzelnen zehn Lampen.}\label{std}
 \end{figure}
 
 
 \begin{figure} [htbp]
     \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/st96.png}}
     \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/st96k.png}}
-\caption{Standardeinstellungen 96\%}
+\caption{Standardeinstellungen 96\%.}
 \label{st96}
 \end{figure} 
 
 \begin{figure} [htbp]
     \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/st80.png}}
     \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/st80k.png}}
-\caption{Standardeinstellungen 80\%}
+\caption{Standardeinstellungen 80\%.}
 \label{st80}
 \end{figure} 
 
 \begin{figure} [htbp]
     \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/st60.png}}
     \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/st60k.png}}
-\caption{Standardeinstellungen 60\%}
+\caption{Standardeinstellungen 60\%.}
 \label{st60}
 \end{figure} 
 
 \begin{figure} [htbp]
     \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/h96.png}}
     \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/h96k.png}}
-\caption{Standardeinstellungen 96\%, Lampenfeld hoch}
+\caption{Standardeinstellungen 96\%, Lampenfeld auf 4200mm.}
 \label{h96}
 \end{figure} 
 
 \begin{figure} [htbp]
     \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/h80.png}}
     \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/h80k.png}}
-\caption{Standardeinstellungen 80\%, Lampenfeld hoch}
+\caption{Standardeinstellungen 80\%, Lampenfeld auf 4200mm.}
 \label{h80}
 \end{figure}
 
@@ -1225,7 +1225,7 @@ Es wurden die Einstellung Arsenal 1100W mit einer Höhe 1870mm bzw. Arsenal 1100
 
 Die Homogenität über die e Optimierungsalgorithmus: Es werden verschiedene Kombinationen der Lampeneinstellungen der zehn Lampen vorgenommen. Dabei wird das Minimum der Gleichmäßigkeit der Bestrahlungsstärkeverteilung über die Testfläche gesucht:
 \begin{equation}
- Non-uniformity (\%) = [\frac{max irradiance - min irradiance}{max irradiance + min irradiance}] \times (100\%)
+ Nonuniformity (\%) = [\frac{max irradiance - min irradiance}{max irradiance + min irradiance}] \times (100\%)
 \end{equation}
 Die beiden mittleren Lampen werden auf 100\% belassen. Die anderen Lampen werden zuerst in 3\% Schritten zwischen 80 und 100\% variiert. Dann werden, um das unter den 3\%-Schrittweiteneinstellungen gefunden Minimum, die Lampen in 1\% Schritten variiert. So werden statt der theoretisch möglichen 16,7 Billionen Möglichkeiten, nur wenige Millionen durchgerechnet, somit bleibt die Rechenzeit im Minutenbereich.
 
@@ -1264,20 +1264,13 @@ for k1=96:1:100
 end
 \end{verbatim}
 
-Mit dem Algorithmus wurden die in Abbildung \ref{opt} dargestellten Einstellungen gefunden.
+Mit diesem Matlab-Code wurden die in Abbildung \ref{opt} dargestellten Einstellungen gefunden.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/std.png}
 \caption{Die optimierten Einstellungen der einzelnen zehn Lampen.}\label{opt}
 \end{figure}
-
-\begin{figure} [htbp]
-    \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/optb.png}}
-    \subfigure[2D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/optbk.png}}
-\caption{Die berechneten optimalen Einstellungen der einzelnen Lampen.}
-\label{optb}
-\end{figure} 
 
 \begin{figure} [htbp]
     \subfigure[3D-Ansicht]{\includegraphics[width=0.49\textwidth]{img/optb.png}}
@@ -1417,10 +1410,12 @@ Prinzipiell ist diese Art von Messsystem auch für andere Sonnensimulatoren mit 
 Aus diesen Messsystem kann eine kommerzielle Variante entwickelt werden.
 Ein kommerzialisierte Variante sollte allerdings kleiner, flacher und robuster sein.
 Der Roboter erleichtert die Messung der Bestrahlungsstärkeverteilung enorm. Durch die kurze Messdauer ist es möglich die Bestrahlungsstärke in periodischen Zeitabständen zu vermessen, um so die Alterung der Lampen zu dokumentieren. 
+Es war möglich die Bestrahlungsstärkeverteilung aller zehn Lampen einzeln zu messen, und mit diesen Messergebnissen eine optimierte Lampeneinstellung zu finden. Eine Messung mit den optimierten Einstellungen zeigt eine hohe Übereinstimmung mit den berechneten Werten. 
 Diese Art von Messroboter kann in jedem stationären Sonnensimulator entsprechender Größe zur Vermessung der Bestrahlungsstärkeverteilung verwendet werden. 
 Die Verwendung des Messroboters erlaubt die Bestrahlungsstärkeverteilung einzelner Lampen zu ermitteln.
 Ebenso die Bestrahlungsstärkeverteilung bei unterschiedlichen Höhen des Lampenfeldes.
-Die 3D-Drucktechnik versprach zwar eine schnelle Entwicklung, sprich ein Rapid Prototyping, insgesamt benötigen die gedruckten Räder eine aufwendige Nachbearbeitung, damit sie überhaupt zusammengebaut werden konnten. Und auch im Laufe des Roboterlebens sind alle mechanischen Probleme bei den Rädern aufgetretten. Sei es dass sich die Räder von selbst gelockert haben. Sei dass sich Kugellager aus der Verklebung gelöst haben. 
+Die 3D-Drucktechnik versprach zwar eine schnelle Entwicklung, sprich ein Rapid Prototyping, insgesamt benötigen die gedruckten Räder eine aufwendige Nachbearbeitung, damit sie überhaupt zusammengebaut werden konnten. Im Lauf des Roboterlebens sind einige Probleme bei den Rädern aufgetreten, die Klebung der Kugellager war nicht sehr dauerhaft, weiters war die Montage der Räder serviceintensiv, allerdings konnten mit einem besseren Kleber diese Probleme behoben werden.
+
 
 
 % Literaturverzeichnis
