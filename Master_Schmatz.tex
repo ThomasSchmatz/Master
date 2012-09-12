@@ -148,18 +148,18 @@ Und für problemlose Verlängerung meines Praktikums und der Diplomarbeit schuld
 % \chapter[Kurzform]{Lange "Uberschrift}
 \chapter{Aufgabenstellung}
 
-Dieses Kapitel beschreibt den Nutzen von Messungen im stationären Sonnensimulator, den Aufbau eines solchen Simulators, sowie dessen normative Anforderungen. Zudem wird die Funktion einer Photovoltaik-Zelle beschrieben.
+Dieses Kapitel beschreibt den Nutzen von PV-Kennlinienmessungen in Sonnensimulatoren, den Aufbau, sowie die normative Anforderungen. Zudem wird die Funktion einer Photovoltaik-Zelle beschrieben.
 
 \section{Stationäre Photovoltaik Sonnensimulatoren} \thispagestyle{empty}
 
-Photovoltaik-Sonnensimulatoren werden zur elektrischen Charakterisierung und Prüfung von Photovoltaik-Modulen verwendet. Der wesentliche Vorteil gegenüber Messungen im Sonnenlicht liegt darin, dass die Durchführung unter reproduzierbaren Umweltbedingungen (Bestrahlungsstärke, spektrale Zusammensetzung des einfallenden Lichtes und die Prüfgutstemperatur)  ermöglicht wird. Grundsätzlich werden bei konventionellen Systemen gepulste und stationäre Simulatoren, welche kontinuierlich leuchten, unterschieden. Erstere brauchen weniger Energie, heizen die Messobjekte nicht auf, und werden für die Leistungsmessung von Zellen und Modulen verwendet. Die Blitzlänge ist bauartbedingt auf wenige Millisekunden begrenzt. Stationäre Simulatoren werden unter anderem für Voralterung von Modulen verwendet.
-Im Allgemeinen werden Messergebnisse auf Standard-Prüfbedingungen (STC) bezogen, die durch 1000W/m$^2$, 25$^{\circ}$C und AM1.5 definiert ist. Die Air Mass (AM) beschreibt das Verhältnis des Weges des einfallenden Sonnenlichtes durch die Atmosphäre bezogen auf senkrechten Einfall (siehe Abbildung \ref{airmass}). Je länger der Weg des Lichtes durch die Atmosphäre desto größer ist der Einfluss durch Streuung, Reflexion und Absorption, was sowohl die Stärke der Einstrahlung als auch die spektrale Zusammensetzung des Sonnenlichtes vom Sonnenstand abhängig macht. 
+Photovoltaik-Sonnensimulatoren werden zur elektrischen Charakterisierung und Prüfung von Photovoltaik-Modulen verwendet. Der wesentliche Vorteil gegenüber Messungen im natürlichen Sonnenlicht liegt darin, dass die Durchführung unter reproduzierbaren Umgebungsbedingungen (Bestrahlungsstärke, spektrale Zusammensetzung des einfallenden Lichtes und die Temperatur)  ermöglicht wird. Grundsätzlich werden bei konventionellen Systemen gepulste und stationäre Simulatoren, welche kontinuierlich leuchten, unterschieden. Erstere brauchen weniger Energie, heizen die Messobjekte nicht auf, und werden für die Leistungsmessung von Zellen und Modulen verwendet. Die Blitzlänge ist bauartbedingt auf wenige Millisekunden begrenzt. Stationäre Simulatoren werden unter anderem für die Voralterung von Modulen verwendet.
+Im Allgemeinen werden Messergebnisse auf Standard-Prüfbedingungen (STC) bezogen, die durch 1000 W/m$^2$, 25$^{\circ}$C und AM1.5 definiert sind. Die Air Mass (AM) beschreibt das Verhältnis des Weges des einfallenden Sonnenlichtes durch die Atmosphäre bezogen auf senkrechten Einfall (siehe Abbildung \ref{airmass}). Je länger der Weg des Lichtes durch die Atmosphäre desto größer ist der Einfluss durch Streuung, Reflexion und Absorption, was sowohl die Stärke der Einstrahlung als auch die spektrale Zusammensetzung des Sonnenlichtes vom Sonnenstand abhängig macht. 
 \begin{equation}
      AM = \frac {L} {L_0} \approx \frac{1}{cos~ z},
 \end{equation}
 wobei L die Länge des Weges des Sonnenlichtes durch die Atmosphäre, L$_0$ die Weglänge bei senkrechten Einfall und z der Zenitwinkel des Sonnenstandes ist (\cite{wurf} S. 30). Dabei handelt es sich um eine Näherung, welche die Krümmung der Erdoberfläche und der Atmosphäre vernachlässigt. Für kleine Werte vom AM ist diese Näherung aber hinreichend genau.
 Die spektrale Verteilung des Referenzsonnenspektrums AM1.5 (siehe Abbildung \ref{sunspec}) ist in der IEC-Norm 60904-3 \cite{norm3} definiert. Das Spektrum des Sonnenlichtes im Weltall AM0 entspricht in etwa der thermische Strahlung eines schwarzen Körpers mit 5250$^\circ$C (siehe Abbildung \ref{sunspec}).
-Die meisten am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$) können das Spektrum nicht verändern, da sie Metallhalogenid-Lampen verwenden, sie sind also für einen Sonnenstand beschränkt. Es gibt Sonnensimulatoren auf LED-Basis. Das gewünschte Spektrum wird dort mit vielen LEDs unterschiedlicher Wellenlänge realisiert, somit sind auch unterschiedliche Spektren und Bestrahlungsstärken realisierbar. Es gibt bereits LED-Sonnensimulatoren für Module am Markt \cite{mps}. Ein Vorteil dieses Systems ist die lange Lebensdauer der Lampen, welche laut Herstellerangaben für 10 Millionen Messungen reicht. 
+Die meisten am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$) können das Spektrum nicht verändern, da sie Metallhalogenid-Lampen verwenden. Sie sind also für einen Sonnenstand beschränkt. Es gibt Sonnensimulatoren auf LED-Basis. Das gewünschte Spektrum wird dort mit vielen LEDs unterschiedlicher Wellenlänge realisiert, somit sind auch unterschiedliche Spektren und Bestrahlungsstärken realisierbar. Es sind  bereits Sonnensimulatoren auf LED-Basis für Modulgröße am Markt \cite{mps}. Ein Vorteil dieses Systems ist die lange Lebensdauer der Lampen, welche laut Herstellerangaben für 10 Millionen Messungen reicht. 
 
 \begin{figure}[htbp]
 \centering
@@ -170,33 +170,33 @@ Die meisten am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/am.png}
-\caption[Sonnenspektrum]{Der Vergleich von Spektrum des Sonnenlichtes im Weltall (AM0), der Strahlung eines schwarzen Körpers von 5960K und dem AM1.5 Spektrum. Quelle: \cite{n01}}\label{sunspec}
+\caption[Sonnenspektrum]{Der Vergleich vom Spektrum des Sonnenlichtes im Weltall (AM0), der Strahlung eines schwarzen Körpers von 5960K und dem AM1.5 Spektrum. Quelle: \cite{n01}}\label{sunspec}
 \end{figure}
 
 
 \section{Sonnensimulator Aufbau}\thispagestyle{empty}
 
 
-Mit der SolarConstant 4000 (siehe Abbildung \ref{sunsim}) der Firma Atlas kann die Einwirkung der Sonne auf Testobjekte simuliert werden. Dazu ist das Gerät mit zehn Metallhalogenid-Strahlungsquelle Lampen zu je 4 kW. Durch die Füllung der Lampen mit Halogeniden wird ein möglichst kontinuierliches Spektrum erzeugt. Die Leuchten sind mit Filterscheiben ausgestattet, welche das abgestrahlte Licht dem AM1.5 Spektrum annähern.
+Mit dem SolarConstant 4000 (siehe Abbildung \ref{sunsim}) der Firma Atlas kann die Einwirkung der Sonne auf Testobjekte simuliert werden. Dazu ist der Simulator mit zehn Metallhalogenid-Strahlungsquelle Lampen zu je 4 kW ausgerüstet. Durch die Füllung der Lampen mit Halogeniden wird ein möglichst kontinuierliches Spektrum erzeugt. Die Leuchten sind mit UF-Filterscheiben ausgestattet, welche das abgestrahlte Licht dem AM1.5 Spektrum annähern.
 Jede Lampe wird von einem eigenen elektronisch geregelten Vorschaltgerät versorgt, welches für einen gleichmäßigen und flimmerfreien Betrieb sorgt.
-Da die Lampen nicht für eine Heißzündung ausgelegt sind, wobei sie eventuell zerstört werden können, ist eine Sperrzeit von 10 Minuten zum Abkülen vorgesehen, bevor sich die Lampen wieder einschalten lassen.
-Die Strahlungsleistung lässt sich reduzieren indem das gesamte Lampenfeld in die Höhe gefahren wird.
+Da die Lampen nicht für eine Heißzündung ausgelegt sind, wobei sie eventuell zerstört werden könnten, ist eine Sperrzeit von 10 Minuten zum Abkülen vorgesehen, bevor sich die Lampen wieder einschalten lassen.
+Die Strahlungsleistung lässt sich reduzieren, indem der Abstand zum Prüfgut vergrößert wird, wozu das gesamte Lampenfeld in die Höhe gefahren wird.
 Weiters lässt sich die Bestrahlungsstärke einzelner Lampen über die Variation der elektrischen Leistung des Vorschaltgerätes variieren.
 Allerdings führt eine Variation der elektrischen Leistung zu einer Änderung des Spektrums der Lampen. Aus diesem Grund wird vom Hersteller empfohlen \cite{atlas}, die Leistung der Lampen nur zwischen 80 und 100 \% zu variieren.
-Die Testobjekte werden mittels Prüfgut-Einschub in einem Windkanal positioniert, dessen obere Abdeckung aus einem geeigneten Solarglas besteht. Die geneigte Glasplatte bewirkt eine Querschnittreduktion des Luftkanales und somit eine Erhöhung der Strömungsgeschwindigkeit zwischen Zuluft- und Abluftseite. Diese stetige Erhöhung der Geschwindigkeit ist notwendig, damit die sich erwärmende Zuluft eine konstante Kühlwirkung hat, um die Testobjekt auf konstanter Temperatur zu halten.
+Die Testobjekte werden mittels Prüfgut-Einschub in einem Windkanal positioniert, dessen obere Abdeckung aus einem geeigneten Solarglas besteht. Die geneigte Glasplatte bewirkt eine Querschnittreduktion des Luftkanales und somit eine Erhöhung der Strömungsgeschwindigkeit zwischen Zuluft- und Abluftseite. Diese stetige Erhöhung der Strömungsgeschwindigkeit ist notwendig, damit die sich erwärmende Zuluft eine konstante Kühlwirkung hat, und die Testobjekte auf konstanter Temperatur gehalten werden.
 
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/sunsimulator.jpg}
-\caption[Sonnensimulator]{Der Aufbau des Sonnensimulators: Die zehn Metallhalogenoid-Strahler befestigt an der höhenverstellbaren Aufhängung, der Windkanal und die Prüfebene.}\label{sunsim}
+\caption[Sonnensimulator]{Der Aufbau des AIT-Sonnensimulators: Zehn Metallhalogenoid-Strahler befestigt an der höhenverstellbaren Aufhängung, der Windkanal und die Prüfebene.}\label{sunsim}
 \end{figure}
 
 
 \section{Normative Anforderungen an Sonnensimulatoren}\thispagestyle{empty}
 In der IEC Norm 60904-9 \cite{norm9} werden die Anforderungen an Sonnensimulatoren definiert. Ein Sonnensimulator wird anhand von 3 Kriterien bewertet: 
 \begin{itemize}
-\item die spektrale Übereinstimmung mit dem in Tabelle \ref{TabS1} aufgelisteten Wellenlängenbereichen. Zum AM1.5 Referenzspektrum sind durch die großen Schranken erhebliche Unterschiede möglich.
+\item die spektrale Übereinstimmung mit den in Tabelle \ref{TabS1} aufgelisteten Wellenlängenbereichen. Zum AM1.5 Referenzspektrum sind durch die großen Übereinstimmungsbereiche erhebliche Unterschiede möglich.
 \begin{table}[htbp]
 \centering
 \begin{tabular}{ | c | c | c |}\hline
@@ -209,7 +209,7 @@ In der IEC Norm 60904-9 \cite{norm9} werden die Anforderungen an Sonnensimulator
 5  & 800 - 900 & 12,5\\ \hline
 6  & 900 - 1100 & 15,9\\ \hline
 \end{tabular}
-\caption{Spektralle Strahlungsverteilung nach IEC 60904-9}\label{TabS1}
+\caption{Spektrale Strahlungsverteilung nach IEC 60904-9}\label{TabS1}
 \end{table}
 \item die Gleichmäßigkeit der Bestrahlungsstärkeverteilung über die Testfläche
 	\begin{equation}
@@ -221,7 +221,7 @@ In der IEC Norm 60904-9 \cite{norm9} werden die Anforderungen an Sonnensimulator
 \end{equation}
 \end{itemize}
 
-Die Tabelle \ref{TabS2} gibt die Anforderungen an, nach denen Sonnensimulatoren in den Klassen A, B und C klassifiziert werden. Die Sonnensimulatorklasse ABB bedeutet eine 0,75- bis 1,25-fache Übereinstimmung in allen in Tabelle \ref{TabS1} angeführten Schranken, eine Homogenität der Einstrahlung zwischen 2\% und 5\% im Messbereich, und eine zeitliche Stabilität zwischen 2\% und 5\%. Der Roboter misst von diesen drei Kategorien nur die Verteilung der Bestrahlungsstärke in der Messebene.
+Die Tabelle \ref{TabS2} gibt die Anforderungen an, nach denen Sonnensimulatoren in den Klassen A, B und C klassifiziert werden. Die Sonnensimulatorklasse ABB bedeutet eine 0,75- bis 1,25-fache Übereinstimmung in allen in Tabelle \ref{TabS1} angeführten Schranken, eine Homogenität der Einstrahlung zwischen 2\% und 5\% im Messbereich, und eine zeitliche Stabilität zwischen 2\% und 5\%. Der im Rahmen dieser Arbeit entwickelte Roboter misst von diesen drei Kategorien nur die Verteilung der Bestrahlungsstärke in der Messebene.
 \begin{table}[htbp]
 \centering
 \begin{tabular}{ | c | c | c | c | c |}\hline
@@ -240,7 +240,7 @@ C  & 0,4 - 2,0 & 10 \% & 10 \% & 10 \%\\ \hline
 
 \section{Theorie Referenzzelle}\thispagestyle{empty}
 Eine Solarzelle wandelt die Energie des Lichtes teilweise in elektrische Energie um. Eine Referenzzelle ist eine speziell für Messungen kalibrierte Solarzelle, welche als Strahlungsmessgerät dient. Wichtig ist, dass die Referenzzelle eine ähnliche spektrale Empfindlichkeit hat, wie die zu messenden Zelle bzw. das zu messende Modul.
-Es gibt verschiedene Solarzellentechnologien. Es gibt kristalline Siliziumzellen und Dünnschichtzellen. Die kristallinen Siliziumzellen werden in monokristalline Zellen und multikristalline Zellen unterschieden. Beide zusammen machen über 80\% des weltweiten Photovoltaikmarktes aus \cite{iea00}. Als Referenzzelle für Messungen werden ausschließlich kristalline Zellen verwendet. 
+Es gibt verschiedene Solarzellentechnologien. Es gibt kristalline Siliziumzellen und Dünnschichtzellen. Die kristallinen Siliziumzellen werden in monokristalline Zellen und multikristalline Zellen unterschieden. Beide zusammen machen über 80\% des weltweiten Photovoltaikmarktes aus \cite{iea00}. Als Referenzzelle für Messungen werden hauptsächlich kristalline Zellen verwendet. 
 Eine Siliziumsolarzelle ist eine großflächigen Diode (siehe Abbildung \ref{cell}). Die Sperrschicht ist dabei dem Sonnenlicht ausgesetzt. Gelangt ein Lichtquant in die Sperrschicht, kann aufgrund des inneren Photoeffektes ein Elektron/Loch Paar erzeugt werden. Durch das elektrische Feld in der Sperrschicht werden die Ladungsträger getrennt bevor sie rekombinieren können. Elektronen bewegen aufgrund ihrer negativen Ladung entgegen der Feldrichtung in die n-Zone. Löcher wandern in Feldrichtung zur raumladungsfreien p-Zone. Die Leerlaufspannung einer Solarzelle ist kleiner als die Diffusionsspannung, der Spannung über die Raumladungszone, die der Diffusion von Ladungsträgern entgegenwirkt.
 \begin{figure}[htbp]
 \centering
@@ -271,13 +271,15 @@ Der Füllfaktor ist das Verhältnis der Fläche des Rechteckes mit den Seitenlä
 \end{figure}
 
 Die Kennlinie der Solarzelle ist von der Einstrahlung abhängig (siehe Abbildung \ref{mpp}). Der Kurzschlusstrom ist direkt proportional zur Einstrahlung.
-Laut IEC 60891 \cite{norm891} berechnet sich die Einstrahlung aus dem gemessenen Kurzschlussstrom, den STC-Kurzschlussstrom, einen relativen Temperaturkoeffizienten und der Zelltemperatur:
+Laut IEC 60891 \cite{norm891} berechnet sich die Einstrahlung aus dem gemessenen Kurzschlussstrom, dem STC-Kurzschlussstrom, einem relativen Temperaturkoeffizienten und der Zelltemperatur:
 \begin{equation}
 G = \frac{1000Wm^{-2}I_{RC}}{I_{RC,STC}} [1 - \alpha_{RC}(T_{RC}-25^{\circ} C]~.
 \label{gg}
 \end{equation}
 Bei konstanter Temperatur ist der Kurzschlussstrom linear abhängig von der Bestrahlungsstärke (siehe Abbildung \ref{mpp}).
 Nach der Gleichung \ref{gg} ist der Kurzschlussstrom zusätzlich von der Temperatur anhängig, daher ist es notwendig die Temperatur der Zelle zum Zeitpunkt der Messung zu ermitteln, sowie den Temperaturkoeffizienten $\alpha_{RC}$ zu kennen.
+Abbildung \ref{el} zeigt eine Elektrolumineszenz-Aufnahme der verwendeten Messzelle. Diese Aufnahme wurde gemacht um sich von der Tauglichkeit der Zelle für Messungen zu überzeugen.
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/kennlinien.png}
@@ -289,7 +291,7 @@ In der Abbildung \ref{el} ist ein Elektrolumineszenz-Aufnahme der verwendeten Me
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=100mm]{img/el.png}
-\caption{Eine EL-Aufnahme der verwendeten Messzelle.}\label{el}
+\caption{Eine Elektrolumineszenz-Aufnahme der verwendeten Messzelle.}\label{el}
 \end{figure}
 
 \chapter{Entwicklungsprozess}\thispagestyle{empty}
@@ -299,13 +301,13 @@ Die Entwicklung der Software und der Hardware geschah zum Teil parallel. Zur Ent
 
 \section{Mechanische Komponenten}\thispagestyle{empty}
 
-Dieser Abschnitt behandelt die Entwicklung der mechanischen Komponenten. Diese sind die vier Mecanumräder und das Chassis des Roboters. Die maximale Bauhöhe ist durch den Windkanal im Sonnensimulator beschränkt, die minimale Bauhöhe ist durch den Durchmesser der Räder gegeben.
+Dieser Abschnitt behandelt die Entwicklung der mechanischen Komponenten, die aus den vier Mecanumräder sowie der Chassis des Roboters bestehen. Die maximale Bauhöhe ist durch den Windkanal im Sonnensimulator beschränkt. Die minimale Bauhöhe ist durch den Durchmesser der Räder gegeben.
 Mit der Größe der Messzelle ist auch die minimale Ausdehnung in den beiden anderen Dimensionen festgelegt. Eine weiter Einschränkung beim Design war, dass die Motoren, der Akku und die Elektronik im Inneren des Roboters Platz finden mussten, wodurch der Roboter länger und breiter als die Messzelle wurde (siehe Abbildung \ref{oben}). In dem Bild des Roboters sind die Messzelle, sowie der Einschalter und der Programmwahlschalter zu erkennen.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/oben3.png}
-\caption{Der Roboter aus der Vogelperspektive.}\label{oben}
+\caption{Der Roboter aus der Draufsicht.}\label{oben}
 \end{figure}
   
 
