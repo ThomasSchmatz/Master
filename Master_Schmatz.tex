@@ -313,13 +313,13 @@ Mit der Größe der Messzelle ist auch die minimale Ausdehnung in den beiden and
 
 \subsection{Die Mecanum-Plattform}\thispagestyle{empty}
 Mecanum-Räder erlauben einem Fahrzeug ohne mechanischer Lenkung, sich in jede Richtung zu bewegen. Benannt ist es nach dem schwedischen Unternehmen Macanum, welches dieses Rad 1971 entwickelt hat \cite{mecanum}. 
-Jedes Rad wird mit einem eigenen Motor angetrieben, und verfügt über eine separate Ansteuerung. Die Räder bestehen aus einer Felge (siehe Abbbildung \ref{rad}), auf der unter einem Winkel von 45 Grad befestigte, ballige Rollen so angebracht sind, die über den Abrollumfang einen Kreis bilden (siehe Abbbildung \ref{rad2}). In die 8 Löcher der Felge werden Kugellager eingeklebt. Jedes der vier Räder besteht aus einer Felge, insgesamt 16 Laufrollen, 8 Kugellager, 8 M4x45mm Schraube, 8 M4-Muttern, sowie 16 M4-Beilagscheiben. 
+Jedes Rad wird mit einem eigenen Motor angetrieben und verfügt über eine separate Ansteuerung. Die Räder bestehen aus einer Felge (siehe Abbbildung \ref{rad}), auf der unter einem Winkel von 45 Grad befestigte, ballige Rollen so angebracht sind, die über den Abrollumfang einen Kreis bilden (siehe Abbbildung \ref{rad2}). In die 8 Löcher der Felge werden Kugellager eingeklebt. Jedes der vier Räder besteht aus einer Felge, insgesamt 16 Laufrollen, 8 Kugellagern, 8 M4x45mm Schrauben, 8 M4-Muttern, sowie 16 M4-Beilagscheiben. 
 Das Rad ist mit einer M3-Schraube und einer M3-Mutter an der Motorachse fixiert.
 Die Felgen und die Laufrollen wurden mit einem Ultimaker 3D-Drucker [\cite{um})gedruckt. 
 Die Vorlage namens "Mecanum Wheel MK2" stammt von http://www.thingiverse.com/thing:2473, und kann unter der Attribution-NonCommercial-ShareAlike 3.0 Unported Lizenz nicht-kommerziell verwendet werden.
 Die Laufrollen wurden modifiziert, so dass die Mutter sowie der Schraubenkopf in der Rolle versenkt sind, damit das Rad insgesamt kompakter ist. Zum Bearbeiten wurde OpenSCAD, ein 3D-Compiler, verwendet. 
 
-Durch die Schräganordnung der Laufrollen entstehen beim Antreiben eines Rades zwei Kraftkomponenten, eine in Querrichtung sowie eine in Längsrichtung des Fahrzeuges. Gegeneinander gerichtete Kräfte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich (siehe Abbildung \ref{fahrman}). So ist es nicht nur möglich den Roboter in Längsrichtung vor und zurück zu bewegen, sondern auch in Querrichtung (normal zur Längsrichtung) zu bewegen, ebenso sind Drehungen am Stand möglich. Damit braucht ein mit Mecanumrädern ausgestatteter Roboter keine Lenkung. Allerdings sind vier Motoren notwendig, damit jedes Rad einzeln angesteuert werden kann.   
+Durch die Schräganordnung der Laufrollen entstehen beim Antreiben eines Rades zwei Kraftkomponenten, eine in Querrichtung sowie eine in Längsrichtung des Fahrzeuges. Gegeneinander gerichtete Kräfte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich (siehe Abbildung \ref{fahrman}). So ist es nicht nur möglich den Roboter in Längsrichtung vor und zurück zu bewegen, sondern auch in Querrichtung (normal zur Längsrichtung), ebenso sind Drehungen am Stand möglich. Damit braucht ein mit Mecanumrädern ausgestatteter Roboter keine Lenkung. Allerdings sind vier Motoren notwendig, damit jedes Rad einzeln angesteuert werden kann.   
 Die Kugellager sind in den acht passenden Löchern der Felge verklebt, zuerst mit einem handelsüblichen Sekundenkleber, allerdings haben sich einige Kugellager im Laufe der Zeit gelöst und beeinflussten so das Fahrverhalten negativ, danach mit einem Zweikomponentenkleber. Eine dauerhafte Verbindung von Kugellager mit der Felge ist für den störungsfreien Betrieb des Roboters unumgänglich. 
 Zwischen den Rollen und dem Kugellager sorgen Beilagscheiben für einen reibungsarmen Betrieb. 
 Die Schrauben der Rollen lösen sich im Betrieb nicht. Die Schraube, welche die Felge an der Motorachse befestig hat, löste sich regelmäßig, bis diese Verbindung mit einem Kleber gesichert wurde.
@@ -350,7 +350,7 @@ Die Kugellager sind wartungsfrei. Das wenige UV-Licht, das den PLA-Kunststoff er
 Mit OpenSCAD entsteht ein dreidimensionales Modell eines Werkstückes. Damit fängt ein 3D-Drucker nichts an. Ein 3D-Druck setzt sich aus sehr vielen Liniensegmenten zusammen. Dazu muss das 3D-Modell in einzelne dünne Schichten und einzelne Linien zerlegt werden. Dieser Vorgang wird als "Slicing" bezeichnet. Dazu wurde das Programm Skeinforge verwendet. Mit OpenSCAD wird zunächst ein stl-File erzeugt, dann produziert Skeinforge daraus die Fahrbefehle für den 3D-Drucker in Form eines G-Code. Als Druckmaterial wurde PLA (polylactic acid) verwendet, welches in einem Temperaturbereich von 215 bis 230 Grad Celsius per Extruder verarbeitet werden kann.    
 Die Druckzeit pro Rolle betrug 20 Minuten. Insgesamt mussten 64 Rollen gefertigt werden. Die Druckzeit pro Felge betrug etwa drei Stunden, der Roboter benötigte vier Felgen. Es gibt zwei verschiedene Felgentypen, mit nach links oder nach rechts geneigten Rollen. 
 Die Zeitaufwand wurde durch vorbereitende Testdrucke, bis die einzelnen Komponenten optimiert waren und der Drucker befriedigend Ergebnisse lieferte, sowie Fehldrücke, zusätzlich verlängert. 
-Nach dem Drucken mussten die Teile nachbearbeitet werden. Die Löcher für die Kugellager mussten per Hand passend gefeilt werden. Beim  Einsetzen der Kugellager brachen zwar manche der Halterungen, aber mit Klebstoff konnten die Kugellager auch in die gebrochenen Halterungen fixiert werden. Die dauerhafte Haltbarkeit dieser Klebungen war allerdings anfangs mit einem Fragezeichen behaftet. Die erste Klebung der Kugellager hat den Testalltag nicht überstanden. Trotz loser Kugellager konnte der Roboter dennoch erfolgreich Messfahrten durchführen. Mit einem Zweikomponentenkleber wurden die Kugellager ein zweites Mal, diesmal dauerhaft, eingeklebt.
+Nach dem Drucken mussten die Teile nachbearbeitet werden. Die Löcher für die Kugellager mussten per Hand passend gefeilt werden. Beim  Einsetzen der Kugellager brachen zwar manche der Halterungen, aber mit Klebstoff konnten die Kugellager auch in die gebrochenen Halterungen fixiert werden. Die erste Klebung der Kugellager hat den Testalltag nicht überstanden. Trotz loser Kugellager konnte der Roboter dennoch erfolgreich Messfahrten durchführen. Mit einem Zweikomponentenkleber wurden die Kugellager ein zweites Mal, diesmal dauerhaft, eingeklebt.
 
 \subsection{Chassis}\thispagestyle{empty}
 
@@ -358,15 +358,15 @@ Nach dem Drucken mussten die Teile nachbearbeitet werden. Die Löcher für die K
 Die Abmessungen des Chassis wurde im Wesentlichen abgestimmt auf: \begin{itemize}
 \item Den Durchmesser und der Breite der Mecanum Räder, die innerhalb des Chasis liegen, damit die Räder vor der UV Strahlung geschützt sind, kein Einfluss (Beschattung oder Reflexionen) auf die Messzelle besteht.
 \item Die Größe der Motoren.
-\item Den Arduino-Mikrocontroller , die Motorsteuerelektronik und die Messelektronik.
+\item Den Arduino-Mikrocontroller, die Motorsteuerelektronik und die Messelektronik.
 \item Den Akku zur Stromversorgung, die dazugehörende Akku Spannungsüberwachung.
 \item Die Abmessung der eingekapselten Solarzelle.
  \end{itemize}
 
-Das Chassis besteht aus der Bodenplatte, den Seitenwänden und der oberen Abdeckung mit der Aufnahme für die Messzelle (siehe Abbildung \ref{gehause}). In der Bodenplatte sind Bohrlöcher zur Befestigung der Motoren und für die Montage der Sensorarrayplatine an der Unterseite vorhanden. Zusätzlich gibt es zwei rechteckige Löcher für die Verbindungskabel zur Sensorarrayplatine. Die beiden Seitenwände sind zur Verringerung des Luftwiderstandes geneigt (siehe Abbildung \ref{robo3d}). (Und um dem Roboter den Look eines Schuhkartons zu nehmen.)
+Das Chassis besteht aus der Bodenplatte, den Seitenwänden und der oberen Abdeckung mit der Aufnahme für die Messzelle (siehe Abbildung \ref{gehause}). In der Bodenplatte sind Bohrlöcher zur Befestigung der Motoren und für die Montage der Sensorarrayplatine an der Unterseite vorhanden. Zusätzlich gibt es zwei rechteckige Löcher für die Verbindungskabel zur Sensorarrayplatine. Die beiden Seitenwände sind zur Verringerung des Luftwiderstandes geneigt (siehe Abbildung \ref{robo3d}).
 \noindent Die Einzelteile wurden mit einem Lasercutter aus einer Sperrholzplatte geschnitten. Damit eine zukünftige Wartung problemlos möglich ist, wurde der Aufbau verschraubt ausgeführt. 
 Die Motoren sind an die Bodenplatte angeschraubt, damit ein Austausch möglich ist. Auch die einzelnen Räder, wie auch die Rollen lassen sich bei Bedarf austauschen. 
-Die Messzelle ist am Roboter oben befestigt.
+Die Messzelle ist am Roboter an der oberen Abdeckung befestigt.
 
 
 \begin{figure}[htbp]
@@ -385,7 +385,7 @@ Die Messzelle ist am Roboter oben befestigt.
 \section{Elektronik}\thispagestyle{empty}
 
 Dieser Abschnitt beschreibt die Entwicklung der Elektronik. Die Funktionalität wurde auf verschiedene Module aufgeteilt. Das erleichterte die Platzierung der Elektronik innerhalb des Messroboters, die parallele Entwicklung von Elektronik und Software, sowie den Austausch von Komponenten im Fehlerfall. 
-Der Mikrocontroller des Roboters ist Teil des Arduino Mega 2560 Boards. Darauf aufgesteckt ist ein sogenanntes Shield, eine selbst entwickelte Platine, die die $\pm$5V Spannungsversorgung, die Schnittstellen zu den anderen Platinen und einen SD-Karten Einschub beheimatet.
+Zur Steuerung wird ein Arduino Mega 2560 Boards verwendet. Darauf aufgesteckt ist ein sogenanntes Shield, eine selbst entwickelte Platine, die die $\pm$5V Spannungsversorgung, die Schnittstellen zu den anderen Platinen und einen SD-Karten Einschub beheimatet.
 Es gibt drei Messplatinen, eine für den Kurzschlussstrom der Messzelle, zwei für Temperaturmessungen. Eine Platine überwacht den Ladezustand des Akkus. Die Steuerung der vier Motoren ist auf einer Platine zusammengefasst.
 Die einzelnen Komponenten sind wie in Abbildung \ref{elek} auf der Bodenplatte angeordnet.
 Die horizontale Anordnung ist in Abbildung \ref{vorne} zu erkennen: Das Sensorarray zur Erkennung der Bodenmarkierungen ist unterhalb der Bodenplatte befestigt. Auf der Bodenplatte findet die restliche Elektronik und die Motoren Platz, die Messzelle ist auf der Oberseite des Messroboters angebracht.
@@ -399,17 +399,17 @@ Die Platinen wurden mit Eagle entwickelt. Die Platinen wurden nicht geätzt, son
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=150mm]{img/vorne.png}
-\caption{Die horizontale Anordnung der Elektronik im Roboter.}\label{vorne}
+\caption{Querschnitt der Anordnung der Elektronik im Roboter.}\label{vorne}
 \end{figure}
 
 \FloatBarrier
  
 \subsection{Motorensteuerung}\thispagestyle{empty}
 
-Die Motorplatine besteht aus zwei integrierten H-Brücken-Bausteinen (IC1, IC2), einer 16 poligen Buchse und fünf zweipoligen Buchsen für die Stromversorgung und den Anschluss der vier Motoren. Bei den integrierten H-Brücken-Baustein handelt es sich um einen NJM2670 \cite{njm}, welcher zwei H-Brücken in einem Baustein vereint, zusätzlich verfügen diese Bausteine über eine interne Logik, welche Kurzschlüsse über die Brücke unmöglich macht.
+Die Motorplatine besteht aus zwei integrierten H-Brücken-Bausteinen (IC1, IC2), einer 16 poligen Buchse und fünf zweipoligen Buchsen für die Stromversorgung und den Anschluss der vier Motoren. Bei den integrierten H-Brücken-Bausteinen handelt es sich um den Typ NJM2670 \cite{njm}, welcher zwei H-Brücken in einem Baustein vereint, zusätzlich verfügen diese Bausteine über eine interne Logik, welche die Brücke vor Kurzschlüssen schützt.
 Die Drehzahl der Motoren wird mit Pulsweitenmodulation variiert. Die PWM-Ausgänge des Arduino arbeiten mit einer Frequenz von etwa 500Hz \cite{pwm}, was den Transistoren der Brücke keinerlei Probleme bereitet.
-Die Gleichspannungsmotoren sind Getriebemotoren mit der Bezeichnung RB 35, und einem Übersetzungsverhältnis von 1:200. Die maximale Versorgungsspannung wurde mit 12V angegeben. Die Leerlaufdrehzahl beträgt bei einer Versorgungsspannung von 12V 20 Umdrehungen pro Minute.
-Der Roboter wird mit einem Lithium-Ionen-Akku versorgt. Die Spannung beträgt, abhängig vom Ladezustand zwischen 16,4V und 15,0V. Damit die 12V-Motoren nicht überlastet werden, wird bei der Pulsweitenmodulation ein maximales Tastverhältnis von 50\% eingehalten.
+Die Gleichspannungsmotoren sind Getriebemotoren mit der Bezeichnung RB 35, und einem Übersetzungsverhältnis von 1:200. Die maximale Versorgungsspannung wurde mit 12 V angegeben. Die Leerlaufdrehzahl beträgt bei einer Versorgungsspannung von 12 V 20 Umdrehungen pro Minute.
+Der Roboter wird mit einem Lithium-Ionen-Akku versorgt. Die Spannung beträgt, abhängig vom Ladezustand zwischen 16,4 V und 15,0 V. Damit die 12 V-Motoren nicht überlastet werden, wird bei der Pulsweitenmodulation ein maximales Tastverhältnis von 50\% eingehalten.
 
 \begin{figure}[htbp]
 \centering
@@ -426,14 +426,14 @@ Der Roboter wird mit einem Lithium-Ionen-Akku versorgt. Die Spannung beträgt, a
 \FloatBarrier
 
 \subsection{Optische Sensoren}\thispagestyle{empty}
-Die optische Sensorik dient der Positionsbestimmung. Der Roboter bewegt sich während der Messung auf Holzplatten, die aus Gründen, welche unten genauer erläutert werden, schwarz sind. Der Roboter orientiert sich an einer aus geraden Teilstücken bestehenden weißen Linienfolge. 
-Als Sensor wurde ein CNY70 \cite{cny} verwendet. Der CNY 70 ist ein Reflexionssensor, bestehend aus einer Infrarot-LED und einem Phototransistor in einem kompakten 7x7x6 Millimeter Gehäuse. Die LED sendet Infrarotlicht mit einem Maximum bei 950nm aus, welches an einer nahen Fläche reflektiert wird, und den Phototransistor ansteuert (siehe Abbildung \ref{cny}). Der Phototransistor verfügt über einen Tageslichtfilter. Damit können Unterschiede des Reflektionskoeffizienten gemessen werden. Das Messprinzip funktioniert bei einem Abstand von wenigen Millimetern.  Die Mess-Markierungen sind weiß auf schwarzen Untergrund ausgeführt, um gut unterscheidbare Messwerte zu bekommen. Eine Anordnung von neun solcher Sensoren in einem drei-mal-drei Array kann sowohl vertikale als auch horizontale Linien sowie Ecken erkennen. Zusätzlich gibt es einen zehnten Sensor, der die Stopmarkierungen für die Messungen erkennt.
-Die neun Sensoren sind im Rastermaß 15,2 mm (= 0,6 Zoll) angeordnet. Der Stopsensor hat einen Abstand von 40,6 mm (= 1,6 Zoll) zu dem Sensorarray. 
+Die optische Sensorik dient der Positionsbestimmung. Der Roboter bewegt sich während der Messung auf Holzplatten, die aus Gründen, welche im Folgenden genauer erläutert werden, schwarz sind. Der Roboter orientiert sich an einer aus geraden Teilstücken bestehenden weißen Linienfolge. 
+Als Sensor wurde ein CNY70 \cite{cny} verwendet. Der CNY 70 ist ein Reflexionssensor, bestehend aus einer Infrarot-LED und einem Phototransistor in einem kompakten 7x7x6 Millimeter Gehäuse. Die LED sendet Infrarotlicht mit einem Maximum bei 950nm aus, welches an einer nahen Fläche reflektiert wird und den Phototransistor ansteuert (siehe Abbildung \ref{cny}). Der Phototransistor verfügt über einen Tageslichtfilter. Damit können Unterschiede des Reflektionskoeffizienten gemessen werden. Das Messprinzip funktioniert bei einem Abstand von wenigen Millimetern.  Die Mess-Markierungen sind weiß auf schwarzen Untergrund ausgeführt, um gut unterscheidbare Messwerte zu bekommen. Eine Anordnung von neun solcher Sensoren in einem drei-mal-drei Array kann sowohl vertikale als auch horizontale Linien sowie Ecken erkennen. Zusätzlich gibt es einen zehnten Sensor, der die Stoppmarkierungen für die Messungen erkennt.
+Die neun Sensoren sind im Rastermaß 15,2 mm (= 0,6 Zoll) angeordnet. Der Stoppsensor hat einen Abstand von 40,6 mm (= 1,6 Zoll) zu dem Sensorarray. 
 Der Strom durch die LEDs ist mittels Potentiometer einstellbar. 
 Die Platine ist zweiseitig ausgeführt, allerdings sind bis auf die OPVs in SMD-Ausführung alle Bauteile an der Unterseite der Platine montiert. Das ursprüngliche Layout wurde um folgende zwei Änderungen modifiziert:
 \begin{itemize}
 \item Auf die Steuerleitung des Transistors wurde vergessen. Da es noch freie Pins am 16-poligen Stecker gab, wurde diese Verbindung mittels Draht hergestellt.
-\item Die Platine wird mit der 5 Volt Versorgung der restlichen Elektronik versorgt, um Probleme mit zwei verschiedenen 5 Volt Versorgungen zu vermeiden. Dazu wurde der ursprünglich vorgesehene 7805 ausgebaut, und eine weiterer freier Pin des 16-poligen Steckers verwendet.
+\item Die Platine wird mit der 5 Volt Versorgung der restlichen Elektronik versorgt, um Probleme mit zwei verschiedenen 5 Volt Versorgungen zu vermeiden. Dazu wurde der ursprünglich vorgesehene 7805 Linearregler ausgebaut, und eine weiterer freier Pin des 16-poligen Steckers verwendet.
 \end{itemize}
 
 \begin{figure}
@@ -450,10 +450,10 @@ Die Platine ist zweiseitig ausgeführt, allerdings sind bis auf die OPVs in SMD-
 \end{figure}
 
 Die LEDs sind parallel geschaltet und werden alle über den Feldeffekttransistor IRF530 \cite{irf} geschaltet.
-Der Strom durch die LEDs wird mit einem LM317 geregelt. Da der Widerstand als Potentiometer ausgeführt ist, lässt sich der Strom einstellen. Trotz einer nicht konstanten Versorgungsspannung kann so einer konstanter Strom geliefert werden. Um das analoge Messsignal der Phototransistoren nicht zu belasten, werden die analogen Photosignale über einen Spannungsfolger geführt. Die OPVs benötigen allerdings eine symmetrische Versorgung mit $\pm$5 V. Beide Spannungen werden über den Stecker geliefert.
-Es gibt weiteren Stecker mit zwei Pins, welche die Spannungsversorgung mit 16 Volt und GND sicherstellt. 
+Mit einem Spannungsregler LM317 wurde die Konstantstromquelle zur Versorgung der LEDs aufgebaut. Da der Widerstand als Potentiometer ausgeführt ist, lässt sich der Strom einstellen. Trotz einer nicht konstanten Versorgungsspannung kann so einer konstanter Strom geliefert werden. Um das analoge Messsignal der Phototransistoren nicht zu belasten, werden die analogen Photosignale über einen Spannungsfolger geführt. Die OPVs benötigen allerdings eine symmetrische Versorgung mit $\pm$5 V. Beide Spannungen werden über den Stecker geliefert.
+Es gibt weiteren Stecker mit zwei Pins, welche die Spannungsversorgung mit 16 Volt und GND sicherstellten. 
 Die Platine verfügt um drei Bohrlöcher mit jeweils drei Millimeter Durchmesser zu Befestigung.
-Es ist eine 16-polige Leiterplattenbuchse für die zehn Analogsignale, die 5V-Versorgung, und des Digitalsignal zum Schalten des FET vorhanden. Des Weiteren ist ein zweipoliger Stiftstecker für die Stromversorgung mit der Akkuspannung vorhanden.
+Es wird eine 16-polige Leiterplattenbuchse für die zehn Analogsignale, die 5V-Versorgung, und das Digitalsignal zum Schalten des FET verwendet. Des Weiteren ist ein zweipoliger Stiftstecker für den Anschluss des Akku vorhanden.
 
 \begin{figure}[htbp]
 \centering
@@ -470,16 +470,16 @@ Es ist eine 16-polige Leiterplattenbuchse für die zehn Analogsignale, die 5V-Ve
 
 
 \subsection{Spannungversorgung}\thispagestyle{empty}
-Der Roboters wird mit einem Kokam 14,8V 4000mAh Litihum Lithium-Polymer-Akkumulator, bestehend aus 4 Zellen \cite{kokam}, mit Energie versorgt. Ein voller Akku reicht für mehr mehrere Stunden Messbetrieb. Zum Laden des Akkus, was vor jedem Messzyklus empfehlenswert ist, muss der Akku vom Roboter abgesteckt werden und an das Ladegerät angeschlossen werden. Zum Schutz vor Kurzschlüssen ist der Akku mit einer im Anschlusskabel integrierten Schmelzsicherung gesichert. Da zum Laden der Akku aus dem Roboter entfernt und an das Akkuladegerät angeschlossen werden muss, könnte versehentlich der Akku kurzgeschlossen werden. Zum Laden wird ein Ultramat 16 S verwendet, der über einen Balanceranschluss verfügt, und somit alle vier Zellen des Akkus auf die gleiche Spannung lädt. 
+Der Roboters wird mit einem Kokam 14,8V 4000mAh Lithium-Polymer-Akkumulator, bestehend aus 4 Zellen \cite{kokam}, mit Energie versorgt. Ein voller Akku reicht für mehr mehrere Stunden Messbetrieb. Zum Laden des Akkus, was vor jedem Messzyklus empfehlenswert ist, muss der Akku vom Roboter abgesteckt werden und an das Ladegerät angeschlossen werden. Zum Schutz vor Kurzschlüssen ist der Akku mit einer im Anschlusskabel integrierten Schmelzsicherung gesichert. Da zum Laden der Akku aus dem Roboter entfernt und an das Akkuladegerät angeschlossen werden muss, könnte versehentlich der Akku kurzgeschlossen werden. Zum Laden wird ein Laderegler des Typs Graupner Ultramat 16 S verwendet, der über einen Balanceranschluss verfügt, und somit alle vier Zellen des Akkus auf die gleiche Spannung lädt. 
 Der Akku kann mit bis zu 200A belastet werden, allerdings liegt der maximale Strom aller 4 Motoren und der restlichen Elektronik des Roboters bei einem Ampere. Die Motoren werden direkt mit der Akkuspannung versorgt. Die Versorgungsspannung schwankt zwischen der vollen Akkuspannung 16,4V und 15V nach mehr als 10 Messfahrten.
-Die 5 Volt Versorgung des Mikrocontrollers wurde mit einem RECOM R-785.0-1.0 DC-DC Konverter \cite{ref5} gelöst. Er ist pinkompatibel zu einem 7805-Spannungsregler, allerdings mit etwas größeren Ausmaßen, und bietet die Vorteile einer geringen Verlustleistung und einer sehr genauen Ausgangsspannung. 
-Der Ladezustand der einzelnen Zellen des Akkus wird mit einer eigens dafür entwickelten Schaltung überwacht. Sollte die Spannung einer Zelle unter 3,3V sinken, wird die Stromversorgung zum Roboter mittels FET unterbrochen, und eine akustische Warnung ausgegeben. Damit wird eine Tiefentladung verhindert, was zu einer irreversiblen Schädigung und einem Kapazitätsverlust führen kann. Eigentlich könnte der Akku bis zu 2,7V pro Zelle entladen werden.
-Die Analog-Digitalwandlung des Arduino benötigt eine Referenzspannung. Als Spannungsreferenz wird eine LT1021 5V-Präzisionsspannungsquelle \cite{lt1021} verwendet, was genauer ist als die Messsignale auf die Versorgungsspannung zu eziehen. Da dieses Bauelement nachträglich hinzugefügt wurde, ist es auf einer eigenen kleinen Platine untergebracht (siehe Abbildungen \ref{refu} und \ref{refu2}).
+Die 5 Volt Versorgung des Mikrocontrollers wurde mit einem RECOM R-785.0-1.0 DC-DC Konverter \cite{ref5} gelöst. Er ist pinkompatibel zu einem 7805-Linearregler, allerdings mit etwas größeren Ausmaßen, und bietet die Vorteile einer geringen Verlustleistung und einer sehr genauen Ausgangsspannung. 
+Der Ladezustand der einzelnen Zellen des Akkus wird mit einer eigens dafür entwickelten Schaltung überwacht. Sollte die Spannung einer Zelle unter 3,3V sinken, wird die Stromversorgung zum Roboter mittels FET unterbrochen und eine akustische Warnung ausgegeben. Damit wird eine Tiefentladung verhindert, was zu einer irreversiblen Schädigung und einem Kapazitätsverlust führen kann. Laut Herstellerangaben könnte der Akku bis zu 2,7V pro Zelle entladen werden.
+Die Analog-Digitalwandlung des Arduino benötigt eine Referenzspannung. Als Spannungsreferenz wird eine LT1021 5V-Präzisionsspannungsquelle \cite{lt1021} verwendet, was genauer ist als die Messsignale auf die Versorgungsspannung zu beziehen. Da dieses Bauelement nachträglich hinzugefügt wurde, ist es auf einer eigenen kleinen Platine untergebracht (siehe Abbildungen \ref{refu} und \ref{refu2}).
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=100mm]{img/refu.png}
-\caption{Die Schaltung der 5V Referenzspannung.}\label{refu}
+\caption{Die Schaltung der 5 V Referenzspannung.}\label{refu}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -489,12 +489,12 @@ Die Analog-Digitalwandlung des Arduino benötigt eine Referenzspannung. Als Span
 \end{figure}
 
  
-\subsection{Mikrokontroller}\thispagestyle{empty}
+\subsection{Mikrocontroller}\thispagestyle{empty}
 Der Arduino Mega 2560 ist eine Open-Source Elektronikentwicklungsplattform. Den Mikrocontroller des Arduino-Boards bildet ein ATmega2560 der Firma Atmel. Dabei handelt es sich um einen 8-Bit-Mikrocontroller.  Er läuft mit 16 MHz Taktfrequenz und besitzt 256 KByte Flash, wovon 8 KByte für den Bootloader verwendet werden, 8 KByte SRAM, sowie 4 KByte EEPROM.  Es verfügt über 54 digitale I/O Pins, davon können 15 als PWM-Ausgänge verwendet werden. Weiters gibt es 16 analoge Eingänge die über einen 10-Bit Analog-Digital-Wandler verfügen.
 Eine USB Schnittstelle ist zur Programmierung und Kommunikation vorhanden.
 Der Mikrocontroller arbeitet mit einer Versorgungsspannung von 5V.
 Grundsätzlich kann die Stromversorgung über die USB Schnittstelle erfolgen. Für einen beweglichen Roboter ist diese Option jedoch nicht praktikabel. Es besteht auch die Möglichkeit über eine Buchse eine Versorgungsspannung von 7 bis 12 Volt anzulegen, der Akkumulator liefert aber eine höhere Spannung. 
-Daher wird aus der Akku-Spannung mittels DC-DC Konverter eine stabile 5 Volt Spannung gewonnen. Diese 5 Volt werden direkt mit dem 5 Volt Pin des Arduino-Boards verbunden. Die 5-Volt Spannungsversorgung befindet sich auf dem Shield (der Aufsteckplatine).
+Daher wird aus der Akku-Spannung mittels DC-DC Konverter eine stabile 5 Volt Spannung gewonnen. Diese 5 Volt-Versorgung wird direkt mit dem 5 Volt Pin des Arduino-Boards verbunden. Die 5-Volt Spannungsversorgung befindet sich auf dem Shield (der Aufsteckplatine).
 
 \begin{figure}[htbp]
 \centering
