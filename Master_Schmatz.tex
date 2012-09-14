@@ -503,10 +503,9 @@ Daher wird aus der Akku-Spannung mittels DC-DC Konverter eine stabile 5 Volt Spa
 \end{figure}
 
 \subsection{Strommessung}\thispagestyle{empty}
-Der Kurzschlussstrom der Messzelle wird mit einer eigenen Platine gemessen. Der Strom wird mittels Spannungsabfall an einem 10m$\Omega$ Shunt-Widerstand gemessen. Zu berücksichtigen ist allerdings auch der Spannungsabfall auf der Verbindung von der Zelle zum Shunt-Widerstand.
-Die Zelle ist über ein 25cm langes Kabel mit dem Durchmesser von 4 mm$^2$, ein 7cm langes Kabel mit dem Durchmesser von 6mm$^2$, und zwei Bananenstecker mit der Messplatine verbunden. Der Widerstand dieser Verbindung zusammen mit dem Mess-Shunt beträgt etwa 40m$\Omega$, was bei einem Kurzschlussstrom von etwa 5 A zu einem Spannungsabfall von 200mV führt. Der gemessene Strom ist damit nicht mehr der Kurzschlussstrom. Abbildung \ref{kenn2} zeigt die Widerstandsgerade im Vergleich zur Kennlinie einer Zelle.
-Als Messprinzip kommt die 4 Punktmessung zur Anwendung. 
-Instrumentenverstärker: WAS IST DAS, ...
+Der Kurzschlussstrom der Messzelle wird mit einer eigenen Platine gemessen. Der Strom wird mittels Spannungsabfall an einem 10m$\Omega$ Shunt-Widerstand gemessen. Als Messprinzip kommt die 4-Punktmessung zur Anwendung.  Zu berücksichtigen ist allerdings auch der Spannungsabfall auf der Verbindung von der Zelle zum Shunt-Widerstand. Die Zelle ist über ein 25cm langes Kabel mit dem Durchmesser von 4 mm$^2$, ein 7cm langes Kabel mit dem Durchmesser von 6mm$^2$, und zwei Bananenstecker mit der Messplatine verbunden. Der Widerstand dieser Verbindung zusammen mit dem Mess-Shunt beträgt etwa 40m$\Omega$, was bei einem Kurzschlussstrom von etwa 5 A zu einem Spannungsabfall von 200mV führt. Der gemessene Strom ist damit nicht mehr der Kurzschlussstrom. Abbildung \ref{kenn2} zeigt die Widerstandsgerade im Vergleich zur Kennlinie einer Zelle. 
+Dieser Fehler ist minimal, und kann vernachlässigt werden, weil der Effekt auf alle Messwerte gleich wirkt.
+
 
 \begin{figure}[htbp]
 \centering
@@ -529,11 +528,11 @@ Instrumentenverstärker: WAS IST DAS, ...
 
 
 \subsection{Das Shield}\thispagestyle{empty}
-Unter einem Shield versteht man eine Platine, die auf einem Arduino aufgesteckt werden kann, und benutzerspezifische Funktionalität beinhaltet. Im Falle des Messroboters befindet sich die Spannungsversorgung mit $\pm$5V, die SD-Karte und diverse Steckerbuchsen zum Anschluss der Messplatinen, der Motortreiberplatine und des Sensorarrays auf der Shield-Platine. 
+Unter einem Shield versteht man eine Platine, die auf einem Arduino aufgesteckt werden kann und benutzerspezifische Funktionalität beinhaltet. Im Falle des Messroboters befindet sich die Spannungsversorgung mit $\pm$5V, die SD-Karte und diverse Steckerbuchsen zum Anschluss der Messplatinen, der Motortreiberplatine und des Sensorarrays auf der Shield-Platine. 
 Der SD-Karten-Connector HSR-163 \cite{hsr} benötigt eine 3,3V Versorgung, welcher der Arduino liefert. 
-Zusätzlich gibt es einen TC7600-Pegelwandler \cite{tc7660}, welcher die 5V-Level der digitalen Signale des Arduino auf das für die SD-Karte notwendige 3,3V wandelt.
+Zusätzlich gibt es einen TC7600-Pegelwandler \cite{tc7660}, welcher die 5V-Level der digitalen Signale des Arduino auf das für die SD-Karte notwendige 3,3 V wandelt.
 In der Abbildung  \ref{shield} sind die verschieden Bauteile farbig markiert:
-Klemmen zur Versorgung mit Akku-Spannung (rosa), Buchse zur Kommunikation mit der Sensor-Array Platine (violett). Eine 10-polige Buchse zur Verbindung mit der Motortreiberplatine (violett). Insgesamt vier vierpolige Stecker (rosa) für verschiedene Messplatinen, wovon nur drei in Gebrauch sind: für die Strommessung und die beiden Temperaturmessungen.
+Klemmen zur Versorgung mit Akku-Spannung (rosa), Buchse zur Kommunikation mit der Sensor-Array Platine (violett). Eine 10-polige Buchse zur Verbindung mit der Motortreiberplatine (violett). Insgesamt vier vierpolige Stecker (rosa) für verschiedene Messplatinen, wovon nur drei in Gebrauch sind: für die Strommessung und die beiden Temperaturmessungen. Der vierte Stecker dient als Reserve für eine mögliche Erweiterung. 
 
 \begin{figure}[htbp]
 \centering
@@ -542,7 +541,7 @@ Klemmen zur Versorgung mit Akku-Spannung (rosa), Buchse zur Kommunikation mit de
 \end{figure}
 
 \subsection{Temperaturmessung}\thispagestyle{empty}
-Der Spannungsabfall an einem temperaturstabilen 100$\Omega$ Widerstand wird mit dem Spannungsabfall an einem PT100 verglichen. Durch beide Widerstände fließt ein Strom von 100$\mu$A. Als Stromquelle dient eine sehr präzise REF200-Stromquelle\cite{ref200}, welche zwei mal 100 Mikroampere $\pm$0.5$\%$ liefert. Abbildung \ref{tmess} zeigt den Schaltplan, Abbildung \ref{tmess2} zeigt das Platinenlayout. Zur besseren Idendifikation sind die Bauteile in beiden Abbildungen mit den gleichen Farben eingefärbt. 
+Der Spannungsabfall an einem temperaturstabilen 100$\Omega$ Präzesions-Widerstand wird mit dem Spannungsabfall an einem PT100-Temperatursensor verglichen. Durch beide Widerstände fließt ein Strom von 100$\mu$A. Als Stromquelle dient eine sehr präzise REF200-Stromquelle\cite{ref200}, welche zwei mal 100 Mikroampere $\pm$0.5$\%$ liefert. Abbildung \ref{tmess} zeigt den Schaltplan, Abbildung \ref{tmess2} zeigt das Platinenlayout. Zur besseren Idendifikation sind die Bauteile in beiden Abbildungen mit den gleichen Farben eingefärbt. 
 Im Platinenlayout dient der 4-polige Stecker zur Stromversorgung (+5V, GND, -5V) und dem Abgriff des analogen Messsignales. Die 2-polige Buchse wird zum Anschluss des Temperaturmesswiderstandes verwendet.
 Präzisionswiderstände wurden eingesetzt, weil sie temperaturstabiler als herkömmliche Widerstände sind. 
 Die Verstärkung des INA114 berechnet sich nach \cite{ina114} wie folgt:
@@ -580,13 +579,13 @@ Aus der Abbildung \ref{pt100} erkennt man, dass der interessante Messbereich von
 Dieser Abschnitt beschreibt die Entwicklung der Software. Es wird kurz auf die Entwicklungsumgebung eingegangen. Dann folgt die Auswertung der optischen Sensoren. Schließlich wird die Programmstruktur erklärt. Der gesamte Code ist im Anhang gelistet.
 
 \subsection{Entwicklungsumgebung}\thispagestyle{empty}
-Der Mikrocontroller auf den Arduino Board wird mit C++ in der Arduino Entwicklungsumgebung (siehe Abbildung \ref{ardu2} programmiert, welche auf Processing basiert, programmiert. Die Entwicklungsumgebung ist auf das notwendigste beschränkt. Die vielen Beispielprogramme erlauben einen raschen Einstieg.
-Ein Arduino Programm besteht aus zwei Teilen: Einer Setup-Routine die einmal zu Programmstart durchlaufen wird und einer Endlosschleife. In der Schleife wird das eigentlich Programm abgearbeitet. 
+Der Mikrocontroller auf demn Arduino Board wird mit C++ in der Arduino Entwicklungsumgebung (siehe Abbildung \ref{ardu2} programmiert, welche auf Processing basiert, programmiert. Die Entwicklungsumgebung ist auf das Notwendigste beschränkt. Die vielen Beispielprogramme erlauben einen raschen Einstieg.
+Ein Arduino Programm besteht aus zwei Teilen: Einer Setup-Routine die einmal zum Programmstart durchlaufen wird und einer Endlosschleife. In der Schleife wird das eigentlich Programm abgearbeitet. 
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=100mm]{img/Arduino.png}
-\caption{Die Arduino Entwicklungsumgebung}\label{ardu2}
+\caption{Die Arduino Entwicklungsumgebung mit einem Beispielprogramm.}\label{ardu2}
 \end{figure}
 
 \subsection{Auswertung der optischen Sensoren}\thispagestyle{empty}
@@ -595,7 +594,7 @@ Das wird für alle neun Optoreflektoren des Sensorarray, sowie den Stopsensor, g
 Mit den korrigierten Werten der einzelnen optischen Sensoren wird die Lage der Linie relativ zum Mittelpunktes des Arrays bestimmt. 
 
 Die Messwerte der optischen Sensoren ist abhängig von der Helligkeit des Untergrundes. Unter der Annahme dass sich eine gerade Linie unter dem Sensorarray befindet (siehe Abbildung \ref{arr}b), wird zuerst die Lage der Linie innerhalb einer Zeile berechnet, dazu das Extremum einer quadratischen Funktion gesucht, was der Lage der Linie innerhalb einer Zeile des Sensorarrays entspricht. 
-Für alle 3 Zeilen wird so die Lage der Linie ermittelt. In diese 3 Punkte wird eine Gerade gelegt, welche die Bedingung der kleinsten Quadrate der Abstände einhält. Errechnet wird die Steigung k der Gerade, was dem Tangens der Verdrehung der Linie entspricht, und die Verschiebung d.
+Für alle 3 Zeilen wird so die Lage der Linie ermittelt. In diese 3 Punkte wird eine Gerade gelegt, welche die Bedingung der kleinsten Quadrate der Abstände einhält. Errechnet wird die Steigung k der Gerade, was dem Tangens des Winkels der Verdrehung der Linie entspricht, und die Verschiebung d.
  
 \begin{align*}
   x_1 &= \frac{C-A}{2A-4B+2C} \\
@@ -629,7 +628,7 @@ Dabei ist es egal, ob es sich um eine helle Linie auf dunklen Untergrund, oder e
 Abbildung \ref{arr} zeigt die Anordnung des Sensorarrays, die einzelnen Sensoren sind mit A bis I bezeichnet. Mögliche Abweichungen der Linie von der Idealposition sind in Abbildung \ref{abw}, auf der linken Seite, der zeitliche Versatz auf der rechten Seite, zu sehen.
 
 \subsection{Auswertung der Temperatur- und Strommesswerte}\thispagestyle{empty}
-Aufgrund von Rauschen der ADC-Werte, wurden alle Messwerte über 500 Einzelmessungen gemittelt. Die Quelle des Rauschens wurde nicht ermittelt. Der notwendige Messzeit dafür beträgt unter einer halben Sekunde. Ohne Mittelung des Messwerte schwankten die Messungen $\pm$5 Werte des ADC, das sind $\pm$0,5$\%$ bei maximalen Ausnützung bzw. $\pm$1$\%$ bei halber Ausnützung des ADC-Wertebereichs. Die gemittelten ADC-Werte werden direkt auf die SD-Karte in das Messfile gespeichert. Die eigentliche Auswertung erfolgt erst in einem Matlab Programm.
+Aufgrund von Rauschen der ADC-Werte, wurden alle Messwerte über 500 Einzelmessungen gemittelt. Als Quelle des Rauschens wird thermisches Rauschen im Instrumentenverstärker sowie eine schwankende Referenzspannung vermutet vermutet. Der notwendige Messzeit dafür beträgt unter einer halben Sekunde. Ohne Mittelung der Messwerte schwankten die Messungen $\pm$5 Werte des ADC, das sind $\pm$0,5$\%$ bei maximalen Ausnützung bzw. $\pm$1$\%$ bei halber Ausnützung des ADC-Wertebereichs. Die gemittelten ADC-Werte werden direkt auf die SD-Karte in das Messfile gespeichert. Die eigentliche Auswertung erfolgt erst in einem Matlab Programm.
  
 \subsection{Programmablauf}\thispagestyle{empty}
 
@@ -655,7 +654,7 @@ Das Steuerprogramm ist ein Zustandsautomat (siehe Abbildung \ref{abl}):
 \item Zustand \textit{q}, \textit{y}: Ausrichten, danach Wechsel zu Zustand \textit{v} bzw. \textit{z}.
 \end{itemize}
 
-Während der Geradeaus-Fahrt wird versucht sowohl die seitliche Verschiebung d als auch die Verdrehung k zu minimieren. Wenn beide Werte innerhalb gewisser Toleranzen sind, fährt der Roboter geradeaus. Die Schranken der Regelung sind in Abbildung \ref{schr} zu sehen. Die Regelung funktioniert als Dreipunktregler für die Verdrehung, und als Dreipunktregler für die Verschiebung, wobei Verschiebung eine höhere Priorität hat als die Verdrehung. Zusätzlich gibt es noch zwei weiter Bewegungsmoden (\textbf{vtl}, \textbf{vtr}), die sich aus einer Geradeaus-Fahrt und einer überlagerten Drehung zusammensetzen, und bei nicht zu großen Verdrehungen angewendet wird.
+Während der Geradeaus-Fahrt wird versucht sowohl die seitliche Verschiebung d als auch die Verdrehung k zu minimieren. Wenn beide Werte innerhalb gewisser Toleranzen ($\pm$1 mm, $\pm$5$^{\circ}$) sind, fährt der Roboter geradeaus. Die Schranken der Regelung sind in Abbildung \ref{schr} zu sehen. Die Regelung funktioniert als Dreipunktregler für die Verdrehung, und als Dreipunktregler für die Verschiebung, wobei Verschiebung eine höhere Priorität hat als die Verdrehung. Zusätzlich gibt es noch zwei weiter Bewegungsmoden (\textbf{vtl}, \textbf{vtr}), die sich aus einer Geradeaus-Fahrt und einer überlagerten Drehung zusammensetzen, und bei nicht zu großen Verdrehungen angewendet wird.
 
 Bei der Seitwärts-Fahrt wurde eine verbesserte Regelung angewandt, statt zwei Dreipunktreglern, wurde zwei P-Regler verwendet. Da die Motoren einen maximalen Wert für die Ansteuerung haben handelt es sich um eine Regelung mit Sättigung. Zur normalen Fahrt wird nach Rechts eine von der Verschiebung abhängige Vor/Zurück-Fahrt bzw. eine von der Verdrehung abhängige Drehung überlagert.
 Abhängig von der Verschiebung d2 und der Verdrehung k2,
@@ -674,7 +673,7 @@ werden die vier Motoren (M1 bis M4) einzeln angesteuert.
 Da die Linie für das Rechtsfahren nicht in einer Ecke endet, sondern einfach endet, kann die Regelung bis zum Ende verwendet werden. Somit entfällt ein Teil des um-die-Ecke-Fahrens. Die Faktoren des P-Regler (800, 1600) wurden durch umfangreiche Testfahrten ermittelt.
 
 Es gibt zwei Arten von Ecken. Einmal die Ecke des Typs 1, welche eine wirkliche Ecke darstellen. Sowie die Ecke des Typs 2, welche ein eine Unterbrechung der Linie beinhaltet (siehe Abbildung \ref{ecken}).
-Die beiden unterschiedlichen Arten von Ecken wurden erforderlich durch die unterschiedlichen Fahreigenschaften beim Geradeausfahren und dem Seitwärtsfahren.
+Die beiden unterschiedlichen Arten von Ecken wurden erforderlich durch die unterschiedlichen Fahreigenschaften beim Geradeaus- und dem Seitwärtsfahren.
 
 
 
@@ -697,13 +696,13 @@ Die beiden unterschiedlichen Arten von Ecken wurden erforderlich durch die unter
 \chapter{Kalibration}\thispagestyle{empty}
 
 Dieses Kapitel beschreibt die Kalibrierung der Messsensoren. Es gibt drei Messplatinen, eine für die Messung des Kurzschlussstromes der Messzelle, und zwei identisch aufgebaute Messplatinen zur Messung der Zelltemperatur beziehungsweise der Umgebungstemperatur. Die Strom-Messplatine wandelt den Kurzschlussstrom der Messzelle in eine Spannung um, die in einem für den ADC des Arduino auswertbaren Bereich (0 bis 5 Volt) ist. Die beiden Messschaltungen zur Temperaturmessung wandeln die Größe der temperaturabhängigen Messwiderstände, jeweils ein Pt-100, in eine Spannung um.
-Zur Kalibrierung werden die ADC-Messwerte über die USB-Schnittstelle des Roboters ausgeben. Dazu muss der Programmwahlschalter auf \textbf{K} gestellt werden.
+Zur Kalibrierung werden die ADC-Messwerte über die USB-Schnittstelle des Roboters ausgeben. Dazu muss der Programmwahlschalter auf \textbf{K} gestellt werden (siehe Abbildung \ref{oben}).
 
 
 \section{Temperatursensoren}\thispagestyle{empty}
 Die Temperatur der Messzelle wird mit einem von unten aufgeklebten flächigen Folienmesswiderstand gemessen. 
 Ein zweiter Pt100, in kompakter Dünnschichtbauweise ausgeführt, misst die Temperatur der Umgebung. Beide Messskreise sind identisch aufgebaut, dennoch führen Bauteiltoleranzen zu leicht unterschiedlichen Verstärkungen.
-Für die Kalibration der Temperaturmesselektronik wurden die Pt-100 Widerstände durch einen hoch genaues, einstellbares und kalibriertes Messnormal ersetzt. Der Widerstand wurde im Bereich von 100 bis 122 	$\Omega$  in 1 $\Omega$  Schritten verändert, was einer Temperatur von 0 bis 55 $^{\circ}$C entspricht. Die ADC-Werte wurden über die USB-Schnittstelle des Arduino ausgelesen. Es zeigte sich, dass die beiden Schaltungen leicht unterschiedliche Verstärkungen haben. Daher mussten jede Temperaturmessschaltung separat kalibriert werden.
+Für die Kalibration der Temperaturmesselektronik wurden die Pt-100 Widerstände durch ein hoch genaues, einstellbares und kalibriertes Messnormal ersetzt. Der Widerstand wurde im Bereich von 100 bis 122 	$\Omega$  in 1 $\Omega$  Schritten verändert, was einer Temperatur von 0 bis 55 $^{\circ}$C entspricht. Die ADC-Werte wurden über die USB-Schnittstelle des Arduino ausgelesen. Es zeigte sich, dass die beiden Schaltungen leicht unterschiedliche Verstärkungen haben. Daher mussten jede Temperaturmessschaltung separat kalibriert werden.
 Obwohl der 10-Bit ADC des Arduino einen Maximalwert von 1023 hat, ist bedingt durch die 5V Versorgung des Instrumentenverstärkers INA114 (\cite{ina114}), der maximale ADC-Wert bei 857, was einer Spannung von 4,18V entspricht.  
 
 
@@ -802,7 +801,7 @@ Die der Ausgleichsgerade für Messschaltung A (siehe Abbildung ~\ref{messa}) und
 \section{Messzelle}\thispagestyle{empty}
 
 
-Der Kurzschlussstrom der Messzelle (siehe Abbildung~\ref{zelleflasher}) wurde im Flasher über einen weiten Temperaturbereich gemessen (siehe Abbildung~\ref{tempkoef}). Es wurde mit der Berger Messlast \cite{berger} gemessen. Bei der Messung wurden die Leitungswiderstände der Messkabel minimiert, indem Kabel mit hohem Querschnitt (6mm$^2$) verwendet wurden, und die Kabel möglichst kurz gehalten wurden (<1,5m).
+Der Kurzschlussstrom der Messzelle (siehe Abbildung~\ref{zelleflasher}) wurde, um den Temperaturkoeffizienten zu ermitteln, im gepulsten Sonnensimulator des AIT über einen Temperaturbereich con 25 bis 55$\^circ$C gemessen (siehe Abbildung~\ref{tempkoef}). Es wurde mit der Berger Messlast \cite{berger} gemessen. Bei der Messung wurden die Leitungswiderstände der Messkabel minimiert, indem Kabel mit einem  Querschnitt von 6mm$^2$ verwendet wurden und möglichst kurz gehalten wurden (<1,5m).
  
 \begin{figure}[htbp]
 \centering
@@ -826,7 +825,7 @@ Der Kurzschlussstrom der Messzelle (siehe Abbildung~\ref{zelleflasher}) wurde im
 
 \section{Strommessung}\thispagestyle{empty}
 
-Der Messroboter wurde für die Kalibrierung der Kurzschlussstrommessung in eine Klimazelle platziert.  Die Temperatur der Klimazelle wurde im Bereich von 8 bis 35 $^{\circ}$C variiert. Durch den Messwiderstand der Strommessung wurde ein Strom im Bereich von 3 bis 8 A geschickt.  
+Der Messroboter wurde für die Kalibrierung der Kurzschlussstrommessung in eine Klimazelle platziert.  Die Temperatur der Klimazelle wurde im Bereich von 8 bis 35 $^{\circ}$C variiert. Durch den Messwiderstand der Strommessung wurde ein Strom im Bereich von 3 bis 8 A eingeprägt.  
 
 \begin{table}[htbp]
 \centering
