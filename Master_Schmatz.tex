@@ -150,7 +150,7 @@ Und für problemlose Verlängerung meines Praktikums und der Diplomarbeit schuld
 
 Dieses Kapitel beschreibt den Nutzen von PV-Kennlinienmessungen in Sonnensimulatoren, den Aufbau, sowie die normative Anforderungen. Zudem wird die Funktion einer Photovoltaik-Zelle beschrieben.
 
-\section{Stationäre Photovoltaik Sonnensimulatoren} \thispagestyle{empty}
+\section{Photovoltaik Sonnensimulatoren} \thispagestyle{empty}
 
 Photovoltaik-Sonnensimulatoren werden zur elektrischen Charakterisierung und Prüfung von Photovoltaik-Modulen verwendet. Der wesentliche Vorteil gegenüber Messungen im natürlichen Sonnenlicht liegt darin, dass die Durchführung unter reproduzierbaren Umgebungsbedingungen (Bestrahlungsstärke, spektrale Zusammensetzung des einfallenden Lichtes und die Temperatur)  ermöglicht wird. Grundsätzlich werden bei konventionellen Systemen gepulste und stationäre Simulatoren, welche kontinuierlich leuchten, unterschieden. Erstere brauchen weniger Energie, heizen die Messobjekte nicht auf, und werden für die Leistungsmessung von Zellen und Modulen verwendet. Die Blitzlänge ist bauartbedingt auf wenige Millisekunden begrenzt. Stationäre Simulatoren werden unter anderem für die Voralterung von Modulen verwendet.
 Im Allgemeinen werden Messergebnisse auf Standard-Prüfbedingungen (STC) bezogen, die durch 1000 W/m$^2$, 25$^{\circ}$C und AM1.5 definiert sind. Die Air Mass (AM) beschreibt das Verhältnis des Weges des einfallenden Sonnenlichtes durch die Atmosphäre bezogen auf senkrechten Einfall (siehe Abbildung \ref{airmass}). Je länger der Weg des Lichtes durch die Atmosphäre desto größer ist der Einfluss durch Streuung, Reflexion und Absorption, was sowohl die Stärke der Einstrahlung als auch die spektrale Zusammensetzung des Sonnenlichtes vom Sonnenstand abhängig macht. 
@@ -170,7 +170,7 @@ Die meisten am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/am.png}
-\caption[Sonnenspektrum]{Der Vergleich vom Spektrum des Sonnenlichtes im Weltall (AM0), der Strahlung eines schwarzen Körpers von 5960K und dem AM1.5 Spektrum. Quelle: \cite{n01}}\label{sunspec}
+\caption[Sonnenspektrum]{Der Vergleich des Spektrums von Sonnenlicht im Weltall (AM0), der Strahlung eines schwarzen Körpers mit 5960K und dem AM1.5 Spektrum. Quelle: \cite{n01}}\label{sunspec}
 \end{figure}
 
 
@@ -221,7 +221,7 @@ In der IEC Norm 60904-9 \cite{norm9} werden die Anforderungen an Sonnensimulator
 \end{equation}
 \end{itemize}
 
-Die Tabelle \ref{TabS2} gibt die Anforderungen an, nach denen Sonnensimulatoren in den Klassen A, B und C klassifiziert werden. Die Sonnensimulatorklasse ABB bedeutet eine 0,75- bis 1,25-fache Übereinstimmung in allen in Tabelle \ref{TabS1} angeführten Schranken, eine Homogenität der Einstrahlung zwischen 2\% und 5\% im Messbereich, und eine zeitliche Stabilität zwischen 2\% und 5\%. Der im Rahmen dieser Arbeit entwickelte Roboter misst von diesen drei Kategorien nur die Verteilung der Bestrahlungsstärke in der Messebene.
+\noindent Tabelle \ref{TabS2} gibt die Anforderungen an, nach denen Sonnensimulatoren in den Klassen A, B und C klassifiziert werden. Die Sonnensimulatorklasse ABB bedeutet eine 0,75- bis 1,25-fache Übereinstimmung in allen in Tabelle \ref{TabS1} angeführten Schranken, eine Homogenität der Einstrahlung zwischen 2\% und 5\% im Messbereich, und eine zeitliche Stabilität zwischen 2\% und 5\%. Der im Rahmen dieser Arbeit entwickelte Roboter misst von diesen drei Kategorien nur die Verteilung der Bestrahlungsstärke in der Messebene.
 \begin{table}[htbp]
 \centering
 \begin{tabular}{ | c | c | c | c | c |}\hline
@@ -249,7 +249,7 @@ Eine Siliziumsolarzelle ist eine großflächigen Diode (siehe Abbildung \ref{cel
 \end{figure}
 
 
-Unbeleuchtet funktioniert die Solarzelle wie eine normale Halbleiterdiode, welche einen Durchlassstrom von p- nach n-Seite fließen lässt, falls eine Spannung von p nach n anliegt. Bei Beleuchtung wird zusätzlich ein Photostrom erzeugt, welcher proportional zur Bestrahlungsstärke und der Zellfläche ist. Das Zweidiodenmodel (siehe Abbildung \ref{esb}) besteht daher aus einer Stromquelle, dazu parallel zwei Dioden, einen Parallelwiderstand und einem Serienwiderstand. Der Parallelwiderstand fasst Kurzschlüsse zusammen, die realen Solarzellen am Rand oder an den Korngrenzen auftreten können. Mit dem Serienwiderstand werden alle Spannungsabfälle in der Solarzelle erfasst. Die beiden Dioden bilden die Rekombinations- und Diffusionsprozesse in einer realen Solarzelle ab. Eine ideale Solarzelle hat einen Serienwiderstand von null und einen Parallelwiderstand von unendlich. 
+\noindent Unbeleuchtet funktioniert die Solarzelle wie eine normale Halbleiterdiode, welche einen Durchlassstrom von p- nach n-Seite fließen lässt, falls eine Spannung von p nach n anliegt. Bei Beleuchtung wird zusätzlich ein Photostrom erzeugt, welcher proportional zur Bestrahlungsstärke und der Zellfläche ist. Das Zweidiodenmodel (siehe Abbildung \ref{esb}) besteht daher aus einer Stromquelle, dazu parallel zwei Dioden, einen Parallelwiderstand und einem Serienwiderstand. Der Parallelwiderstand fasst Kurzschlüsse zusammen, die realen Solarzellen am Rand oder an den Korngrenzen auftreten können. Mit dem Serienwiderstand werden alle Spannungsabfälle in der Solarzelle erfasst. Die beiden Dioden bilden die Rekombinations- und Diffusionsprozesse in einer realen Solarzelle ab. Eine ideale Solarzelle hat einen Serienwiderstand von null und einen Parallelwiderstand von unendlich. 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=100mm]{img/esb2.png}
@@ -262,7 +262,7 @@ Der Füllfaktor berechnet sich aus Strom im maximalen Leistungspunkt $I_{mp}$, S
   \begin{equation}
      FF = \frac {I_{mp} U_{mp}} {I_{sc} U_{oc}}~.
   \end{equation}
-Der Füllfaktor ist das Verhältnis der Fläche des Rechteckes mit den Seitenlängen I$_{mp}$ und U$_{mp}$ zu der Fläche des Rechteckes mit den Seitenlängen I$_{sc}$ und U$_{oc}$ (siehe Abbildung \ref{kennlinie}).
+\noindent Der Füllfaktor ist das Verhältnis der Fläche des Rechteckes mit den Seitenlängen I$_{mp}$ und U$_{mp}$ zu der Fläche des Rechteckes mit den Seitenlängen I$_{sc}$ und U$_{oc}$ (siehe Abbildung \ref{kennlinie}).
 
 \begin{figure}[htbp]
 \centering
@@ -270,7 +270,7 @@ Der Füllfaktor ist das Verhältnis der Fläche des Rechteckes mit den Seitenlä
 \caption{Die Dunkel- und Hellkennlinie Eines Solarzelle. Modifiziert nach \cite{kl}}\label{kennlinie}
 \end{figure}
 
-Die Kennlinie der Solarzelle ist von der Einstrahlung abhängig (siehe Abbildung \ref{mpp}). Der Kurzschlusstrom ist direkt proportional zur Einstrahlung.
+\noindent Die Kennlinie der Solarzelle ist von der Einstrahlung abhängig (siehe Abbildung \ref{mpp}). Der Kurzschlusstrom ist direkt proportional zur Einstrahlung.
 Laut IEC 60891 \cite{norm891} berechnet sich die Einstrahlung aus dem gemessenen Kurzschlussstrom, dem STC-Kurzschlussstrom, einem relativen Temperaturkoeffizienten und der Zelltemperatur:
 \begin{equation}
 G = \frac{1000Wm^{-2}I_{RC}}{I_{RC,STC}} [1 - \alpha_{RC}(T_{RC}-25^{\circ} C]~.
@@ -286,7 +286,7 @@ Abbildung \ref{el} zeigt eine Elektrolumineszenz-Aufnahme der verwendeten Messze
 \caption{Die lineare Abhängigkeit des Kurzschlussstromes von der Einstrahlung. Quelle: \cite{pv}}\label{mpp}
 \end{figure}
 
-In der Abbildung \ref{el} ist ein Elektrolumineszenz-Aufnahme der verwendeten Messzelle zu sehen. Es ist deutlich die multikristalline Struktur der Zelle zu erkennen. 
+\noindent In Abbildung \ref{el} ist ein Elektrolumineszenz-Aufnahme der verwendeten Messzelle zu sehen. Es ist deutlich die multikristalline Struktur der Zelle zu erkennen. Die Aufnahme wurde gemacht um die Unversehrtheit der Zelle und Eignung als Messzelle zu Überprüfen. 
 
 \begin{figure}[htbp]
 \centering
@@ -307,7 +307,7 @@ Mit der Größe der Messzelle ist auch die minimale Ausdehnung in den beiden and
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/oben3.png}
-\caption{Der Roboter aus der Draufsicht.}\label{oben}
+\caption{Der Roboter in der Draufsicht.}\label{oben}
 \end{figure}
   
 
@@ -319,7 +319,7 @@ Die Felgen und die Laufrollen wurden mit einem Ultimaker 3D-Drucker [\cite{um})g
 Die Vorlage namens "Mecanum Wheel MK2" stammt von http://www.thingiverse.com/thing:2473, und kann unter der Attribution-NonCommercial-ShareAlike 3.0 Unported Lizenz nicht-kommerziell verwendet werden.
 Die Laufrollen wurden modifiziert, so dass die Mutter sowie der Schraubenkopf in der Rolle versenkt sind, damit das Rad insgesamt kompakter ist. Zum Bearbeiten wurde OpenSCAD, ein 3D-Compiler, verwendet. 
 
-Durch die Schräganordnung der Laufrollen entstehen beim Antreiben eines Rades zwei Kraftkomponenten, eine in Querrichtung sowie eine in Längsrichtung des Fahrzeuges. Gegeneinander gerichtete Kräfte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich (siehe Abbildung \ref{fahrman}). So ist es nicht nur möglich den Roboter in Längsrichtung vor und zurück zu bewegen, sondern auch in Querrichtung (normal zur Längsrichtung), ebenso sind Drehungen am Stand möglich. Damit braucht ein mit Mecanumrädern ausgestatteter Roboter keine Lenkung. Allerdings sind vier Motoren notwendig, damit jedes Rad einzeln angesteuert werden kann.   
+\noindent Durch die Schräganordnung der Laufrollen entstehen beim Antreiben eines Rades zwei Kraftkomponenten, eine in Querrichtung sowie eine in Längsrichtung des Fahrzeuges. Gegeneinander gerichtete Kräfte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich (siehe Abbildung \ref{fahrman}). So ist es nicht nur möglich den Roboter in Längsrichtung vor und zurück zu bewegen, sondern auch in Querrichtung (normal zur Längsrichtung), ebenso sind Drehungen am Stand möglich. Damit braucht ein mit Mecanumrädern ausgestatteter Roboter keine Lenkung. Allerdings sind vier Motoren notwendig, damit jedes Rad einzeln angesteuert werden kann.   
 Die Kugellager sind in den acht passenden Löchern der Felge verklebt, zuerst mit einem handelsüblichen Sekundenkleber, allerdings haben sich einige Kugellager im Laufe der Zeit gelöst und beeinflussten so das Fahrverhalten negativ, danach mit einem Zweikomponentenkleber. Eine dauerhafte Verbindung von Kugellager mit der Felge ist für den störungsfreien Betrieb des Roboters unumgänglich. 
 Zwischen den Rollen und dem Kugellager sorgen Beilagscheiben für einen reibungsarmen Betrieb. 
 Die Schrauben der Rollen lösen sich im Betrieb nicht. Die Schraube, welche die Felge an der Motorachse befestig hat, löste sich regelmäßig, bis diese Verbindung mit einem Kleber gesichert wurde.
@@ -347,14 +347,14 @@ Die Kugellager sind wartungsfrei. Das wenige UV-Licht, das den PLA-Kunststoff er
 \end{figure}
 
 
-Mit OpenSCAD entsteht ein dreidimensionales Modell eines Werkstückes. Damit fängt ein 3D-Drucker nichts an. Ein 3D-Druck setzt sich aus sehr vielen Liniensegmenten zusammen. Dazu muss das 3D-Modell in einzelne dünne Schichten und einzelne Linien zerlegt werden. Dieser Vorgang wird als "Slicing" bezeichnet. Dazu wurde das Programm Skeinforge verwendet. Mit OpenSCAD wird zunächst ein stl-File erzeugt, dann produziert Skeinforge daraus die Fahrbefehle für den 3D-Drucker in Form eines G-Code. Als Druckmaterial wurde PLA (polylactic acid) verwendet, welches in einem Temperaturbereich von 215 bis 230 Grad Celsius per Extruder verarbeitet werden kann.    
+\noindent Mit OpenSCAD entsteht ein dreidimensionales Modell eines Werkstückes. Damit fängt ein 3D-Drucker nichts an. Ein 3D-Druck setzt sich aus sehr vielen Liniensegmenten zusammen. Dazu muss das 3D-Modell in einzelne dünne Schichten und einzelne Linien zerlegt werden. Dieser Vorgang wird als Slicing bezeichnet. Dazu wurde das Programm Skeinforge verwendet. Mit OpenSCAD wird zunächst ein stl-File erzeugt, dann produziert Skeinforge daraus die Fahrbefehle für den 3D-Drucker in Form eines G-Code. Als Druckmaterial wurde PLA (polylactic acid) verwendet, welches in einem Temperaturbereich von 215 bis 230 Grad Celsius per Extruder verarbeitet werden kann.    
 Die Druckzeit pro Rolle betrug 20 Minuten. Insgesamt mussten 64 Rollen gefertigt werden. Die Druckzeit pro Felge betrug etwa drei Stunden, der Roboter benötigte vier Felgen. Es gibt zwei verschiedene Felgentypen, mit nach links oder nach rechts geneigten Rollen. 
 Die Zeitaufwand wurde durch vorbereitende Testdrucke, bis die einzelnen Komponenten optimiert waren und der Drucker befriedigend Ergebnisse lieferte, sowie Fehldrücke, zusätzlich verlängert. 
 Nach dem Drucken mussten die Teile nachbearbeitet werden. Die Löcher für die Kugellager mussten per Hand passend gefeilt werden. Beim  Einsetzen der Kugellager brachen zwar manche der Halterungen, aber mit Klebstoff konnten die Kugellager auch in die gebrochenen Halterungen fixiert werden. Die erste Klebung der Kugellager hat den Testalltag nicht überstanden. Trotz loser Kugellager konnte der Roboter dennoch erfolgreich Messfahrten durchführen. Mit einem Zweikomponentenkleber wurden die Kugellager ein zweites Mal, diesmal dauerhaft, eingeklebt.
 
 \subsection{Chassis}\thispagestyle{empty}
 
-\noindent Das Chassis wurde aus Sperrholz gefertigt. Dieses Material wurde gewählt weil es leicht zu bearbeiten, robust und UV-beständig ist. Das Design wurde mit QCAD [\ref{qm}] entwickelt. QCAD ist ein 2-dimensionales CAD Programm. 
+\noindent Das Chassis wurde aus Sperrholz gefertigt. Dieses Material wurde gewählt weil es leicht zu bearbeiten, robust und UV-beständig ist. Das Design wurde mit QCAD [\ref{qc}] entwickelt. QCAD ist ein 2-dimensionales CAD Programm. 
 Die Abmessungen des Chassis wurde im Wesentlichen abgestimmt auf: \begin{itemize}
 \item Den Durchmesser und der Breite der Mecanum Räder, die innerhalb des Chasis liegen, damit die Räder vor der UV Strahlung geschützt sind, kein Einfluss (Beschattung oder Reflexionen) auf die Messzelle besteht.
 \item Die Größe der Motoren.
@@ -385,7 +385,7 @@ Die Messzelle ist am Roboter an der oberen Abdeckung befestigt.
 \section{Elektronik}\thispagestyle{empty}
 
 Dieser Abschnitt beschreibt die Entwicklung der Elektronik. Die Funktionalität wurde auf verschiedene Module aufgeteilt. Das erleichterte die Platzierung der Elektronik innerhalb des Messroboters, die parallele Entwicklung von Elektronik und Software, sowie den Austausch von Komponenten im Fehlerfall. 
-Zur Steuerung wird ein Arduino Mega 2560 Boards verwendet. Darauf aufgesteckt ist ein sogenanntes Shield, eine selbst entwickelte Platine, die die $\pm$5V Spannungsversorgung, die Schnittstellen zu den anderen Platinen und einen SD-Karten Einschub beheimatet.
+Zur Steuerung wird ein Arduino Mega 2560 Board verwendet. Darauf aufgesteckt ist ein sogenanntes Shield, eine selbst entwickelte Platine, die die $\pm$5V Spannungsversorgung, die Schnittstellen zu den anderen Platinen und einen SD-Karten Einschub beheimatet.
 Es gibt drei Messplatinen, eine für den Kurzschlussstrom der Messzelle, zwei für Temperaturmessungen. Eine Platine überwacht den Ladezustand des Akkus. Die Steuerung der vier Motoren ist auf einer Platine zusammengefasst.
 Die einzelnen Komponenten sind wie in Abbildung \ref{elek} auf der Bodenplatte angeordnet.
 Die horizontale Anordnung ist in Abbildung \ref{vorne} zu erkennen: Das Sensorarray zur Erkennung der Bodenmarkierungen ist unterhalb der Bodenplatte befestigt. Auf der Bodenplatte findet die restliche Elektronik und die Motoren Platz, die Messzelle ist auf der Oberseite des Messroboters angebracht.
@@ -399,7 +399,7 @@ Die Platinen wurden mit Eagle entwickelt. Die Platinen wurden nicht geätzt, son
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=150mm]{img/vorne.png}
-\caption{Querschnitt der Anordnung der Elektronik im Roboter.}\label{vorne}
+\caption{Ein Querschnitt der Anordnung der Elektronik im Roboter.}\label{vorne}
 \end{figure}
 
 \FloatBarrier
@@ -449,7 +449,7 @@ Die Platine ist zweiseitig ausgeführt, allerdings sind bis auf die OPVs in SMD-
 \caption{Der Schaltplan des Sensorarrays.}\label{array}
 \end{figure}
 
-Die LEDs sind parallel geschaltet und werden alle über den Feldeffekttransistor IRF530 \cite{irf} geschaltet.
+\noindent Die LEDs sind parallel geschaltet und werden alle über den Feldeffekttransistor IRF530 \cite{irf} geschaltet.
 Mit einem Spannungsregler LM317 wurde die Konstantstromquelle zur Versorgung der LEDs aufgebaut. Da der Widerstand als Potentiometer ausgeführt ist, lässt sich der Strom einstellen. Trotz einer nicht konstanten Versorgungsspannung kann so einer konstanter Strom geliefert werden. Um das analoge Messsignal der Phototransistoren nicht zu belasten, werden die analogen Photosignale über einen Spannungsfolger geführt. Die OPVs benötigen allerdings eine symmetrische Versorgung mit $\pm$5 V. Beide Spannungen werden über den Stecker geliefert.
 Es gibt weiteren Stecker mit zwei Pins, welche die Spannungsversorgung mit 16 Volt und GND sicherstellten. 
 Die Platine verfügt um drei Bohrlöcher mit jeweils drei Millimeter Durchmesser zu Befestigung.
@@ -550,7 +550,7 @@ Die Verstärkung des INA114 berechnet sich nach \cite{ina114} wie folgt:
  G = 1 + \frac{50k\Omega}{R_G}
 \end{equation} 
 
-Aus der Abbildung \ref{pt100} erkennt man, dass der interessante Messbereich von 100 bis etwa 120$\Omega$ reicht, am Eingang des Instrumentenverstärkers liegen also maximal 2mV an, mit einer Verstärkung von 2000, wird daraus 4V, daher ist ein Widerstand von etwa 25$\Omega$ notwendig. Da es keinen solchen Präzisionswiderstand gab, wurden zwei 51,1$\Omega$ Widerstand parallel geschaltet. 
+\noindent In der Abbildung \ref{pt100} erkennt man, dass der interessante Messbereich von 100 bis etwa 120$\Omega$ reicht, am Eingang des Instrumentenverstärkers liegen also maximal 2mV an, mit einer Verstärkung von 2000, wird daraus 4V, daher ist ein Widerstand von etwa 25$\Omega$ notwendig. Da es keinen solchen Präzisionswiderstand gab, wurden zwei 51,1$\Omega$ Widerstand parallel geschaltet. 
 
 \begin{figure}[htbp]
 \centering
@@ -579,7 +579,7 @@ Aus der Abbildung \ref{pt100} erkennt man, dass der interessante Messbereich von
 Dieser Abschnitt beschreibt die Entwicklung der Software. Es wird kurz auf die Entwicklungsumgebung eingegangen. Dann folgt die Auswertung der optischen Sensoren. Schließlich wird die Programmstruktur erklärt. Der gesamte Code ist im Anhang gelistet.
 
 \subsection{Entwicklungsumgebung}\thispagestyle{empty}
-Der Mikrocontroller auf demn Arduino Board wird mit C++ in der Arduino Entwicklungsumgebung (siehe Abbildung \ref{ardu2} programmiert, welche auf Processing basiert, programmiert. Die Entwicklungsumgebung ist auf das Notwendigste beschränkt. Die vielen Beispielprogramme erlauben einen raschen Einstieg.
+Der Mikrocontroller auf demn Arduino Board wird mit C++ in der Arduino Entwicklungsumgebung (siehe Abbildung \ref{ardu2}) programmiert, welche auf Processing basiert, programmiert. Die Entwicklungsumgebung ist auf das Notwendigste beschränkt. Die vielen Beispielprogramme erlauben einen raschen Einstieg.
 Ein Arduino Programm besteht aus zwei Teilen: Einer Setup-Routine die einmal zum Programmstart durchlaufen wird und einer Endlosschleife. In der Schleife wird das eigentlich Programm abgearbeitet. 
 
 \begin{figure}[htbp]
@@ -593,7 +593,7 @@ Um den Einfluss des Streulichtes der starken Einstrahlung im Sonnensimulator auf
 Das wird für alle neun Optoreflektoren des Sensorarray, sowie den Stopsensor, gemacht.
 Mit den korrigierten Werten der einzelnen optischen Sensoren wird die Lage der Linie relativ zum Mittelpunktes des Arrays bestimmt. 
 
-Die Messwerte der optischen Sensoren ist abhängig von der Helligkeit des Untergrundes. Unter der Annahme dass sich eine gerade Linie unter dem Sensorarray befindet (siehe Abbildung \ref{arr}b), wird zuerst die Lage der Linie innerhalb einer Zeile berechnet, dazu das Extremum einer quadratischen Funktion gesucht, was der Lage der Linie innerhalb einer Zeile des Sensorarrays entspricht. 
+\noindent Die Messwerte der optischen Sensoren ist abhängig von der Helligkeit des Untergrundes. Unter der Annahme dass sich eine gerade Linie unter dem Sensorarray befindet (siehe Abbildung \ref{arr}b), wird zuerst die Lage der Linie innerhalb einer Zeile berechnet, dazu das Extremum einer quadratischen Funktion gesucht, was der Lage der Linie innerhalb einer Zeile des Sensorarrays entspricht. 
 Für alle 3 Zeilen wird so die Lage der Linie ermittelt. In diese 3 Punkte wird eine Gerade gelegt, welche die Bedingung der kleinsten Quadrate der Abstände einhält. Errechnet wird die Steigung k der Gerade, was dem Tangens des Winkels der Verdrehung der Linie entspricht, und die Verschiebung d.
  
 \begin{align*}
@@ -625,7 +625,7 @@ Dabei ist es egal, ob es sich um eine helle Linie auf dunklen Untergrund, oder e
 \label{abw}
 \end{figure} 
 
-Abbildung \ref{arr} zeigt die Anordnung des Sensorarrays, die einzelnen Sensoren sind mit A bis I bezeichnet. Mögliche Abweichungen der Linie von der Idealposition sind in Abbildung \ref{abw}, auf der linken Seite, der zeitliche Versatz auf der rechten Seite, zu sehen.
+\noindent Abbildung \ref{arr} zeigt die Anordnung des Sensorarrays, die einzelnen Sensoren sind mit A bis I bezeichnet. Mögliche Abweichungen der Linie von der Idealposition sind in Abbildung \ref{abw}, auf der linken Seite, der zeitliche Versatz auf der rechten Seite, zu sehen.
 
 \subsection{Auswertung der Temperatur- und Strommesswerte}\thispagestyle{empty}
 Aufgrund von Rauschen der ADC-Werte, wurden alle Messwerte über 500 Einzelmessungen gemittelt. Als Quelle des Rauschens wird thermisches Rauschen im Instrumentenverstärker sowie eine schwankende Referenzspannung vermutet vermutet. Der notwendige Messzeit dafür beträgt unter einer halben Sekunde. Ohne Mittelung der Messwerte schwankten die Messungen $\pm$5 Werte des ADC, das sind $\pm$0,5$\%$ bei maximalen Ausnützung bzw. $\pm$1$\%$ bei halber Ausnützung des ADC-Wertebereichs. Die gemittelten ADC-Werte werden direkt auf die SD-Karte in das Messfile gespeichert. Die eigentliche Auswertung erfolgt erst in einem Matlab Programm.
@@ -654,9 +654,9 @@ Das Steuerprogramm ist ein Zustandsautomat (siehe Abbildung \ref{abl}):
 \item Zustand \textit{q}, \textit{y}: Ausrichten, danach Wechsel zu Zustand \textit{v} bzw. \textit{z}.
 \end{itemize}
 
-Während der Geradeaus-Fahrt wird versucht sowohl die seitliche Verschiebung d als auch die Verdrehung k zu minimieren. Wenn beide Werte innerhalb gewisser Toleranzen ($\pm$1 mm, $\pm$5$^{\circ}$) sind, fährt der Roboter geradeaus. Die Schranken der Regelung sind in Abbildung \ref{schr} zu sehen. Die Regelung funktioniert als Dreipunktregler für die Verdrehung, und als Dreipunktregler für die Verschiebung, wobei Verschiebung eine höhere Priorität hat als die Verdrehung. Zusätzlich gibt es noch zwei weiter Bewegungsmoden (\textbf{vtl}, \textbf{vtr}), die sich aus einer Geradeaus-Fahrt und einer überlagerten Drehung zusammensetzen, und bei nicht zu großen Verdrehungen angewendet wird.
+\noindent Während der Geradeaus-Fahrt wird versucht sowohl die seitliche Verschiebung d als auch die Verdrehung k zu minimieren. Wenn beide Werte innerhalb gewisser Toleranzen ($\pm$1 mm, $\pm$5$^{\circ}$) sind, fährt der Roboter geradeaus. Die Schranken der Regelung sind in Abbildung \ref{schr} zu sehen. Die Regelung funktioniert als Dreipunktregler für die Verdrehung, und als Dreipunktregler für die Verschiebung, wobei Verschiebung eine höhere Priorität hat als die Verdrehung. Zusätzlich gibt es noch zwei weiter Bewegungsmoden (\textbf{vtl}, \textbf{vtr}), die sich aus einer Geradeaus-Fahrt und einer überlagerten Drehung zusammensetzen, und bei nicht zu großen Verdrehungen angewendet wird.
 
-Bei der Seitwärts-Fahrt wurde eine verbesserte Regelung angewandt, statt zwei Dreipunktreglern, wurde zwei P-Regler verwendet. Da die Motoren einen maximalen Wert für die Ansteuerung haben handelt es sich um eine Regelung mit Sättigung. Zur normalen Fahrt wird nach Rechts eine von der Verschiebung abhängige Vor/Zurück-Fahrt bzw. eine von der Verdrehung abhängige Drehung überlagert.
+\noindent Bei der Seitwärts-Fahrt wurde eine verbesserte Regelung angewandt, statt zwei Dreipunktreglern, wurde zwei P-Regler verwendet. Da die Motoren einen maximalen Wert für die Ansteuerung haben handelt es sich um eine Regelung mit Sättigung. Zur normalen Fahrt wird nach Rechts eine von der Verschiebung abhängige Vor/Zurück-Fahrt bzw. eine von der Verdrehung abhängige Drehung überlagert.
 Abhängig von der Verschiebung d2 und der Verdrehung k2,
 \begin{verbatim}
   vz = int(800*d2);
@@ -670,9 +670,9 @@ werden die vier Motoren (M1 bis M4) einzeln angesteuert.
   M4(127 + vz - turn); 
 \end{verbatim}
 
-Da die Linie für das Rechtsfahren nicht in einer Ecke endet, sondern einfach endet, kann die Regelung bis zum Ende verwendet werden. Somit entfällt ein Teil des um-die-Ecke-Fahrens. Die Faktoren des P-Regler (800, 1600) wurden durch umfangreiche Testfahrten ermittelt.
+\noindent Da die Linie für das Rechtsfahren nicht in einer Ecke endet, sondern einfach endet, kann die Regelung bis zum Ende verwendet werden. Somit entfällt ein Teil des um-die-Ecke-Fahrens. Die Faktoren des P-Regler (800, 1600) wurden durch umfangreiche Testfahrten ermittelt.
 
-Es gibt zwei Arten von Ecken. Einmal die Ecke des Typs 1, welche eine wirkliche Ecke darstellen. Sowie die Ecke des Typs 2, welche ein eine Unterbrechung der Linie beinhaltet (siehe Abbildung \ref{ecken}).
+\noindent Es gibt zwei Arten von Ecken. Einmal die Ecke des Typs 1, welche eine wirkliche Ecke darstellen. Sowie die Ecke des Typs 2, welche ein eine Unterbrechung der Linie beinhaltet (siehe Abbildung \ref{ecken}).
 Die beiden unterschiedlichen Arten von Ecken wurden erforderlich durch die unterschiedlichen Fahreigenschaften beim Geradeaus- und dem Seitwärtsfahren.
 
 
@@ -768,7 +768,7 @@ Obwohl der 10-Bit ADC des Arduino einen Maximalwert von 1023 hat, ist bedingt du
 \end{tabular}
 
 \end{tabular}
-\caption{Die Messwerte der Kalibrierung Messschaltung A und B.}\label{TabAB}
+\caption{Die Messwerte der Kalibrierung von den Messschaltungen A und B.}\label{TabAB}
 \end{table}
 
 
@@ -785,7 +785,7 @@ Obwohl der 10-Bit ADC des Arduino einen Maximalwert von 1023 hat, ist bedingt du
 \caption{Die Ausgleichsgerade der Temperaturmessung B.}\label{messb}
 \end{figure}
 
-Die der Ausgleichsgerade für Messschaltung A (siehe Abbildung ~\ref{messa}) und B (siehe Abbildung ~\ref{messa}) werden verwendet um aus den ADC-Werten die dazugehörigen Widerstandswerte zu berechnen. 
+\noindent Die der Ausgleichsgerade für Messschaltung A (siehe Abbildung ~\ref{messa}) und B (siehe Abbildung ~\ref{messa}) werden verwendet um aus den ADC-Werten die dazugehörigen Widerstandswerte zu berechnen. 
 
   \begin{equation}
      R_A(ADC) = \frac{ADC_A + 4039,9}{40,107}
@@ -858,7 +858,7 @@ T/$^{\circ}$C & I/mA & ADC Wert \\
 \caption{Die Kalibrierung der Strommessung}\label{TabS}
 \end{table}
 
-Abbildung \ref{ical} zeigt den Zusammenhang zwischen eingeprägten Strom und ADC-Wert bei 16,4$^{\circ}$C. 
+\noindent Abbildung \ref{ical} zeigt den Zusammenhang zwischen eingeprägten Strom und ADC-Wert bei 16,4$^{\circ}$C. 
 
 \begin{figure}[htbp]
 \centering
@@ -866,13 +866,13 @@ Abbildung \ref{ical} zeigt den Zusammenhang zwischen eingeprägten Strom und ADC
 \caption{Lineraer Zusammenhang zwischen Strom und dem ADC-Wert.}\label{ical}
 \end{figure}
 
-Aus der Geradengleichung
+\noindent Aus der Geradengleichung
 
 \begin{equation}
-     ADC = 0,1192 I_sc(mA) -4,5766 
+     ADC = 0,1192*I_{sc}(mA) -4,5766 
 \end{equation}
 
-lässt sich durch einfaches Umformen der Strom in Ampere berechnen:
+\noindent lässt sich durch einfaches Umformen der Strom in Ampere berechnen:
 
 \begin{equation}
      I(A) = \frac{ADC + 4,5766} {119,2} 
@@ -915,7 +915,7 @@ Da die Platine A temperaturstabiler als die Platine B ist, wurde Platine A zur M
 \caption{Temeraturabhängigkeit der Temperaturmessung.}\label{TabT2}
 \end{table}
 
-Durch den Austausch der Referenzstromquelle der Platine B hat sich auch der ADC-Wert gegenüber der ersten Messung geändert. Die Kalibrierwerte der Platine B \ref{TabB} sind nach diesem Austausch aufgenommen worden.
+\noindent Durch den Austausch der Referenzstromquelle der Platine B hat sich auch der ADC-Wert gegenüber der ersten Messung geändert. Die Kalibrierwerte der Platine B \ref{TabB} sind nach diesem Austausch aufgenommen worden.
 Da die Platine A temperaturstabiler als die Platine B ist, wurde Platine A zur Messung der Zelltemperatur ausgewählt, die Platine B wurde für die Messung der Umgebungstemperatur verwendet. 
 
 \chapter{Messung}\thispagestyle{empty}
@@ -991,7 +991,7 @@ $\frac{t}{ms}$ & I$_{SC}$ & T$_{Zelle}$ & T$_{Umgebung}$ & Messpunkt & Messreihe
 \caption{Ein Ausschnitt der Messwertedatei}\label{TabSD}
 \end{table}
 
-Im Zuge der Auswertung wird ein eindimensionales Array von 308 Messwerten in ein zweidimensionales Array von 14 mal 22 Zahlen umgewandelt. Dazu wird der erste bis zum 14. Wert des eindimensionalen Arrays zur ersten Reihe des zweidimensionalen Arrays. Der 15. bis 28. Wert des eindimensionalen Arrays bildet die zweite Reihe des zweidimensionalen Arrays, allerdings in umgekehrter Reihenfolge. So bildet die Reihenfolge der Messwerte des zweidimensionalen Arrays die Messfahrt des Roboters ab.
+\noindent Im Zuge der Auswertung wird ein eindimensionales Array von 308 Messwerten in ein zweidimensionales Array von 14 mal 22 Zahlen umgewandelt. Dazu wird der erste bis zum 14. Wert des eindimensionalen Arrays zur ersten Reihe des zweidimensionalen Arrays. Der 15. bis 28. Wert des eindimensionalen Arrays bildet die zweite Reihe des zweidimensionalen Arrays, allerdings in umgekehrter Reihenfolge. So bildet die Reihenfolge der Messwerte des zweidimensionalen Arrays die Messfahrt des Roboters ab.
 \newline
 
 \begin{equation}
@@ -1008,7 +1008,7 @@ n_{295}  &.& .&.& n_{308}
 \end{pmatrix}
 \end{equation}
 
-Um die eindimensionalen Messdaten in ein zweidimensionales Array, das der realen Anordnung der Messpunkte entspricht, wird folgender Matlab-Code verwendet:
+\noindent Um die eindimensionalen Messdaten in ein zweidimensionales Array, das der realen Anordnung der Messpunkte entspricht, wird folgender Matlab-Code verwendet:
 \begin{verbatim}
 j=1; k=1; l=1;
 
@@ -1022,7 +1022,7 @@ for(i=0:307)
 end
 \end{verbatim}
 
-Der ADC Wert des Kurschlussstromes wird in Ampere umgerechnet. Dazu wird die in im Abschnitt Kalibrierung gewonnene Formel verwendet.
+\noindent Der ADC Wert des Kurschlussstromes wird in Ampere umgerechnet. Dazu wird die in im Abschnitt Kalibrierung gewonnene Formel verwendet.
 \begin{verbatim}
 A = (I +4.5766)/119.2; 
 \end{verbatim}
@@ -1032,7 +1032,7 @@ G(i,j) = 1000 * A(i,j) / 4.99 * ( 1 - 0.00048 * (TTm(i,j) - 25));
 \end{verbatim}
 Die Abbildungen \ref{g3d} und \ref{g3d} zeigen die gemessene Bestrahlungsstärkeverteilung.
 
-Die Zelltemperatur \textit{TTM} wird aus den Werten der 3. Spalte des Messfiles errechnet. Diese Werte werden wie die Strommesswerte in eine zweidimensionales Array umgewandelt. Die Umrechnung geschieht in zwei Schritten. Zuerst werden die ADC Werte in den Widerstand des Pt100 umgerechnet, und anschließend die Temperatur zu berechnen.
+\noindent Die Zelltemperatur \textit{TTM} wird aus den Werten der 3. Spalte des Messfiles errechnet. Diese Werte werden wie die Strommesswerte in eine zweidimensionales Array umgewandelt. Die Umrechnung geschieht in zwei Schritten. Zuerst werden die ADC Werte in den Widerstand des Pt100 umgerechnet, und anschließend die Temperatur zu berechnen.
 
 \begin{verbatim}
 Rm = (Tm +4038.9)/40.107; % ADC --> Widerstand
@@ -1170,7 +1170,7 @@ Abbildung \ref{v100} zeigt das Verhältnis der gemessenen Werte zu den berechnet
 
 \section{Variation der Lampenleistung und der Höhe des Lampenfeldes}
 
-Bei der Lampen-Steuerungssoftware des stationären Sonnensimulators wurden die Standard-Einstellungen "Arsenal 1100W" mit einer Höhe 1870 mm bzw. mit einer Höhe 4200 mm verwendet. Abbildung \ref{std} zeigt die Einstellungen der einzelnen Lampen der Standardeinstellungen. Die Gesamteinstellung der Lampenleistung wurde von 96\% auf 80\% und 60\% verringert. Die Einstellungen der einzelnen Lampen sind in Abbildung \ref{std} dargestellt. Die Kühllufttemperatur war 15$^{\circ}$C . Von jeder Einstellung wurden zwei Messungen gemacht.
+Bei der Lampen-Steuerungssoftware des stationären Sonnensimulators wurden die Standard-Einstellungen \textit{Arsenal 1100W} mit einer Höhe 1870 mm bzw. mit einer Höhe 4200 mm verwendet. Abbildung \ref{std} zeigt die Einstellungen der einzelnen Lampen der Standardeinstellungen. Die Gesamteinstellung der Lampenleistung wurde von 96\% auf 80\% und 60\% verringert. Die Einstellungen der einzelnen Lampen sind in Abbildung \ref{std} dargestellt. Die Kühllufttemperatur war 15$^{\circ}$C . Von jeder Einstellung wurden zwei Messungen gemacht.
 
 \begin{table}[htbp]
 \centering
@@ -1194,7 +1194,7 @@ Bei der Lampen-Steuerungssoftware des stationären Sonnensimulators wurden die S
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=75mm]{img/std.png}
-\caption{Die Standard-Einstellungen ("Arsenal 1100W") der einzelnen zehn Lampen.}\label{std}
+\caption{Die Standard-Einstellungen (\textit{Arsenal 1100W}) der einzelnen zehn Lampen.}\label{std}
 \end{figure}
 
 
