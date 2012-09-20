@@ -132,7 +132,7 @@ This paper discripes the planning and the realisation of a autonomous measuremen
 \newpage
 
 \section*{Danksagung}\thispagestyle{empty}
-Ich danke meiner Mutter für die Unterstützung und Geduld, die sie während des Studiums aufgebracht haben.
+Ich danke meinen Eltern für die Unterstützung und Geduld, die sie während des Studiums aufgebracht haben.
 Ich danke meinen Hochschulbetreuer Bernhard Kubicek für die umfangreiche Betreuung.
 Ich danke meinen Firmenbetreuer Thomas Krametz für die Zeit die er sich genommen hat.
 Und für problemlose Verlängerung meines Praktikums und der Diplomarbeit schulde ich Herr Wolfgang Hribernik großen Dank.
@@ -213,7 +213,7 @@ In der IEC Norm 60904-9 \cite{norm9} werden die Anforderungen an Sonnensimulator
 \end{table}
 \item die Gleichmäßigkeit der Bestrahlungsstärkeverteilung über die Testfläche
 	\begin{equation}
- Non-uniformity (\%) = [\frac{max irradiance - min irradiance}{max irradiance + min irradiance}] \times (100\%)
+ Nonuniformity (\%) = [\frac{max irradiance - min irradiance}{max irradiance + min irradiance}] \times (100\%)
 \end{equation}
 \item die zeitliche Stabilität der Einstrahlung.
 \begin{equation}
@@ -241,7 +241,7 @@ C  & 0,4 - 2,0 & 10 \% & 10 \% & 10 \%\\ \hline
 \section{Theorie Referenzzelle}\thispagestyle{empty}
 Eine Solarzelle wandelt die Energie des Lichtes teilweise in elektrische Energie um. Eine Referenzzelle ist eine speziell für Messungen kalibrierte Solarzelle, welche als Strahlungsmessgerät dient. Wichtig ist, dass die Referenzzelle eine ähnliche spektrale Empfindlichkeit hat, wie die zu messenden Zelle bzw. das zu messende Modul.
 Es gibt verschiedene Solarzellentechnologien. Es gibt kristalline Siliziumzellen und Dünnschichtzellen. Die kristallinen Siliziumzellen werden in monokristalline Zellen und multikristalline Zellen unterschieden. Beide zusammen machen über 80\% des weltweiten Photovoltaikmarktes aus \cite{iea00}. Als Referenzzelle für Messungen werden hauptsächlich kristalline Zellen verwendet. 
-Eine Siliziumsolarzelle ist eine großflächigen Diode (siehe Abbildung \ref{cell}). Die Sperrschicht ist dabei dem Sonnenlicht ausgesetzt. Gelangt ein Lichtquant in die Sperrschicht, kann aufgrund des inneren Photoeffektes ein Elektron/Loch Paar erzeugt werden. Durch das elektrische Feld in der Sperrschicht werden die Ladungsträger getrennt bevor sie rekombinieren können. Elektronen bewegen aufgrund ihrer negativen Ladung entgegen der Feldrichtung in die n-Zone. Löcher wandern in Feldrichtung zur raumladungsfreien p-Zone. Die Leerlaufspannung einer Solarzelle ist kleiner als die Diffusionsspannung, der Spannung über die Raumladungszone, die der Diffusion von Ladungsträgern entgegenwirkt.
+Eine Siliziumsolarzelle ist eine großflächigen Diode (siehe Abbildung \ref{cell}). Die Sperrschicht ist dabei dem Sonnenlicht ausgesetzt. Gelangt ein Lichtquant in die Sperrschicht, kann aufgrund des inneren Photoeffektes ein Elektron-Loch-Paar erzeugt werden. Durch das elektrische Feld in der Sperrschicht werden die Ladungsträger getrennt bevor sie rekombinieren können. Elektronen bewegen aufgrund ihrer negativen Ladung entgegen der Feldrichtung in die n-Zone. Löcher wandern in Feldrichtung zur raumladungsfreien p-Zone. Die Leerlaufspannung einer Solarzelle ist kleiner als die Diffusionsspannung, der Spannung über die Raumladungszone, die der Diffusion von Ladungsträgern entgegenwirkt.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=125mm]{img/zelle2.png}
@@ -249,7 +249,7 @@ Eine Siliziumsolarzelle ist eine großflächigen Diode (siehe Abbildung \ref{cel
 \end{figure}
 
 
-\noindent Unbeleuchtet funktioniert die Solarzelle wie eine normale Halbleiterdiode, welche einen Durchlassstrom von p- nach n-Seite fließen lässt, falls eine Spannung von p nach n anliegt. Bei Beleuchtung wird zusätzlich ein Photostrom erzeugt, welcher proportional zur Bestrahlungsstärke und der Zellfläche ist. Das Zweidiodenmodel (siehe Abbildung \ref{esb}) besteht daher aus einer Stromquelle, dazu parallel zwei Dioden, einen Parallelwiderstand und einem Serienwiderstand. Der Parallelwiderstand fasst Kurzschlüsse zusammen, die realen Solarzellen am Rand oder an den Korngrenzen auftreten können. Mit dem Serienwiderstand werden alle Spannungsabfälle in der Solarzelle erfasst. Die beiden Dioden bilden die Rekombinations- und Diffusionsprozesse in einer realen Solarzelle ab. Eine ideale Solarzelle hat einen Serienwiderstand von null und einen Parallelwiderstand von unendlich. 
+\noindent Unbeleuchtet funktioniert die Solarzelle wie eine normale Halbleiterdiode, welche einen Durchlassstrom von p- nach n-Schicht fließen lässt, falls eine Spannung von p nach n anliegt. Bei Beleuchtung wird zusätzlich ein Photostrom erzeugt, welcher proportional zur Bestrahlungsstärke und der Zellfläche ist. Das Zweidiodenmodel (siehe Abbildung \ref{esb}) besteht daher aus einer Stromquelle, dazu parallel zwei Dioden, einen Parallelwiderstand und einem Serienwiderstand. Der Parallelwiderstand fasst Kurzschlüsse zusammen, die realen Solarzellen am Rand oder an den Korngrenzen auftreten können. Mit dem Serienwiderstand werden alle Spannungsabfälle in der Solarzelle erfasst. Die beiden Dioden bilden die Rekombinations- und Diffusionsprozesse in einer realen Solarzelle ab. Eine ideale Solarzelle hat einen Serienwiderstand von null und einen Parallelwiderstand von unendlich. 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=100mm]{img/esb2.png}
@@ -315,8 +315,8 @@ Mit der Größe der Messzelle ist auch die minimale Ausdehnung in den beiden and
 Mecanum-Räder erlauben einem Fahrzeug ohne mechanischer Lenkung, sich in jede Richtung zu bewegen. Benannt ist es nach dem schwedischen Unternehmen Macanum, welches dieses Rad 1971 entwickelt hat \cite{mecanum}. 
 Jedes Rad wird mit einem eigenen Motor angetrieben und verfügt über eine separate Ansteuerung. Die Räder bestehen aus einer Felge (siehe Abbbildung \ref{rad}), auf der unter einem Winkel von 45 Grad befestigte, ballige Rollen so angebracht sind, die über den Abrollumfang einen Kreis bilden (siehe Abbbildung \ref{rad2}). In die 8 Löcher der Felge werden Kugellager eingeklebt. Jedes der vier Räder besteht aus einer Felge, insgesamt 16 Laufrollen, 8 Kugellagern, 8 M4x45mm Schrauben, 8 M4-Muttern, sowie 16 M4-Beilagscheiben. 
 Das Rad ist mit einer M3-Schraube und einer M3-Mutter an der Motorachse fixiert.
-Die Felgen und die Laufrollen wurden mit einem Ultimaker 3D-Drucker [\cite{um})gedruckt. 
-Die Vorlage namens "Mecanum Wheel MK2" stammt von http://www.thingiverse.com/thing:2473, und kann unter der Attribution-NonCommercial-ShareAlike 3.0 Unported Lizenz nicht-kommerziell verwendet werden.
+Die Felgen und die Laufrollen wurden mit einem Ultimaker 3D-Drucker \cite{um} gedruckt. 
+Die Vorlage namens \textit{Mecanum Wheel MK2} stammt von http://www.thingiverse.com/thing:2473, und kann unter der Attribution-NonCommercial-ShareAlike 3.0 Unported Lizenz nicht-kommerziell verwendet werden.
 Die Laufrollen wurden modifiziert, so dass die Mutter sowie der Schraubenkopf in der Rolle versenkt sind, damit das Rad insgesamt kompakter ist. Zum Bearbeiten wurde OpenSCAD, ein 3D-Compiler, verwendet. 
 
 \noindent Durch die Schräganordnung der Laufrollen entstehen beim Antreiben eines Rades zwei Kraftkomponenten, eine in Querrichtung sowie eine in Längsrichtung des Fahrzeuges. Gegeneinander gerichtete Kräfte der einzelnen Räder werden über die Achsen und den Rahmen kompensiert. Die übrigen Kräfte addieren sich zur resultierenden Fahrtrichtung. Auf diese Weise sind durch entsprechendes Ansteuern der einzelnen Räder omnidirektionale Fahrmanöver möglich (siehe Abbildung \ref{fahrman}). So ist es nicht nur möglich den Roboter in Längsrichtung vor und zurück zu bewegen, sondern auch in Querrichtung (normal zur Längsrichtung), ebenso sind Drehungen am Stand möglich. Damit braucht ein mit Mecanumrädern ausgestatteter Roboter keine Lenkung. Allerdings sind vier Motoren notwendig, damit jedes Rad einzeln angesteuert werden kann.   
@@ -354,7 +354,7 @@ Nach dem Drucken mussten die Teile nachbearbeitet werden. Die Löcher für die K
 
 \subsection{Chassis}\thispagestyle{empty}
 
-\noindent Das Chassis wurde aus Sperrholz gefertigt. Dieses Material wurde gewählt weil es leicht zu bearbeiten, robust und UV-beständig ist. Das Design wurde mit QCAD [\ref{qc}] entwickelt. QCAD ist ein 2-dimensionales CAD Programm. 
+\noindent Das Chassis wurde aus Sperrholz gefertigt. Dieses Material wurde gewählt weil es leicht zu bearbeiten, robust und UV-beständig ist. Das Design wurde mit QCAD \cite{qc} entwickelt. QCAD ist ein 2-dimensionales CAD Programm. 
 Die Abmessungen des Chassis wurde im Wesentlichen abgestimmt auf: \begin{itemize}
 \item Den Durchmesser und der Breite der Mecanum Räder, die innerhalb des Chasis liegen, damit die Räder vor der UV Strahlung geschützt sind, kein Einfluss (Beschattung oder Reflexionen) auf die Messzelle besteht.
 \item Die Größe der Motoren.
@@ -978,7 +978,7 @@ Tabelle \ref{TabSD} zeigt wie die Daten auf der SD-Karte gespeichert sind. Der e
 \centering
 \begin{tabular}{ | c | c | c | c | c | c | c | } 
 \hline
-$\frac{t}{ms}$ & I$_{SC}$ & T$_{Zelle}$ & T$_{Umgebung}$ & Messpunkt & Messreihe & Messspalte \\
+$t [ms]$ & I$_{SC}$ & T$_{Zelle}$ & T$_{Umgebung}$ & Messpunkt & Messreihe & Messspalte \\
 \hline
 \hline
 {165515} & {466} & {437} & {237} & {47} & {5} & {4} \\
@@ -1237,7 +1237,7 @@ Bei der Lampen-Steuerungssoftware des stationären Sonnensimulators wurden die S
 
 \section{Optimierung der Homogenität}
 
-Die Homogenität über die e Optimierungsalgorithmus: Es werden verschiedene Kombinationen der Lampeneinstellungen der zehn Lampen vorgenommen. Dabei wird das Minimum der Gleichmäßigkeit der Bestrahlungsstärkeverteilung über die Testfläche gesucht:
+Die Homogenität der Beleuchtung der gesamten Messfläche wird mit einem Optimierungsalgorithmus verbessert. Es werden verschiedene Kombinationen der Lampeneinstellungen der zehn Lampen vorgenommen. Dabei wird das Minimum der Gleichmäßigkeit der Bestrahlungsstärkeverteilung über die Testfläche gesucht:
 \begin{equation}
  Nonuniformity (\%) = [\frac{max irradiance - min irradiance}{max irradiance + min irradiance}] \times (100\%)
 \end{equation}
