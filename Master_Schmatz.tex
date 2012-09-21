@@ -125,7 +125,7 @@ Die Arbeit umfasst die Planung und Realisierung eines selbst fahrenden Messrobot
 \newpage
 
 \section*{Abstract}\thispagestyle{empty}
-This paper discripes the planning and the realisation of a autonomous measurement robot. The robot measures the irradiance in a test plane of a continous solar simulator. Together with the irradiotion information the roboter collects additional temperature data. Rapid-Prototyping techiques (3d-printing and Lasercutter) were used. The teoretical fundamentals and the normative requirement of sun simulators are also be treated.
+This paper describes the planning and the realisation of a autonomous measurement robot. The robot measures the irradiance in a test plane of a continuous solar simulator. Together with the irradiation information the robot collects additional temperature data. Rapid-Prototyping techniques (3d-printing and Lasercutter) were used. The theoretical fundamentals and the normative requirement of sun simulators are also treated.
 \\ \vfill
 % Bitte 3-5 englische Keywords eingeben, die die Arbeit charakterisieren:
 \paragraph*{Keywords:} Sun Simulator, Measurement Robot, Solar Radiation, Mecanum Wheel
@@ -158,8 +158,8 @@ Im Allgemeinen werden Messergebnisse auf Standard-Prüfbedingungen (STC) bezogen
      AM = \frac {L} {L_0} \approx \frac{1}{cos~ z},
 \end{equation}
 wobei L die Länge des Weges des Sonnenlichtes durch die Atmosphäre, L$_0$ die Weglänge bei senkrechten Einfall und z der Zenitwinkel des Sonnenstandes ist (\cite{wurf} S. 30). Dabei handelt es sich um eine Näherung, welche die Krümmung der Erdoberfläche und der Atmosphäre vernachlässigt. Für kleine Werte vom AM ist diese Näherung aber hinreichend genau.
-Die spektrale Verteilung des Referenzsonnenspektrums AM1.5 (siehe Abbildung \ref{sunspec}) ist in der IEC-Norm 60904-3 \cite{norm3} definiert. Das Spektrum des Sonnenlichtes im Weltall AM0 entspricht in etwa der thermische Strahlung eines schwarzen Körpers mit 5250$^\circ$C (siehe Abbildung \ref{sunspec}).
-Die meisten am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$) können das Spektrum nicht verändern, da sie Metallhalogenid-Lampen verwenden. Sie sind also für einen Sonnenstand beschränkt. Es gibt Sonnensimulatoren auf LED-Basis. Das gewünschte Spektrum wird dort mit vielen LEDs unterschiedlicher Wellenlänge realisiert, somit sind auch unterschiedliche Spektren und Bestrahlungsstärken realisierbar. Es sind  bereits Sonnensimulatoren auf LED-Basis für Modulgröße am Markt \cite{mps}. Ein Vorteil dieses Systems ist die lange Lebensdauer der Lampen, welche laut Herstellerangaben für 10 Millionen Messungen reicht. 
+Die spektrale Verteilung des Referenzsonnenspektrums AM1.5 (siehe Abbildung \ref{sunspec}) ist in der IEC-Norm 60904-3 \cite{norm3} definiert. Das Spektrum des Sonnenlichtes im Weltall AM0 entspricht in etwa der thermischen Strahlung eines schwarzen Körpers mit 5250$^\circ$C (siehe Abbildung \ref{sunspec}).
+Die meisten am Markt erhältlichen Sonnensimulatoren für Modulgröße (1,6 m$^2$) können das Spektrum nicht verändern, da sie Metallhalogenid-Lampen verwenden. Sie sind also für einen Sonnenstand beschränkt. Es gibt Sonnensimulatoren auf LED-Basis. Das gewünschte Spektrum wird dort mit vielen LEDs unterschiedlicher Wellenlänge realisiert, somit sind auch unterschiedliche Spektren und Bestrahlungsstärken realisierbar. Es sind  bereits Sonnensimulatoren auf LED-Basis für Modulgröße am Markt \cite{mps}. Ein Vorteil dieses Systems ist die lange Lebensdauer der Lampen, welche laut Herstellerangaben für 10 Millionen Messungen reicht. 
 
 \begin{figure}[htbp]
 \centering
@@ -179,7 +179,7 @@ Die meisten am Markt erhältliche Sonnensimulatoren für Modulgröße (1,6 m$^2$
 
 Mit dem SolarConstant 4000 (siehe Abbildung \ref{sunsim}) der Firma Atlas kann die Einwirkung der Sonne auf Testobjekte simuliert werden. Dazu ist der Simulator mit zehn Metallhalogenid-Strahlungsquelle Lampen zu je 4 kW ausgerüstet. Durch die Füllung der Lampen mit Halogeniden wird ein möglichst kontinuierliches Spektrum erzeugt. Die Leuchten sind mit UF-Filterscheiben ausgestattet, welche das abgestrahlte Licht dem AM1.5 Spektrum annähern.
 Jede Lampe wird von einem eigenen elektronisch geregelten Vorschaltgerät versorgt, welches für einen gleichmäßigen und flimmerfreien Betrieb sorgt.
-Da die Lampen nicht für eine Heißzündung ausgelegt sind, wobei sie eventuell zerstört werden könnten, ist eine Sperrzeit von 10 Minuten zum Abkülen vorgesehen, bevor sich die Lampen wieder einschalten lassen.
+Da die Lampen nicht für eine Heißzündung ausgelegt sind, wobei sie eventuell zerstört werden könnten, ist eine Sperrzeit von 10 Minuten zum Abkühlen vorgesehen, bevor sich die Lampen wieder einschalten lassen.
 Die Strahlungsleistung lässt sich reduzieren, indem der Abstand zum Prüfgut vergrößert wird, wozu das gesamte Lampenfeld in die Höhe gefahren wird.
 Weiters lässt sich die Bestrahlungsstärke einzelner Lampen über die Variation der elektrischen Leistung des Vorschaltgerätes variieren.
 Allerdings führt eine Variation der elektrischen Leistung zu einer Änderung des Spektrums der Lampen. Aus diesem Grund wird vom Hersteller empfohlen \cite{atlas}, die Leistung der Lampen nur zwischen 80 und 100 \% zu variieren.
@@ -256,7 +256,7 @@ Eine Siliziumsolarzelle ist eine großflächigen Diode (siehe Abbildung \ref{cel
 \caption{Das Zweidiodenmodell einer Sorlarzelle. Quelle: \cite{pv}}\label{esb}
 \end{figure}
 
-Durch den zusätzlichen Photostrom verschiebt (siehe Abbildung ~\ref{kennlinie}) sich die Diodenkennline. Im Leerlauf  bzw. Kurzschlussbetrieb gibt die Solarzelle keine Leistung ab. Der Punkt der Kennlinie mit der maximalen Leistung wird als Maximum Power Point (MPP) bezeichnet.
+\noindent Durch den zusätzlichen Photostrom verschiebt (siehe Abbildung ~\ref{kennlinie}) sich die Diodenkennline. Im Leerlauf  bzw. Kurzschlussbetrieb gibt die Solarzelle keine Leistung ab. Der Punkt der Kennlinie mit der maximalen Leistung wird als Maximum Power Point (MPP) bezeichnet.
 
 Der Füllfaktor berechnet sich aus Strom im maximalen Leistungspunkt $I_{mp}$, Spannung im maximalen Leistungspunkt $U_{mp}$, Kurzschlusstrom $I_{sc}$ und Leerlaufspannung $U_{oc}$ zu:
   \begin{equation}
@@ -286,7 +286,7 @@ Abbildung \ref{el} zeigt eine Elektrolumineszenz-Aufnahme der verwendeten Messze
 \caption{Die lineare Abhängigkeit des Kurzschlussstromes von der Einstrahlung. Quelle: \cite{pv}}\label{mpp}
 \end{figure}
 
-\noindent In Abbildung \ref{el} ist ein Elektrolumineszenz-Aufnahme der verwendeten Messzelle zu sehen. Es ist deutlich die multikristalline Struktur der Zelle zu erkennen. Die Aufnahme wurde gemacht um die Unversehrtheit der Zelle und Eignung als Messzelle zu Überprüfen. 
+\noindent In Abbildung \ref{el} ist eine Elektrolumineszenz-Aufnahme der verwendeten Messzelle zu sehen. Es ist deutlich die multikristalline Struktur der Zelle zu erkennen. Die Aufnahme wurde gemacht um die Unversehrtheit der Zelle und Eignung als Messzelle zu Überprüfen. 
 
 \begin{figure}[htbp]
 \centering
@@ -297,7 +297,7 @@ Abbildung \ref{el} zeigt eine Elektrolumineszenz-Aufnahme der verwendeten Messze
 \chapter{Entwicklungsprozess}\thispagestyle{empty}
 
 Diese Kapitel beschreibt die Entwicklung des Roboters und ist in drei Abschnitte gegliedert: das mechanische Design, die Elektronik sowie die Steuerungs- und Messsoftware.
-Die Entwicklung der Software und der Hardware geschah zum Teil parallel. Zur Entwicklung der Fahrregelung musste die Bodenplatte, aber nicht der Aufbau des Chassis fertig sein. Ebenso reichte ein Teil der Elektronik aus, die Messplatinen und die endgültige Stromversorgung war zur Entwicklung der Fahrregelung nicht notwendig. Das hatte den Nachteil, dass die Größe mancher Komponenten (z.B. der Akku) nur abgeschätzt werden konnte, und der Roboter nicht auf eine minimale Größe hin optimiert wurde.
+Die Entwicklung der Software und der Hardware geschah zum Teil parallel. Zur Entwicklung der Fahrregelung musste die Bodenplatte, aber nicht der Aufbau des Chassis fertig sein. Ebenso reichte ein Teil der Elektronik aus, die Messplatinen und die endgültige Stromversorgung waren zur Entwicklung der Fahrregelung nicht notwendig. Das hatte den Nachteil, dass die Größe mancher Komponenten (z.B. der Akku) nur abgeschätzt werden konnte, und der Roboter nicht auf eine minimale Größe hin optimiert wurde.
 
 \section{Mechanische Komponenten}\thispagestyle{empty}
 
@@ -323,7 +323,7 @@ Die Laufrollen wurden modifiziert, so dass die Mutter sowie der Schraubenkopf in
 Die Kugellager sind in den acht passenden Löchern der Felge verklebt, zuerst mit einem handelsüblichen Sekundenkleber, allerdings haben sich einige Kugellager im Laufe der Zeit gelöst und beeinflussten so das Fahrverhalten negativ, danach mit einem Zweikomponentenkleber. Eine dauerhafte Verbindung von Kugellager mit der Felge ist für den störungsfreien Betrieb des Roboters unumgänglich. 
 Zwischen den Rollen und dem Kugellager sorgen Beilagscheiben für einen reibungsarmen Betrieb. 
 Die Schrauben der Rollen lösen sich im Betrieb nicht. Die Schraube, welche die Felge an der Motorachse befestig hat, löste sich regelmäßig, bis diese Verbindung mit einem Kleber gesichert wurde.
-An den Rollen ist keine Abnützung erkennbar. Einige Halterungen der Kugellager brachen schon während der Erstmontage, verschlimmert hat sich während der Betriebes nichts.
+An den Rollen ist keine Abnützung erkennbar. Einige Halterungen der Kugellager brachen schon während der Erstmontage, verschlimmert hat sich während des Betriebes nichts.
 Es wurde lange mit teilweise defekten Rädern gefahren, ein Messbetrieb war aber dennoch möglich. Insgesamt ist die Mecanum-Plattform eine robuste Lösung für Messroboter.
 Die Kugellager sind wartungsfrei. Das wenige UV-Licht, das den PLA-Kunststoff erreicht hat auch nach Monaten noch keine negativen Auswirkungen auf die mechanischen Eigenschaften der Räder.
 
@@ -349,13 +349,13 @@ Die Kugellager sind wartungsfrei. Das wenige UV-Licht, das den PLA-Kunststoff er
 
 \noindent Mit OpenSCAD entsteht ein dreidimensionales Modell eines Werkstückes. Damit fängt ein 3D-Drucker nichts an. Ein 3D-Druck setzt sich aus sehr vielen Liniensegmenten zusammen. Dazu muss das 3D-Modell in einzelne dünne Schichten und einzelne Linien zerlegt werden. Dieser Vorgang wird als Slicing bezeichnet. Dazu wurde das Programm Skeinforge verwendet. Mit OpenSCAD wird zunächst ein stl-File erzeugt, dann produziert Skeinforge daraus die Fahrbefehle für den 3D-Drucker in Form eines G-Code. Als Druckmaterial wurde PLA (polylactic acid) verwendet, welches in einem Temperaturbereich von 215 bis 230 Grad Celsius per Extruder verarbeitet werden kann.    
 Die Druckzeit pro Rolle betrug 20 Minuten. Insgesamt mussten 64 Rollen gefertigt werden. Die Druckzeit pro Felge betrug etwa drei Stunden, der Roboter benötigte vier Felgen. Es gibt zwei verschiedene Felgentypen, mit nach links oder nach rechts geneigten Rollen. 
-Die Zeitaufwand wurde durch vorbereitende Testdrucke, bis die einzelnen Komponenten optimiert waren und der Drucker befriedigend Ergebnisse lieferte, sowie Fehldrücke, zusätzlich verlängert. 
+Der Zeitaufwand wurde durch vorbereitende Testdrucke, bis die einzelnen Komponenten optimiert waren und der Drucker befriedigend Ergebnisse lieferte, sowie Fehldrücke, zusätzlich verlängert. 
 Nach dem Drucken mussten die Teile nachbearbeitet werden. Die Löcher für die Kugellager mussten per Hand passend gefeilt werden. Beim  Einsetzen der Kugellager brachen zwar manche der Halterungen, aber mit Klebstoff konnten die Kugellager auch in die gebrochenen Halterungen fixiert werden. Die erste Klebung der Kugellager hat den Testalltag nicht überstanden. Trotz loser Kugellager konnte der Roboter dennoch erfolgreich Messfahrten durchführen. Mit einem Zweikomponentenkleber wurden die Kugellager ein zweites Mal, diesmal dauerhaft, eingeklebt.
 
 \subsection{Chassis}\thispagestyle{empty}
 
 \noindent Das Chassis wurde aus Sperrholz gefertigt. Dieses Material wurde gewählt weil es leicht zu bearbeiten, robust und UV-beständig ist. Das Design wurde mit QCAD \cite{qc} entwickelt. QCAD ist ein 2-dimensionales CAD Programm. 
-Die Abmessungen des Chassis wurde im Wesentlichen abgestimmt auf: \begin{itemize}
+Die Abmessungen des Chassis wurden im Wesentlichen abgestimmt auf: \begin{itemize}
 \item Den Durchmesser und der Breite der Mecanum Räder, die innerhalb des Chasis liegen, damit die Räder vor der UV Strahlung geschützt sind, kein Einfluss (Beschattung oder Reflexionen) auf die Messzelle besteht.
 \item Die Größe der Motoren.
 \item Den Arduino-Mikrocontroller, die Motorsteuerelektronik und die Messelektronik.
@@ -363,7 +363,7 @@ Die Abmessungen des Chassis wurde im Wesentlichen abgestimmt auf: \begin{itemize
 \item Die Abmessung der eingekapselten Solarzelle.
  \end{itemize}
 
-Das Chassis besteht aus der Bodenplatte, den Seitenwänden und der oberen Abdeckung mit der Aufnahme für die Messzelle (siehe Abbildung \ref{gehause}). In der Bodenplatte sind Bohrlöcher zur Befestigung der Motoren und für die Montage der Sensorarrayplatine an der Unterseite vorhanden. Zusätzlich gibt es zwei rechteckige Löcher für die Verbindungskabel zur Sensorarrayplatine. Die beiden Seitenwände sind zur Verringerung des Luftwiderstandes geneigt (siehe Abbildung \ref{robo3d}).
+\noindent Das Chassis besteht aus der Bodenplatte, den Seitenwänden und der oberen Abdeckung mit der Aufnahme für die Messzelle (siehe Abbildung \ref{gehause}). In der Bodenplatte sind Bohrlöcher zur Befestigung der Motoren und für die Montage der Sensorarrayplatine an der Unterseite vorhanden. Zusätzlich gibt es zwei rechteckige Löcher für die Verbindungskabel zur Sensorarrayplatine. Die beiden Seitenwände sind zur Verringerung des Luftwiderstandes geneigt (siehe Abbildung \ref{robo3d}).
 \noindent Die Einzelteile wurden mit einem Lasercutter aus einer Sperrholzplatte geschnitten. Damit eine zukünftige Wartung problemlos möglich ist, wurde der Aufbau verschraubt ausgeführt. 
 Die Motoren sind an die Bodenplatte angeschraubt, damit ein Austausch möglich ist. Auch die einzelnen Räder, wie auch die Rollen lassen sich bei Bedarf austauschen. 
 Die Messzelle ist am Roboter an der oberen Abdeckung befestigt.
@@ -385,7 +385,7 @@ Die Messzelle ist am Roboter an der oberen Abdeckung befestigt.
 \section{Elektronik}\thispagestyle{empty}
 
 Dieser Abschnitt beschreibt die Entwicklung der Elektronik. Die Funktionalität wurde auf verschiedene Module aufgeteilt. Das erleichterte die Platzierung der Elektronik innerhalb des Messroboters, die parallele Entwicklung von Elektronik und Software, sowie den Austausch von Komponenten im Fehlerfall. 
-Zur Steuerung wird ein Arduino Mega 2560 Board verwendet. Darauf aufgesteckt ist ein sogenanntes Shield, eine selbst entwickelte Platine, die die $\pm$5V Spannungsversorgung, die Schnittstellen zu den anderen Platinen und einen SD-Karten Einschub beheimatet.
+Zur Steuerung wird ein Arduino Mega 2560 Board verwendet. Darauf aufgesteckt ist ein so genanntes Shield, eine selbst entwickelte Platine, die die $\pm$5V Spannungsversorgung, die Schnittstellen zu den anderen Platinen und einen SD-Karten Einschub beheimatet.
 Es gibt drei Messplatinen, eine für den Kurzschlussstrom der Messzelle, zwei für Temperaturmessungen. Eine Platine überwacht den Ladezustand des Akkus. Die Steuerung der vier Motoren ist auf einer Platine zusammengefasst.
 Die einzelnen Komponenten sind wie in Abbildung \ref{elek} auf der Bodenplatte angeordnet.
 Die horizontale Anordnung ist in Abbildung \ref{vorne} zu erkennen: Das Sensorarray zur Erkennung der Bodenmarkierungen ist unterhalb der Bodenplatte befestigt. Auf der Bodenplatte findet die restliche Elektronik und die Motoren Platz, die Messzelle ist auf der Oberseite des Messroboters angebracht.
@@ -453,7 +453,7 @@ Die Platine ist zweiseitig ausgeführt, allerdings sind bis auf die OPVs in SMD-
 Mit einem Spannungsregler LM317 wurde die Konstantstromquelle zur Versorgung der LEDs aufgebaut. Da der Widerstand als Potentiometer ausgeführt ist, lässt sich der Strom einstellen. Trotz einer nicht konstanten Versorgungsspannung kann so einer konstanter Strom geliefert werden. Um das analoge Messsignal der Phototransistoren nicht zu belasten, werden die analogen Photosignale über einen Spannungsfolger geführt. Die OPVs benötigen allerdings eine symmetrische Versorgung mit $\pm$5 V. Beide Spannungen werden über den Stecker geliefert.
 Es gibt weiteren Stecker mit zwei Pins, welche die Spannungsversorgung mit 16 Volt und GND sicherstellten. 
 Die Platine verfügt um drei Bohrlöcher mit jeweils drei Millimeter Durchmesser zu Befestigung.
-Es wird eine 16-polige Leiterplattenbuchse für die zehn Analogsignale, die 5V-Versorgung, und das Digitalsignal zum Schalten des FET verwendet. Des Weiteren ist ein zweipoliger Stiftstecker für den Anschluss des Akku vorhanden.
+Es wird eine 16-polige Leiterplattenbuchse für die zehn Analogsignale, die 5V-Versorgung, und das Digitalsignal zum Schalten des FET verwendet. Des Weiteren ist ein zweipoliger Stiftstecker für den Anschluss des Akkus vorhanden.
 
 \begin{figure}[htbp]
 \centering
@@ -470,9 +470,9 @@ Es wird eine 16-polige Leiterplattenbuchse für die zehn Analogsignale, die 5V-V
 
 
 \subsection{Spannungversorgung}\thispagestyle{empty}
-Der Roboters wird mit einem Kokam 14,8V 4000mAh Lithium-Polymer-Akkumulator, bestehend aus 4 Zellen \cite{kokam}, mit Energie versorgt. Ein voller Akku reicht für mehr mehrere Stunden Messbetrieb. Zum Laden des Akkus, was vor jedem Messzyklus empfehlenswert ist, muss der Akku vom Roboter abgesteckt werden und an das Ladegerät angeschlossen werden. Zum Schutz vor Kurzschlüssen ist der Akku mit einer im Anschlusskabel integrierten Schmelzsicherung gesichert. Da zum Laden der Akku aus dem Roboter entfernt und an das Akkuladegerät angeschlossen werden muss, könnte versehentlich der Akku kurzgeschlossen werden. Zum Laden wird ein Laderegler des Typs Graupner Ultramat 16 S verwendet, der über einen Balanceranschluss verfügt, und somit alle vier Zellen des Akkus auf die gleiche Spannung lädt. 
+Der Roboter wird mit einem Kokam 14,8V 4000mAh Lithium-Polymer-Akkumulator, bestehend aus 4 Zellen \cite{kokam}, mit Energie versorgt. Ein voller Akku reicht für mehr mehrere Stunden Messbetrieb. Zum Laden des Akkus, was vor jedem Messzyklus empfehlenswert ist, muss der Akku vom Roboter abgesteckt werden und an das Ladegerät angeschlossen werden. Zum Schutz vor Kurzschlüssen ist der Akku mit einer im Anschlusskabel integrierten Schmelzsicherung gesichert. Da zum Laden der Akku aus dem Roboter entfernt und an das Akkuladegerät angeschlossen werden muss, könnte versehentlich der Akku kurzgeschlossen werden. Zum Laden wird ein Laderegler des Typs Graupner Ultramat 16 S verwendet, der über einen Balanceranschluss verfügt, und somit alle vier Zellen des Akkus auf die gleiche Spannung lädt. 
 Der Akku kann mit bis zu 200A belastet werden, allerdings liegt der maximale Strom aller 4 Motoren und der restlichen Elektronik des Roboters bei einem Ampere. Die Motoren werden direkt mit der Akkuspannung versorgt. Die Versorgungsspannung schwankt zwischen der vollen Akkuspannung 16,4V und 15V nach mehr als 10 Messfahrten.
-Die 5 Volt Versorgung des Mikrocontrollers wurde mit einem RECOM R-785.0-1.0 DC-DC Konverter \cite{ref5} gelöst. Er ist pinkompatibel zu einem 7805-Linearregler, allerdings mit etwas größeren Ausmaßen, und bietet die Vorteile einer geringen Verlustleistung und einer sehr genauen Ausgangsspannung. 
+Die 5 Volt Versorgung des Mikrocontrollers wurde mit einem RECOM R-785.0-1.0 DC-DC Konverter \cite{ref5} gelöst. Er ist pinkompatibel zu einem 7805-Linearregler, allerdings mit etwas größeren Ausmaßen, und bietet die Vorteile einer geringen Verlustleistung und einer sehr konstanten Ausgangsspannung. 
 Der Ladezustand der einzelnen Zellen des Akkus wird mit einer eigens dafür entwickelten Schaltung überwacht. Sollte die Spannung einer Zelle unter 3,3V sinken, wird die Stromversorgung zum Roboter mittels FET unterbrochen und eine akustische Warnung ausgegeben. Damit wird eine Tiefentladung verhindert, was zu einer irreversiblen Schädigung und einem Kapazitätsverlust führen kann. Laut Herstellerangaben könnte der Akku bis zu 2,7V pro Zelle entladen werden.
 Die Analog-Digitalwandlung des Arduino benötigt eine Referenzspannung. Als Spannungsreferenz wird eine LT1021 5V-Präzisionsspannungsquelle \cite{lt1021} verwendet, was genauer ist als die Messsignale auf die Versorgungsspannung zu beziehen. Da dieses Bauelement nachträglich hinzugefügt wurde, ist es auf einer eigenen kleinen Platine untergebracht (siehe Abbildungen \ref{refu} und \ref{refu2}).
 
@@ -493,7 +493,7 @@ Die Analog-Digitalwandlung des Arduino benötigt eine Referenzspannung. Als Span
 Der Arduino Mega 2560 ist eine Open-Source Elektronikentwicklungsplattform. Den Mikrocontroller des Arduino-Boards bildet ein ATmega2560 der Firma Atmel. Dabei handelt es sich um einen 8-Bit-Mikrocontroller.  Er läuft mit 16 MHz Taktfrequenz und besitzt 256 KByte Flash, wovon 8 KByte für den Bootloader verwendet werden, 8 KByte SRAM, sowie 4 KByte EEPROM.  Es verfügt über 54 digitale I/O Pins, davon können 15 als PWM-Ausgänge verwendet werden. Weiters gibt es 16 analoge Eingänge die über einen 10-Bit Analog-Digital-Wandler verfügen.
 Eine USB Schnittstelle ist zur Programmierung und Kommunikation vorhanden.
 Der Mikrocontroller arbeitet mit einer Versorgungsspannung von 5V.
-Grundsätzlich kann die Stromversorgung über die USB Schnittstelle erfolgen. Für einen beweglichen Roboter ist diese Option jedoch nicht praktikabel. Es besteht auch die Möglichkeit über eine Buchse eine Versorgungsspannung von 7 bis 12 Volt anzulegen, der Akkumulator liefert aber eine höhere Spannung. 
+Grundsätzlich kann die Stromversorgung über die USB-Schnittstelle erfolgen. Für einen beweglichen Roboter ist diese Option jedoch nicht praktikabel. Es besteht auch die Möglichkeit über eine Buchse eine Versorgungsspannung von 7 bis 12 Volt anzulegen, der Akkumulator liefert aber eine höhere Spannung. 
 Daher wird aus der Akku-Spannung mittels DC-DC Konverter eine stabile 5 Volt Spannung gewonnen. Diese 5 Volt-Versorgung wird direkt mit dem 5 Volt Pin des Arduino-Boards verbunden. Die 5-Volt Spannungsversorgung befindet sich auf dem Shield (der Aufsteckplatine).
 
 \begin{figure}[htbp]
@@ -589,9 +589,9 @@ Ein Arduino Programm besteht aus zwei Teilen: Einer Setup-Routine die einmal zum
 \end{figure}
 
 \subsection{Auswertung der optischen Sensoren}\thispagestyle{empty}
-Um den Einfluss des Streulichtes der starken Einstrahlung im Sonnensimulator auf die Optoreflektoren CNY70 zu vermeiden, wurde eine differentielle Messmethode angewandt. Die Messwerte bei ausgeschalteter Infrarot-Leuchtdioden werden von den Messwerten mit eingeschalteter Leuchtdioden abgezogen.
+Um den Einfluss des Streulichtes der starken Einstrahlung im Sonnensimulator auf die Optoreflektoren CNY70 zu vermeiden, wurde eine differentielle Messmethode angewandt. Die Messwerte bei ausgeschalteten Infrarot-Leuchtdioden werden von den Messwerten mit eingeschalteten Leuchtdioden abgezogen.
 Das wird für alle neun Optoreflektoren des Sensorarray, sowie den Stopsensor, gemacht.
-Mit den korrigierten Werten der einzelnen optischen Sensoren wird die Lage der Linie relativ zum Mittelpunktes des Arrays bestimmt. 
+Mit den korrigierten Werten der einzelnen optischen Sensoren wird die Lage der Linie relativ zum Mittelpunkt des Arrays bestimmt. 
 
 \noindent Die Messwerte der optischen Sensoren ist abhängig von der Helligkeit des Untergrundes. Unter der Annahme dass sich eine gerade Linie unter dem Sensorarray befindet (siehe Abbildung \ref{arr}b), wird zuerst die Lage der Linie innerhalb einer Zeile berechnet, dazu das Extremum einer quadratischen Funktion gesucht, was der Lage der Linie innerhalb einer Zeile des Sensorarrays entspricht. 
 Für alle 3 Zeilen wird so die Lage der Linie ermittelt. In diese 3 Punkte wird eine Gerade gelegt, welche die Bedingung der kleinsten Quadrate der Abstände einhält. Errechnet wird die Steigung k der Gerade, was dem Tangens des Winkels der Verdrehung der Linie entspricht, und die Verschiebung d.
@@ -607,7 +607,7 @@ Für alle 3 Zeilen wird so die Lage der Linie ermittelt. In diese 3 Punkte wird 
   \\
   k &=  \frac{x_1-x_3}{2}
 \end{align*}
-Dabei ist es egal, ob es sich um eine helle Linie auf dunklen Untergrund, oder eine dunkle Linie auf hellem Untergrund handelt. Bei andere Teilen des Algorithmus ist das aber nicht egal. Daher funktioniert der Roboter nur mit heller Linie auf dunklen Untergrund.  Abbildung 
+Dabei ist es egal, ob es sich um eine helle Linie auf dunklen Untergrund, oder eine dunkle Linie auf hellem Untergrund handelt. Bei anderen Teilen des Algorithmus ist das aber nicht egal. Daher funktioniert der Roboter nur mit heller Linie auf dunklen Untergrund.  Abbildung 
 
 \begin{figure}
 \centering
@@ -621,14 +621,14 @@ Dabei ist es egal, ob es sich um eine helle Linie auf dunklen Untergrund, oder e
 \centering
     \subfigure[Versatz]{\includegraphics[width=50mm]{img/array5.png}}
     \subfigure[Verdrehung]{\includegraphics[width=50mm]{img/array6.png}}
-\caption{Die mögliche Abweichungen der Linie von der Idealposition.}
+\caption{Die möglichen Abweichungen der Linie von der Idealposition.}
 \label{abw}
 \end{figure} 
 
 \noindent Abbildung \ref{arr} zeigt die Anordnung des Sensorarrays, die einzelnen Sensoren sind mit A bis I bezeichnet. Mögliche Abweichungen der Linie von der Idealposition sind in Abbildung \ref{abw}, auf der linken Seite, der zeitliche Versatz auf der rechten Seite, zu sehen.
 
 \subsection{Auswertung der Temperatur- und Strommesswerte}\thispagestyle{empty}
-Aufgrund von Rauschen der ADC-Werte, wurden alle Messwerte über 500 Einzelmessungen gemittelt. Als Quelle des Rauschens wird thermisches Rauschen im Instrumentenverstärker sowie eine schwankende Referenzspannung vermutet vermutet. Der notwendige Messzeit dafür beträgt unter einer halben Sekunde. Ohne Mittelung der Messwerte schwankten die Messungen $\pm$5 Werte des ADC, das sind $\pm$0,5$\%$ bei maximalen Ausnützung bzw. $\pm$1$\%$ bei halber Ausnützung des ADC-Wertebereichs. Die gemittelten ADC-Werte werden direkt auf die SD-Karte in das Messfile gespeichert. Die eigentliche Auswertung erfolgt erst in einem Matlab Programm.
+Aufgrund von Rauschen der ADC-Werte, wurden alle Messwerte über 500 Einzelmessungen gemittelt. Als Quelle des Rauschens wird thermisches Rauschen im Instrumentenverstärker sowie eine schwankende Referenzspannung vermutet vermutet. Die notwendige Messzeit dafür beträgt unter einer halben Sekunde. Ohne Mittelung der Messwerte schwankten die Messungen $\pm$5 Werte des ADC, das sind $\pm$0,5$\%$ bei maximalen Ausnützung bzw. $\pm$1$\%$ bei halber Ausnützung des ADC-Wertebereichs. Die gemittelten ADC-Werte werden direkt auf die SD-Karte in das Messfile gespeichert. Die eigentliche Auswertung erfolgt erst in einem Matlab Programm.
  
 \subsection{Programmablauf}\thispagestyle{empty}
 
@@ -1030,9 +1030,9 @@ Aus diesem Kurzschlussstrom wird die temperaturkompensierte Bestrahlungsstärke 
 \begin{verbatim}
 G(i,j) = 1000 * A(i,j) / 4.99 * ( 1 - 0.00048 * (TTm(i,j) - 25));
 \end{verbatim}
-Die Abbildungen \ref{g3d} und \ref{g3d} zeigen die gemessene Bestrahlungsstärkeverteilung.
+Die Abbildungen \ref{g3d} und \ref{g2d} zeigen die gemessene Bestrahlungsstärkeverteilung.
 
-\noindent Die Zelltemperatur \textit{TTM} wird aus den Werten der 3. Spalte des Messfiles errechnet. Diese Werte werden wie die Strommesswerte in eine zweidimensionales Array umgewandelt. Die Umrechnung geschieht in zwei Schritten. Zuerst werden die ADC Werte in den Widerstand des Pt100 umgerechnet, und anschließend die Temperatur zu berechnen.
+\noindent Die Zelltemperatur \textit{TTM} wird aus den Werten der 3. Spalte des Messfiles errechnet. Diese Werte werden wie die Strommesswerte in ein zweidimensionales Array umgewandelt. Die Umrechnung geschieht in zwei Schritten. Zuerst werden die ADC Werte in den Widerstand des Pt100 umgerechnet, und anschließend die Temperatur zu berechnen.
 
 \begin{verbatim}
 Rm = (Tm +4038.9)/40.107; % ADC --> Widerstand
@@ -1278,7 +1278,7 @@ for k1=96:1:100
 end
 \end{verbatim}
 
-Mit diesem Matlab-Code wurden die in Abbildung \ref{opt} dargestellten Einstellungen gefunden.
+\noindent Mit diesem Matlab-Code wurden die in Abbildung \ref{opt} dargestellten Einstellungen gefunden.
 
 \begin{figure}[htbp]
 \centering
@@ -1308,10 +1308,10 @@ Mit diesem Matlab-Code wurden die in Abbildung \ref{opt} dargestellten Einstellu
 
 
 
-Das gemessene Ergebnis der optimierten Einstellung ist besser über die gesamte Ebene als die Standardeinstellungen.
+\noindent Das gemessene Ergebnis der optimierten Einstellung ist besser über die gesamte Ebene als die Standardeinstellungen.
 Allerdings sind die Messbereiche für die Zwei-Prozentige bzw. Fünf-Prozentige Homogenität kleiner als bei den Standardeinstellungen. So macht diese Optimierung nur in Ausnahmefällen Sinn. Die Optimierung hatte die Homogenität der gesamten Ebene verbessert.
 
-Der Suchalgorithmus für den größten Bereich, in dem die 2\% bzw. 5\% Abweichung der Homogenität gilt: Es wird für alle möglichen Teilmatrizen der Bestrahlungsstärke-Matrix die Homogenität berechnet, und so die größte gesucht, welche die 2\% bzw. die 5\% Bedingung erfüllt.
+\noindent Der Suchalgorithmus für den größten Bereich, in dem die 2\% bzw. 5\% Abweichung der Homogenität gilt: Es wird für alle möglichen Teilmatrizen der Bestrahlungsstärke-Matrix die Homogenität berechnet, und so die größte gesucht, welche die 2\% bzw. die 5\% Bedingung erfüllt.
 \begin{verbatim}
 for m=1:13
     for n=1:21
@@ -1344,7 +1344,7 @@ for m=1:13
 end
 \end{verbatim}
 
-Die Abbildung \ref{zwei} zeigt den Vergleich des 2\%-Fensters zwischen den Standardeinstellungen und dem optimierten Einstellungen.
+\noindent Abbildung \ref{zwei} zeigt den Vergleich des 2\%-Fensters zwischen den Standardeinstellungen und dem optimierten Einstellungen.
 Die Abbildung \ref{funf} zeigt den Vergleich des 5\%-Fensters zwischen den Standardeinstellungen und dem optimierten Einstellungen.
 In der Abbildung \ref{fstd} zeigt den 5\%-Bereich (gelb) und zwei 2\%-Bereiche (blau) mit den Standardeinstellungen.
 Die 2\%- und 5\%-Bereiche der optimierten Einstellungen sind in Abbildung \ref{fopt} zu sehen. Der 5\%-Bereich mit den Standardeinstellungen größer.
@@ -1372,9 +1372,9 @@ $\pm 2\%$ & $0,87m \times 0,72m$     \\ \hline
 \end{tabular}
 \caption{Standardeinstellungen}\label{Tabstd}
 \end{table}
-Diese Methode liefert kleinere Gebiete als die Validierung im Vorjahr.
+\noindent Diese Methode liefert kleinere Gebiete als die Validierung im Vorjahr.
 
-Mit den optimierten Einstellungen (Tabelle \ref{Tabopt}) sind die 2\%- und 5\%-Gebiete nochmals kleiner. Das erklärt sich dadurch, dass der Algorithmus nur die Homogenität über die gesamte Messfläche minimiert hat.
+\noindent Mit den optimierten Einstellungen (Tabelle \ref{Tabopt}) sind die 2\%- und 5\%-Gebiete nochmals kleiner. Das erklärt sich dadurch, dass der Algorithmus nur die Homogenität über die gesamte Messfläche minimiert hat.
 \begin{table}[htbp]
 \centering
 \begin{tabular}{ | c | c |}\hline
@@ -1421,8 +1421,8 @@ $\pm 2\%$ & $0,72m \times 0,72m$     \\ \hline
 
 Die Arbeit hat gezeigt, dass es möglich ist, durch ein automatisiertes Messsystem die Messzeit und den Messablauf zu verkürzen bzw. zu vereinfachen.
 Prinzipiell ist diese Art von Messsystem auch für andere Sonnensimulatoren mit horizontaler Messfläche geeignet.
-Aus diesen Messsystem kann eine kommerzielle Variante entwickelt werden.
-Ein kommerzialisierte Variante sollte allerdings kleiner, flacher und robuster sein.
+Aus diesem Messsystem kann eine kommerzielle Variante entwickelt werden.
+Eine kommerzialisierte Variante sollte allerdings kleiner, flacher und robuster sein.
 Der Roboter erleichtert die Messung der Bestrahlungsstärkeverteilung enorm. Durch die kurze Messdauer ist es möglich die Bestrahlungsstärke in periodischen Zeitabständen zu vermessen, um so die Alterung der Lampen zu dokumentieren. 
 Es war möglich die Bestrahlungsstärkeverteilung aller zehn Lampen einzeln zu messen, und mit diesen Messergebnissen eine optimierte Lampeneinstellung zu finden. Eine Messung mit den optimierten Einstellungen zeigt eine hohe Übereinstimmung mit den berechneten Werten. 
 Diese Art von Messroboter kann in jedem stationären Sonnensimulator entsprechender Größe zur Vermessung der Bestrahlungsstärkeverteilung verwendet werden. 
